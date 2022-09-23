@@ -6,6 +6,7 @@ Page 50367 "Member Account Card"
     InsertAllowed = false;
     ModifyAllowed = true;
     PageType = Card;
+    Editable = false;
     PromotedActionCategories = 'New,Process,Reports,Approval,Budgetary Control,Cancellation,Category7_caption,Category8_caption,Category9_caption,Category10_caption';
     RefreshOnActivate = true;
     SourceTable = Customer;
@@ -19,7 +20,7 @@ Page 50367 "Member Account Card"
             group("General Info")
             {
                 Caption = 'General Info';
-                Editable = true;
+                Editable = false;
                 field("Account Category"; "Account Category")
                 {
                     ApplicationArea = Basic;
@@ -176,7 +177,7 @@ Page 50367 "Member Account Card"
                 field("Global Dimension 2 Code"; "Global Dimension 2 Code")
                 {
                     ApplicationArea = Basic;
-                    Editable = true;
+                    Editable = false;
                 }
                 field("Customer Posting Group"; "Customer Posting Group")
                 {
@@ -211,7 +212,7 @@ Page 50367 "Member Account Card"
                 {
                     ApplicationArea = Basic;
                     Caption = 'Member Status';
-                    Editable = true;
+                    Editable = false;
 
                     trigger OnValidate()
                     begin
@@ -260,7 +261,7 @@ Page 50367 "Member Account Card"
                 field("Insider Status"; "Insider Status")
                 {
                     ApplicationArea = Basic;
-                    Editable = true;
+                    Editable = false;
                 }
                 field("Online Member"; "Online Member")
                 {
@@ -332,7 +333,7 @@ Page 50367 "Member Account Card"
             group("Contact Info")
             {
                 Caption = 'Contact Info';
-                Editable = true;
+                Editable = false;
                 field("E-Mail"; "E-Mail")
                 {
                     ApplicationArea = Basic;
@@ -1791,6 +1792,7 @@ Page 50367 "Member Account Card"
     trigger OnOpenPage()
     var
         MapMgt: Codeunit "Online Map Management";
+        DocPage: page "Incoming Doc. Attach. FactBox";
     begin
         ActivateFields;
         /*

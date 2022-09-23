@@ -1701,7 +1701,7 @@ tableextension 50007 "customertableEXT" extends Customer
         }
         field(69144; "Benevolent Fund"; Decimal)
         {
-            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
+            CalcFormula = - sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter("Benevolent Fund")));
             FieldClass = FlowField;

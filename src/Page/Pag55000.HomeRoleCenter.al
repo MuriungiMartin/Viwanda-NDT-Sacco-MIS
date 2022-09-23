@@ -1364,6 +1364,15 @@ page 55000 "Home Role Center" // default role center change to comapny name
                     PromotedCategory = Process;
                     RunObject = page "Viwanda CheckOff Advice";
                 }
+                action("Process Block checkoff")
+                {
+                    AccessByPermission = TableData "Checkoff Header-Distributed" = IMD;
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Process Block Checkoff';
+                    RunObject = Page "Bosa Block H List-Checkoff";
+                    RunPageMode = Create;
+                    ToolTip = 'Create new Block checkoff';
+                }
 
             }
 
@@ -1793,7 +1802,7 @@ page 55000 "Home Role Center" // default role center change to comapny name
                 AccessByPermission = TableData "Checkoff Header-Distributed" = IMD;
                 ApplicationArea = Basic, Suite;
                 Caption = 'Process Block Checkoff';
-                RunObject = Page "Bosa Receipts H List-Checkoff";
+                RunObject = Page "Bosa Block H List-Checkoff";
                 RunPageMode = Create;
                 ToolTip = 'Create new Block checkoff';
             }

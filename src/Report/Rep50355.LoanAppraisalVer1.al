@@ -49,7 +49,7 @@ Report 50355 "Loan Appraisal Ver1"
             column(LoanDepositMultiplier; "Loans Register"."Loan Deposit Multiplier")
             {
             }
-            column(LoanProcessingFee; VarLPFcharge)
+            column(LoanProcessingFee; VarLAPcharge)
             {
             }
             column(TscInt; VarTscInt)
@@ -568,7 +568,7 @@ Report 50355 "Loan Appraisal Ver1"
             column(SMSFEE; VarSMSFee)
             {
             }
-            column(LPFcharge; VarLPFcharge)
+            column(LAPcharge; VarLAPcharge)
             {
             }
             column(HisaARREAR; VarHisaARREAR)
@@ -1072,7 +1072,7 @@ Report 50355 "Loan Appraisal Ver1"
                     //POPULATE ALL CHARGES & GLs FROM PRODUCT SETUPS---------------------------------------------------------------------------------//
                     VarLoanInsurance := 0;
                     VarLoanInsurance := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LINSURANCE');
-                    VarAplicationFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LPF');
+                    VarAplicationFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LAP');
                     VarLoanFormFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'BOSA TRANSFER');
                     VarLAppraisalFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LAPPRAISAL');
                     VarLoanTransferFee := SFactory.FnGetTransferFee("Mode of Disbursement");
@@ -1487,7 +1487,7 @@ Report 50355 "Loan Appraisal Ver1"
         ObjCollateral: Record "Loan Collateral Details";
         VarCollateralAmount: Decimal;
         VarShareCap: Decimal;
-        VarLPFcharge: Decimal;
+        VarLAPcharge: Decimal;
         VarLAppraisalFee: Decimal;
         VarLAppraisalFeeAccount: Code[20];
         VarTscInt: Decimal;
@@ -1621,6 +1621,8 @@ Report 50355 "Loan Appraisal Ver1"
     end;
 
     local procedure FnRunGetQualificationPerDeposits(VarLoanNo: Code[30]; VarMemberNo: Code[30]) VarDepMultiplierII: Decimal
+    var
+        LoanType: Record "Loan Products Setup";
     begin
         //===================================================================================================Deposits analysis
         ObjLoans.Reset;
@@ -1632,16 +1634,34 @@ Report 50355 "Loan Appraisal Ver1"
                 VarShareCap := ObjCust."Shares Retained";
                 //===================================================================================================Get Qualification Amount
                 message('source %1', ObjLoans.Source);
-                if ObjLoans.Source = ObjLoans.Source::BOSA then begin
-                    if ObjLoanType.Get(ObjLoans."Loan Product Type") then begin
-                        // Message('multiplier %1 1st time loanee %1  objloans mult %3', ObjLoanType."Deposits Multiplier", ObjLoans."1st Time Loanee", ObjLoanType."Deposits Multiplier");
-                        if "Loans Register"."1st Time Loanee" <> true then begin
-                            VarDepMultiplier := ObjLoans."Loan Deposit Multiplier" * (VarCshares)
-                        end else
-                            VarDepMultiplier := ObjLoans."Loan Deposit Multiplier" * (VarCshares);
-                        VarDepMultiplierII := VarDepMultiplier;
+                if LoanType.Get(ObjLoans."Loan Product Type") then begin
+                    case
+        "Loans Register"."Member Paying Type" of
+                        "Loans Register"."Member Paying Type"::"KIE Member":
+                            begin
+                                VarDepMultiplier := LoanType."Deposits Multiplier (KIE)" * (VarCshares);//"Loans Register"."Boosted Amount"+
+                            end;
+                        "Loans Register"."Member Paying Type"::Staff:
+                            begin
+                                VarDepMultiplier := LoanType."Deposits Multiplier (KIE)" * (VarCshares);//"Loans Register"."Boosted Amount"+
+                            end;
+                        "Loans Register"."Member Paying Type"::"Individual Paying Member":
+                            begin
+                                VarDepMultiplier := LoanType."Deposit Multiplier(IND)" * (VarCshares);//"Loans Register"."Boosted Amount"+
+                            end;
+
                     end;
                 end;
+                // if ObjLoans.Source = ObjLoans.Source::BOSA then begin
+                //     if ObjLoanType.Get(ObjLoans."Loan Product Type") then begin
+                //         // Message('multiplier %1 1st time loanee %1  objloans mult %3', ObjLoanType."Deposits Multiplier", ObjLoans."1st Time Loanee", ObjLoanType."Deposits Multiplier");
+                //         if "Loans Register"."1st Time Loanee" <> true then begin
+                //             VarDepMultiplier := ObjLoans."Loan Deposit Multiplier" * (VarCshares)
+                //         end else
+                //             VarDepMultiplier := ObjLoans."Loan Deposit Multiplier" * (VarCshares);
+                //         VarDepMultiplierII := VarDepMultiplier;
+                //     end;
+                // end;
             end;
             if ObjLoans.Source = ObjLoans.Source::FOSA then begin
                 if ObjLoanType.Get(ObjLoans."Loan Product Type") then begin

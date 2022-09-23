@@ -13,12 +13,6 @@ page 59022 "Viwanda CheckOff Advice"
 
             repeater(GroupName)
             {
-                field("Staff/Payroll No"; "Staff/Payroll No")
-                {
-                    ApplicationArea = All;
-
-                }
-
                 field("Member No"; "Member No")
                 {
                     ApplicationArea = All;
@@ -26,6 +20,12 @@ page 59022 "Viwanda CheckOff Advice"
                 }
 
                 field("Sacco Shares"; "Sacco Shares")
+                {
+                    ApplicationArea = All;
+
+                }
+
+                field("Sacco Appl Fee"; "Sacco Appl Fee")
                 {
                     ApplicationArea = All;
 
@@ -45,22 +45,6 @@ page 59022 "Viwanda CheckOff Advice"
                     ApplicationArea = All;
 
                 }
-                field("Sacco Appl Fee"; "Sacco Appl Fee")
-                {
-                    ApplicationArea = All;
-
-                }
-
-
-
-
-
-
-
-
-
-
-
 
             }
         }
@@ -122,6 +106,7 @@ page 59022 "Viwanda CheckOff Advice"
         ObjCust.SetAutoCalcFields(ObjCust."Registration Fee Paid", ObjCust."Out. Loan Application fee", ObjCust."Out. Loan Insurance fee", ObjCust."Outstanding Balance",
         ObjCust."Outstanding Interest", ObjCust."Shares Retained");
         if ObjCust.FindSet() then begin
+
             VarAppFee := 0;
             varDeposits := 0;
             VarLoanInterest := 0;
@@ -137,7 +122,10 @@ page 59022 "Viwanda CheckOff Advice"
 
 
             repeat
-
+                ObjCust."Customer Posting Group" := 'MEMBER';
+                ObjCust.ISNormalMember := true;
+                ObjCust."Monthly Contribution" := 3000;
+                ObjCust.Modify();
                 if ObjCust."Registration Fee Paid" < ObjSaccoGen."BOSA Registration Fee Amount" then begin
                     VarRegFee := (ObjSaccoGen."BOSA Registration Fee Amount" - ObjCust."Registration Fee Paid");
                 end;

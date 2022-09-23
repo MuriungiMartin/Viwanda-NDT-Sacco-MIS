@@ -48,8 +48,6 @@ Table 50389 "ReceiptsProcessing_H-Checkoff"
         }
         field(22; "Account Type"; enum "Gen. Journal Account Type")
         {
-            // OptionCaption = 'G/L Account,Customer,Vendor,Bank Account,Fixed Asset';
-            // OptionMembers = "G/L Account",Customer,Vendor,"Bank Account","Fixed Asset";
         }
         field(23; "Account No"; Code[30])
         {
@@ -100,18 +98,16 @@ Table 50389 "ReceiptsProcessing_H-Checkoff"
 
             trigger OnValidate()
             begin
-                /*
-              IF Amount<>"Scheduled Amount" THEN
-              ERROR('The Amount must be equal to the Scheduled Amount');
-                  */
+
+                IF Amount <> "Scheduled Amount" THEN
+                    ERROR('The Amount must be equal to the Scheduled Amount');
+
 
             end;
         }
         field(26; "Scheduled Amount"; Decimal)
         {
-            CalcFormula = sum("ReceiptsProcessing_L-Checkoff".Amount where("Receipt Header No" = field(No)));
-            Editable = false;
-            FieldClass = FlowField;
+
         }
         field(27; "Total Count"; Integer)
         {

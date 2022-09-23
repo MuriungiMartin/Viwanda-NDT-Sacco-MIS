@@ -121,17 +121,23 @@ Page 50876 "Member Signature-Uploaded"
     procedure TakeNewPicture()
     var
         CameraOptions: dotnet CameraOptions;
+        Camera: Page Camera;
+        InS: InStream;
+        OutS: OutStream;
+        FileName: Text;
     begin
-        Find;
-        TestField("No.");
-        //TESTFIELD(Description);
 
-        if not CameraAvailable then
-            exit;
-
-        CameraOptions := CameraOptions.CameraOptions;
-        CameraOptions.Quality := 50;
-        CameraProvider.RequestPictureAsync(CameraOptions);
+        if Camera.IsAvailable() then begin
+            Camera.SetAllowEdit(true);
+            Camera.SetEncodingType("IMage Encoding"::PNG);
+            Camera.SetQuality(50);
+            Camera.RunModal();
+            if Camera.HasPicture() then begin
+                Camera.GetPicture(InS);
+                rec.Piccture.ImportStream(InS, Format("No."));
+                Rec.Modify();
+            end;
+        end;
     end;
 
     procedure ImportFromDevice()

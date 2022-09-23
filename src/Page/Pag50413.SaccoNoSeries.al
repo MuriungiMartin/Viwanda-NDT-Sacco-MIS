@@ -39,11 +39,11 @@ Page 50413 "Sacco No. Series"
                 {
                     ApplicationArea = Basic;
                 }
-                field("Emergency Loans Nos";"Emergency Loans Nos")
+                field("Emergency Loans Nos"; "Emergency Loans Nos")
                 {
                     ApplicationArea = Basic;
                 }
-                field("E-Loan Nos"; "E-Loan Nos")
+                field("Development Loans Nos"; "Development Loans Nos")
                 {
                     ApplicationArea = Basic;
                 }
@@ -207,10 +207,7 @@ Page 50413 "Sacco No. Series"
             group("Banking Services")
             {
                 Caption = 'Banking Services';
-                field("Development Loans Nos";"Development Loans Nos")
-                {
-                    ApplicationArea = Basic;
-                }
+
                 field("Transaction Nos."; "Transaction Nos.")
                 {
                     ApplicationArea = Basic;

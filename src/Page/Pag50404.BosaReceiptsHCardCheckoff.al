@@ -118,7 +118,10 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                 //   RunObject = Report UnknownReport50074;
 
                 trigger OnAction()
+                Var
+                    TotalScheduledAmount: Decimal;
                 begin
+                    FnGetTotalSheduled();
                     RcptBufLines.Reset;
                     RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
                     if RcptBufLines.Find('-') then begin
@@ -133,15 +136,11 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                 RcptBufLines.Modify;
                                 //UNTIL Cust.NEXT=0;
                             end;
-                            Rec."Scheduled Amount" := RcptBufLines."Saccco Benevolent" +
-                            RcptBufLines."Sacco Appl Fee" +
-                            RcptBufLines."Sacco Shares" +
-                            RcptBufLines."Sacco Total Interest" +
-                            RcptBufLines."Sacco Total Loan";
+
 
                         until RcptBufLines.Next() = 0;
-                        rec.Modify();
                     end;
+                    Message('Validation Complete');
                 end;
             }
             group(ActionGroup1102755019)
@@ -197,7 +196,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
 
                     RunBal := 0;
-                    CalcFields("Scheduled Amount");
+                    //CalcFields("Scheduled Amount");
                     /*
                    IF "Scheduled Amount" <>   Amount THEN BEGIN
                    ERROR('Scheduled Amount Is Not Equal To Cheque Amount');
@@ -231,6 +230,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
                     //Registration Fee
                     genstup.Get();
+                    //genstup.registra
                     RcptBufLines.Reset;
                     RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
                     RcptBufLines.SetRange(RcptBufLines.Posted, false);
@@ -253,7 +253,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                         Gnljnline."Journal Batch Name" := 'CHECKOFF';
                                         Gnljnline."Line No." := LineN;
                                         Gnljnline."Account Type" := Gnljnline."bal. account type"::Customer;
-                                        Gnljnline."Account No." := LoanApp."Client Code";
+                                        Gnljnline."Account No." := Cust."No.";
                                         Gnljnline.Validate(Gnljnline."Account No.");
                                         Gnljnline."Document No." := "Document No";
                                         Gnljnline."Posting Date" := "Posting date";
@@ -270,17 +270,6 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                     end;
                                 end;
                             end;
-                        until RcptBufLines.Next = 0;
-                    end;
-
-                    //Insurance
-                    genstup.Get();
-                    RcptBufLines.Reset;
-                    RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
-                    RcptBufLines.SetRange(RcptBufLines.Posted, false);
-                    if RcptBufLines.Find('-') then begin
-                        repeat
-
                             LoanApp.Reset();
                             LoanApp.SetRange(LoanApp."Client Code", RcptBufLines."Member No");
                             LoanApp.SetAutoCalcFields(LoanApp."Outstanding Balance", LoanApp."Outstanding Interest", LoanApp."Outstanding Insurance");
@@ -313,16 +302,6 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                     end;
                                 until LoanApp.Next() = 0;
                             end;
-                        until RcptBufLines.Next = 0;
-                    end;
-                    //Interest
-
-                    RcptBufLines.Reset;
-                    RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
-                    RcptBufLines.SetRange(RcptBufLines.Posted, false);
-                    if RcptBufLines.Find('-') then begin
-                        repeat
-
                             LoanApp.Reset();
                             LoanApp.SetRange(LoanApp."Client Code", RcptBufLines."Member No");
                             LoanApp.SetAutoCalcFields(LoanApp."Outstanding Balance", LoanApp."Outstanding Interest", LoanApp."Outstanding Insurance");
@@ -357,6 +336,10 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                             end;
                         until RcptBufLines.Next = 0;
                     end;
+
+                    //Insurance
+
+                    //Interest
                     //--------------------------------------End Registration Fee, Insurance and Interest---------------------------------Viwanda
 
                     //---------------------------------------------Loan Repayments-----------------------------------Viwanda
@@ -508,39 +491,64 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                     end;
 
                                 end;
+                                if RunBal > 0 then begin
+                                    LineN := LineN + 10000;
+
+                                    Gnljnline.Init;
+                                    Gnljnline."Journal Template Name" := 'GENERAL';
+                                    Gnljnline."Journal Batch Name" := 'CHECKOFF';
+                                    Gnljnline."Line No." := LineN;
+                                    Gnljnline."Account Type" := Gnljnline."account type"::Customer;
+                                    Gnljnline."Account No." := RcptBufLines."Member No";
+                                    Gnljnline.Validate(Gnljnline."Account No.");
+                                    Gnljnline."Document No." := "Document No";
+                                    Gnljnline."Posting Date" := "Posting date";
+                                    Gnljnline.Description := Remarks;
+                                    Gnljnline.Amount := RunBal * -1;
+                                    Gnljnline.Validate(Gnljnline.Amount);
+                                    Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Deposit Contribution";
+                                    if Gnljnline.Amount <> 0 then
+                                        Gnljnline.Insert;
+                                    RunBal := RunBal - (Gnljnline.Amount * -1);
+                                end;
                             end;
 
                         until RcptBufLines.next = 0;
                     end;
 
                     //Deposits Contribution
-                    RcptBufLines.Reset;
-                    RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
-                    RcptBufLines.SetRange(RcptBufLines.Posted, false);
-                    if RcptBufLines.Find('-') then begin
-                        repeat
-                            if RunBal > 0 then begin
-                                LineN := LineN + 10000;
+                    // RcptBufLines.Reset;
+                    // RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
+                    // RcptBufLines.SetRange(RcptBufLines.Posted, false);
+                    // if RcptBufLines.Find('-') then begin
+                    //     repeat
+                    //         Cust.Reset;
+                    //         Cust.SetRange(Cust."No.", RcptBufLines."Member No");
+                    //         Cust.SetAutoCalcFields(Cust."Shares Retained");
+                    //         if Cust.Find('-') then begin
+                    //             if RunBal > 0 then begin
+                    //                 LineN := LineN + 10000;
 
-                                Gnljnline.Init;
-                                Gnljnline."Journal Template Name" := 'GENERAL';
-                                Gnljnline."Journal Batch Name" := 'CHECKOFF';
-                                Gnljnline."Line No." := LineN;
-                                Gnljnline."Account Type" := Gnljnline."account type"::Customer;
-                                Gnljnline."Account No." := RcptBufLines."Member No";
-                                Gnljnline.Validate(Gnljnline."Account No.");
-                                Gnljnline."Document No." := "Document No";
-                                Gnljnline."Posting Date" := "Posting date";
-                                Gnljnline.Description := Remarks;
-                                Gnljnline.Amount := RunBal * -1;
-                                Gnljnline.Validate(Gnljnline.Amount);
-                                Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Deposit Contribution";
-                                if Gnljnline.Amount <> 0 then
-                                    Gnljnline.Insert;
-                                RunBal := RunBal - (Gnljnline.Amount * -1);
-                            end;
-                        until RcptBufLines.next = 0;
-                    end;
+                    //                 Gnljnline.Init;
+                    //                 Gnljnline."Journal Template Name" := 'GENERAL';
+                    //                 Gnljnline."Journal Batch Name" := 'CHECKOFF';
+                    //                 Gnljnline."Line No." := LineN;
+                    //                 Gnljnline."Account Type" := Gnljnline."account type"::Customer;
+                    //                 Gnljnline."Account No." := RcptBufLines."Member No";
+                    //                 Gnljnline.Validate(Gnljnline."Account No.");
+                    //                 Gnljnline."Document No." := "Document No";
+                    //                 Gnljnline."Posting Date" := "Posting date";
+                    //                 Gnljnline.Description := Remarks;
+                    //                 Gnljnline.Amount := RunBal * -1;
+                    //                 Gnljnline.Validate(Gnljnline.Amount);
+                    //                 Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Deposit Contribution";
+                    //                 if Gnljnline.Amount <> 0 then
+                    //                     Gnljnline.Insert;
+                    //                 RunBal := RunBal - (Gnljnline.Amount * -1);
+                    //             end;
+                    //         end;
+                    //     until RcptBufLines.next = 0;
+                    // end;
 
                     //-------------------------------------End  Sacco Deposits---------------------------------------Viwanda
 
@@ -645,5 +653,20 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
         Datefilter: Text[50];
         ReceiptLine: Record "ReceiptsProcessing_L-Checkoff";
         ObjLSchedule: Record "Loan Repayment Schedule";
+
+    procedure FnGetTotalSheduled()
+    begin
+        ReceiptsProcessingLines.Reset();
+        ;
+        ReceiptsProcessingLines.SetRange(ReceiptsProcessingLines."Receipt Header No", Rec.No);
+        if ReceiptsProcessingLines.FindSet() then begin
+            repeat
+                rec."Scheduled Amount" += ReceiptsProcessingLines."Saccco Benevolent" + ReceiptsProcessingLines."Sacco Appl Fee" + ReceiptsProcessingLines."Sacco Shares" +
+                ReceiptsProcessingLines."Sacco Total Interest" + ReceiptsProcessingLines."Sacco Total Loan";
+                Rec.Modify();
+            until ReceiptsProcessingLines.Next() = 0;
+        end;
+
+    end;
 }
 
