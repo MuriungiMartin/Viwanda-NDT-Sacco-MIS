@@ -660,7 +660,7 @@ page 55000 "Home Role Center" // default role center change to comapny name
             }
             group(Action84)
             {
-                Caption = 'Membership Management';
+                Caption = 'Agile BOSA Management';
                 group("Individual Membership")
                 {
                     action(MembershipApp)

@@ -51,6 +51,15 @@ Page 50421 "Loan Product Charges"
                 field("Loan Charge Type"; "Loan Charge Type")
                 {
                     ApplicationArea = Basic;
+                    OptionCaption = ' ,Loan Insurance,Loan Application Fee,Loan Appraisal Fee,Loan Form Fees';
+                }
+                field("Development Application Fee"; "Development Application Fee")
+                {
+
+                }
+                field("Emergency Application Fee"; "Emergency Application Fee")
+                {
+
                 }
             }
         }

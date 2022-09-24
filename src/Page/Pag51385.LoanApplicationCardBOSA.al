@@ -158,7 +158,7 @@ Page 51385 "Loan Application Card(BOSA)"
                 {
                     ApplicationArea = Basic;
                     Caption = 'Approved Amount';
-                    Editable = ApprovedAmountEditable;
+                    Editable = false;
 
                     trigger OnValidate()
                     begin

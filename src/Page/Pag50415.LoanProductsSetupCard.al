@@ -108,6 +108,23 @@ Page 50415 "Loan Products Setup Card"
                     ApplicationArea = Basic;
                     ToolTip = 'Specify the Maximum No of Active Loans a Member can have on this Product';
                 }
+                field("DevelopmentA Max Range"; "DevelopmentA Max Range")
+                {
+                    Caption = 'Maxmimum Loan Development Category A';
+                    trigger Onvalidate()
+                    begin
+                        "Max. Loan Amount" := "DevelopmentA Max Range";
+                    end;
+
+                }
+                field("DevelopmentB Max Range"; "DevelopmentB Max Range")
+                {
+                    Caption = 'Maxmimum Loan Development Category B';
+                    trigger Onvalidate()
+                    begin
+                        "Max. Loan Amount" := "DevelopmentB Max Range";
+                    end;
+                }
                 field("Min. Loan Amount"; "Min. Loan Amount")
                 {
                     ApplicationArea = Basic;

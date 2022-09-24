@@ -9983,11 +9983,11 @@ UYrNnsJTRei43v51FKvHYOuFrNtSjIaCNMVPHT9xUIiGYjQtRMOK6CQvVnoK0fPtl+dQiP48FKKsiM5g
         <Field Name="SMSFEEFormat">
           <DataField>SMSFEEFormat</DataField>
         </Field>
-        <Field Name="LPFcharge">
-          <DataField>LPFcharge</DataField>
+        <Field Name="LAPcharge">
+          <DataField>LAPcharge</DataField>
         </Field>
-        <Field Name="LPFchargeFormat">
-          <DataField>LPFchargeFormat</DataField>
+        <Field Name="LAPchargeFormat">
+          <DataField>LAPchargeFormat</DataField>
         </Field>
         <Field Name="HisaARREAR">
           <DataField>HisaARREAR</DataField>

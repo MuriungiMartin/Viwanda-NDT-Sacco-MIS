@@ -63,6 +63,7 @@ Table 50383 "Loan Product Charges"
         {
 
         }
+
     }
 
     keys
