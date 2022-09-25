@@ -2,7 +2,7 @@
 Report 50384 "Loan Appraisal Draft"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './Layouts/Loan Appraisal Draft.rdlc';
+    RDLCLayout = './Layouts/LoanAppraisalDraft.rdlc';
 
     dataset
     {

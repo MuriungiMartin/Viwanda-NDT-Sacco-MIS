@@ -362,11 +362,7 @@ Codeunit 50007 "SURESTEP Factory"
                         FCharged := InsuredAmount * (ObjProductCharges.Percentage / 100);
                     end
                     else begin
-                        if ProductCode = 'DL' then
-                            FCharged := ObjProductCharges."Development Application Fee"
-                        else
-                            if ProductCode = 'EM' then
-                                FCharged := ObjProductCharges."Emergency Application Fee";
+                        FCharged := ObjProductCharges.Amount
                     end;
                 end;
             end;
@@ -6182,7 +6178,7 @@ Codeunit 50007 "SURESTEP Factory"
                             if ObjProductCharge.FindSet then begin
                                 VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100);
                             end else
-                                VarApplicationFee := ObjLoans."Application Fee";
+                                VarApplicationFee := ObjProductCharge.Amount;
                         end;
 
                         //=======================================================================================Strainght Line
@@ -6214,7 +6210,7 @@ Codeunit 50007 "SURESTEP Factory"
                             if ObjProductCharge.FindSet then begin
                                 VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100);
                             end else
-                                VarApplicationFee := ObjLoans."Application Fee";
+                                VarApplicationFee := ObjProductCharge.Amount;
                         end;
 
                         //=======================================================================================Reducing Balance
@@ -6240,7 +6236,7 @@ Codeunit 50007 "SURESTEP Factory"
                             if ObjProductCharge.FindSet then begin
                                 VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100);
                             end else
-                                VarApplicationFee := ObjLoans."Application Fee";
+                                VarApplicationFee := ObjProductCharge.Amount;
 
                         end;
 

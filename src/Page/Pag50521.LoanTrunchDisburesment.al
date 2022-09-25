@@ -140,7 +140,7 @@ Page 50521 "Loan Trunch Disburesment"
                                 if PCharges.FindSet then begin
                                     repeat
                                         PCharges.TestField(PCharges."G/L Account");
-                                        GenSetUp.TestField(GenSetUp."Excise Duty Account");
+                                        //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
                                         PChargeAmount := PCharges.Amount;
                                         if PCharges."Use Perc" = true then
                                             PChargeAmount := ("Amount to Disburse" * PCharges.Percentage / 100);//LoanDisbAmount

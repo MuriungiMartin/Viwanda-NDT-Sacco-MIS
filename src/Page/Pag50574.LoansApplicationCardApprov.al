@@ -1700,7 +1700,7 @@ Page 50574 "Loans Application Card(Approv)"
             if PCharges.Find('-') then begin
                 repeat
                     PCharges.TestField(PCharges."G/L Account");
-                    GenSetUp.TestField(GenSetUp."Excise Duty Account");
+                    //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
                     PChargeAmount := PCharges.Amount;
                     if PCharges."Use Perc" = true then
                         PChargeAmount := (VarAmounttoDisburse * PCharges.Percentage / 100);//LoanDisbAmount
@@ -1858,7 +1858,7 @@ Page 50574 "Loans Application Card(Approv)"
                     PCharges.SetRange(PCharges."Loan Charge Type", PCharges."loan charge type"::"Loan Insurance");
                     if PCharges.Find('-') then begin
                         PCharges.TestField(PCharges."G/L Account");
-                        GenSetUp.TestField(GenSetUp."Excise Duty Account");
+                        //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
                         PChargeAmount := PCharges.Amount;
                         if PCharges."Use Perc" = true then
                             PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
@@ -1963,7 +1963,7 @@ Page 50574 "Loans Application Card(Approv)"
             if PCharges.Find('-') then begin
                 repeat
                     PCharges.TestField(PCharges."G/L Account");
-                    GenSetUp.TestField(GenSetUp."Excise Duty Account");
+                    //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
                     PChargeAmount := PCharges.Amount;
                     if PCharges."Use Perc" = true then
                         PChargeAmount := (VarAmounttoDisburse * PCharges.Percentage / 100);//LoanDisbAmount
@@ -2085,7 +2085,7 @@ Page 50574 "Loans Application Card(Approv)"
                     PCharges.SetRange(PCharges."Loan Charge Type", PCharges."loan charge type"::"Loan Insurance");
                     if PCharges.Find('-') then begin
                         PCharges.TestField(PCharges."G/L Account");
-                        GenSetUp.TestField(GenSetUp."Excise Duty Account");
+                        //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
                         PChargeAmount := PCharges.Amount;
                         if PCharges."Use Perc" = true then
                             PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);

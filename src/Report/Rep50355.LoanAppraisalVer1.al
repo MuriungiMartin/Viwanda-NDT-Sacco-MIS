@@ -1,14 +1,13 @@
 #pragma warning disable AA0005, AA0008, AA0018, AA0021, AA0072, AA0137, AA0201, AA0206, AA0218, AA0228, AL0424, AW0006 // ForNAV settings
 Report 50355 "Loan Appraisal Ver1"
 {
-    RDLCLayout = 'Layouts/LoanAppraisalVer1.rdlc';
+    RDLCLayout = 'Layouts\LoanAppraisalVer1.rdlc';
     DefaultLayout = RDLC;
 
     dataset
     {
         dataitem("Loans Register"; "Loans Register")
         {
-            DataItemTableView = sorting("Loan  No.");
             RequestFilterFields = "Loan  No.";
             column(UserId; UserId)
             {
@@ -1164,7 +1163,7 @@ Report 50355 "Loan Appraisal Ver1"
                     Repayment := VarLPrincipal + VarLInterest + VarLInsurance;
                     Modify;
                 end;
-                Message('Monthly Interest Repayment=%1, Monthly Principal Repayment=%2, ****Total Monthly Repayment=%3***', VarLInterest, VarLPrincipal, VarLPrincipal + VarLInterest);
+                // Message('Monthly Interest Repayment=%1, Monthly Principal Repayment=%2, ****Total Monthly Repayment=%3***', VarLInterest, VarLPrincipal, VarLPrincipal + VarLInterest);
                 //"Approved Amount":=VarRecomm;
                 "Loans Register".Modify;
 
@@ -1198,6 +1197,8 @@ Report 50355 "Loan Appraisal Ver1"
         end;
     }
 
+
+
     trigger OnInitReport()
     begin
         ;
@@ -1218,6 +1219,8 @@ Report 50355 "Loan Appraisal Ver1"
         ;
         // ReportsForNavPre;
     end;
+
+
 
     var
         ObjCustRec: Record Customer;
@@ -1558,6 +1561,7 @@ Report 50355 "Loan Appraisal Ver1"
         VarTotalRepaymentReinstated: Decimal;
         Memba: Record Customer;
 
+
     local procedure FnReccommendAmount(RequestedAmount: Decimal; QShares: Decimal; QGuarantors: Decimal; QSalary: Decimal) RecommendedAmount: Decimal
     begin
         RecommendedAmount := RequestedAmount;
@@ -1633,7 +1637,7 @@ Report 50355 "Loan Appraisal Ver1"
                 VarCshares := ObjCust."Current Shares";
                 VarShareCap := ObjCust."Shares Retained";
                 //===================================================================================================Get Qualification Amount
-                message('source %1', ObjLoans.Source);
+                // message('source %1', ObjLoans.Source);
                 if LoanType.Get(ObjLoans."Loan Product Type") then begin
                     case
         "Loans Register"."Member Paying Type" of
@@ -1837,4 +1841,5 @@ Report 50355 "Loan Appraisal Ver1"
     begin
         "Loans Register".FnGetNetPayUtilizable(false);
     end;
+
 }

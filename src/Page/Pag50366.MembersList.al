@@ -409,7 +409,8 @@ Page 50366 "Members List"
         cust: Record Customer;
         myInt: Integer;
     begin
-
+        "Member Paying Type" := "Member Paying Type"::"KIE Member";
+        Modify();
     end;
 
     var
