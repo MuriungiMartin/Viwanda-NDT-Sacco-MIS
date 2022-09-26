@@ -99,7 +99,7 @@ page 59022 "Viwanda CheckOff Advice"
         VarEntryNo: Integer;
         ObjAdvice: Record "Viwanda Checkoff Advice";
         Window: Dialog;
-        DialogLabel: Label 'Generating Viwanda Advice 1############ ...';
+        DialogLabel: Label 'Generating Viwanda Advice #1########### ...';
         ResultMsg: Label 'Inserted %1 Records';
 
     protected procedure FnGenerateViwandaAdvice()
@@ -162,7 +162,7 @@ page 59022 "Viwanda CheckOff Advice"
                 end else
                     VarEntryNo := 1;
 
-                Window.Update(1, format(VarEntryNo));
+                Window.Update(1, VarEntryNo);
                 ObjAdvice.Init();
                 ObjAdvice."Entry No" := VarEntryNo;
                 ObjAdvice."Staff/Payroll No" := ObjCust."No.";
