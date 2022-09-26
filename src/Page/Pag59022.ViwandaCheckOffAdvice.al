@@ -67,6 +67,8 @@ page 59022 "Viwanda CheckOff Advice"
                 Promoted = true;
                 PromotedCategory = Process;
                 trigger OnAction();
+                var
+
                 begin
                     ObjAdvice.Reset();
 
@@ -96,10 +98,13 @@ page 59022 "Viwanda CheckOff Advice"
         VarLoanInterest: Decimal;
         VarEntryNo: Integer;
         ObjAdvice: Record "Viwanda Checkoff Advice";
+        Window: Dialog;
+        DialogLabel: Label 'Generating Viwanda Advice 1############ ...';
+        ResultMsg: Label 'Inserted %1 Records';
 
     protected procedure FnGenerateViwandaAdvice()
     begin
-
+        Window.Open(DialogLabel);
 
         ObjSaccoGen.Get();
         ObjCust.Reset();
@@ -156,6 +161,8 @@ page 59022 "Viwanda CheckOff Advice"
                     VarEntryNo := ObjAdvice."Entry No" + 1;
                 end else
                     VarEntryNo := 1;
+
+                Window.Update(1, VarEntryNo);
                 ObjAdvice.Init();
                 ObjAdvice."Entry No" := VarEntryNo;
                 ObjAdvice."Staff/Payroll No" := ObjCust."No.";
@@ -170,6 +177,8 @@ page 59022 "Viwanda CheckOff Advice"
             until
             ObjCust.Next() = 0;
         end;
+        Window.Close();
+        Message(ResultMsg, VarEntryNo);
     end;
 
 
