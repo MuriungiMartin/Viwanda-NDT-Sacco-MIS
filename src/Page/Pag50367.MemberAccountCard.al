@@ -54,6 +54,7 @@ Page 50367 "Member Account Card"
                 field("Standing Order No"; "Standing Order No")
                 {
                     ApplicationArea = Basic;
+                    Visible = false;
                 }
                 field("Identification Document"; "Identification Document")
                 {
@@ -69,6 +70,16 @@ Page 50367 "Member Account Card"
                 field("Payroll No"; "Payroll No")
                 {
                     ApplicationArea = Basic;
+                }
+                field("Position In The Sacco"; "Position In The Sacco")
+                {
+                    ApplicationArea = all;
+                    Editable = false;
+                }
+                field("Member Paying Type"; "Member Paying Type")
+                {
+                    ApplicationArea = all;
+                    Editable = false;
                 }
                 field("Passport No."; "Passport No.")
                 {

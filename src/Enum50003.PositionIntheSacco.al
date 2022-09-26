@@ -2,13 +2,17 @@ enum 50003 "Position In the Sacco"
 {
     Extensible = true;
 
-    value(0; Member)
+    value(0; " ")
+    {
+
+    }
+    value(1; Member)
     {
     }
-    value(1; "Committe Member")
+    value(2; "Committe Member")
     {
     }
-    value(2; "Official")
+    value(3; "Official")
     {
     }
 

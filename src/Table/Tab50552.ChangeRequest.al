@@ -605,6 +605,23 @@ Table 50552 "Change Request"
                     "City(New Value)" := PostCodes.City;
             end;
         }
+        field(115; "Position In the Sacco"; enum "Position In the Sacco")
+        {
+
+        }
+        field(116; "Position In the Sacco(New)"; enum "Position In the Sacco")
+        {
+
+        }
+        field(117; "Member Paying Type"; enum "Member Pay Type")
+        {
+
+        }
+
+        field(118; "Member Paying Type(New)"; enum "Member Pay Type")
+        {
+
+        }
     }
 
     keys

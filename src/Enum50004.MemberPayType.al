@@ -2,13 +2,17 @@ enum 50004 "Member Pay Type"
 {
     Extensible = true;
 
-    value(0; "KIE Member")
+    value(0; " ")
+    {
+
+    }
+    value(1; "KIE Member")
     {
     }
-    value(1; "Individual Paying Member")
+    value(2; "Individual Paying Member")
     {
     }
-    value(2; "Staff")
+    value(3; "Staff")
     {
     }
 }

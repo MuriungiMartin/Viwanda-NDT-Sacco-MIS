@@ -291,6 +291,24 @@ Page 50841 "Change Request Card"
                     Caption = 'ID No(New Value)';
                     Editable = IDNoEditable;
                 }
+                field("Position In the Sacco"; "Position In the Sacco")
+                {
+                    ApplicationArea = basic;
+                    Editable = false;
+
+                }
+                field("Position In the Sacco(New)"; "Position In the Sacco(New)")
+                {
+
+                }
+                field("Member Paying Type"; "Member Paying Type")
+                {
+
+                }
+                field("Member Paying Type(New)"; "Member Paying Type(New)")
+                {
+
+                }
                 field("Marital Status"; "Marital Status")
                 {
                     ApplicationArea = Basic;
@@ -679,10 +697,17 @@ Page 50841 "Change Request Card"
                                 Memb."Marital Status" := "Marital Status(New Value)";
                             if "Responsibility Centers" <> '' then
                                 Memb."Responsibility Center" := "Responsibility Centers";
-                            if "Group Account No" <> '' then
-                                //Memb."Group Account No":="Group Account No";
-                                if "Occupation(New)" <> '' then
-                                    Memb.Occupation := "Occupation(New)";
+                            // if "Group Account No" <> '' then
+                            //Memb."Group Account No":="Group Account No";
+                            if "Occupation(New)" <> '' then
+                                Memb.Occupation := "Occupation(New)";
+
+                            //update position in the sacco
+                            if "Position In the Sacco(New)" <> "Position In the Sacco(New)"::" " then
+                                Memb."Position In The Sacco" := "Position In the Sacco(New)";
+                            //update Member Paying type
+                            if "Member Paying Type(New)" <> "Member Paying Type(New)"::" " then
+                                Memb."Member Paying Type" := "Member Paying Type(New)";
 
                             //Update Bank
                             if "Bank Code(New)" <> '' then
@@ -970,6 +995,8 @@ Page 50841 "Change Request Card"
         EmailEditable: Boolean;
         PersonalNoEditable: Boolean;
         IDNoEditable: Boolean;
+        PosInSaccoEditable: Boolean;
+        MembPayTypeEditable: Boolean;
         MaritalStatusEditable: Boolean;
         PassPortNoEditbale: Boolean;
         AccountTypeEditible: Boolean;
@@ -1015,6 +1042,8 @@ Page 50841 "Change Request Card"
             EmailEditable := true;
             PersonalNoEditable := true;
             IDNoEditable := true;
+            MembPayTypeEditable := true;
+            PosInSaccoEditable := true;
             MaritalStatusEditable := true;
             PassPortNoEditbale := true;
             AccountTypeEditible := true;
@@ -1057,6 +1086,8 @@ Page 50841 "Change Request Card"
                 EmailEditable := false;
                 PersonalNoEditable := false;
                 IDNoEditable := false;
+                PosInSaccoEditable := false;
+                MembPayTypeEditable := false;
                 MaritalStatusEditable := false;
                 PassPortNoEditbale := false;
                 AccountTypeEditible := false;
@@ -1099,6 +1130,8 @@ Page 50841 "Change Request Card"
                     EmailEditable := false;
                     PersonalNoEditable := false;
                     IDNoEditable := false;
+                    PosInSaccoEditable := false;
+                    MembPayTypeEditable := false;
                     MaritalStatusEditable := false;
                     PassPortNoEditbale := false;
                     AccountTypeEditible := false;
