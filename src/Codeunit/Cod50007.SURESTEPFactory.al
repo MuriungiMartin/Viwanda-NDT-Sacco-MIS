@@ -362,7 +362,7 @@ Codeunit 50007 "SURESTEP Factory"
                         FCharged := InsuredAmount * (ObjProductCharges.Percentage / 100);
                     end
                     else begin
-                        FCharged := ObjProductCharges.Amount
+                        FCharged := ObjProductCharges.Amount;
                     end;
                 end;
             end;

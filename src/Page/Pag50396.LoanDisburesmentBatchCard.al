@@ -1825,63 +1825,64 @@ Page 50396 "Loan Disburesment Batch Card"
             //----------------------------------(Credit Member Fosa Account)------------------------------------------------
 
             //------------------------------------3. EARN/RECOVER PRODUCT CHARGES FROM FOSA A/C--------------------------------------
-            PCharges.RESET;
-            PCharges.SETRANGE(PCharges."Product Code", LoanApps."Loan Product Type");
-            // PCharges.SETFILTER(PCharges."Loan Charge Type", '<>%1', PCharges."Loan Charge Type"::"Loan Insurance");
-            IF PCharges.FIND('-') THEN BEGIN
-                REPEAT
-                    PCharges.TESTFIELD(PCharges."G/L Account");
-                    ////GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
-                    PChargeAmount := PCharges.Amount;
-                    if PCharges."Loan Charge Type" = PCharges."Loan Charge Type"::"Loan Insurance" then begin
-                        IF PCharges."Use Perc" = TRUE THEN
-                            PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
-                        //----------------------Debit insurance Receivable Account a/c-----------------------------------------------------
-                        LineNo := LineNo + 10000;
-                        SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
-                        GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount, 'BOSA', LoanApps."Loan  No.",
-                        'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+            // PCharges.RESET;
+            // PCharges.SETRANGE(PCharges."Product Code", LoanApps."Loan Product Type");
+            // // PCharges.SETFILTER(PCharges."Loan Charge Type", '<>%1', PCharges."Loan Charge Type"::"Loan Insurance");
+            // IF PCharges.FIND('-') THEN BEGIN
+            //     REPEAT
+            //         PCharges.TESTFIELD(PCharges."G/L Account");
+            //         ////GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
+            //         PChargeAmount := PCharges.Amount;
+            //         if PCharges."Loan Charge Type" = PCharges."Loan Charge Type"::"Loan Insurance" then begin
+            //             IF PCharges."Use Perc" = TRUE THEN
+            //                 PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
+            //             //----------------------Debit insurance Receivable Account a/c-----------------------------------------------------
+            //             LineNo := LineNo + 10000;
+            //             SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
+            //             GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount, 'BOSA', LoanApps."Loan  No.",
+            //             'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
 
-                        //----------------------Credit Insurance Payable Account a/c-----------------------------------------------------
-                        LineNo := LineNo + 10000;
-                        SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
-                        GenJournalLine."Account Type"::"G/L Account", LoanType."Loan Insurance Accounts", "Posting Date", (PChargeAmount) * -1, 'BOSA', LoanApps."Loan  No.",
-                        'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
-                    end;
-                    if PCharges."Loan Charge Type" = PCharges."loan charge type"::"Loan Application Fee" then begin
-                        IF PCharges."Use Perc" = TRUE THEN
-                            PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
+            //             //----------------------Credit Insurance Payable Account a/c-----------------------------------------------------
+            //             LineNo := LineNo + 10000;
+            //             SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+            //             GenJournalLine."Account Type"::"G/L Account", LoanType."Loan Insurance Accounts", "Posting Date", (PChargeAmount) * -1, 'BOSA', LoanApps."Loan  No.",
+            //             'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+            //         end;
+            //         if PCharges."Loan Charge Type" = PCharges."loan charge type"::"Loan Application Fee" then begin
+            //             IF PCharges."Use Perc" = TRUE THEN
+            //                 PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100)
+            //                 ELSE PChargeAmount:=PCharges.Amount;
 
-                        //----------------------Debit processing fee Receivable Account a/c-----------------------------------------------------
-                        LineNo := LineNo + 10000;
-                        SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
-                        GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount, 'BOSA', LoanApps."Loan  No.",
-                        'processing fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+            //             //----------------------Debit processing fee Receivable Account a/c-----------------------------------------------------
+            //             LineNo := LineNo + 10000;
+            //             SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
+            //             GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount, 'BOSA', LoanApps."Loan  No.",
+            //             'processing fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
 
-                        //----------------------Credit processing fee Payable Account a/c-----------------------------------------------------
-                        LineNo := LineNo + 10000;
-                        SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
-                        GenJournalLine."Account Type"::"G/L Account", LoanType."Loan ApplFee Accounts", "Posting Date", (PChargeAmount) * -1, 'BOSA', LoanApps."Loan  No.",
-                        'processing fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+            //             //----------------------Credit processing fee Payable Account a/c-----------------------------------------------------
+            //             LineNo := LineNo + 10000;
+            //             SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+            //             GenJournalLine."Account Type"::"G/L Account", LoanType."Loan ApplFee Accounts", "Posting Date", (PChargeAmount) * -1, 'BOSA', LoanApps."Loan  No.",
+            //             'processing fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
 
-                    end;
+            //         end;
 
-                //------------------10% EXCISE DUTY----------------------------------------
-                //     IF SFactory.FnChargeExcise(PCharges.Code) THEN BEGIN
-                //         //-------------------Earn--------------------------------- 
-                //         LineNo := LineNo + 10000;
-                //         SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
-                //         GenJournalLine."Account Type"::"G/L Account", GenSetUp."Excise Duty Account", "Posting Date", (PChargeAmount * -1) * 0.1, 'BOSA', LoanApps."Loan  No.",
-                //         PCharges.Description + '-' + LoanApps."Client Code" + '-' + LoanApps."Loan Product Type Name" + '-' + LoanApps."Loan  No." + '- Excise(10%)', LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
-                //         //-----------------Recover---------------------------------
-                //         LineNo := LineNo + 10000;
-                //         SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
-                //         GenJournalLine."Account Type"::Vendor, LoanApps."Account No", "Posting Date", PChargeAmount * 0.1, 'BOSA', LoanApps."Loan  No.",
-                //         PCharges.Description + '-' + LoanApps."Loan Product Type Name" + ' - Excise(10%)', LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
-                //     END
-                // //----------------END 10% EXCISE--------------------------------------------
-                UNTIL PCharges.NEXT = 0;
-            END;
+            //     //------------------10% EXCISE DUTY----------------------------------------
+            //     //     IF SFactory.FnChargeExcise(PCharges.Code) THEN BEGIN
+            //     //         //-------------------Earn--------------------------------- 
+            //     //         LineNo := LineNo + 10000;
+            //     //         SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+            //     //         GenJournalLine."Account Type"::"G/L Account", GenSetUp."Excise Duty Account", "Posting Date", (PChargeAmount * -1) * 0.1, 'BOSA', LoanApps."Loan  No.",
+            //     //         PCharges.Description + '-' + LoanApps."Client Code" + '-' + LoanApps."Loan Product Type Name" + '-' + LoanApps."Loan  No." + '- Excise(10%)', LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+            //     //         //-----------------Recover---------------------------------
+            //     //         LineNo := LineNo + 10000;
+            //     //         SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+            //     //         GenJournalLine."Account Type"::Vendor, LoanApps."Account No", "Posting Date", PChargeAmount * 0.1, 'BOSA', LoanApps."Loan  No.",
+            //     //         PCharges.Description + '-' + LoanApps."Loan Product Type Name" + ' - Excise(10%)', LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+            //     //     END
+            //     // //----------------END 10% EXCISE--------------------------------------------
+            //     UNTIL PCharges.NEXT = 0;
+            // END;
 
 
             //----------------------------------------4. PAY/RECOVER TOP UPS------------------------------------------------------------------------------------------     
@@ -2087,6 +2088,7 @@ Page 50396 "Loan Disburesment Batch Card"
             PCharges.RESET;
             PCharges.SETRANGE(PCharges."Product Code", LoanApps."Loan Product Type");
             PCharges.SETFILTER(PCharges."Loan Charge Type", '<>%1', PCharges."Loan Charge Type"::"Loan Insurance");
+            PCharges.SetFilter(PCharges."Loan Charge Type", '<>%1', PCharges."Loan Charge Type"::"Loan Application Fee");
             IF PCharges.FIND('-') THEN BEGIN
                 REPEAT
                     PCharges.TESTFIELD(PCharges."G/L Account");
@@ -2217,7 +2219,7 @@ Page 50396 "Loan Disburesment Batch Card"
                 PCharges.SETRANGE(PCharges."Loan Charge Type", PCharges."Loan Charge Type"::"Loan Insurance");
                 IF PCharges.FIND('-') THEN BEGIN
                     PCharges.TESTFIELD(PCharges."G/L Account");
-                    ////GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
+                    //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
                     PChargeAmount := PCharges.Amount;
                     IF PCharges."Use Perc" = TRUE THEN
                         PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
@@ -2236,7 +2238,35 @@ Page 50396 "Loan Disburesment Batch Card"
                 // END;
             END;
 
+            //--------------------------------------------------------Loan application fee--------------------------------
+            IF LoanType.GET(LoanApps."Loan Product Type") THEN BEGIN
+                //IF LoanType."Accrue Total Insurance&Interes" = TRUE THEN BEGIN
 
+
+                PCharges.RESET;
+                PCharges.SETRANGE(PCharges."Product Code", LoanApps."Loan Product Type");
+                PCharges.SETRANGE(PCharges."Loan Charge Type", PCharges."Loan Charge Type"::"Loan Appraisal Fee");
+                IF PCharges.FIND('-') THEN BEGIN
+                    PCharges.TESTFIELD(PCharges."G/L Account");
+                    //GenSetUp.TESTFIELD(GenSetUp."Excise Duty Account");
+                    PChargeAmount := PCharges.Amount;
+                    IF PCharges."Use Perc" = TRUE THEN
+                        PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
+                    //----------------------Debit Application fee Receivable Account a/c-----------------------------------------------------
+                    LineNo := LineNo + 10000;
+                    SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
+                    GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount * LoanType."No of Installment", 'BOSA', BLoan,
+                    'Application fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+
+                    //----------------------Credit Application fee Payable Account a/c-----------------------------------------------------
+                    LineNo := LineNo + 10000;
+                    SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+                    GenJournalLine."Account Type"::"G/L Account", LoanType."Loan ApplFee Accounts", "Posting Date", (PChargeAmount * LoanType."No of Installment") * -1, 'BOSA', BLoan,
+                    'Application fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+                END;
+                // END;
+            END;
+            //------------------------------------------------end loan application fee----------------------
 
             //-----------------------------------------5. BOOST DEPOSITS COMMISSION / RECOVER FROM FOSA A/C--------------------------------------------------------------------------------------------
             IF LoanApps."Share Boosting Comission" > 0 THEN BEGIN
