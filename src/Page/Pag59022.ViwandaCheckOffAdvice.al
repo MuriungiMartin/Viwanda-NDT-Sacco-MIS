@@ -162,7 +162,7 @@ page 59022 "Viwanda CheckOff Advice"
                 end else
                     VarEntryNo := 1;
 
-                Window.Update(1, VarEntryNo);
+                Window.Update(1, format(VarEntryNo));
                 ObjAdvice.Init();
                 ObjAdvice."Entry No" := VarEntryNo;
                 ObjAdvice."Staff/Payroll No" := ObjCust."No.";
