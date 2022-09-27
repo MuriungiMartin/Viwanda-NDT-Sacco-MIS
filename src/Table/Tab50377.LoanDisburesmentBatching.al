@@ -102,6 +102,7 @@ Table 50377 "Loan Disburesment-Batching"
             trigger Onvalidate()
             var
                 ObjChequeReg: record ChequeRegister;
+                glsetup: Record "General Ledger Setup";
             begin
                 ObjChequeReg.Reset();
                 ObjChequeReg.SetRange(ObjChequeReg."Cheque No", "Cheque No.");
