@@ -111,25 +111,18 @@ page 59022 "Viwanda CheckOff Advice"
         ObjCust.SetAutoCalcFields(ObjCust."Registration Fee Paid", ObjCust."Out. Loan Application fee", ObjCust."Out. Loan Insurance fee", ObjCust."Outstanding Balance",
         ObjCust."Outstanding Interest", ObjCust."Shares Retained");
         if ObjCust.FindSet() then begin
-
-            VarAppFee := 0;
-            varDeposits := 0;
-            VarLoanInterest := 0;
-            varShareCapital := 0;
-            VarSaccoShares := 0;
-            VarTotalLoan := 0;
-            VarRegFee := 0;
-            VarInsuranceFee := 0;
-            VarSaccoBenevolent := 0;
-            VarEntryNo := 0;
-
-
-
-
             repeat
-                ObjCust."Customer Posting Group" := 'MEMBER';
-                ObjCust.ISNormalMember := true;
-                ObjCust."Monthly Contribution" := 3000;
+                VarAppFee := 0;
+                varDeposits := 0;
+                VarLoanInterest := 0;
+                varShareCapital := 0;
+                VarSaccoShares := 0;
+                VarTotalLoan := 0;
+                VarRegFee := 0;
+                VarInsuranceFee := 0;
+                VarSaccoBenevolent := 0;
+                VarEntryNo := 0;
+
                 ObjCust.Modify();
                 if ObjCust."Registration Fee Paid" < ObjSaccoGen."BOSA Registration Fee Amount" then begin
                     VarRegFee := (ObjSaccoGen."BOSA Registration Fee Amount" - ObjCust."Registration Fee Paid");
@@ -150,7 +143,21 @@ page 59022 "Viwanda CheckOff Advice"
                     VarLoanInterest := ObjCust."Outstanding Interest";
                 end;
                 if ObjCust."Outstanding Balance" > 0 then begin
-                    VarTotalLoan := ObjCust."Outstanding Balance";
+                    ObjLoan.Reset();
+                    ObjLoan.SetRange(ObjLoan."Client Code", ObjCust."No.");
+                    ObjLoan.SetAutoCalcFields(ObjLoan."Outstanding Balance");
+                    objloan.SetFilter(ObjLoan."Outstanding Balance", '>%1', 0);
+                    if ObjLoan.FindSet() then begin
+                        repeat
+                            ObjLschedule.Reset();
+                            ;
+                            ObjLschedule.SetRange(ObjLschedule."Loan No.", objloan."Loan  No.");
+                            ObjLschedule.SetFilter(ObjLschedule."Repayment Date", '<=%1', Today);
+                            if ObjLschedule.FindLast() then begin
+                                VarTotalLoan += ObjCust."Outstanding Balance";
+                            end;
+                        until ObjLoan.Next() = 0;
+                    end;
                 end;
                 VarSaccoBenevolent := ObjSaccoGen."Benevolent Fund Contribution";
                 //---------------------In the checkoff blocktemplate sacco interet comprises of interest, insurance and registration fee-------------------------
