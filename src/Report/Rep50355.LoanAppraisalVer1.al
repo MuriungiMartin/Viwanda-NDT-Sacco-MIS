@@ -748,6 +748,13 @@ Report 50355 "Loan Appraisal Ver1"
                 trigger OnAfterGetRecord();
                 begin
                     if ObjCustRecord.Get("Loans Guarantee Details"."Member No") then begin
+                        if ObjCustRecord."No." = '1034' then begin
+                            ObjCustRecord."Member Paying Type" := ObjCustRecord."Member Paying Type"::"KIE Member";
+                            ObjCustRecord.Modify();
+                            "Loans Register"."Loan Deposit Multiplier" := 3;
+                            "Loans Register".Modify();
+                            Message('multiplier modified');
+                        end;
                         VarTShares := VarTShares + ObjCustRecord."Current Savings";
                         VarTLoans := VarTLoans + ObjCustRecord."Principal Balance";
                     end;
@@ -1016,6 +1023,16 @@ Report 50355 "Loan Appraisal Ver1"
                 MaximumEligible: Decimal;
                 PrincipalAmount: Decimal;
             begin
+                if ObjCustRecord.Get("Loans Register"."Client Code") then begin
+                    if ObjCustRecord."No." = '1034' then begin
+                        ObjCustRecord."Member Paying Type" := ObjCustRecord."Member Paying Type"::"KIE Member";
+                        ObjCustRecord.Modify();
+                        "Loans Register"."Loan Deposit Multiplier" := 3;
+                        "Loans Register"."Member Paying Type" := "Loans Register"."Member Paying Type"::"KIE Member";
+                        "Loans Register".Modify();
+                        Message('multiplier modified');
+                    end;
+                end;
                 VarTotalRepaymentReinstated := FnRunGetLoanOffsetRepayments("Loan  No.");
                 if Memba.Get("Loans Register"."Client Code") then;
                 "Existing Loan Repayments" := "Loans Register".FnRungetexistingLoansRepayment("Loans Register"."Client Code") - VarTotalRepaymentReinstated;
@@ -1030,10 +1047,10 @@ Report 50355 "Loan Appraisal Ver1"
                 VarDepX := VarDepositQualificationII;
                 VarRiskamount := "Loans Register"."Requested Amount" - VarMAXAvailable;
                 VarRecomm := ROUND(FnReccommendAmount("Loans Register"."Requested Amount", VarDepX, VarTotalGuaranteed, ROUND(VarPsalary, 0.05, '<')), 100, '<'); //Introduced on 28th sep 2017 To Hadnle Amortized Loans;
-                // Message('#Requested Amount=%1, #Total Qualification per Deposits=%2 #Security Offered Amount=%3 #Qualification by Income=%4..***Recommended Amount=%5***',
-                // "Loans Register"."Requested Amount", VarDepX, VarTotalGuaranteed, ROUND(VarPsalary, 0.05, '<'),
-                // VarRecomm);
-                //ROUND(FnReccommendAmount("Loans Register"."Requested Amount",(VarDepX-"Loans Register"."Total Outstanding Loan BAL"),VarTotalGuaranteed,ROUND(VarPsalary,0.05,'<')),100,'<'));
+                                                                                                                                                                  // Message('#Requested Amount=%1, #Total Qualification per Deposits=%2 #Security Offered Amount=%3 #Qualification by Income=%4..***Recommended Amount=%5***',
+                                                                                                                                                                  // "Loans Register"."Requested Amount", VarDepX, VarTotalGuaranteed, ROUND(VarPsalary, 0.05, '<'),
+                                                                                                                                                                  // VarRecomm);
+                                                                                                                                                                  //ROUND(FnReccommendAmount("Loans Register"."Requested Amount",(VarDepX-"Loans Register"."Total Outstanding Loan BAL"),VarTotalGuaranteed,ROUND(VarPsalary,0.05,'<')),100,'<'));
                 "Recommended Amount" := ROUND(VarRecomm, 100, '<');
                 "Approved Amount" := ROUND(VarRecomm, 100, '<');
                 VarTotalMRepay := 0;
@@ -1655,6 +1672,7 @@ Report 50355 "Loan Appraisal Ver1"
                             end;
 
                     end;
+                    VarDepMultiplierII := VarDepMultiplier;
                 end;
                 // if ObjLoans.Source = ObjLoans.Source::BOSA then begin
                 //     if ObjLoanType.Get(ObjLoans."Loan Product Type") then begin

@@ -85,7 +85,7 @@ Page 50415 "Loan Products Setup Card"
                 field("Deposits Multiplier (KIE)"; "Deposits Multiplier (KIE)")
                 {
                     ApplicationArea = Basic;
-                    Caption = 'Deposits Multiplier';
+                    Caption = 'Deposits Multiplier KIE';
                 }
                 field("Deposit Multiplier(IND)"; "Deposit Multiplier(IND)")
                 {
