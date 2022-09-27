@@ -146,17 +146,18 @@ page 59022 "Viwanda CheckOff Advice"
                     ObjLoan.Reset();
                     ObjLoan.SetRange(ObjLoan."Client Code", ObjCust."No.");
                     ObjLoan.SetAutoCalcFields(ObjLoan."Outstanding Balance");
-                    objloan.SetFilter(ObjLoan."Outstanding Balance", '>%1', 0);
                     if ObjLoan.FindSet() then begin
-                        repeat
-                            ObjLschedule.Reset();
-                            ;
-                            ObjLschedule.SetRange(ObjLschedule."Loan No.", objloan."Loan  No.");
-                            ObjLschedule.SetFilter(ObjLschedule."Repayment Date", '<=%1', Today);
-                            if ObjLschedule.FindLast() then begin
-                                VarTotalLoan += ObjCust."Outstanding Balance";
-                            end;
-                        until ObjLoan.Next() = 0;
+                        ObjLoan.CalcFields(ObjLoan."Outstanding Balance");
+                        if ObjLoan."Outstanding Balance" > 0 then
+                            repeat
+                                ObjLschedule.Reset();
+                                ;
+                                ObjLschedule.SetRange(ObjLschedule."Loan No.", objloan."Loan  No.");
+                                //ObjLschedule.SetFilter(ObjLschedule."Repayment Date", '<=%1', 20221030D);
+                                if ObjLschedule.FindLast() then begin
+                                    VarTotalLoan += ObjLschedule."Principal Repayment";
+                                end;
+                            until ObjLoan.Next() = 0;
                     end;
                 end;
                 VarSaccoBenevolent := ObjSaccoGen."Benevolent Fund Contribution";
