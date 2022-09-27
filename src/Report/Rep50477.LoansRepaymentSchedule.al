@@ -101,7 +101,7 @@ Report 50477 "Loans Repayment Schedule"
                 PrintOnlyIfDetail = false;
                 RequestFilterFields = "Member No.", "Loan Category";
 
-                column(ROUND__Monthly_Repayment__10_____; ROUND("Loan Repayment Schedule"."Monthly Repayment", 100, '>'))
+                column(ROUND__Monthly_Repayment__10_____; ROUND("Loan Repayment Schedule"."Monthly Repayment", 1, '>'))
                 {
                 }
                 column(RepaymentDate_LoanRepaymentSchedule; "Loan Repayment Schedule"."Repayment Date")
@@ -177,6 +177,14 @@ Report 50477 "Loans Repayment Schedule"
                 }
                 column(LoanBalance_LoanRepaymentSchedule; "Loan Repayment Schedule"."Loan Balance")
                 {
+                }
+                column(Application_Fee; "Application Fee")
+                {
+
+                }
+                column(Monthly_Insurance; "Monthly Insurance")
+                {
+
                 }
                 column(Monthly_Repayment; "Monthly Repayment") { }
                 trigger OnPreDataItem();

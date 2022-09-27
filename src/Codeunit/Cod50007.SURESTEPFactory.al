@@ -9,7 +9,7 @@ Codeunit 50007 "SURESTEP Factory"
         VarLoanDisburesementDay: Integer;
         modify: Boolean;
     begin
-        //MESSAGE(FORMAT(FnRunGetMemberLoanAmountDueFreezing('001006142')));
+        ////message(FORMAT(FnRunGetMemberLoanAmountDueFreezing('001006142')));
         //FnRunAutoUnFreezeMemberLoanDueAmount;
 
         //FnUpdateLoanPortfolio(20193101D);
@@ -66,7 +66,7 @@ Codeunit 50007 "SURESTEP Factory"
 
 
 
-        Message(Format(FnCalculateLoanInterest(Loan, Today)));
+        //message(Format(FnCalculateLoanInterest(Loan, Today)));
 
         //FnRunPasswordChangeonNextLogin();
 
@@ -407,7 +407,7 @@ Codeunit 50007 "SURESTEP Factory"
                 ObjMembers2."Monthly Contribution" := 500;
                 ObjMembers2.Modify;
             until ObjMembers.Next = 0;
-            Message('Succesfully done');
+            //message('Succesfully done');
         end;
 
 
@@ -445,7 +445,7 @@ Codeunit 50007 "SURESTEP Factory"
         ObjMembers.Reset;
         ObjMembers.SetRange(ObjMembers."No.", MemberNo);
         if ObjMembers.Find('-') then
-            Message(Format(CalcDate(ObjGenSetUp."Retirement Age", ObjMembers."Date of Birth")));
+            //message(Format(CalcDate(ObjGenSetUp."Retirement Age", ObjMembers."Date of Birth")));
         exit(CalcDate(ObjGenSetUp."Retirement Age", ObjMembers."Date of Birth"));
     end;
 
@@ -948,7 +948,7 @@ Codeunit 50007 "SURESTEP Factory"
             ObjMembers.Modify;
         end;
 
-        Message('The Member has been marked as awaiting exit.');
+        //message('The Member has been marked as awaiting exit.');
 
     end;
 
@@ -1828,7 +1828,7 @@ Codeunit 50007 "SURESTEP Factory"
                     if (ObjMembers."Expected Monthly Income Amount" >= ObjNetWorth."Min Monthly Income") and
                       (ObjMembers."Expected Monthly Income Amount" <= ObjNetWorth."Max Monthlyl Income") then begin
                         VarHighNet := ObjNetWorth."Risk Rate";
-                        Message('VarHighNet is %1', VarHighNet);
+                        //message('VarHighNet is %1', VarHighNet);
                     end;
                 until ObjNetWorth.Next = 0;
             end;
@@ -2354,7 +2354,7 @@ Codeunit 50007 "SURESTEP Factory"
                     if (ObjMembers."Expected Monthly Income Amount" >= ObjNetWorth."Min Monthly Income") and
                       (ObjMembers."Expected Monthly Income Amount" <= ObjNetWorth."Max Monthlyl Income") then begin
                         VarHighNet := ObjNetWorth."Risk Rate";
-                        Message('VarHighNet is %1', VarHighNet);
+                        //message('VarHighNet is %1', VarHighNet);
                     end;
                 until ObjNetWorth.Next = 0;
             end;
@@ -3174,7 +3174,7 @@ Codeunit 50007 "SURESTEP Factory"
         end;
         VarTotalArrears := VarTotalArrears + VarArrears;
 
-        //MESSAGE('Total Deposits is %1 Total Loan Risk is %2',VarTotalDeposits,VaTotalLoanRisk);
+        ////message('Total Deposits is %1 Total Loan Risk is %2',VarTotalDeposits,VaTotalLoanRisk);
         VarNetWorth := VarTotalDeposits - VaTotalLoanRisk;
         exit(VarNetWorth);
     end;
@@ -3955,7 +3955,7 @@ Codeunit 50007 "SURESTEP Factory"
             SMTPSetup.Get;
             Recipients.Add("Recepient Email");
             CCList.Add(AddCC);
-            SMTP.CreateMessage('Vision Sacco', SMTPSetup."Email Sender Address", Recipients, Subject, '', true);
+            SMTP.Createmessage('Vision Sacco', SMTPSetup."Email Sender Address", Recipients, Subject, '', true);
             SMTP.AppendBody('<html> <body> <font face="Maiandra GD,Garamond,Tahoma", size = "3">');
             SMTP.AppendBody('Dear ' + "Recepient Name" + ',');
             SMTP.AppendBody('<br><br>');
@@ -4274,7 +4274,7 @@ Codeunit 50007 "SURESTEP Factory"
         ObjLoans.CalcFields(ObjLoans."Interest Due", ObjLoans."Interest Paid", ObjLoans."Interest Paid Historical");
         if ObjLoans.FindSet then begin
             VarOutstandingInterest := ObjLoans."Interest Due" - (ObjLoans."Interest Paid" + ObjLoans."Interest Paid Historical");
-            //MESSAGE('Interest Due is %1,Loan No %2',ObjLoans."Interest Due",ObjLoans."Loan  No.");
+            ////message('Interest Due is %1,Loan No %2',ObjLoans."Interest Due",ObjLoans."Loan  No.");
             if VarOutstandingInterest < 0 then
                 VarOutstandingInterest := 0;
             exit(VarOutstandingInterest);
@@ -6174,11 +6174,15 @@ Codeunit 50007 "SURESTEP Factory"
 
                             ObjProductCharge.Reset;
                             ObjProductCharge.SetRange(ObjProductCharge."Product Code", ObjLoans."Loan Product Type");
-                            ObjProductCharge.SetRange(ObjProductCharge."Loan Charge Type", ObjProductCharge."loan charge type"::"Loan Insurance");
+                            ObjProductCharge.SetRange(ObjProductCharge."Loan Charge Type", ObjProductCharge."loan charge type"::"Loan Application Fee");
                             if ObjProductCharge.FindSet then begin
-                                VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100);
-                            end else
-                                VarApplicationFee := ObjProductCharge.Amount;
+                                //message('found');
+                                if ObjProductCharge."Use Perc" then
+                                    VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100)
+                                else
+                                    VarApplicationFee := ObjProductCharge.Amount;
+                                //message('appfee %1', VarApplicationFee);
+                            end;
                         end;
 
                         //=======================================================================================Strainght Line
@@ -6208,9 +6212,13 @@ Codeunit 50007 "SURESTEP Factory"
                             ObjProductCharge.SetRange(ObjProductCharge."Product Code", ObjLoans."Loan Product Type");
                             ObjProductCharge.SetRange(ObjProductCharge."Loan Charge Type", ObjProductCharge."loan charge type"::"Loan Application Fee");
                             if ObjProductCharge.FindSet then begin
-                                VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100);
-                            end else
-                                VarApplicationFee := ObjProductCharge.Amount;
+                                //message('found');
+                                if ObjProductCharge."Use Perc" then
+                                    VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100)
+                                else
+                                    VarApplicationFee := ObjProductCharge.Amount;
+                                //message('appfee %1', VarApplicationFee);
+                            end;
                         end;
 
                         //=======================================================================================Reducing Balance
@@ -6234,9 +6242,13 @@ Codeunit 50007 "SURESTEP Factory"
                             ObjProductCharge.SetRange(ObjProductCharge."Product Code", ObjLoans."Loan Product Type");
                             ObjProductCharge.SetRange(ObjProductCharge."Loan Charge Type", ObjProductCharge."loan charge type"::"Loan Application Fee");
                             if ObjProductCharge.FindSet then begin
-                                VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100);
-                            end else
-                                VarApplicationFee := ObjProductCharge.Amount;
+                                //message('found');
+                                if ObjProductCharge."Use Perc" then
+                                    VarApplicationFee := ObjLoans."Approved Amount" * (ObjProductCharge.Percentage / 100)
+                                else
+                                    VarApplicationFee := ObjProductCharge.Amount;
+                                //message('appfee %1', VarApplicationFee);
+                            end;
 
                         end;
 
@@ -6280,10 +6292,12 @@ Codeunit 50007 "SURESTEP Factory"
                         if LoanProductsSetup."Charge Interest Upfront" then VarLInterest := 0;
 
                         //======================================================================================Insert Repayment Schedule Table
+
                         if VarInstalNo <> 1 then begin
                             VarLInsurance := 0;
                             VarApplicationFee := 0;
                         end;
+                        //message('Installment number %1, appfee %2', VarInstalNo, VarApplicationFee);
                         ObjRepaymentschedule.Init;
                         ObjRepaymentschedule."Entry No" := ScheduleEntryNo;
                         ObjRepaymentschedule."Repayment Code" := VarRepayCode;
@@ -6319,8 +6333,8 @@ Codeunit 50007 "SURESTEP Factory"
                         ObjRepaymentscheduleTemp."Loan Balance" := VarLBalance;
                         ObjRepaymentscheduleTemp.Insert;
                         VarWhichDay := Date2dwy(ObjRepaymentscheduleTemp."Repayment Date", 1);
-                        ///Message('balance %1', (VarLBalance));
-                        //Message('Linsurance%1', (VarLInsurance));
+                        /////message('balance %1', (VarLBalance));
+                        ////message('Linsurance%1', (VarLInsurance));
                         //=======================================================================Get Next Repayment Date
                         VarMonthIncreament := Format(VarInstalNo) + 'M';
                         if ObjLoans."Repayment Frequency" = ObjLoans."repayment frequency"::Daily then
@@ -6596,7 +6610,7 @@ Codeunit 50007 "SURESTEP Factory"
             repeat
                 ObjMember.CalcFields(ObjMember."Deposits Contributed", ObjMember."Deposits Account Status", ObjMember."Deposits Contributed");
                 VarMonthlyDepositContribution := ObjMember."Monthly Contribution";
-                //MESSAGE('Deposits Contributed %1, Monthly Contribution %2',ObjMember."Deposits Contributed",ObjMember."Monthly Contribution");
+                ////message('Deposits Contributed %1, Monthly Contribution %2',ObjMember."Deposits Contributed",ObjMember."Monthly Contribution");
 
                 VarDepositArrearsAmount := VarMonthlyDepositContribution - ObjMember."Deposits Contributed";
                 if VarDepositArrearsAmount < 0 then
@@ -7047,7 +7061,7 @@ Codeunit 50007 "SURESTEP Factory"
                                 if ObjMemberAccount."No Of Signatories" = 0 then begin
                                     VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Credit Amount") + ' credited to your Account No. ' + ObjAccountLedger."Vendor No." +
                                     ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
-                                    // CloudPesa.SMSMessage(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjMemberAccount."Mobile Phone No",VarSMSBody);
+                                    // CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjMemberAccount."Mobile Phone No",VarSMSBody);
                                 end
                                 else begin
                                     ObjAccountSignatories.Reset;
@@ -7057,7 +7071,7 @@ Codeunit 50007 "SURESTEP Factory"
                                         repeat
                                             VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Credit Amount") + ' credited to your Account No. ' + ObjAccountLedger."Vendor No." +
                                             ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
-                                        // CloudPesa.SMSMessage(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjAccountSignatories."Mobile No",VarSMSBody);
+                                        // CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjAccountSignatories."Mobile No",VarSMSBody);
                                         until ObjAccountSignatories.Next = 0;
                                     end;
                                 end;
@@ -7125,7 +7139,7 @@ Codeunit 50007 "SURESTEP Factory"
 
                                 if ObjMemberAccount."No Of Signatories" = 0 then begin
                                     VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Debit Amount") + ' debited from your Account No. ' + ObjAccountLedger."Vendor No." + ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
-                                    //  CloudPesa.SMSMessage(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjMemberAccount."Mobile Phone No",VarSMSBody);
+                                    //  CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjMemberAccount."Mobile Phone No",VarSMSBody);
                                 end
                                 else begin
                                     ObjAccountSignatories.Reset;
@@ -7134,7 +7148,7 @@ Codeunit 50007 "SURESTEP Factory"
                                     if ObjAccountSignatories.FindSet then begin
                                         repeat
                                             VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Debit Amount") + ' debited from your Account No. ' + ObjAccountLedger."Vendor No." + ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
-                                        //    CloudPesa.SMSMessage(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjAccountSignatories."Mobile No",VarSMSBody);
+                                        //    CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjAccountSignatories."Mobile No",VarSMSBody);
                                         until ObjAccountSignatories.Next = 0
                                     end;
                                 end;
@@ -8921,7 +8935,7 @@ Codeunit 50007 "SURESTEP Factory"
             if ObjAccTypes.Find('-') then
                 AvailableBal := AvailableBal - ObjAccTypes."Minimum Balance";
         end;
-        //Message('message function%1|%2', ObjVendors.Balance, ObjVendors."Balance (LCY)");
+        ////message('message function%1|%2', ObjVendors.Balance, ObjVendors."Balance (LCY)");
         exit(AvailableBal);
     end;
 
@@ -11873,7 +11887,7 @@ Codeunit 50007 "SURESTEP Factory"
         
         //--Send Confirmation Sms to The Member------
          SFactory.FnSendSMS('FOSA ACC','Your Account successfully created.Account No='+AcctNo,AcctNo,"Mobile Phone No");
-         MESSAGE('You have successfully created a %1 Product, A/C No=%2. Member will be notified via SMS',"Account Type",AcctNo);
+         //message('You have successfully created a %1 Product, A/C No=%2. Member will be notified via SMS',"Account Type",AcctNo);
         
          */
 
