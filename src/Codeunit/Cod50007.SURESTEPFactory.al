@@ -3964,7 +3964,7 @@ Codeunit 50007 "SURESTEP Factory"
             SMTP.AppendBody('<HR>');
             SMTP.AppendBody('Kind Regards');
             SMTP.AppendBody('<br>');
-            SMTP.AppendBody('<img src="https://visionsacco.com/templates/assets/images/vlogo.png" alt="VSacco Logo">');
+            SMTP.AppendBody('<img src="https://viwandasacco.com/templates/assets/images/vlogo.png" alt="VSacco Logo">');
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('Viwanda Sacco SOCIETY LIMITED');
             SMTP.AppendBody('<br>');
@@ -3972,9 +3972,9 @@ Codeunit 50007 "SURESTEP Factory"
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('Tel: 0711086156');
             SMTP.AppendBody('<br>');
-            SMTP.AppendBody('info@visionsacco.com');
+            SMTP.AppendBody('info@viwandasacco.com');
             SMTP.AppendBody('<br>');
-            SMTP.AppendBody('www.visionsacco.com');
+            SMTP.AppendBody('www.viwandasacco.com');
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('Empowering People, Transforming Lives');
             SMTP.AppendBody('<br>');

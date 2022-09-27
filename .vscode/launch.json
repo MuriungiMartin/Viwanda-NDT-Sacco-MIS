@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Your own server",
+            "name": "Development",
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
@@ -17,6 +17,25 @@
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "tenant": "default"
+        },
+        {
+            "name": "Production",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "OnPrem",
+            "server": "http://192.168.0.10:4043",
+            "serverInstance": "BC190",
+            "authentication": "Windows",
+            "startupObjectId": 50366,
+            "breakOnError": true,
+            "breakOnRecordWrite": false,
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "tenant": "default"
         }
     ]
+    
 }

@@ -2720,7 +2720,7 @@ Page 50361 "Membership Application Card"
                '<p>6. Apply for a Cheque Book and initiate cheque payments from your account at Viwanda Sacco.</p>' +
                '<p>7. Process your salary to your Viwanda Sacco Account and benefit from very affordable salary loans.</p>' +
                '<p>8. Operate an Ufalme Account and save in order to acquire Land/Housing in our upcoming projects.</p>' +
-               '<p>Visit our website <a href="http://www.visionsacco.com">www.visionsacco.com</a> for more information on our service offering.</p>' +
+               '<p>Visit our website <a href="http://www.viwandasacco.com">www.viwandasacco.com</a> for more information on our service offering.</p>' +
                '<p>Thank you for choosing Viwanda Sacco. Our objective is to empower you economically and socially by promoting a Savings and Investments culture and providing affordable credit.</p>';
 
 

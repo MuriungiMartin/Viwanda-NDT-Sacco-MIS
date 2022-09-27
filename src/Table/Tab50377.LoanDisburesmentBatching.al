@@ -1,8 +1,8 @@
 #pragma warning disable AA0005, AA0008, AA0018, AA0021, AA0072, AA0137, AA0201, AA0206, AA0218, AA0228, AL0424, AW0006 // ForNAV settings
 Table 50377 "Loan Disburesment-Batching"
 {
-    DrillDownPageId="Loans Disbursment Batch List";
-    LookupPageId="Loans Disbursment Batch List";
+    DrillDownPageId = "Loans Disbursment Batch List";
+    LookupPageId = "Loans Disbursment Batch List";
 
     fields
     {
@@ -98,6 +98,19 @@ Table 50377 "Loan Disburesment-Batching"
         }
         field(17; "Cheque No."; Code[20])
         {
+            TableRelation = ChequeRegister."Cheque No";
+            trigger Onvalidate()
+            var
+                ObjChequeReg: record ChequeRegister;
+            begin
+                ObjChequeReg.Reset();
+                ObjChequeReg.SetRange(ObjChequeReg."Cheque No", "Cheque No.");
+                if ObjChequeReg.Find('=') then begin
+                    CalcFields("Total Loan Amount");
+
+                    ObjChequeReg."Cheque Amount" := "Total Loan Amount";
+                end;
+            end;
         }
         field(18; "Batch Type"; Option)
         {

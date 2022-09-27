@@ -22,7 +22,7 @@ Report 50862 "Send Members & Groups Report"
                 Report.SaveAsExcel(Report::"Member & Group Balances Report", FilePath);
                 VarMailSubject := 'Members & House Groups Report - ' + Format(WorkDate, 0, '<Day,2> <Month Text,3> <Year4>');
                 VarMailBody := 'Kindly find attached the Members & House Groups Report as at ' + Format(WorkDate, 0, '<Day,2> <Month Text,3> <Year4>') + ' for your review.';
-                SFactory.FnSendStatementViaMail('Team', VarMailSubject, VarMailBody, 'info@visionsacco.com', Filename, '');
+                SFactory.FnSendStatementViaMail('Team', VarMailSubject, VarMailBody, 'info@viwandasacco.com', Filename, '');
             end;
 
         }

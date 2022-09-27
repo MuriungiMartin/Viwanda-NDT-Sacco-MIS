@@ -527,13 +527,13 @@ Page 50194 "HR Leave Application Card"
 
                             if ("Request Leave Allowance" = true) and ("Leave Type" = 'ANNUAL') then begin
                                 GetLeaveStats(HRLeaveApp."Leave Type");
-                                EmailCC := 'mt@Visionsacco.com' + ';' + HREmp."Company E-Mail";
+                                EmailCC := 'mt@viwandasacco.com' + ';' + HREmp."Company E-Mail";
                                 VarEmailSubject := HRLeaveApp."Leave Type" + ' LEAVE ALLOWANCE - ' + HRLeaveApp."Employee No";
                                 VarEmailBody := 'The ' + LeaveDaysText + HRLeaveApp."Leave Type" + ' Leave Application for ' + HREmp."First Name" + HREmp."Middle Name" + ' ' + HREmp."Last Name" + ' ' +
                                 LeavePeriod + ReleivedBy + ' has been Approved by ' + Approver +
                                 'and has requested for Leave Allowance. ' + HREmp."First Name" + ' has taken ' + Format(dTaken) + ' days and has a balance of ' + Format(dLeft) + ' days.';
 
-                                SFactory.FnSendStatementViaMail('Finance Team', VarEmailSubject, VarEmailBody, 'finance@Visionsacco.com', '', EmailCC);
+                                SFactory.FnSendStatementViaMail('Finance Team', VarEmailSubject, VarEmailBody, 'finance@viwandasacco.com', '', EmailCC);
                             end;
 
                             Message('Leave applicant and reliever have been notified successfully');

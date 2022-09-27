@@ -106,6 +106,8 @@ Report 50477 "Loans Repayment Schedule"
                 }
                 column(RepaymentDate_LoanRepaymentSchedule; "Loan Repayment Schedule"."Repayment Date")
                 {
+
+
                 }
                 column(FORMAT__Repayment_Date__0_4_; Format("Loan Repayment Schedule"."Repayment Date", 0, '<Day,2> <Month Text,3> <Year4>'))
                 {
@@ -197,19 +199,19 @@ Report 50477 "Loans Repayment Schedule"
                 trigger OnAfterGetRecord();
                 begin
                     /*Cust.RESET;
-					//Cust.SETRANGE(Cust."No.","Loans Register Credit"."Client Code");
-					Cust.SETRANGE(Cust."No.","Loans Register"."Employer Code");
-					IF Cust.FIND('-') THEN BEGIN
-					EmployerName:=Cust.Name;
-					END;
-					i:=i+1;
-					TotalPrincipalRepayment:=(TotalPrincipalRepayment+"Principal Repayment");
-					IF i=1 THEN
-					 LoanBalance:=("Loan Amount")
-					ELSE BEGIN
-					 LoanBalance:=("Loan Amount"-TotalPrincipalRepayment+"Principal Repayment");
-					END;
-					*/
+                    //Cust.SETRANGE(Cust."No.","Loans Register Credit"."Client Code");
+                    Cust.SETRANGE(Cust."No.","Loans Register"."Employer Code");
+                    IF Cust.FIND('-') THEN BEGIN
+                    EmployerName:=Cust.Name;
+                    END;
+                    i:=i+1;
+                    TotalPrincipalRepayment:=(TotalPrincipalRepayment+"Principal Repayment");
+                    IF i=1 THEN
+                     LoanBalance:=("Loan Amount")
+                    ELSE BEGIN
+                     LoanBalance:=("Loan Amount"-TotalPrincipalRepayment+"Principal Repayment");
+                    END;
+                    */
                     CumInterest := (CumInterest + "Monthly Interest");
                     CumMonthlyRepayment := (CumMonthlyRepayment + "Monthly Repayment");
                     CumPrincipalRepayment := (CumPrincipalRepayment + "Principal Repayment");
