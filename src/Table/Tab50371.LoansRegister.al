@@ -1527,8 +1527,10 @@ Table 50371 "Loans Register"
         }
         field(68012; "Cheque No."; Code[10])
         {
-
+            TableRelation = ChequeRegister."Cheque No";
             trigger OnValidate()
+            var
+                ObjChequeReg: record ChequeRegister;
             begin
                 /*
                Loan.SETRANGE(Loan."Cheque Number","Cheque Number");
@@ -1541,13 +1543,23 @@ Table 50371 "Loans Register"
                 if "Cheque No." <> '' then begin
                     Loan.Reset;
                     Loan.SetRange(Loan."Cheque No.", "Cheque No.");
-                    Loan.SetRange(Loan."Bela Branch", "Bela Branch");
                     if Loan.Find('-') then begin
                         if Loan."Cheque No." = "Cheque No." then
                             Error('Cheque No. already exists');
                     end;
-                end;
+                    ObjChequeReg.Reset();
+                    ObjChequeReg.SetRange(ObjChequeReg."Cheque No", "Cheque No.");
+                    if ObjChequeReg.Find('=') then begin
+                        ObjChequeReg."Cheque Amount" := "Approved Amount";
+                        if "Loan Product Type" = 'DL' then
+                            ObjChequeReg."Type of Payment" := ObjChequeReg."Type of Payment"::Development
+                        else
+                            if "Loan Product Type" = 'EM' then
+                                ObjChequeReg."Type of Payment" := ObjChequeReg."Type of Payment"::Emergency;
+                        ObjChequeReg.Modify();
+                    end;
 
+                end;
             end;
         }
         field(68013; "Personal Loan Off-set"; Decimal)

@@ -109,6 +109,7 @@ Table 50377 "Loan Disburesment-Batching"
                     CalcFields("Total Loan Amount");
 
                     ObjChequeReg."Cheque Amount" := "Total Loan Amount";
+                    ObjChequeReg.Modify();
                 end;
             end;
         }
