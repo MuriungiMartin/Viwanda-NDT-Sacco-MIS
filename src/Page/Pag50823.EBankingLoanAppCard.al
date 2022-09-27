@@ -889,11 +889,11 @@ Page 50823 "E Banking Loan App Card"
                                 Cust.SetRange(Cust."No.", LoanGuar."Member No");
                                 if Cust.Find('-') then begin
                                     SFactory.FnSendSMS('LOAN GUARANTORS', 'You have guaranteed ' + "Client Name" + ' a ' + "Loan Product Type Name" + ' of ' + Format("Approved Amount")
-                                   + '. Call 0728102039 if in dispute.Kingdom Sacco Ltd.', SFactory.FnGetFosaAccount("Client Code"), SFactory.FnGetPhoneNumber(Rec));
+                                   + '. Call 0728102039 if in dispute.Viwanda Sacco Ltd.', SFactory.FnGetFosaAccount("Client Code"), SFactory.FnGetPhoneNumber(Rec));
                                 end;
                             until LoanGuar.Next = 0;
                         end;
-                        SFactory.FnSendSMS('LOAN ISSUE', 'Your loan application of KSHs.' + Format("Requested Amount") + ' has been received and your qualification is KSHs.' + Format("Approved Amount") + ' The application is being processed.Kingdom Sacco Ltd',
+                        SFactory.FnSendSMS('LOAN ISSUE', 'Your loan application of KSHs.' + Format("Requested Amount") + ' has been received and your qualification is KSHs.' + Format("Approved Amount") + ' The application is being processed.Viwanda Sacco Ltd',
                         SFactory.FnGetFosaAccount("Client Code"), SFactory.FnGetPhoneNumber(Rec));
                         Modify;
                     end;
@@ -1586,7 +1586,7 @@ Page 50823 "E Banking Loan App Card"
         RemarksEditable: Boolean;
         CopyofIDEditable: Boolean;
         CopyofPayslipEditable: Boolean;
-        LoanAppMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Welcome to Kingdom Sacco</p><p style="font-family:Verdana,Arial;font-size:9pt">This is to confirm that your Loan Application has been received and Undergoing Approval</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%3</p><p><b>KINGDOM SACCO LTD</b></p>';
+        LoanAppMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Welcome to Viwanda Sacco</p><p style="font-family:Verdana,Arial;font-size:9pt">This is to confirm that your Loan Application has been received and Undergoing Approval</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%3</p><p><b>Viwanda Sacco LTD</b></p>';
         ScheduleBal: Decimal;
         OpenApprovalEntriesExist: Boolean;
         EnabledApprovalWorkflowsExist: Boolean;

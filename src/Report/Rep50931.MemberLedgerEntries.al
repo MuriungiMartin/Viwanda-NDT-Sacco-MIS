@@ -122,7 +122,7 @@ Report 50931 "Member Ledger Entries"
     end;
 
     var
-        MeetingsMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Meeting Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">This is to confirm that you have a scheduled meeting with %2  on  %3  at %4,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>KINGDOM SACCO LTD</b></p>';
+        MeetingsMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Meeting Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">This is to confirm that you have a scheduled meeting with %2  on  %3  at %4,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>Viwanda Sacco LTD</b></p>';
         Memb: Record "Membership Applications";
         SMTPMail: Codeunit "SMTP Mail";
         SMTPSetup: Record "SMTP Mail Setup";

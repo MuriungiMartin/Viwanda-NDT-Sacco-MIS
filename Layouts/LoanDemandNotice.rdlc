@@ -1019,7 +1019,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">We, Vision Sacco Society Limited (herein called the society) refer to a loan of </Value>
+                    <Value EvaluationMode="Auto">We, Viwanda Sacco Society Limited (herein called the society) refer to a loan of </Value>
                     <Style>
                       <FontFamily>Cambria</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -1441,7 +1441,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">VISION SACCO LIMITED</Value>
+                    <Value EvaluationMode="Auto">Viwanda Sacco LIMITED</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Cambria</FontFamily>

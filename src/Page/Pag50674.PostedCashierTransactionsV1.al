@@ -2723,7 +2723,7 @@ Page 50674 "Posted Cashier Transactions V1"
         SMTPSetup: Record "SMTP Mail Setup";
         FileName: Text[100];
         ObjAuditGenSetup: Record "Audit General Setup";
-        SuspiciousTransMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Suspicious Transaction Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">Member Account No %2  Name  %3  has performed  Transactions exceeding His/Her Accounts Turn Over+Allowance of 50%  of  %4,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>KINGDOM SACCO LTD</b></p>';
+        SuspiciousTransMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Suspicious Transaction Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">Member Account No %2  Name  %3  has performed  Transactions exceeding His/Her Accounts Turn Over+Allowance of 50%  of  %4,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>Viwanda Sacco LTD</b></p>';
         Attachment: Text[100];
         recipient: List of [Text];
 

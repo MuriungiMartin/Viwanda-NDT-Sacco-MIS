@@ -1424,7 +1424,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value EvaluationMode="Auto">For and on behalf of Kingdom Sacco Ltd</Value>
+                        <Value EvaluationMode="Auto">For and on behalf of Viwanda Sacco Ltd</Value>
                         <Style>
                           <FontFamily>Segoe UI</FontFamily>
                         </Style>
@@ -1648,7 +1648,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value EvaluationMode="Auto">KINGDOM SACCO SOCIETY LIMITED</Value>
+                      <Value EvaluationMode="Auto">Viwanda Sacco SOCIETY LIMITED</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>14pt</FontSize>

@@ -223,7 +223,7 @@ Codeunit 50007 "SURESTEP Factory"
         SMSMessage.Source := SMSSource;
         SMSMessage."Entered By" := UserID;
         SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
-        SMSMessage."SMS Message" := SMSBody + '. Vision Sacco';
+        SMSMessage."SMS Message" := SMSBody + '. Viwanda Sacco';
         SMSMessage."Telephone No" := MobileNumber;
         SMSMessage.OTP_User := UserID;
         SMSMessage."OTP Code" := OTP;
@@ -260,7 +260,7 @@ Codeunit 50007 "SURESTEP Factory"
         SMSMessage.Source := SMSSource;
         SMSMessage."Entered By" := UserId;
         SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
-        SMSMessage."SMS Message" := SMSBody + '. Vision Sacco';// +' '+ObjGenSetUp."Customer Care No";
+        SMSMessage."SMS Message" := SMSBody + '. Viwanda Sacco';// +' '+ObjGenSetUp."Customer Care No";
         SMSMessage."Telephone No" := MobileNumber;
         SMSMessage.ScheduledOn := ScheduledOn;
         if ((MobileNumber <> '') and (SMSBody <> '')) then
@@ -3955,7 +3955,7 @@ Codeunit 50007 "SURESTEP Factory"
             SMTPSetup.Get;
             Recipients.Add("Recepient Email");
             CCList.Add(AddCC);
-            SMTP.Createmessage('Vision Sacco', SMTPSetup."Email Sender Address", Recipients, Subject, '', true);
+            SMTP.Createmessage('Viwanda Sacco', SMTPSetup."Email Sender Address", Recipients, Subject, '', true);
             SMTP.AppendBody('<html> <body> <font face="Maiandra GD,Garamond,Tahoma", size = "3">');
             SMTP.AppendBody('Dear ' + "Recepient Name" + ',');
             SMTP.AppendBody('<br><br>');
@@ -3966,7 +3966,7 @@ Codeunit 50007 "SURESTEP Factory"
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('<img src="https://visionsacco.com/templates/assets/images/vlogo.png" alt="VSacco Logo">');
             SMTP.AppendBody('<br>');
-            SMTP.AppendBody('VISION SACCO SOCIETY LIMITED');
+            SMTP.AppendBody('Viwanda Sacco SOCIETY LIMITED');
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('P.O. Box 1240 - 00502 Nairobi, Kenya');
             SMTP.AppendBody('<br>');
@@ -7060,7 +7060,7 @@ Codeunit 50007 "SURESTEP Factory"
                                 ObjAccountLedger.CalcFields(ObjAccountLedger."Credit Amount");
                                 if ObjMemberAccount."No Of Signatories" = 0 then begin
                                     VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Credit Amount") + ' credited to your Account No. ' + ObjAccountLedger."Vendor No." +
-                                    ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
+                                    ' - ' + ObjAccountLedger.Description + '. Viwanda Sacco';
                                     // CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjMemberAccount."Mobile Phone No",VarSMSBody);
                                 end
                                 else begin
@@ -7070,7 +7070,7 @@ Codeunit 50007 "SURESTEP Factory"
                                     if ObjAccountSignatories.FindSet then begin
                                         repeat
                                             VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Credit Amount") + ' credited to your Account No. ' + ObjAccountLedger."Vendor No." +
-                                            ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
+                                            ' - ' + ObjAccountLedger.Description + '. Viwanda Sacco';
                                         // CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjAccountSignatories."Mobile No",VarSMSBody);
                                         until ObjAccountSignatories.Next = 0;
                                     end;
@@ -7138,7 +7138,7 @@ Codeunit 50007 "SURESTEP Factory"
                                 ObjAccountLedger.CalcFields(ObjAccountLedger."Debit Amount");
 
                                 if ObjMemberAccount."No Of Signatories" = 0 then begin
-                                    VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Debit Amount") + ' debited from your Account No. ' + ObjAccountLedger."Vendor No." + ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
+                                    VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Debit Amount") + ' debited from your Account No. ' + ObjAccountLedger."Vendor No." + ' - ' + ObjAccountLedger.Description + '. Viwanda Sacco';
                                     //  CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjMemberAccount."Mobile Phone No",VarSMSBody);
                                 end
                                 else begin
@@ -7147,7 +7147,7 @@ Codeunit 50007 "SURESTEP Factory"
                                     ObjAccountSignatories.SetFilter(ObjAccountSignatories."Mobile No", '<>%1', '');
                                     if ObjAccountSignatories.FindSet then begin
                                         repeat
-                                            VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Debit Amount") + ' debited from your Account No. ' + ObjAccountLedger."Vendor No." + ' - ' + ObjAccountLedger.Description + '. Vision Sacco';
+                                            VarSMSBody := 'Ksh. ' + Format(ObjAccountLedger."Debit Amount") + ' debited from your Account No. ' + ObjAccountLedger."Vendor No." + ' - ' + ObjAccountLedger.Description + '. Viwanda Sacco';
                                         //    CloudPesa.SMS//message(ObjAccountLedger."Document No.",ObjAccountLedger."Vendor No.",ObjAccountSignatories."Mobile No",VarSMSBody);
                                         until ObjAccountSignatories.Next = 0
                                     end;

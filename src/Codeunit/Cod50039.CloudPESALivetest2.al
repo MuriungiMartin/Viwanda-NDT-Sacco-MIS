@@ -955,20 +955,20 @@ Codeunit 50039 "CloudPESALivetest2"
         
         
                            msg:='You have transfered KES '+FORMAT(amount)+' from Account '+accountName1+' to '+accountName2+
-                            ' .Thank you for using Vision SACCO Mobile.';
+                            ' .Thank you for using Viwanda Sacco Mobile.';
                             SMSMessage(DocNumber,accFrom,Vendor."Phone No.",msg,'');
                      END
                      ELSE BEGIN
                      result:='INSUFFICIENT';
                              msg:='You have insufficient funds in your savings Account to use this service.'+
-                            ' .Thank you for using Vision SACCO Mobile.';
+                            ' .Thank you for using Viwanda Sacco Mobile.';
                             SMSMessage(DocNumber,accFrom,Vendor."Phone No.",msg,'');
                      END;
                 END
                 ELSE BEGIN
                   result:='ACC2INEXISTENT';
                              msg:='Your request has failed because the recipent account does not exist.'+
-                            ' .Thank you for using Vision SACCO Mobile.';
+                            ' .Thank you for using Viwanda Sacco Mobile.';
                             SMSMessage(DocNumber,accFrom,Vendor."Phone No.",msg,'');
                 END;
             END
@@ -976,7 +976,7 @@ Codeunit 50039 "CloudPESALivetest2"
               result:='ACCINEXISTENT';
                           result:='INSUFFICIENT';
                           msg:='Your request has failed because the recipent account does not exist.'+
-                          ' .Thank you for using Vision SACCO Mobile.';
+                          ' .Thank you for using Viwanda Sacco Mobile.';
                           SMSMessage(DocNumber,accFrom,Vendor."Phone No.",msg,'');
             END;
           END;
@@ -1217,20 +1217,20 @@ Codeunit 50039 "CloudPESALivetest2"
                             result := 'TRUE';
 
                             msg := 'You have transfered KES ' + Format(amount) + ' from Account ' + Vendor.Name + ' to ' + accTo +
-                             ' .Thank you for Vision Sacco Mobile.';
+                             ' .Thank you for Viwanda Sacco Mobile.';
                             SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                         end
                         else begin
                             result := 'INSUFFICIENT';
                             msg := 'You have insufficient funds in your savings Account to use this service.' +
-                           '. Thank you for using Vision Sacco Mobile.';
+                           '. Thank you for using Viwanda Sacco Mobile.';
                             SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                         end;
                     end
                     else begin
                         result := 'ACC2INEXISTENT';
                         msg := 'Your request has failed because the recipent account does not exist.' +
-                       '. Thank you for using Vision Sacco Mobile.';
+                       '. Thank you for using Viwanda Sacco Mobile.';
                         SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                     end;
                 end
@@ -1238,14 +1238,14 @@ Codeunit 50039 "CloudPESALivetest2"
                     result := 'ACCINEXISTENT';
                     result := 'INSUFFICIENT';
                     msg := 'Your request has failed because the recipent account does not exist.' +
-                    '. Thank you for using Vision Sacco  Mobile.';
+                    '. Thank you for using Viwanda Sacco  Mobile.';
                     SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                 end;
             end
             else begin
                 result := 'MEMBERINEXISTENT';
                 msg := 'Your request has failed because the recipent account does not exist.' +
-                '. Thank you for using Vision Sacco Mobile.';
+                '. Thank you for using Viwanda Sacco Mobile.';
                 SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
             end;
         end;
@@ -1604,35 +1604,35 @@ Codeunit 50039 "CloudPESALivetest2"
                                 result := 'TRUE';
 
                                 msg := 'You have transfered KES ' + Format(amount) + ' from Account ' + Vendor.Name + ' to ' + loanNo +
-                                 '. Thank you for using Vision SACCO Mobile.';
+                                 '. Thank you for using Viwanda Sacco Mobile.';
                                 SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                             end;
                         end
                         else begin
                             result := 'INSUFFICIENT';
                             msg := 'You have insufficient funds in your savings Account to use this service.' +
-                           '. Thank you for using Vision SACCO Mobile.';
+                           '. Thank you for using Viwanda Sacco Mobile.';
                             SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                         end;
                     end
                     else begin
                         result := 'ACC2INEXISTENT';
                         msg := 'Your request has failed because you do not have any outstanding balance.' +
-                       '. Thank you for using Vision SACCO Mobile.';
+                       '. Thank you for using Viwanda Sacco Mobile.';
                         SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                     end;
                 end
                 else begin
                     result := 'ACCINEXISTENT';
                     msg := 'Your request has failed.Please make sure you are registered for mobile banking.' +
-                    '. Thank you for using Vision SACCO Mobile.';
+                    '. Thank you for using Viwanda Sacco Mobile.';
                     SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
                 end;
             end
             else begin
                 result := 'MEMBERINEXISTENT';
                 msg := 'Your request has failed because the recipent account does not exist.' +
-                '. Thank you for using Vision SACCO Mobile.';
+                '. Thank you for using Viwanda Sacco Mobile.';
                 SMSMessage(DocNumber, accFrom, Vendor."Phone No.", msg, '');
             end;
         end
@@ -1945,7 +1945,7 @@ Codeunit 50039 "CloudPESALivetest2"
                         Bal := Format(amount, 0, '<Precision,2:2><Integer><Decimals>');
                     until MemberLedgerEntry.Next = 0;
             end;
-            SMSMessage(DocNumber, Members."No.", Phone, ' Your Account balance is Kshs: ' + Bal + ' Thank you for using Vision SACCO Mobile', '');
+            SMSMessage(DocNumber, Members."No.", Phone, ' Your Account balance is Kshs: ' + Bal + ' Thank you for using Viwanda Sacco Mobile', '');
         end;
     end;
 
@@ -2317,7 +2317,7 @@ Codeunit 50039 "CloudPESALivetest2"
             end
             else begin
                 Result := 'FALSE';
-                msg := 'Dear ' + PaybillTrans."Account Name" + ' ACC: ' + PaybillTrans."Account No" + ' has not been credited with KES.' + Format(Amount) + 'because of wrong account format. Thank you for using Vision SACCO Mobile';
+                msg := 'Dear ' + PaybillTrans."Account Name" + ' ACC: ' + PaybillTrans."Account No" + ' has not been credited with KES.' + Format(Amount) + 'because of wrong account format. Thank you for using Viwanda Sacco Mobile';
                 SMSMessage("Document No", PaybillTrans."Account No", '+' + PaybillTrans.Telephone, msg, '');
             end;
         end;
@@ -5395,7 +5395,7 @@ END;
                         GenJournalLine.DeleteAll;
 
                         msg := 'You have withdrawn KES ' + Format(amount) + ' from A/C. ' + Vendor.Name +
-                      ' .Thank you for using Vision Sacco Mobile.';
+                      ' .Thank you for using Viwanda Sacco Mobile.';
 
                         CloudPESATrans.Init;
                         CloudPESATrans."Document No" := docNo;
@@ -5729,7 +5729,7 @@ END;
                         GenJournalLine.SetRange("Journal Batch Name", 'MPESAWITHD');
                         GenJournalLine.DeleteAll;
                         msg := 'You have withdrawn KES ' + Format(amount) + ' from Account ' + Members.Name +
-                      ' .Thank you for using Vision Sacco Mobile.';
+                      ' .Thank you for using Viwanda Sacco Mobile.';
 
                         CloudPESATrans.Init;
                         CloudPESATrans."Document No" := docNo;
@@ -5896,7 +5896,7 @@ END;
                     Vendor.CalcFields(Vendor."Balance (LCY)");
                     TempBalance := Vendor."Balance (LCY)";
                     msg := 'Dear ' + SplitString(Members.Name, ' ') + ' Your Deposit Contribution Balance is Ksh.' + Format(TempBalance)
-                                 + ' .Thank you for using Vision Sacco Mobile.';
+                                 + ' .Thank you for using Viwanda Sacco Mobile.';
                     SMSMessage(docNo, Members."No.", Members."Mobile Phone No", msg, '');
                 end;
                 if AppType = '2' then begin
@@ -5905,7 +5905,7 @@ END;
                     Vendor.CalcFields(Vendor."Balance (LCY)");
                     TempBalance := Vendor."Balance (LCY)";
                     msg := 'Dear ' + SplitString(Members.Name, ' ') + ' Your Share Capital Balance is Ksh.' + Format(TempBalance)
-                               + ' .Thank you for using Vision Sacco Mobile.';
+                               + ' .Thank you for using Viwanda Sacco Mobile.';
                     SMSMessage(docNo, Members."No.", Members."Mobile Phone No", msg, '');
                 end;
                 if AppType = '3' then begin
@@ -5913,7 +5913,7 @@ END;
                     TempBalance := Members."Dividend Amount";
 
                     msg := 'Dear ' + SplitString(Members.Name, ' ') + ' Your Dividend A/C Balance is Ksh.' + Format(TempBalance)
-                                     + ' .Thank you for using Vision Sacco Mobile.';
+                                     + ' .Thank you for using Viwanda Sacco Mobile.';
                     SMSMessage(docNo, Members."No.", Members."Mobile Phone No", msg, '');
                 end;
 
@@ -5954,7 +5954,7 @@ END;
 
 
                 msg := 'Dear ' + SplitString(Vendor.Name, ' ') + ' Your ' + AccountTypes.Description + ' A/C Balance is Ksh.' + Format(Vendor."Balance (LCY)")
-                                + ' .Thank you for using Vision Sacco Mobile.';
+                                + ' .Thank you for using Viwanda Sacco Mobile.';
                 SMSMessage(docNo, Vendor."No.", telephoneNo, msg, '');
 
 

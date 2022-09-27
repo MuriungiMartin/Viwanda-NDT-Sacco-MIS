@@ -353,7 +353,7 @@ Codeunit 50033 "POST NEW  ATM"
 
                             ATMMessages := 'Dear ' + CloudPesa.SplitString(Acct.Name, ' ') + ', Ksh.' + Format(ATMTrans.Amount) + ' Withdrawn from your Acc. ' +
                             ATMTrans."Account No" + ' via ATM at ' + ATMTrans."Withdrawal Location" + ' on ' +
-                            Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Kingdom Sacco');
+                            Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Viwanda Sacco');
                         end;
                         if ATMTrans.Amount < 0 then begin
                             if ATMTrans."Transaction Type Charges" = ATMTrans."transaction type charges"::Reversal then begin
@@ -363,7 +363,7 @@ Codeunit 50033 "POST NEW  ATM"
                             end else begin
                                 ATMMessages := 'Dear ' + CloudPesa.SplitString(Acct.Name, ' ') + ', Ksh.' + Format(ATMTrans.Amount * -1) + ' Deposited to your Acc. ' +
                                 ATMTrans."Account No" + ' via ATM at ' + ATMTrans."Withdrawal Location" + ' on ' +
-                                Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Kingdom Sacco');
+                                Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Viwanda Sacco');
                             end;
                         end;
                     end else begin
@@ -371,7 +371,7 @@ Codeunit 50033 "POST NEW  ATM"
 
                             ATMMessages := 'Dear ' + CloudPesa.SplitString(Acct.Name, ' ') + ', Ksh.' + Format(ATMTrans.Amount) + ' Withdrawn from your Acc. ' +
                             ATMTrans."Account No" + ' via ATM at ' + ATMTrans."Withdrawal Location" + ' on ' +
-                            Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Kingdom Sacco');
+                            Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Viwanda Sacco');
                         end;
                         if ATMTrans.Amount < 0 then begin
                             if ATMTrans."Transaction Type Charges" = ATMTrans."transaction type charges"::Reversal then begin
@@ -381,7 +381,7 @@ Codeunit 50033 "POST NEW  ATM"
                             end else begin
                                 ATMMessages := 'Dear ' + CloudPesa.SplitString(Acct.Name, ' ') + ', Ksh.' + Format(ATMTrans.Amount * -1) + ' Deposited to your Acc. ' +
                                 ATMTrans."Account No" + ' via ATM at ' + ATMTrans."Withdrawal Location" + ' on ' +
-                                Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Kingdom Sacco');
+                                Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>. Viwanda Sacco');
                             end;
                         end;
                     end;

@@ -769,7 +769,7 @@ Page 50417 "Paybill Processing Header"
 
                             SMSText := ObjPaybillLines."Document No." + ' Paybill Deposit of Ksh. ' + Format(ObjPaybillLines.Amount) + ' has been updated to the correct Acc. ' +
                             ObjPaybillLines."Correct Account No" + ' - ' + ObjPaybillLines."Account Name" + ' on ' +
-                            Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>') + '. Kingdom Sacco';
+                            Format(CurrentDatetime, 0, '<Day,2> <Month Text,3> <Year4> <Hours24,2>:<Minutes,2>') + '. Viwanda Sacco';
                             SFactoryMobile.SMSMessage('PAYBILL', ObjPaybillLines."Correct Account No", ObjPaybillLines."Mobile Phone Number", SMSText, '');
 
                         until ObjPaybillLines.Next = 0;

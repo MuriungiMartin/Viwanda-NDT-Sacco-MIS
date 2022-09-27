@@ -278,9 +278,9 @@ Page 50656 "Posted Finance UpLoads Header"
                                 Window.Update(1, Percentage);
                                 Window.Update(2, Counter);
                                 if "Account Balancing Type" = "account balancing type"::"LampSum Balancing" then
-                                    SFactory.FnSendSMS('SALARIES', 'Your Salary has been processed at KINGDOM Sacco.', salarybuffer."Account No.", salarybuffer."Mobile Phone Number")
+                                    SFactory.FnSendSMS('SALARIES', 'Your Salary has been processed at Viwanda Sacco.', salarybuffer."Account No.", salarybuffer."Mobile Phone Number")
                                 else
-                                    SFactory.FnSendSMS('SALARIES', 'Your Instant savings has been processed at KINGDOM Sacco. Dial', salarybuffer."Account No.", salarybuffer."Mobile Phone Number");
+                                    SFactory.FnSendSMS('SALARIES', 'Your Instant savings has been processed at Viwanda Sacco. Dial', salarybuffer."Account No.", salarybuffer."Mobile Phone Number");
                                 if ObjVendor.Get(salarybuffer."Account No.") then begin
                                     if ObjVendor."Salary Processing" = false then begin
                                         ObjVendor."Salary Processing" := true;

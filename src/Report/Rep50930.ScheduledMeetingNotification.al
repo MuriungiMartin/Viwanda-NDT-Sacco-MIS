@@ -75,7 +75,7 @@ Report 50930 "Scheduled Meeting Notification"
                     if ObjLeads.Get(ObjMeetings."Lead No") then begin
                         if ObjLeads."Phone No." <> '' then
                             VarSmsBody := 'Dear ' + ' ' + ObjLeads."First Name" + ',' + 'you have a scheduled meeting with' + ' ' + ObjMeetings."User to Notify" + ' ' + 'on' + ' '
-                            + Format(ObjMeetings."Meeting Date") + ' ' + 'at' + ' ' + ObjMeetings."Meeting Place" + '.Contact Kingdom Sacco for clarification.';
+                            + Format(ObjMeetings."Meeting Date") + ' ' + 'at' + ' ' + ObjMeetings."Meeting Place" + '.Contact Viwanda Sacco for clarification.';
                         SurestpFactory.FnSendSMS('MeetingNotification', VarSmsBody, ObjLeads."No.", ObjLeads."Phone No.");
                     end;
                 end;
@@ -131,7 +131,7 @@ Report 50930 "Scheduled Meeting Notification"
     end;
 
     var
-        MeetingsMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Meeting Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">This is to confirm that you have a scheduled meeting with %2  on  %3  at %4,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>KINGDOM SACCO LTD</b></p>';
+        MeetingsMessage: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Meeting Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">This is to confirm that you have a scheduled meeting with %2  on  %3  at %4,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>Viwanda Sacco LTD</b></p>';
         Memb: Record "Membership Applications";
         SMTPMail: Codeunit "SMTP Mail";
         SMTPSetup: Record "SMTP Mail Setup";

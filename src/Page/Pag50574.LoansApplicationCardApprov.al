@@ -855,7 +855,7 @@ Page 50574 "Loans Application Card(Approv)"
                                     BEGIN
                                        SFactory.FnSendSMS('LOAN GUARANTORS','You have guaranteed an amount of '+FORMAT(LoanGuar."Amont Guaranteed")
                                       +' to '+"Client Name"+' Staff No:-'+"Staff No"+' '+
-                                      'Loan Type '+"Loan Product Type"+' of '+FORMAT("Requested Amount") +' at Kingdom Sacco Ltd.',Cust."FOSA Account No.",Cust."Phone No.");
+                                      'Loan Type '+"Loan Product Type"+' of '+FORMAT("Requested Amount") +' at Viwanda Sacco Ltd.',Cust."FOSA Account No.",Cust."Phone No.");
                                     END;
                                UNTIL LoanGuar.NEXT=0;
                             END;*/
@@ -2259,7 +2259,7 @@ Page 50574 "Loans Application Card(Approv)"
             SMTPMail.AppendBody('<br><br>');
             SMTPMail.AppendBody('Please find attached your loan repayment schedule.');
             SMTPMail.AppendBody('<br><br>');
-            SMTPMail.AppendBody('Thank you for choosing Kingdom SACCO');
+            SMTPMail.AppendBody('Thank you for choosing Viwanda Sacco');
             SMTPMail.AppendBody('<br><br>');
             SMTPMail.AppendBody('Kind Regards');
             SMTPMail.AppendBody('<br><br>');

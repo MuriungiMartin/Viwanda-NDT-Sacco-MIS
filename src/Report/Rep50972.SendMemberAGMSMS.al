@@ -42,7 +42,7 @@ Report 50972 "Send Member AGM SMS"
                 SMSMessage.Source := 'AGM NOTIFICATION';
                 SMSMessage."Entered By" := UserId;
                 SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
-                SMSMessage."SMS Message" := SMSBody + '. Vision Sacco';
+                SMSMessage."SMS Message" := SMSBody + '. Viwanda Sacco';
                 SMSMessage."Telephone No" := Member."Mobile Phone No";
                 if ((SMSMessage."Telephone No" <> '') and (SMSBody <> '')) then
                     SMSMessage.Insert;

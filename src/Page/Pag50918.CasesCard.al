@@ -546,7 +546,7 @@ Page 50918 "Cases Card"
         LoanNoVisible: Boolean;
         ObjUser: Record User;
         VarEscalatedtoEmail: Text[50];
-        CaseNotification: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Case Resolution Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">The Case Belonging to  Member no: %2  Case No  %3 has been resolved  by %4.Login to the case management module to see full details of the case resolution,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>KINGDOM SACCO LTD</b></p>';
+        CaseNotification: label '<p style="font-family:Verdana,Arial;font-size:10pt">Dear<b> %1,</b></p><p style="font-family:Verdana,Arial;font-size:9pt">Case Resolution Notification</p><p style="font-family:Verdana,Arial;font-size:9pt">The Case Belonging to  Member no: %2  Case No  %3 has been resolved  by %4.Login to the case management module to see full details of the case resolution,</p><p style="font-family:Verdana,Arial;font-size:9pt"> </b></p><br>Regards<p>%5</p><p><b>Viwanda Sacco LTD</b></p>';
         ObjCaseManagement: Record "Cases Management";
         ObjGenEnquiry: Record "General Equiries.";
         Recipient: List of [Text];

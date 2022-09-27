@@ -123,7 +123,7 @@ Page 50951 "ATM Card Receipt Batch Card"
                             Vend.SetRange(Vend."No.", ObjCardsReceipts."ATM Card Account No");
                             if Vend.Find('-') then begin
                                 msg := 'Dear ' + sfactory.FnRunSplitString(Vend.Name, ' ') + ', your ATM Card and PIN are ready for collection. Please note,' +
-                                'after 60 days your ATM card will be discarded. Kindly come with your original ID Card. Kingdom Sacco.';
+                                'after 60 days your ATM card will be discarded. Kindly come with your original ID Card. Viwanda Sacco.';
                                 //  sCloud.SMSMessageTBL(ObjCardsReceipts."Batch No.",Vend."No.",Vend."Mobile Phone No",CopyStr(msg,1,250),CopyStr(msg,251,500));
                             end;
                         until ObjCardsReceipts.Next = 0;

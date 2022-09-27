@@ -81,7 +81,7 @@ Page 50013 "Cheque Book Request Batch Card"
 
                         CardTxtFile.CreateOutstream(TxtStream);
                         repeat
-                            TxtStream.WriteText('KINGDOM SACCO-' + ObjChqBookRequestLines."Account Name" + ',' + ObjChqBookRequestLines."Cheque Book No");
+                            TxtStream.WriteText('Viwanda Sacco-' + ObjChqBookRequestLines."Account Name" + ',' + ObjChqBookRequestLines."Cheque Book No");
                             TxtStream.WriteText();
 
                             ObjChequeBookApplication.Reset;

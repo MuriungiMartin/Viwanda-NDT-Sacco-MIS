@@ -233,7 +233,7 @@ Page 50527 "Cheque Application"
                         ObjMember.SetRange(ObjMember."No.", ObjVendors."BOSA Account No");
                         if ObjMember.FindSet then begin
                             SMSMessage := 'Dear ' + ObjMember.Name + ', your new cheque book for Account No. ' + "Account No." + ' is ready for collection. Please note,' +
-                            'if not collected within 60 days the cheque book will be discarded. Kindly come with your original ID Card. Kingdom Sacco.';
+                            'if not collected within 60 days the cheque book will be discarded. Kindly come with your original ID Card. Viwanda Sacco.';
                             //  CloudPesa.SMSMessageTBL("No.","Account No.",ObjMember."Mobile Phone No",CopyStr(SMSMessage,1,250),CopyStr(SMSMessage,251,500));
                         end;
                     end;

@@ -154,7 +154,7 @@ Page 50623 "Loan Application FOSA(Approv)"
                             if Cust.Find('-') then begin
                                 SFactory.FnSendSMS('LOAN GUARANTORS', 'You have guaranteed an amount of ' + Format(LoanGuar."Amont Guaranteed")
                                + ' to ' + "Client Name" + ' Staff No:-' + "Staff No" + ' ' +
-                               'Loan Type ' + "Loan Product Type" + ' of ' + Format("Requested Amount") + ' at Kingdom Sacco Ltd.', Cust."FOSA Account No.", Cust."Phone No.");
+                               'Loan Type ' + "Loan Product Type" + ' of ' + Format("Requested Amount") + ' at Viwanda Sacco Ltd.', Cust."FOSA Account No.", Cust."Phone No.");
                             end;
                         until LoanGuar.Next = 0;
                     end;

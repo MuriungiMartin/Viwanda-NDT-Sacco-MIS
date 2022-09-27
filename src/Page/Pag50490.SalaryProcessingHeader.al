@@ -283,9 +283,9 @@ Page 50490 "Salary Processing Header"
                                 Window.Update(1, Percentage);
                                 Window.Update(2, Counter);
                                 if "Transaction Type" = "transaction type"::Salary then
-                                    SFactory.FnSendSMS('SALARIES', 'Your Salary has been processed at Vision Sacco.', salarybuffer."Account No.", salarybuffer."Mobile Phone Number")
+                                    SFactory.FnSendSMS('SALARIES', 'Your Salary has been processed at Viwanda Sacco.', salarybuffer."Account No.", salarybuffer."Mobile Phone Number")
                                 else
-                                    SFactory.FnSendSMS('SALARIES', 'Your Instant savings has been processed at Vision Sacco. Dial', salarybuffer."Account No.", salarybuffer."Mobile Phone Number");
+                                    SFactory.FnSendSMS('SALARIES', 'Your Instant savings has been processed at Viwanda Sacco. Dial', salarybuffer."Account No.", salarybuffer."Mobile Phone Number");
                                 if ObjVendor.Get(salarybuffer."Account No.") then begin
                                     if ObjVendor."Salary Processing" = false then begin
                                         ObjVendor."Salary Processing" := true;

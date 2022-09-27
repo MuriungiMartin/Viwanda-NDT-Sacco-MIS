@@ -76,7 +76,7 @@ Page 50948 "ATM Card Request Batch Card"
                     ObjRequestLine.SetRange(ObjRequestLine."Batch No.", "Batch No.");
                     ObjRequestLine.SetRange(ObjRequestLine.Ordered, true);
                     if ObjRequestLine.FindSet then begin
-                        CardTxtFile.Create(ObjGensetup."ATM Card Request Path" + Format(WorkDate, 0, '<Day,2><Month,2><Year4>') + '_KINGDOM SACCO LIMITED.sfu');
+                        CardTxtFile.Create(ObjGensetup."ATM Card Request Path" + Format(WorkDate, 0, '<Day,2><Month,2><Year4>') + '_Viwanda Sacco LIMITED.sfu');
                         CardTxtFile.CreateOutstream(TxtStream);
                         repeat
                             VarApplicantName := ConvertStr(ObjRequestLine."Account Name", ' ', ',') + ',,';
@@ -99,7 +99,7 @@ Page 50948 "ATM Card Request Batch Card"
                             TxtStream.WriteText();
                             TxtStream.WriteText('42993344');
                             TxtStream.WriteText();
-                            TxtStream.WriteText('KINGDOM SACCO LIMITED');
+                            TxtStream.WriteText('Viwanda Sacco LIMITED');
                             TxtStream.WriteText();
                             TxtStream.WriteText('END');
                             TxtStream.WriteText();
@@ -126,7 +126,7 @@ Page 50948 "ATM Card Request Batch Card"
                             ObjRequestLine.DeleteAll;
                         end;
 
-                        Message('The ATM Cards Order File ' + Format(WorkDate, 0, '<Day,2><Month,2><Year4>') + '_KINGDOM SACCO LIMITED.sfu' +
+                        Message('The ATM Cards Order File ' + Format(WorkDate, 0, '<Day,2><Month,2><Year4>') + '_Viwanda Sacco LIMITED.sfu' +
                         ' has Been Generated to ' + ObjGensetup."ATM Card Request Path");
                     end else
                         Message('There are no ATM Cards selected to be ordered');

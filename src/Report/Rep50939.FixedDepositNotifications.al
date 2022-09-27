@@ -32,7 +32,7 @@ Report 50939 "Fixed Deposit Notifications"
                             VarMemberName := SurestpFactory.FnConvertTexttoBeginingWordstostartWithCapital("Member Name");
                             varExpectedInterest := SurestpFactory.FnGetFosaAccountBalance("Fixed Deposit Account No") * "FD Interest Rate" / 100;
                             VarSmsBody := 'Dear ' + VarMemberName + ', your Fixed Deposit of Ksh. ' + Format(ObjFDPlacement."Amount to Fix") + ' will mature on ' + Format(ObjFDPlacement."FD Maturity Date", 0, '<Day,2> <Month Text,3> <Year4>') +
-                            ' with an interest of Ksh. ' + Format(varExpectedInterest) + '. Kindly give us instructions for renewal or closure of the same. Kingdom Sacco';
+                            ' with an interest of Ksh. ' + Format(varExpectedInterest) + '. Kindly give us instructions for renewal or closure of the same. Viwanda Sacco';
                             SurestpFactory.FnSendSMS('FDMaturity', VarSmsBody, ObjFDPlacement."Fixed Deposit Account No", VarMobileNo);
 
                             //===========================================================Email Notification
@@ -47,7 +47,7 @@ Report 50939 "Fixed Deposit Notifications"
 
                                           '<br><br>Should you not opt for rollover, kindly advice on how to treat your funds upon maturity. You may opt to withdraw partially or fully.' +
 
-                                          '<br><br>Thank you for choosing Kingdom Sacco. Our objective is to empower you economically and socially by promoting a Savings and Investments culture and providing affordable credit.';
+                                          '<br><br>Thank you for choosing Viwanda Sacco. Our objective is to empower you economically and socially by promoting a Savings and Investments culture and providing affordable credit.';
 
 
                             SurestpFactory.FnSendStatementViaMail(VarMemberName, VarEmailSubject, VarEmailBody, ObjAccount."E-Mail", 'FIXED DEPOSIT AGREEMENT.pdf',
