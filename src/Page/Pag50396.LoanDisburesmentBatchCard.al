@@ -403,11 +403,11 @@ Page 50396 "Loan Disburesment Batch Card"
                             LoanApps."Offset Eligibility Amount" := LoanApps."Approved Amount" * 0.5;
                             LoanApps."Posting Date" := WorkDate;
                             // LoanApps."Disbursed By" := UserId;
-                            LoanApps."Loan Disbursement Date" := Today;
-                            LoanApps.Modify;
-                            Posted := true;
-                            "Posted By" := UserId;
-                            "Posting Date" := WorkDate;
+                            // LoanApps."Loan Disbursement Date" := Today;
+                            // LoanApps.Modify;
+                            // Posted := true;
+                            // "Posted By" := UserId;
+                            // "Posting Date" := WorkDate;
                             Message('Loans Disbursed Successfully. The Members has been notified via SMS and Email.');
                             Commit;
 
@@ -2075,7 +2075,7 @@ Page 50396 "Loan Disburesment Batch Card"
                 IF VarAmounttoDisburse <= 0 THEN
                     ERROR('You have specified Disbursement Mode as Tranche/Multiple Disbursement, Amount to Disburse on Tranche 1 must be greater than zero.')
             END;
-
+            Message('Processing....');
             //------------------------------------1. DEBIT MEMBER LOAN A/C---------------------------------------------------------------------------------------------
             LineNo := LineNo + 10000;
             SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::Loan,
@@ -2213,7 +2213,7 @@ Page 50396 "Loan Disburesment Batch Card"
             IF LoanType.GET(LoanApps."Loan Product Type") THEN BEGIN
                 //IF LoanType."Accrue Total Insurance&Interes" = TRUE THEN BEGIN
 
-
+                Message('Charging insurance...');
                 PCharges.RESET;
                 PCharges.SETRANGE(PCharges."Product Code", LoanApps."Loan Product Type");
                 PCharges.SETRANGE(PCharges."Loan Charge Type", PCharges."Loan Charge Type"::"Loan Insurance");
@@ -2225,16 +2225,17 @@ Page 50396 "Loan Disburesment Batch Card"
                     IF PCharges."Use Perc" = TRUE THEN
                         PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
                     //----------------------Debit insurance Receivable Account a/c-----------------------------------------------------
+                    Message('insurance to charge %1...', PChargeAmount);
                     LineNo := LineNo + 10000;
-                    SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
-                    GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount * LoanType."No of Installment", 'BOSA', BLoan,
-                    'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+                    SFactory.FnCreateGnlJournalLineBalanced(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
+                    GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", 'Insurance Charged' + '_' + LoanApps."Loan  No.", GenJournalLine."Bal. Account Type"::"G/L Account",
+                    LoanType."Loan Insurance Accounts", PChargeAmount, 'BOSA', LoanApps."Loan  No.");
 
                     //----------------------Credit Insurance Payable Account a/c-----------------------------------------------------
-                    LineNo := LineNo + 10000;
-                    SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
-                    GenJournalLine."Account Type"::"G/L Account", LoanType."Loan Insurance Accounts", "Posting Date", (PChargeAmount * LoanType."No of Installment") * -1, 'BOSA', BLoan,
-                    'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+                    // LineNo := LineNo + 10000;
+                    // SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+                    // GenJournalLine."Account Type"::"G/L Account", LoanType."Loan Insurance Accounts", "Posting Date", (PChargeAmount) * -1, 'BOSA', BLoan,
+                    // 'Insurance Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
                 END;
                 // END;
             END;
@@ -2256,15 +2257,16 @@ Page 50396 "Loan Disburesment Batch Card"
                         PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
                     //----------------------Debit Application fee Receivable Account a/c-----------------------------------------------------
                     LineNo := LineNo + 10000;
-                    SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Insurance Charged",
-                    GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", PChargeAmount * LoanType."No of Installment", 'BOSA', BLoan,
-                    'Application fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+                    LineNo := LineNo + 10000;
+                    SFactory.FnCreateGnlJournalLineBalanced(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Application Fee charged",
+                    GenJournalLine."Account Type"::Customer, LoanApps."Client Code", "Posting Date", 'Application fee Charged' + '_' + LoanApps."Loan  No.", GenJournalLine."Bal. Account Type"::"G/L Account",
+                    LoanType."Loan Insurance Accounts", PChargeAmount, 'BOSA', LoanApps."Loan  No.");
 
                     //----------------------Credit Application fee Payable Account a/c-----------------------------------------------------
-                    LineNo := LineNo + 10000;
-                    SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
-                    GenJournalLine."Account Type"::"G/L Account", LoanType."Loan ApplFee Accounts", "Posting Date", (PChargeAmount * LoanType."No of Installment") * -1, 'BOSA', BLoan,
-                    'Application fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
+                    // LineNo := LineNo + 10000;
+                    // SFactory.FnCreateGnlJournalLine(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::" ",
+                    // GenJournalLine."Account Type"::"G/L Account", LoanType."Loan ApplFee Accounts", "Posting Date", (PChargeAmount * LoanType."No of Installment") * -1, 'BOSA', BLoan,
+                    // 'Application fee Charged' + '_' + LoanApps."Loan  No.", LoanApps."Loan  No.", GenJournalLine."Application Source"::" ");
                 END;
                 // END;
             END;
