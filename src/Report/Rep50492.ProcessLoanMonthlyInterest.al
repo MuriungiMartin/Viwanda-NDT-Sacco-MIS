@@ -109,7 +109,7 @@ Report 50492 "Process Loan Monthly Interest"
                                     GenJournalLine."Journal Template Name" := 'General';
                                     GenJournalLine."Journal Batch Name" := 'INTDUE';
                                     GenJournalLine."Line No." := LineNo;
-                                    GenJournalLine."Account Type" := GenJournalLine."account type"::None;
+                                    GenJournalLine."Account Type" := GenJournalLine."account type"::Customer;
                                     GenJournalLine."Account No." := loanapp."Client Code";
                                     GenJournalLine."Transaction Type" := GenJournalLine."transaction type"::"Interest Due";
                                     GenJournalLine.Validate(GenJournalLine."Account No.");
