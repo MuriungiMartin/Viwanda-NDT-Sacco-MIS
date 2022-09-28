@@ -21,7 +21,6 @@ table 50995 "Phone Validation Buffer"
                 for i := 1 to StrLen("Phone No") do begin
                     if i = 1 then begin
                         Variant := "Phone No"[i];
-                        Message(Variant);
                         FirstCharacter := Variant;
                         if FirstCharacter <> '+' then begin
                             if not Character.IsNumber("Phone No"[i]) then begin

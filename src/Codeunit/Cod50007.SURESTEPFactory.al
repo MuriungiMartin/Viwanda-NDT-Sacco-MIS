@@ -13689,9 +13689,6 @@ Codeunit 50007 "SURESTEP Factory"
         end;
         IsValidPhoneNo := true;
         for i := 1 to StrLen(PhoneNo) do begin
-            IF Character.IsLetter(PhoneNo[i]) then begin
-                IsValidPhoneNo := false;
-            end;
             if (StrLen(PhoneNo) > 13) or (StrLen(PhoneNo) < 10) then
                 IsValidPhoneNo := false
             else
