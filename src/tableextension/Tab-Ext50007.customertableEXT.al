@@ -128,6 +128,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount"
              where("Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                  "Customer No." = field("No.")));
             FieldClass = FlowField;
         }
@@ -148,6 +149,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Transaction Type" = const("Share Capital"),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Document No." = field("Document No. Filter")));
             Editable = false;
             FieldClass = FlowField;
@@ -503,6 +505,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Transaction Type" = const("Loan Insurance Charged"),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter")));
             Editable = false;
             FieldClass = FlowField;
@@ -537,6 +540,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Transaction Type" = filter("Insurance Contribution"),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter")));
             Editable = false;
             FieldClass = FlowField;
@@ -620,6 +624,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Transaction Type" = const(Dividend),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter")));
             FieldClass = FlowField;
         }
@@ -655,6 +660,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Transaction Type" = const("Unallocated Funds"),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter")));
             Editable = false;
             FieldClass = FlowField;
@@ -1116,6 +1122,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Document No." = field("Document No. Filter"),
                                                                   "Transaction Type" = const("Safari Savings")));
             FieldClass = FlowField;
@@ -1133,6 +1140,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Transaction Type" = const("Silver Savings"),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter")));
             Editable = false;
             FieldClass = FlowField;
@@ -1142,6 +1150,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Transaction Type" = const("Benevolent Fund"),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter")));
             Editable = false;
             FieldClass = FlowField;
@@ -1363,6 +1372,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Document No." = field("Document No. Filter"),
                                                                   "Transaction Type" = const("Loan Insurance Charged")));
             FieldClass = FlowField;
@@ -1374,6 +1384,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter"),
                                                                    "Transaction Type" = const("Share Capital")));
             FieldClass = FlowField;
@@ -1382,6 +1393,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                    "Document No." = field("Document No. Filter"),
                                                                    "Transaction Type" = const("Share Capital")));
             FieldClass = FlowField;
@@ -1703,6 +1715,8 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = - sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter("Benevolent Fund")));
             FieldClass = FlowField;
         }
@@ -1734,6 +1748,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter("Share Capital" | "Interest Paid" | "Deposit Contribution" | "Insurance Contribution")));
             FieldClass = FlowField;
         }
@@ -2258,6 +2273,7 @@ tableextension 50007 "customertableEXT" extends Customer
         {
             CalcFormula = sum("Detailed Vendor Ledg. Entry"."Credit Amount" where("Vendor No." = field("Deposits Account No"),
                                                                                    "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                                    "Document No." = filter(<> 'BALB/F9THNOV2018')));
             Editable = false;
             FieldClass = FlowField;
@@ -2442,6 +2458,7 @@ tableextension 50007 "customertableEXT" extends Customer
             Reversed = filter(false),
                                                                   "Loan Type" = const('DL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2450,6 +2467,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('EL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2458,6 +2476,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('IL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2466,6 +2485,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('MSL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2474,6 +2494,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('SL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2482,6 +2503,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('SPL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2490,6 +2512,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('SSL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2498,6 +2521,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('TL'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2506,6 +2530,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('TL1'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2514,6 +2539,7 @@ tableextension 50007 "customertableEXT" extends Customer
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('VS-MEMBER'),
                                                                   "Posting Date" = field("Date Filter"),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }

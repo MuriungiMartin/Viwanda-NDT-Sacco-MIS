@@ -357,11 +357,12 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                 LoanApp.SetFilter(LoanApp."Outstanding Balance", '>%1', 0);
                                 if LoanApp.FindSet() then begin
                                     repeat
-
+                                        //Message('Loan number %1', LoanApp."Loan  No.");
                                         ObjLSchedule.reset;
                                         ObjLSchedule.SetRange(ObjLSchedule."Loan No.", LoanApp."Loan  No.");
                                         ObjLSchedule.SetFilter(ObjLSchedule."Repayment Date", '<=%1', "Loan CutOff Date");
                                         if ObjLSchedule.FindLast() then begin
+                                            // Message('yoh');
                                             LRepayment := ObjLSchedule."Principal Repayment";
                                         end;
                                         LineN := LineN + 10000;
@@ -377,7 +378,6 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                         Gnljnline.Description := 'Repayment ' + Remarks;
 
                                         if RunBal > 0 then begin
-
                                             if RunBal > LRepayment then
                                                 Gnljnline.Amount := LRepayment * -1
                                             else
@@ -412,7 +412,6 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                             RunBal := RcptBufLines."Saccco Benevolent";
 
                             if RunBal > 0 then begin
-
                                 Cust.Reset;
                                 Cust.SetRange(Cust."No.", RcptBufLines."Member No");
                                 if Cust.Find('-') then begin
@@ -582,6 +581,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                         Gnljnline.Amount := RcptBufLines."Sacco Appl Fee" * -1;
                                         Gnljnline.Validate(Gnljnline.Amount);
                                         Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Loan Application Fee Paid";
+                                        Gnljnline."Loan No" := LoanApp."Loan  No.";
                                         if Gnljnline.Amount <> 0 then
                                             Gnljnline.Insert;
                                         RunBal := RunBal - (Gnljnline.Amount * -1);
@@ -611,6 +611,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
+        Message('yoh4');
         "Posting date" := Today;
         "Date Entered" := Today;
     end;
@@ -656,6 +657,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
     procedure FnGetTotalSheduled()
     begin
+        Message('yoh5');
         ReceiptsProcessingLines.Reset();
         ;
         ReceiptsProcessingLines.SetRange(ReceiptsProcessingLines."Receipt Header No", Rec.No);

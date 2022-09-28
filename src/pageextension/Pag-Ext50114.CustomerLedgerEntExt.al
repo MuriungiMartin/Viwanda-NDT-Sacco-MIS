@@ -3,6 +3,10 @@ pageextension 50114 "CustomerLedgerEntExt" extends "Customer Ledger Entries"
     layout
     {
         // Add changes to page layout here
+        modify(Reversed)
+        {
+            Visible = true;
+        }
         addlast(Control1)
         {
             field("Transaction Type"; "Transaction Type")
@@ -33,6 +37,8 @@ pageextension 50114 "CustomerLedgerEntExt" extends "Customer Ledger Entries"
                 Editable = false;
 
             }
+
+
         }
     }
 

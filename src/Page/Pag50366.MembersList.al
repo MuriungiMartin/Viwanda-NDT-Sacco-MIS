@@ -401,7 +401,6 @@ Page 50366 "Members List"
     var
         myInt: Integer;
     begin
-        Message('Publishing is true');
     end;
 
     trigger OnAfterGetRecord()

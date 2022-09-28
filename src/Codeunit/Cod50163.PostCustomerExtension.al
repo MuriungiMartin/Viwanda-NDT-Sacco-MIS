@@ -80,7 +80,7 @@ codeunit 50163 "PostCustomerExtension"
         //-----------------------------------Loan Processing Fee-----------------------------------------------------------
         if (GenJournalLine."Transaction Type" = GenJournalLine."transaction type"::"Loan Application Fee charged") then begin
             if GenJournalLine."Loan No" = '' then
-                Error('Loan No must be specified for Loan, Repayment,Loan Insurance or processing fee transactions :- %1', GenJournalLine."Account No.");
+                Error('Loan No must be specified for Loan Application fee transactions :- %1', GenJournalLine."Account No.");
 
             LoanApp.Reset;
             LoanApp.SetCurrentkey(LoanApp."Loan  No.");
@@ -392,7 +392,11 @@ codeunit 50163 "PostCustomerExtension"
         CustLedgerEntry."Application Source" := GenJournalLine."Application Source";
         CustLedgerEntry."Created On" := CurrentDateTime;
         CustLedgerEntry.CalcFields(Amount);
+        if CustLedgerEntry.Reversed then begin
+            CustLedgerEntry."Transaction Amount" := (GenJournalLine.Amount) * -1;
+        end;
         CustLedgerEntry."Transaction Amount" := GenJournalLine.Amount;
+
     end;
 
     [EventSubscriber(ObjectType::Table, 179, 'OnAfterReverseEntries', '', false, false)]
@@ -401,14 +405,13 @@ codeunit 50163 "PostCustomerExtension"
         Custledger: Record "Cust. Ledger Entry";
         CustledgeentPage: page "Customer Ledger Entries";
         ReversalEntry: Record "Reversal Entry";
-
     begin
         Custledger.reset;
         if Custledger.Findlast then begin
             Custledger.CalcFields(Amount);
             if Custledger.Reversed then
                 Custledger."Transaction Amount" := Custledger.amount;
-            Custledger.Modify();
+            // Custledger.Modify();
         end;
 
     end;
