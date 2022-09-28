@@ -13692,7 +13692,7 @@ Codeunit 50007 "SURESTEP Factory"
             IF Character.IsLetter(PhoneNo[i]) then begin
                 IsValidPhoneNo := false;
             end;
-            if (StrLen(PhoneNo) > 12) or (StrLen(PhoneNo) < 10) then
+            if (StrLen(PhoneNo) > 13) or (StrLen(PhoneNo) < 10) then
                 IsValidPhoneNo := false
             else
                 IsValidPhoneNo := true;

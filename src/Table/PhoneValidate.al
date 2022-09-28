@@ -15,10 +15,23 @@ table 50995 "Phone Validation Buffer"
             var
                 Character: DotNet Char;
                 i: Integer;
+                Variant: Variant;
+                FirstCharacter: Text;
             begin
                 for i := 1 to StrLen("Phone No") do begin
-                    if Character.IsLetter("Phone No"[i]) then begin
-                        Error('Phone Number canot contain letters');
+                    if i = 1 then begin
+                        Variant := "Phone No"[i];
+                        Message(Variant);
+                        FirstCharacter := Variant;
+                        if FirstCharacter <> '+' then begin
+                            if not Character.IsNumber("Phone No"[i]) then begin
+                                Error('First Character should be a digit or +.');
+                            end;
+                        end;
+                    end else begin
+                        if not Character.IsNumber("Phone No"[i]) then begin
+                            Error('Phone Number canot contain letters');
+                        end;
                     end;
                 end;
             end;
