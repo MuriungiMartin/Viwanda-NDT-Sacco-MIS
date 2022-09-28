@@ -12295,6 +12295,9 @@ Codeunit 50007 "SURESTEP Factory"
         VarSixMonthsBack: Date;
         ObjMemberStatusLog: Record "Member Account Status  Logs";
         VarEntryNo: Integer;
+        DialogWindow: Dialog;
+        DialogLabel: Label 'Running Dormancy #1#### ...';
+        DCounter: Integer;
     begin
         ObjGensetup.Get;
         VarSixMonthsBack := CalcDate(ObjGensetup."Dormancy Period", VarActionDate);
@@ -12304,7 +12307,9 @@ Codeunit 50007 "SURESTEP Factory"
         ObjMember.SetFilter(ObjMember."Member Last Transaction Date", '<%1|%2', VarSixMonthsBack, 0D);
         ObjMember.SetFilter(ObjMember."Registration Date", '<%1', VarSixMonthsBack);
         if ObjMember.FindSet then begin
+            DialogWindow.Open(DialogLabel);
             repeat
+                DCounter += 1;
                 ObjMember.CalcFields(ObjMember."Member Last Transaction Date");
                 if ObjMember."Member Last Transaction Date" <> 0D then begin
                     VarDormancyBaseDate := CalcDate(ObjGensetup."Max. Non Contribution Periods", ObjMember."Member Last Transaction Date");
@@ -12365,6 +12370,7 @@ Codeunit 50007 "SURESTEP Factory"
                             ObjMemberStatusLog.Insert;
                         end;
                     end;
+                DialogWindow.Update(1, DCounter);
             until ObjMember.Next = 0;
         end;
     end;
