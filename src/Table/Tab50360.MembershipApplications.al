@@ -244,7 +244,15 @@ Table 50360 "Membership Applications"
         {
 
             trigger OnValidate()
+            var
+                Character: DotNet Char;
+                i: Integer;
             begin
+                for i := 1 to StrLen("Mobile Phone No") do begin
+                    IF Character.IsLetter("Mobile Phone No"[i]) then begin
+                        Error('Phone number contains letters');
+                    end;
+                end;
                 if Sfactory.FnValidatePhoneNo("Mobile Phone No") = false then
                     Error('Phone Number is Invalid');
                 if StrLen("Mobile Phone No") < 10 then

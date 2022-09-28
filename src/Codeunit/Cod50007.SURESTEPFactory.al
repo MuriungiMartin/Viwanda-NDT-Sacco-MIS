@@ -13667,16 +13667,28 @@ Codeunit 50007 "SURESTEP Factory"
     var
         Character: DotNet Char;
         i: Integer;
-        Varia: Variant;
+        PhoneValidationTable: Record "Phone Validation Buffer";
+        entryNo: Integer;
     begin
+        if PhoneValidationTable.FindLast() then
+            entryNo := PhoneValidationTable."Entry No"
+        else
+            entryNo := 1;
+        PhoneValidationTable.Init();
+        ;
+        PhoneValidationTable."Entry No" := entryNo;
+        PhoneValidationTable."Phone No" := PhoneNo;
+        PhoneValidationTable.Insert(true);
+        PhoneValidationTable.Reset();
+        PhoneValidationTable.SetRange(PhoneValidationTable."Phone No", PhoneNo);
+        if PhoneValidationTable.FindLast() then begin
+            PhoneValidationTable.Validate(PhoneValidationTable."Phone No");
+        end;
+        IsValidPhoneNo := true;
         for i := 1 to StrLen(PhoneNo) do begin
-            Character := PhoneNo[i];
-            Varia := Character;
-            if not Varia.IsInteger then
-                IsValidPhoneNo := false
-            else
-                IsValidPhoneNo := true;
-
+            IF Character.IsLetter(PhoneNo[i]) then begin
+                IsValidPhoneNo := false;
+            end;
             if (StrLen(PhoneNo) > 12) or (StrLen(PhoneNo) < 10) then
                 IsValidPhoneNo := false
             else
