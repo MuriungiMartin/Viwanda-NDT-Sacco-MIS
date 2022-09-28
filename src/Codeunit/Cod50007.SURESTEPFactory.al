@@ -13677,6 +13677,11 @@ Codeunit 50007 "SURESTEP Factory"
             else
                 IsValidPhoneNo := true;
 
+            if (StrLen(PhoneNo) > 12) or (StrLen(PhoneNo) < 10) then
+                IsValidPhoneNo := false
+            else
+                IsValidPhoneNo := true;
+
             exit(IsValidPhoneNo);
         end;
     end;

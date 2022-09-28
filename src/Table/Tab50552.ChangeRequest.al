@@ -205,8 +205,16 @@ Table 50552 "Change Request"
             OptionCaption = 'Single,Joint,Corporate,Group,Parish,Church,Church Department,Staff';
             OptionMembers = Single,Joint,Corporate,Group,Parish,Church,"Church Department",Staff;
         }
-        field(20; Email; Code[40])
+        field(20; Email; Text[100])
         {
+            trigger OnValidate()
+            var
+                myInt: Integer;
+            begin
+                if not Sfactory.FnValidateEmailAddress(Email) then begin
+                    Error('Incorrect email format');
+                end;
+            end;
         }
         field(21; Section; Code[40])
         {
@@ -328,6 +336,13 @@ Table 50552 "Change Request"
         }
         field(55; "Mobile No(New Value)"; Code[50])
         {
+            trigger OnValidate()
+            var
+                myInt: Integer;
+            begin
+                if not SFactory.FnValidatePhoneNo("Mobile No(New Value)") then
+                    Error('Invalid Mobile phone number');
+            end;
         }
         field(56; "Name(New Value)"; Text[40])
         {
@@ -352,8 +367,16 @@ Table 50552 "Change Request"
         field(62; "City(New Value)"; Code[30])
         {
         }
-        field(63; "E-mail(New Value)"; Code[250])
+        field(63; "E-mail(New Value)"; Text[250])
         {
+            trigger OnValidate()
+            var
+                myInt: Integer;
+            begin
+                if not Sfactory.FnValidateEmailAddress("E-mail(New Value)") then begin
+                    Error('Incorrect email format');
+                end;
+            end;
         }
         field(64; "Personal No(New Value)"; Code[30])
         {
@@ -427,7 +450,15 @@ Table 50552 "Change Request"
         {
         }
         field(85; "Phone No.(New)"; Code[20])
+
         {
+            trigger Onvalidate()
+            var
+                myInt: Integer;
+            begin
+                if not SFactory.FnValidatePhoneNo("Phone No.(New)") then
+                    error('Inavalid Phone Number entered');
+            end;
         }
         field(86; Blocked; enum "Vendor Blocked")
         {
@@ -656,6 +687,7 @@ Table 50552 "Change Request"
         vend: Record Vendor;
         Memb: Record Customer;
         MemberCell: Record "Hexa Binary";
+        SFactory: Codeunit "SURESTEP Factory";
         MediaId: Guid;
         Dates: Codeunit "Dates Calculation";
         MemmberExit: Record "Membership Exist";

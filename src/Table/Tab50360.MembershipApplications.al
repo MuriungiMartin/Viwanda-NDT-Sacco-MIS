@@ -75,13 +75,15 @@ Table 50360 "Membership Applications"
                 "Address 2" := UpperCase("Address 2");
             end;
         }
-        field(7; "Phone No."; Text[30])
+        field(7; "Phone No."; Code[20])
         {
             Caption = 'Phone No.';
             ExtendedDatatype = PhoneNo;
 
             trigger OnValidate()
             begin
+                if Sfactory.FnValidatePhoneNo("Phone No.") = false then
+                    Error('Phone Number is Invalid');
                 "Phone No." := UpperCase("Phone No.")
             end;
         }
@@ -175,6 +177,17 @@ Table 50360 "Membership Applications"
         }
         field(68005; "E-Mail (Personal)"; Text[50])
         {
+            trigger OnValidate()
+            var
+                myInt: Integer;
+            begin
+                if not Sfactory.FnValidateEmailAddress("E-Mail (Personal)") then begin
+                    "E-mail Indemnified" := false;
+                    Error('Incorrect email format');
+                end else begin
+                    "E-mail Indemnified" := true;
+                end;
+            end;
         }
         field(68006; "Station/Department"; Code[20])
         {
@@ -232,8 +245,10 @@ Table 50360 "Membership Applications"
 
             trigger OnValidate()
             begin
+                if Sfactory.FnValidatePhoneNo("Mobile Phone No") = false then
+                    Error('Phone Number is Invalid');
                 if StrLen("Mobile Phone No") < 10 then
-                    Error('Mobile No. Can not be less than 11 Characters');
+                    Error('Mobile No. Can not be less than 10 Characters');
 
                 if "Mobile Phone No" <> '' then begin
                     Cust.Reset;
@@ -1627,6 +1642,7 @@ Table 50360 "Membership Applications"
         MinShares: Decimal;
         MovementTracker: Record "Movement Tracker";
         Cust: Record Customer;
+        Sfactory: codeunit "SURESTEP Factory";
         Vend: Record Vendor;
         CustFosa: Code[20];
         Vend2: Record Vendor;
