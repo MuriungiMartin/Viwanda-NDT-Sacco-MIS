@@ -18,24 +18,6 @@
             "enableSqlInformationDebugger": true,
             "tenant": "default"
         },
-        {
-            "name": "Production",
-            "type": "al",
-            "request": "launch",
-            "environmentType": "OnPrem",
-            "server": "http://192.168.0.10:4043",
-            "serverInstance": "BC190",
-            "authentication": "Windows",
-            "startupObjectId": 50366,
-            "breakOnError": true,
-            "breakOnRecordWrite": false,
-            "launchBrowser": true,
-            "enableSqlInformationDebugger": true,
-            "enableLongRunningSqlStatements": true,
-            "longRunningSqlStatementsThreshold": 500,
-            "numberOfSqlStatements": 10,
-            "tenant": "default"
-        }
     ]
     
 }

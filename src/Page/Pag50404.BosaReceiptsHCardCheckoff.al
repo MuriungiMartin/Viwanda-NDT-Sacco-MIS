@@ -120,12 +120,15 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                 trigger OnAction()
                 Var
                     TotalScheduledAmount: Decimal;
+                    Counter: Integer;
                 begin
+                    DialogWindow.Open(ValidationLabel);
                     FnGetTotalSheduled();
                     RcptBufLines.Reset;
                     RcptBufLines.SetRange(RcptBufLines."Receipt Header No", No);
                     if RcptBufLines.Find('-') then begin
                         repeat
+                            Counter += 1;
                             Cust.Reset;
                             Cust.SetRange(Cust."No.", RcptBufLines."Member No");
                             if Cust.Find('-') then begin
@@ -137,7 +140,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                                 //UNTIL Cust.NEXT=0;
                             end;
 
-
+                            DialogWindow.Update(1, Counter);
                         until RcptBufLines.Next() = 0;
                     end;
                     Message('Validation Complete');
@@ -146,12 +149,34 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
             group(ActionGroup1102755019)
             {
             }
-            action("Post check off")
+            action("View Journal")
+            {
+                ApplicationArea = Basic;
+                Caption = 'View Journal';
+                Promoted = true;
+                PromotedCategory = Process;
+                Image = Journals;
+                trigger OnAction()
+                var
+                    myInt: Integer;
+                begin
+                    Gnljnline.Reset;
+                    Gnljnline.SetRange("Journal Template Name", 'GENERAL');
+                    Gnljnline.SetRange("Journal Batch Name", 'CHECKOFF');
+                    if Gnljnline.Find('-') then
+                        Page.Run(page::"General Journal", Gnljnline);
+                end;
+            }
+            action("Process check off")
             {
                 ApplicationArea = Basic;
                 Caption = 'Process check off';
-
+                Promoted = true;
+                PromotedCategory = Process;
+                Image = Process;
                 trigger OnAction()
+                var
+                    counter: Integer;
                 begin
 
                     genstup.Get();
@@ -169,20 +194,6 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
                     PDate := "Posting date";
                     DocNo := "Document No";
-                    // GenBatches.Reset;
-                    // GenBatches.SetRange(GenBatches."Journal Template Name", 'GENERAL');
-                    // GenBatches.SetRange(GenBatches.Name, No);
-                    // if GenBatches.Find('-') = false then begin
-                    //     GenBatches.Init;
-                    //     GenBatches."Journal Template Name" := 'GENERAL';
-                    //     GenBatches.Name := No;
-                    //     GenBatches.Description := 'cHECK OFF PROCESS';
-                    //     GenBatches.Validate(GenBatches."Journal Template Name");
-                    //     GenBatches.Validate(GenBatches.Name);
-                    //     GenBatches.Insert;
-                    // end;
-
-
 
                     //Delete journal
                     Gnljnline.Reset;
@@ -196,12 +207,6 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
 
                     RunBal := 0;
-                    //CalcFields("Scheduled Amount");
-                    /*
-                   IF "Scheduled Amount" <>   Amount THEN BEGIN
-                   ERROR('Scheduled Amount Is Not Equal To Cheque Amount');
-                   END;
-                   */
 
                     //Post Control Account------------------------------------------
 
@@ -227,7 +232,7 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
 
                     //------------------------------------Recover,Registration Fee, Insurance and Interest-------------------------------Viwanda
 
-
+                    DialogWindow.Open(ProcessingLabel);
                     //Registration Fee
                     genstup.Get();
                     //genstup.registra
@@ -236,8 +241,9 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                     RcptBufLines.SetRange(RcptBufLines.Posted, false);
                     if RcptBufLines.Find('-') then begin
                         repeat
+                            counter += 1;
                             RunBal := RcptBufLines."Sacco Total Interest";
-
+                            DialogWindow.Update(1, counter);
                             CUst.Reset();
                             Cust.SetRange(Cust."No.", RcptBufLines."Member No");
                             Cust.SetAutoCalcFields(Cust."Registration Fee Paid");
@@ -647,10 +653,12 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
         Datefilter: Text[50];
         ReceiptLine: Record "ReceiptsProcessing_L-Checkoff";
         ObjLSchedule: Record "Loan Repayment Schedule";
+        DialogWindow: Dialog;
+        ValidationLabel: Label 'Validating checkoff #1######------';
+        ProcessingLabel: Label 'Processing Checkoff #1#####-------';
 
     procedure FnGetTotalSheduled()
     begin
-        Message('yoh5');
         ReceiptsProcessingLines.Reset();
         ;
         ReceiptsProcessingLines.SetRange(ReceiptsProcessingLines."Receipt Header No", Rec.No);
