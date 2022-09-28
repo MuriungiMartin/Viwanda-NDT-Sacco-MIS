@@ -1077,7 +1077,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Loan No" = field("Loan  No."),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
 
@@ -1126,7 +1126,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = - sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                    "Transaction Type" = filter("Deposit Contribution"),
-                                                                   "Posting Date" = field("Date filter")));
+                                                                   "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(53111; "Loan Repayment"; Decimal)
@@ -1134,7 +1134,7 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter("Interest Paid"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -1196,7 +1196,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Interest Due Ledger Entry".Amount where("Loan No" = field("Loan  No."),
                                                                         "Transaction Type" = filter("Interest Due"),
-                                                                        "Posting Date" = field("Date filter")));
+                                                                        "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(53184; "Appraisal Status"; Option)
@@ -1231,7 +1231,7 @@ Table 50371 "Loans Register"
             CalcFormula = - sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                    "Loan No" = field("Loan  No."),
                                                                    "Transaction Type" = filter("Interest Paid"),
-                                                                   "Posting Date" = field("Date filter")));
+                                                                   "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(53186; "Penalty Paid"; Decimal)
@@ -1239,14 +1239,14 @@ Table 50371 "Loans Register"
             CalcFormula = - sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                    "Transaction Type" = filter("Loan Penalty Paid"),
                                                                    "Loan No" = field("Loan  No."),
-                                                                   "Posting Date" = field("Date filter")));
+                                                                   "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(53187; "Application Fee Paid"; Decimal)
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Loan No" = field("Loan  No."),
                                                                   "Transaction Type" = filter(Dividend),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -1254,7 +1254,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Loan No" = field("Loan  No."),
                                                                   "Transaction Type" = filter("FOSA Account"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -1298,7 +1298,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Loan No" = field("Loan  No."),
                                                                   "Transaction Type" = filter("Deposit Contribution"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(53195; "Schedule Interest to Date"; Decimal)
@@ -1858,7 +1858,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = max("Cust. Ledger Entry"."Posting Date" where("Loan No" = field("Loan  No."),
                                                                           "Transaction Type" = filter("Insurance Contribution"),
-                                                                          "Posting Date" = field("Date filter")));
+                                                                          "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -1889,7 +1889,7 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter("Share Capital" | "Interest Paid" | "FOSA Shares"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -1934,7 +1934,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = max("Cust. Ledger Entry"."Posting Date" where("Customer No." = field("Client Code"),
                                                                           "Transaction Type" = filter("Share Capital"),
-                                                                          "Posting Date" = field("Date filter")));
+                                                                          "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(68097; "Lst LN1"; Boolean)
@@ -2018,7 +2018,7 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -2196,7 +2196,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(69045; "Jaza Deposits"; Decimal)
@@ -2277,7 +2277,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Loan No" = field("Loan  No."),
                                                                   "Transaction Type" = filter("Insurance Contribution" | "Deposit Contribution"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -2322,7 +2322,7 @@ Table 50371 "Loans Register"
         field(69067; "Loans Insurance"; Decimal)
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
-                                                                  "Transaction Type" = filter("Loan Insurance Charged" | "Loan Insurance Paid"),
+                                                                  "Transaction Type" = filter("Loan Insurance Charged" | "Loan Insurance Paid"), Reversed = filter(false),
                                                                   "Loan No" = field("Loan  No.")));
             FieldClass = FlowField;
         }
@@ -2362,8 +2362,8 @@ Table 50371 "Loans Register"
         field(69078; "Totals Loan Outstanding"; Decimal)
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
-                                                                  "Transaction Type" = filter("Share Capital" | "Interest Paid"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Transaction Type" = filter("Share Capital" | "Interest Paid"), Reversed = filter(false),
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(69079; "Interest Upfront Amount"; Decimal)
@@ -2710,17 +2710,17 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter(Loan),
-                                                                  "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Loan No" = field("Loan  No."), Reversed = filter(false),
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(69147; "Partial Disbursed(Amount Due)"; Decimal)
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Transaction Type" = filter(Loan),
+                                                                  "Transaction Type" = filter(Loan), Reversed = filter(false),
                                                                   "Currency Code" = field("Currency Filter"),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(69148; "Loan Last Pay date 2009Nav"; Date)
@@ -3091,8 +3091,8 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter("Loan Repayment"),
-                                                                  "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  "Loan No" = field("Loan  No."), Reversed = filter(false),
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(69216; "Group Account"; Boolean)
@@ -3153,7 +3153,8 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter("Loan Insurance Paid"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  Reversed = filter(false),
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -3161,8 +3162,8 @@ Table 50371 "Loans Register"
         {
             FieldClass = FlowField;
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
-            "Transaction Type" = filter("Loan Insurance Charged" | "Loan Insurance Paid"),
-            "Posting Date" = field("Date Filter")));
+            "Transaction Type" = filter("Loan Insurance Charged" | "Loan Insurance Paid"), Reversed = filter(false),
+            "Posting Date" = field("Date filter"), Reversed = filter(false)));
         }
         field(69228; "Salary Total Income"; Decimal)
         {
@@ -3478,7 +3479,8 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter("Loan Repayment"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  Reversed = filter(false),
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(51516224; "Days In Arrears"; Integer)
@@ -3558,7 +3560,8 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment" | "Interest Due" | "Interest Paid" | "Loan Penalty Charged" | "Loan Penalty Paid" | "Loan Insurance Charged" | "Loan Insurance Paid"),
                                                                   "Loan No" = field("Loan  No."),
-                                                                  "Posting Date" = field("Date filter")));
+                                                                  Reversed = filter(false),
+                                                                  "Posting Date" = field("Date filter"), Reversed = filter(false)));
             FieldClass = FlowField;
         }
         field(51516244; "Closed On"; Date)
@@ -3580,7 +3583,7 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Member Loans Historical Ledger".Amount where("Account No." = field("Client Code"),
                                                                              "Loan No" = field("Loan  No."),
                                                                              "Transaction Type" = filter("Interest Paid"),
-                                                                             "Posting Date" = field("Date filter")));
+"Posting Date" = field("Date filter")));
             FieldClass = FlowField;
         }
         field(51516248; "Insurance Paid Historical"; Decimal)
@@ -3588,7 +3591,7 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Member Loans Historical Ledger".Amount where("Account No." = field("Client Code"),
                                                                              "Loan No" = field("Loan  No."),
                                                                              "Transaction Type" = filter("Insurance Paid"),
-                                                                             "Posting Date" = field("Date filter")));
+"Posting Date" = field("Date filter")));
             FieldClass = FlowField;
         }
         field(51516249; "Penalty Paid Historical"; Decimal)
@@ -3596,7 +3599,7 @@ Table 50371 "Loans Register"
             CalcFormula = sum("Member Loans Historical Ledger".Amount where("Account No." = field("Client Code"),
                                                                              "Loan No" = field("Loan  No."),
                                                                              "Transaction Type" = filter("Penalty Paid"),
-                                                                             "Posting Date" = field("Date filter")));
+"Posting Date" = field("Date filter")));
             FieldClass = FlowField;
         }
         field(51516250; "Application type"; Option)
@@ -3719,6 +3722,7 @@ Table 50371 "Loans Register"
         {
             CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Loan No" = field("Loan  No."),
+                                                                  Reversed = filter(false),
                                                                   "Transaction Type" = filter("Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -3786,8 +3790,8 @@ Table 50371 "Loans Register"
         field(51516294; "Out. Loan Application fee"; Decimal)
         {
             FieldClass = FlowField;
-            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Transaction Type" = filter("Loan Application Fee Charged" | "Loan Application Fee Paid"), "Loan No" = field("Loan  No."),
-            "Posting Date" = field("Date filter")));
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Transaction Type" = filter("Loan Application Fee Charged" | "Loan Application Fee Paid"), "Loan No" = field("Loan  No."), Reversed = filter(false),
+            "Posting Date" = field("Date filter"), Reversed = filter(false)));
         }
         field(51516295; "Application Fee"; Decimal)
         {
