@@ -9,6 +9,9 @@
     
     },
     "al.assemblyProbingPaths": [
-        "C:\\Program Files\\Microsoft Dynamics 365 Business Central\\190\\Service\\Add-ins\\ClientExtensions"
+        "C:\\Program Files\\Microsoft Dynamics 365 Business Central\\190\\Service\\Add-ins\\ClientExtensions",
+        "./.netpackages",
+        "c:/Windows/assembly/",
+        "C:/Program Files/Assemblies"
     ]
 }

@@ -13640,19 +13640,45 @@ Codeunit 50007 "SURESTEP Factory"
         end;
     end;
 
-    // progress Dialog
-    procedure fnCreateProgressDialog(TheRec: RecordRef)
-
+    procedure FnValidateEmailAddress(var EmailAddress: Text[100]) IsValidEmail: Boolean
     var
-        PDialog: Dialog;
-        TheCount: Integer;
-        CurrentCount: Integer;
-        TheTextToUpdate: Label 'Processing #1#######################\Customer No #2##################';
+        RegEx: dotnet Regex;
+        DotNetString: dotnet String;
+        EmailAddrArray: dotnet Array;
+        Convert: dotnet Convert;
+        I: Integer;
     begin
-
+        EmailAddress := ConvertStr(EmailAddress, ',', ';');
+        EmailAddress := DelChr(EmailAddress, '<>');
+        EmailAddrArray := RegEx.Split(EmailAddress, ';');
+        for I := 1 to EmailAddrArray.GetLength(0) do begin
+            EmailAddress := EmailAddrArray.GetValue(I - 1);
+            if not RegEx.IsMatch
+                  (EmailAddress, '^[\w!#$%&*+\-/=?\^_`{|}~]+(\.[\w!#$%&*+\-/=?\^_`{|}~]+)*@((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$') then begin
+                IsValidEmail := false;
+            end else
+                IsValidEmail := true;
+        end;
+        exit(IsValidEmail);
 
     end;
 
+    procedure FnValidatePhoneNo(var PhoneNo: Code[20]) IsValidPhoneNo: Boolean
+    var
+        Character: DotNet Char;
+        i: Integer;
+        Varia: Variant;
+    begin
+        for i := 1 to StrLen(PhoneNo) do begin
+            Character := PhoneNo[i];
+            Varia := Character;
+            if not Varia.IsInteger then
+                IsValidPhoneNo := false
+            else
+                IsValidPhoneNo := true;
 
+            exit(IsValidPhoneNo);
+        end;
+    end;
 }
 
