@@ -273,73 +273,66 @@ Page 50404 "Bosa Receipts H Card-Checkoff"
                             LoanApp.Reset();
                             LoanApp.SetRange(LoanApp."Client Code", RcptBufLines."Member No");
                             LoanApp.SetAutoCalcFields(LoanApp."Outstanding Balance", LoanApp."Outstanding Interest", LoanApp."Outstanding Insurance");
-                            LoanApp.SetFilter(LoanApp."Outstanding Insurance", '>%1', 0);
+                            LoanApp.SetFilter(LoanApp."Outstanding Balance", '>%1', 0);
                             if LoanApp.FindSet() then begin
                                 repeat
+                                    LoanApp.CalcFields(LoanApp."Outstanding Balance", LoanApp."Outstanding Interest", LoanApp."Outstanding Insurance");
                                     if RunBal > 0 then begin
-                                        LineN := LineN + 10000;
+                                        //++++++++++++++++++++Loan Inurance++++++++++++======
+                                        if LoanApp."Outstanding Insurance" > 0 then begin
+                                            LineN := LineN + 10000;
 
-                                        Gnljnline.Init;
-                                        Gnljnline."Journal Template Name" := 'GENERAL';
-                                        Gnljnline."Journal Batch Name" := 'CHECKOFF';
-                                        Gnljnline."Line No." := LineN;
-                                        Gnljnline."Account Type" := Gnljnline."bal. account type"::Customer;
-                                        Gnljnline."Account No." := LoanApp."Client Code";
-                                        Gnljnline.Validate(Gnljnline."Account No.");
-                                        Gnljnline."Document No." := "Document No";
-                                        Gnljnline."Posting Date" := "Posting date";
-                                        Gnljnline.Description := 'Insurance ' + Remarks;
-                                        if RunBal > LoanApp."Outstanding Insurance" then
-                                            Gnljnline.Amount := -ROUND(LoanApp."Outstanding Insurance", 1, '>')
-                                        else
-                                            Gnljnline.Amount := -Round(RunBal, 1, '>');
-                                        Gnljnline.Validate(Gnljnline.Amount);
-                                        Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Loan Insurance Paid";
-                                        Gnljnline."Loan No" := LoanApp."Loan  No.";
-                                        if Gnljnline.Amount <> 0 then
-                                            Gnljnline.Insert;
-                                        RunBal := RunBal + (Gnljnline.Amount);
+                                            Gnljnline.Init;
+                                            Gnljnline."Journal Template Name" := 'GENERAL';
+                                            Gnljnline."Journal Batch Name" := 'CHECKOFF';
+                                            Gnljnline."Line No." := LineN;
+                                            Gnljnline."Account Type" := Gnljnline."bal. account type"::Customer;
+                                            Gnljnline."Account No." := LoanApp."Client Code";
+                                            Gnljnline.Validate(Gnljnline."Account No.");
+                                            Gnljnline."Document No." := "Document No";
+                                            Gnljnline."Posting Date" := "Posting date";
+                                            Gnljnline.Description := 'Insurance ' + Remarks;
+                                            if RunBal > LoanApp."Outstanding Insurance" then
+                                                Gnljnline.Amount := -ROUND(LoanApp."Outstanding Insurance", 1, '>')
+                                            else
+                                                Gnljnline.Amount := -Round(RunBal, 1, '>');
+                                            Gnljnline.Validate(Gnljnline.Amount);
+                                            Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Loan Insurance Paid";
+                                            Gnljnline."Loan No" := LoanApp."Loan  No.";
+                                            if Gnljnline.Amount <> 0 then
+                                                Gnljnline.Insert;
+                                            RunBal := RunBal + (Gnljnline.Amount);
+                                        end;
+                                        LoanApp.CalcFields(LoanApp."Outstanding Balance");
+                                        //==================================Interest\\\\\\\\\\]]]]]]]]]]]]]]]][[[[[[[[[[[[]]]]]]]]]]]]
+                                        if LoanApp."Outstanding Interest" > 0 then begin
+                                            LineN := LineN + 10000;
+                                            Gnljnline.Init;
+                                            Gnljnline."Journal Template Name" := 'GENERAL';
+                                            Gnljnline."Journal Batch Name" := 'CHECKOFF';
+                                            Gnljnline."Line No." := LineN;
+                                            Gnljnline."Account Type" := Gnljnline."bal. account type"::Customer;
+                                            Gnljnline."Account No." := LoanApp."Client Code";
+                                            Gnljnline.Validate(Gnljnline."Account No.");
+                                            Gnljnline."Document No." := "Document No";
+                                            Gnljnline."Posting Date" := "Posting date";
+                                            Gnljnline.Description := 'Interest Paid ' + Remarks;
+                                            if RunBal > LoanApp."Outstanding Interest" then
+                                                Gnljnline.Amount := -ROUND(LoanApp."Outstanding Interest", 1, '>')
+                                            else
+                                                Gnljnline.Amount := -Round(RunBal, 1, '>');
+                                            Gnljnline.Validate(Gnljnline.Amount);
+                                            Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Interest Paid";
+                                            Gnljnline."Loan No" := LoanApp."Loan  No.";
+                                            if Gnljnline.Amount <> 0 then
+                                                Gnljnline.Insert;
+                                            RunBal := RunBal + (Gnljnline.Amount);
+                                        end;
                                     end;
                                 until LoanApp.Next() = 0;
                             end;
-                            LoanApp.Reset();
-                            LoanApp.SetRange(LoanApp."Client Code", RcptBufLines."Member No");
-                            LoanApp.SetAutoCalcFields(LoanApp."Outstanding Balance", LoanApp."Outstanding Interest", LoanApp."Outstanding Insurance");
-                            LoanApp.SetFilter(LoanApp."Outstanding Interest", '>%1', 0);
-                            if LoanApp.FindSet() then begin
-                                repeat
-                                    if RunBal > 0 then begin
-                                        LineN := LineN + 10000;
-
-                                        Gnljnline.Init;
-                                        Gnljnline."Journal Template Name" := 'GENERAL';
-                                        Gnljnline."Journal Batch Name" := 'CHECKOFF';
-                                        Gnljnline."Line No." := LineN;
-                                        Gnljnline."Account Type" := Gnljnline."bal. account type"::Customer;
-                                        Gnljnline."Account No." := LoanApp."Client Code";
-                                        Gnljnline.Validate(Gnljnline."Account No.");
-                                        Gnljnline."Document No." := "Document No";
-                                        Gnljnline."Posting Date" := "Posting date";
-                                        Gnljnline.Description := 'Interest Paid ' + Remarks;
-                                        if RunBal > LoanApp."Outstanding Interest" then
-                                            Gnljnline.Amount := -ROUND(LoanApp."Outstanding Interest", 1, '>')
-                                        else
-                                            Gnljnline.Amount := -Round(RunBal, 1, '>');
-                                        Gnljnline.Validate(Gnljnline.Amount);
-                                        Gnljnline."Transaction Type" := Gnljnline."transaction type"::"Interest Paid";
-                                        Gnljnline."Loan No" := LoanApp."Loan  No.";
-                                        if Gnljnline.Amount <> 0 then
-                                            Gnljnline.Insert;
-                                        RunBal := RunBal + (Gnljnline.Amount);
-                                    end;
-                                until LoanApp.Next() = 0;
-                            end;
-                        until RcptBufLines.Next = 0;
+                        until RcptBufLines.Next() = 0
                     end;
-
-                    //Insurance
-
-                    //Interest
                     //--------------------------------------End Registration Fee, Insurance and Interest---------------------------------Viwanda
 
                     //---------------------------------------------Loan Repayments-----------------------------------Viwanda
