@@ -13670,16 +13670,19 @@ Codeunit 50007 "SURESTEP Factory"
         PhoneValidationTable: Record "Phone Validation Buffer";
         entryNo: Integer;
     begin
-        if PhoneValidationTable.FindLast() then
-            entryNo := PhoneValidationTable."Entry No"
+        if PhoneValidationTable.Find('+') then
+            entryNo := PhoneValidationTable."Entry No" + 1
         else
             entryNo := 1;
+
         PhoneValidationTable.Init();
         ;
         PhoneValidationTable."Entry No" := entryNo;
         PhoneValidationTable."Phone No" := PhoneNo;
         PhoneValidationTable.Insert(true);
+
         PhoneValidationTable.Reset();
+        PhoneValidationTable.SetCurrentKey(PhoneValidationTable."Phone No");
         PhoneValidationTable.SetRange(PhoneValidationTable."Phone No", PhoneNo);
         if PhoneValidationTable.FindLast() then begin
             PhoneValidationTable.Validate(PhoneValidationTable."Phone No");
