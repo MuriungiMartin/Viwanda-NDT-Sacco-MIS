@@ -419,8 +419,8 @@ tableextension 50000 "VendorExtension" extends Vendor
         field(68054; Gender; Option)
         {
             DataClassification = ToBeClassified;
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(68055; "Fixed Duration"; DateFormula)
         {

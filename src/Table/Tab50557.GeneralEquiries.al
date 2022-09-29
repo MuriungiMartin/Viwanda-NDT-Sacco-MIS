@@ -104,8 +104,8 @@ Table 50557 "General Equiries."
         field(14; Gender; Option)
         {
             Description = 'Male,Female';
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(15; "Query Code"; Code[20])
         {

@@ -287,8 +287,8 @@ Table 50183 "HR Leave Application"
         field(18; Gender; Option)
         {
             Editable = false;
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(28; Selected; Boolean)
         {

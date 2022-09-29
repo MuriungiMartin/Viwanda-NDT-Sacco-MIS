@@ -70,7 +70,7 @@ tableextension 50007 "customertableEXT" extends Customer
         field(53913; Gender; Option)
         {
             DataClassification = ToBeClassified;
-            OptionMembers = " ",Male,Female;
+            OptionMembers = " ",Male,Female,Other;
         }
         field(53914; "Date Of Birth"; Date)
         {
@@ -428,8 +428,8 @@ tableextension 50007 "customertableEXT" extends Customer
         }
         field(68032; Genderr; Option)
         {
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
 
             trigger OnValidate()
             begin

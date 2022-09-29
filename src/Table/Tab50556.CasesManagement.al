@@ -481,8 +481,8 @@ Table 50556 "Cases Management"
         field(69211; Gender; Option)
         {
             Description = 'Male,Female';
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(69212; "Escalated User Email"; Text[30])
         {

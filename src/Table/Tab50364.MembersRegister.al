@@ -1568,8 +1568,8 @@ Table 50364 "Members Register"
         }
         field(68032; Gender; Option)
         {
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
 
             trigger OnValidate()
             begin

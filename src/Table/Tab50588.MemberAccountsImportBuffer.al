@@ -76,8 +76,8 @@ Table 50588 "Member Accounts Import Buffer"
         }
         field(23; Gender; Option)
         {
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(24; "Literacy Lever"; Code[34])
         {

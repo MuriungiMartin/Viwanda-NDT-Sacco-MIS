@@ -77,8 +77,8 @@ Table 50530 "Loans Import Buffer"
         }
         field(24; Gender; Option)
         {
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(25; "Literacy Level"; Option)
         {

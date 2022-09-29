@@ -129,7 +129,7 @@ Table 50160 "HR Employees"
         }
         field(24; Gender; Option)
         {
-            OptionMembers = " ",Male,Female;
+            OptionMembers = " ",Male,Female,Other;
         }
         field(25; "Country Code"; Code[20])
         {
