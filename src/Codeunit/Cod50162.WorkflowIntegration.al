@@ -1568,29 +1568,6 @@ Codeunit 50162 "WorkflowIntegration"
     begin
     end;
 
-    // local procedure FnApproveRecordsWithSameSequenceNumber(ObjRec: Record "Approval Entry")
-    // var
-    //     ApprovalEntry: Record "Approval Entry";
-    //     ObjApprovalEntries: Record "Approval Entry";
-    // begin
-    //     ObjApprovalEntries.Reset;
-    //     ObjApprovalEntries.SetRange("Sequence No.",ObjRec."Sequence No.");
-    //     ObjApprovalEntries.SetRange("Document No.",ObjRec."Document No.");
-    //     //ObjApprovalEntries.SETRANGE("Approve All",TRUE);
-    //     if ObjApprovalEntries.Find('-') then
-    //       begin
-    //         repeat
-    //           if (ObjApprovalEntries.Status<>ObjApprovalEntries.Status::Canceled) or (ObjApprovalEntries.Status<>ObjApprovalEntries.Status::Rejected) then
-    //             begin
-    //               ObjApprovalEntries.Validate(Status,ApprovalEntry.Status::Approved);
-    //               ObjApprovalEntries.Modify(true);
-    //               OnApproveApprovalRequest(ObjApprovalEntries);
-    //               end;
-    //         until ObjApprovalEntries.Next=0;
-    //       end;
-    // end;
-
-
     procedure CheckSweepingInstructionsApprovalsWorkflowEnabled(var SweepingInstructions: Record "Member Sweeping Instructions"): Boolean
     begin
         if not IsSweepingInstructionsApprovalsWorkflowEnabled(SweepingInstructions) then
@@ -1770,6 +1747,12 @@ Codeunit 50162 "WorkflowIntegration"
 
     procedure OnCancelSalaryProcessingApprovalRequest(var SProcessing: Record "Salary Processing Headerr")
     begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    procedure OnAfterPopulateCustomApprovalEntries()
+    begin
+
     end;
 
     var

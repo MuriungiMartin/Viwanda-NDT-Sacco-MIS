@@ -277,8 +277,8 @@ Table 50360 "Membership Applications"
         }
         field(68017; Gender; Option)
         {
-            OptionCaption = ' ,Male,Female';
-            OptionMembers = " ",Male,Female;
+            OptionCaption = ' ,Male,Female,Other';
+            OptionMembers = " ",Male,Female,Other;
         }
         field(68018; "Monthly Contribution"; Decimal)
         {

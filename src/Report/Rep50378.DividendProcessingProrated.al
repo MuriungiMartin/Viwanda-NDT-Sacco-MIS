@@ -4,6 +4,8 @@ Report 50378 "Dividend Processing-Prorated"
 {
     RDLCLayout = 'Layouts/DividendProcessing-Prorated.rdlc';
     DefaultLayout = RDLC;
+    UsageCategory = Tasks;
+    ApplicationArea = all;
 
     dataset
     {

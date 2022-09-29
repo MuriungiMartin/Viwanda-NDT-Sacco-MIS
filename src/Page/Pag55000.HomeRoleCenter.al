@@ -1283,22 +1283,39 @@ page 55000 "Home Role Center" // default role center change to comapny name
             }
             group("Periodic Activities")
             {
-                action("Viwanda CheckOff Adivice")
+                group(Checkoff)
                 {
-                    ApplicationArea = All;
+                    action("Viwanda CheckOff Adivice")
+                    {
+                        ApplicationArea = All;
 
-                    Promoted = true;
-                    PromotedCategory = Process;
-                    RunObject = page "Viwanda CheckOff Advice";
+                        Promoted = true;
+                        PromotedCategory = Process;
+                        RunObject = page "Viwanda CheckOff Advice";
+                    }
+                    action("Process Block checkoff")
+                    {
+                        AccessByPermission = TableData "Checkoff Header-Distributed" = IMD;
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Process Block Checkoff';
+                        RunObject = Page "Bosa Block H List-Checkoff";
+                        RunPageMode = Create;
+                        ToolTip = 'Create new Block checkoff';
+                    }
                 }
-                action("Process Block checkoff")
+                group("Dividends")
                 {
-                    AccessByPermission = TableData "Checkoff Header-Distributed" = IMD;
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Process Block Checkoff';
-                    RunObject = Page "Bosa Block H List-Checkoff";
-                    RunPageMode = Create;
-                    ToolTip = 'Create new Block checkoff';
+                    action("Process Dividends Prorated")
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Process Dividends Prorated';
+                        RunObject = report "Dividend Processing-Prorated";
+                    }
+                    action("Dividends Register")
+                    {
+                        ApplicationArea = Basic, Suite;
+                        RunObject = report "Dividend Register";
+                    }
                 }
 
             }

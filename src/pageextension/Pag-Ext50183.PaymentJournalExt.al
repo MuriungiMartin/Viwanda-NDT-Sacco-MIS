@@ -1,4 +1,4 @@
-pageextension 50183 PaymentJournalExt extends "Payment Journal"
+pageextension 50183 "PaymentJournalExt" extends "Payment Journal"
 {
     layout
     {
