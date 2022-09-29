@@ -67,9 +67,9 @@ page 51396 "ChequeCard"
                 trigger OnAction()
 
                 begin
-                    // if workflowIntergration.CheckChequeApprovalsWorkflowEnabled(Rec) then
-                    //     workflowIntergration
-                    //     .OnSendChequeForApproval(Rec);
+                    if workflowIntergration.CheckChequeApprovalsWorkflowEnabled(Rec) then
+                        workflowIntergration
+                        .OnSendChequeForApproval(Rec);
                 end;
             }
             action("Add Responses")
