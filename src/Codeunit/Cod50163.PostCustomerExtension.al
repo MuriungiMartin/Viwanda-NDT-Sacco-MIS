@@ -393,7 +393,8 @@ codeunit 50163 "PostCustomerExtension"
         CustLedgerEntry."Created On" := CurrentDateTime;
         CustLedgerEntry.CalcFields(Amount);
         if CustLedgerEntry.Reversed then begin
-            CustLedgerEntry."Transaction Amount" := (GenJournalLine.Amount) * -1;
+            Message('it is a reversal');
+            CustLedgerEntry."Transaction Amount" := (GenJournalLine.Amount);
         end;
         CustLedgerEntry."Transaction Amount" := GenJournalLine.Amount;
 
@@ -406,6 +407,7 @@ codeunit 50163 "PostCustomerExtension"
         CustledgeentPage: page "Customer Ledger Entries";
         ReversalEntry: Record "Reversal Entry";
     begin
+        //ReversalEntry.
         Custledger.reset;
         if Custledger.Findlast then begin
             Custledger.CalcFields(Amount);

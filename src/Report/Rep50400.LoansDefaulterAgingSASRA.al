@@ -3,6 +3,9 @@ Report 50400 "Loans Defaulter Aging - SASRA"
 {
     RDLCLayout = 'Layouts/LoansDefaulterAging-SASRA.rdlc';
     DefaultLayout = RDLC;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = all;
+
 
     dataset
     {
@@ -216,7 +219,6 @@ Report 50400 "Loans Defaulter Aging - SASRA"
             trigger OnAfterGetRecord();
             begin
                 RepaymentPeriod := AsAt;
-                //MESSAGE(FORMAT(AsAt));
                 if "Loans Register"."Repayment Frequency" = "Loans Register"."repayment frequency"::Monthly then begin
                     if RepaymentPeriod = CalcDate('CM', RepaymentPeriod) then begin
                         LastMonth := RepaymentPeriod;
@@ -244,18 +246,18 @@ Report 50400 "Loans Defaulter Aging - SASRA"
                 end;
                 if "Loans Register"."Repayment Start Date" > AsAt then
                     Arrears := 0;
-                //MESSAGE('Principal=%1 Balance=%2 ExepectedBal=%3 Arrear=%4,ScheduledLoanBal=%5',"Loans Register"."Approved Amount",LBal,ExpectedBalance,Arrears,ScheduledLoanBal);
-                // MESSAGE('%1',Loans."Scheduled Principal to Date");
                 if ((Arrears < 0) or (Arrears = 0)) then begin
                     Arrears := 0
                 end else
                     Arrears := Arrears;
                 "Amount in Arrears" := Arrears;
                 Modify;
-                if Loans."Loan Principle Repayment" > 0 then begin
-                    "No.ofMonthsinArrears" := ROUND((Arrears / varRepayment
+                if varRepayment <> 0 then begin
+                    if Loans."Loan Principle Repayment" > 0 then begin
+                        "No.ofMonthsinArrears" := ROUND((Arrears / varRepayment
 
-                    ) * 30, 1, '>');
+                        ) * 30, 1, '>');
+                    end;
                 end;
                 if ("No.ofMonthsinArrears" = 0) then begin
                     "Loans Register"."Loans Category" := "Loans Register"."loans category"::Perfoming
@@ -272,8 +274,8 @@ Report 50400 "Loans Defaulter Aging - SASRA"
                                 if ("No.ofMonthsinArrears" > 360) then begin
                                     "Loans Register"."Loans Category" := "Loans Register"."loans category"::Loss
                                 end;
-                //  IF "Loans Register"."Repayment Start Date" > AsAt THEN
-                //	"Loans Register"."Loans Category":="Loans Register"."Loans Category"::Perfoming;
+                IF "Loans Register"."Repayment Start Date" > AsAt THEN
+                    "Loans Register"."Loans Category" := "Loans Register"."Loans Category"::Perfoming;
                 "No of Months in Arrears" := "No.ofMonthsinArrears";
                 "Loans Register"."Loan Insurance Paid" := "No.ofMonthsinArrears";
                 "Loans Register".Modify;
