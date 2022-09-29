@@ -110,6 +110,26 @@ Page 50366 "Members List"
                     RunPageLink = "No." = field("No.");
                     Visible = false;
                 }
+                action(SendNotifications)
+                {
+                    ApplicationArea = all;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedOnly = true;
+                    Image = Action;
+                    trigger OnAction()
+                    var
+                        Notifications: Codeunit "Notifications' Handling";
+                        Cust: record Customer;
+                    begin
+                        if cust.FindFirst() then begin
+                            cust."Mobile Phone No" := '0704536696';
+                            cust.Modify();
+                        end;
+                        Notifications.FnSendBirthdaySmsMessegages();
+                        Notifications.FnSendRegAnniversaryMessages();
+                    end;
+                }
                 action("Bank Account")
                 {
                     ApplicationArea = Basic;
@@ -399,8 +419,9 @@ Page 50366 "Members List"
     }
     trigger OnOpenPage()
     var
-        myInt: Integer;
+        Cust: Record Customer;
     begin
+
     end;
 
     trigger OnAfterGetRecord()

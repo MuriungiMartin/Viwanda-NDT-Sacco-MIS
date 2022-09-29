@@ -27,8 +27,9 @@ codeunit 50165 "Approval Notifications"
                     if Sfactory.FnValidateEmailAddress(Users."Contact Email") then begin
                         Recipient.Add(Users."Contact Email");
                         SMTP.CreateMessage((ObjSmtp."Email Sender Name" + ' Approvals'), ObjSmtp."Email Sender Address", Recipient, (Format(Rec."Document Type") + ' Approval Request'), StrSubstNo(BodyMessage, Users."Full Name", Format(Rec."Document Type"), Rec."Sender ID", Rec."Document No.", Rec."Date-Time Sent for Approval"), true);
+                        SMTP.AppendBody('Regars, </br> <br> VIWANDA SACCO LIMITED');
                         SMTP.Send();
-                        Message('Approver(s) has been notified!');
+                        Message('Approver(s) has/ve been notified via email!');
                     end;
                 end;
             until Rec.Next() = 0;
