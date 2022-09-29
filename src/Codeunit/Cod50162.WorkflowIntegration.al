@@ -22,32 +22,6 @@ Codeunit 50162 "WorkflowIntegration"
 
     [IntegrationEvent(false, false)]
 
-    procedure OnSendChequeForApproval(var "Cheque register": Record Chequeregister)
-    begin
-    end;
-
-    [IntegrationEvent(false, false)]
-
-    procedure OnCancelChequeApprovalRequest(var "Cheque register": Record Chequeregister)
-    begin
-    end;
-
-    procedure CheckChequeApprovalsWorkflowEnabled(var "Cheque register": Record Chequeregister): Boolean
-    begin
-        if not IsChequeApprovalsWorkflowEnabled("Cheque register") then
-            Error(NoWorkflowEnabledErr);
-
-        exit(true);
-    end;
-
-
-    procedure IsChequeApprovalsWorkflowEnabled(var "Cheque register": Record Chequeregister): Boolean
-    begin
-        exit(WorkflowManagement.CanExecuteWorkflow("Cheque register", SurestepWFEvents.RunWorkflowOnSendChequeForApprovalCode()));//todo
-    end;
-
-    [IntegrationEvent(false, false)]
-
     procedure OnSendPaymentDocForApproval(var PaymentHeader: Record "Payments Header")
     begin
     end;
@@ -921,7 +895,6 @@ Codeunit 50162 "WorkflowIntegration"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnPopulateApprovalEntryArgument', '', true, true)]
     local procedure PopulateSurestepEntries(RecRef: RecordRef; WorkflowStepInstance: Record "Workflow Step Instance"; var ApprovalEntryArgument: Record "Approval Entry")
     var
-        VarChequeregister: Record ChequeRegister;
         Customer: Record Customer;
         GenJournalBatch: Record "Gen. Journal Batch";
         GenJournalLine: Record "Gen. Journal Line";
@@ -986,21 +959,7 @@ Codeunit 50162 "WorkflowIntegration"
                     ApprovalEntryArgument."Amount (LCY)" := ApprovalAmountLCY;
                     ApprovalEntryArgument."Currency Code" := PaymentHeader."Currency Code";
                 end;
-            Database::ChequeRegister:
-                begin
-                    RecRef.SetTable(VarChequeregister);
 
-                    ApprovalAmount := VarChequeregister."Cheque Amount";
-                    ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."document type"::"ChequeRegister";
-                    ApprovalEntryArgument."Document No." := VarChequeregister."Cheque No";
-                    ApprovalEntryArgument.Amount := VarChequeregister."Cheque Amount";
-
-
-
-
-
-
-                end;
             //Membership Applications
             Database::"Membership Applications":
                 begin
@@ -1009,7 +968,7 @@ Codeunit 50162 "WorkflowIntegration"
                     ApprovalAmountLCY := 0;
                     ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."document type"::MembershipApplication;
                     ApprovalEntryArgument."Document No." := MembershipApplication."No.";
-                    ApprovalEntryArgument."Salespers./Purch. Code" := MembershipApplication."First Name";
+                    ApprovalEntryArgument."Salespers./Purch. Code" := MembershipApplication.Name;
                     ApprovalEntryArgument.Amount := ApprovalAmount;
                     ApprovalEntryArgument."Amount (LCY)" := ApprovalAmountLCY;
                     ApprovalEntryArgument."Currency Code" := '';
@@ -1568,6 +1527,29 @@ Codeunit 50162 "WorkflowIntegration"
     begin
     end;
 
+    // local procedure FnApproveRecordsWithSameSequenceNumber(ObjRec: Record "Approval Entry")
+    // var
+    //     ApprovalEntry: Record "Approval Entry";
+    //     ObjApprovalEntries: Record "Approval Entry";
+    // begin
+    //     ObjApprovalEntries.Reset;
+    //     ObjApprovalEntries.SetRange("Sequence No.",ObjRec."Sequence No.");
+    //     ObjApprovalEntries.SetRange("Document No.",ObjRec."Document No.");
+    //     //ObjApprovalEntries.SETRANGE("Approve All",TRUE);
+    //     if ObjApprovalEntries.Find('-') then
+    //       begin
+    //         repeat
+    //           if (ObjApprovalEntries.Status<>ObjApprovalEntries.Status::Canceled) or (ObjApprovalEntries.Status<>ObjApprovalEntries.Status::Rejected) then
+    //             begin
+    //               ObjApprovalEntries.Validate(Status,ApprovalEntry.Status::Approved);
+    //               ObjApprovalEntries.Modify(true);
+    //               OnApproveApprovalRequest(ObjApprovalEntries);
+    //               end;
+    //         until ObjApprovalEntries.Next=0;
+    //       end;
+    // end;
+
+
     procedure CheckSweepingInstructionsApprovalsWorkflowEnabled(var SweepingInstructions: Record "Member Sweeping Instructions"): Boolean
     begin
         if not IsSweepingInstructionsApprovalsWorkflowEnabled(SweepingInstructions) then
@@ -1747,12 +1729,6 @@ Codeunit 50162 "WorkflowIntegration"
 
     procedure OnCancelSalaryProcessingApprovalRequest(var SProcessing: Record "Salary Processing Headerr")
     begin
-    end;
-
-    [IntegrationEvent(false, false)]
-    procedure OnAfterPopulateCustomApprovalEntries()
-    begin
-
     end;
 
     var

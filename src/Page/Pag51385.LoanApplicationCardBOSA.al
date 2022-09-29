@@ -1109,7 +1109,6 @@ Page 51385 "Loan Application Card(BOSA)"
                         ApprovalMgt: Codeunit "Approvals Mgmt.";
                         Workflowintegration: Codeunit WorkflowIntegration;
                     begin
-                        Codeunit.Run(50004);
                         if "Approved Amount" = 0 then Error('Kindly upraise your loan application before sending approval request');
 
                         TestField("Loan Product Type");
