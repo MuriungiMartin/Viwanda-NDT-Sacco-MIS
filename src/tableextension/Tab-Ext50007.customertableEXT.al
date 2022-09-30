@@ -2579,6 +2579,11 @@ tableextension 50007 "customertableEXT" extends Customer
 
         }
 
+        field(69301; "Free Shares"; Decimal)
+        {
+
+        }
+
 
     }
 

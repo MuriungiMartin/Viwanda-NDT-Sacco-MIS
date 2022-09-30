@@ -310,7 +310,7 @@ Report 50935 "Staff Claims Report"
                     if DimVal.FindFirst then begin
                         DimValName := DimVal.Name;
                     end;
-                    //Hazina STotal:=STotal + "Amount";
+                    //Viwanda STotal:=STotal + "Amount";
                 end;
 
             }

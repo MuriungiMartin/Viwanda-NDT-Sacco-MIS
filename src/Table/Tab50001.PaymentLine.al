@@ -908,7 +908,7 @@ Table 50001 "Payment Line."
                     VendLedgEntry.SetRange(Open, true);
                     VendLedgEntry.SetRange("Applies-to ID", xRec."Applies-to ID");
                     if VendLedgEntry.FindFirst then
-                        //VendEntrySetApplID.SetApplId(VendLedgEntry,TempVendLedgEntry,0,0,''); //HAZINA
+                        //VendEntrySetApplID.SetApplId(VendLedgEntry,TempVendLedgEntry,0,0,''); //Viwanda
 
                         VendLedgEntry.Reset;
                 end;

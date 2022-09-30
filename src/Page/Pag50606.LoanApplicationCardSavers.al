@@ -782,7 +782,7 @@ Page 50606 "Loan Application Card Savers"
                         SMSMessage."Entered By" := UserId;
                         SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
                         SMSMessage."SMS Message" := 'Your loan application of KSHs.' + Format("Approved Amount") +
-                                                  ' has been issued. HAZINA SACCO LTD';
+                                                  ' has been issued. Viwanda SACCO LTD';
                         Vend1.Reset;
                         if Vend1.Get("Account No") then
                             SMSMessage."Telephone No" := Vend1."Phone No.";
@@ -822,7 +822,7 @@ Page 50606 "Loan Application Card Savers"
                                     //IF LoanApp.GET(LoanGuar."Loan No") THEN
                                     SMSMessages."SMS Message" := 'You have guaranteed an amount of ' + Format(LoanGuar."Amount Guaranted")
                                     + ' to ' + "Client Name" + ' ' + 'Staff No:-' + "Staff No" + ' ' +
-                                    'Loan Type ' + "Loan Product Type" + ' ' + 'of ' + Format("Requested Amount") + ' at HAZINA SACCO Ltd.'
+                                    'Loan Type ' + "Loan Product Type" + ' ' + 'of ' + Format("Requested Amount") + ' at Viwanda SACCO Ltd.'
                                     + ' ' + 'Please call +254712149631 if in dispute.';
                                     SMSMessages."Telephone No" := Vend."Phone No.";
                                     SMSMessages.Insert;

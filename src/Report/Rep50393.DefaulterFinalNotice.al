@@ -124,7 +124,7 @@ Report 50393 "Defaulter Final Notice"
                         SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
                         SMSMessage."SMS Message" := 'Defaulter Attach Notice: Guarantors will be attached to Loan No. '
                         + LoansREC."Loan  No." + ' of KSHs.' + Format(Loans."Approved Amount") +
-                                                  ' at HAZINA SACCO LTD. ';
+                                                  ' at Viwanda SACCO LTD. ';
                         Cust.Reset;
                         if Cust.Get(Loans."Client Code") then
                             SMSMessage."Telephone No" := Cust."Phone No.";
@@ -239,7 +239,7 @@ Report 50393 "Defaulter Final Notice"
                             SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
                             SMSMessage."SMS Message" := 'Defaulter Attach Notice: You have been attached as guarantor to Loan No. '
                             + LoansREC."Loan  No." + ' of ' + LoansREC."Client Name" + ' of KSHs.' + Format(Loans."Approved Amount") +
-                                                      ' at HAZINA SACCO LTD. ';
+                                                      ' at Viwanda SACCO LTD. ';
                             Cust1.Reset;
                             if Cust1.Get("Loan Guarantors"."Member No") then
                                 SMSMessage."Telephone No" := Cust1."Phone No.";

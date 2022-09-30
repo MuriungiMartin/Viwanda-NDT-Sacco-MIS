@@ -317,7 +317,7 @@ Report 50549 "Payment Voucher."
                     if DimVal.FindFirst then begin
                         DimValName := DimVal.Name;
                     end;
-                    //Hazina STotal:=STotal + "Amount";
+                    //Viwanda STotal:=STotal + "Amount";
                 end;
 
             }
