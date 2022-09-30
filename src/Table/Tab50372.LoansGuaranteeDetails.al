@@ -347,6 +347,10 @@ Table 50372 "Loans Guarantee Details"
         field(69170; "Date Responded"; Date)
         {
         }
+        field(69171; "Current Amount Guaranteed"; Decimal)
+        {
+
+        }
     }
 
     keys

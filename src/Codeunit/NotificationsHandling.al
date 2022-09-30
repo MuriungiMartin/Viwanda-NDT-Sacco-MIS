@@ -13,13 +13,12 @@ codeunit 50166 "Notifications' Handling"
         ObjCust.Reset();
         ObjCust.SetFilter(ObjCust."Registration Date", '<>%1', 0D);
         if ObjCust.FindSet() then begin
-            Message('found');
             repeat
                 objcompInfo.get();
                 AnniversaryYear := Round(((Today - ObjCust."Registration Date") / 365), 1, '<');
-                Message('Anvyear %1 RegDate %2', AnniversaryYear, ObjCust."Registration Date");
                 if (Date2DMY(Today, 1) = Date2DMY(ObjCust."Registration Date", 1)) and (Date2DMY(Today, 2) = Date2DMY(ObjCust."Registration Date", 2)) then begin
                     Sfactory.FnSendSMS('REGANIVERSARY', StrSubstNo(AniversaryMsg, ObjCust."First Name", AnniversaryYear, objcompInfo.Name), Format(ObjCust."No."), Format(ObjCust."Mobile Phone No"));
+                    Sfactory.FnSendEmailGlobal(ObjCust."First Name", 'REGISTRATION ANNIVERSARY', StrSubstNo(AniversaryMsg, ObjCust."First Name", AnniversaryYear, objcompInfo.Name), ObjCust."E-Mail", '');
                 end;
             until ObjCust.Next() = 0;
         end;
@@ -30,11 +29,11 @@ codeunit 50166 "Notifications' Handling"
         ObjCust.Reset();
         ObjCust.SetFilter(ObjCust."Date Of Birth", '<>%1', 0D);
         if ObjCust.FindSet() then begin
-            Message('found');
             repeat
                 objcompInfo.get();
                 if (Date2DMY(Today, 1) = Date2DMY(ObjCust."Date Of Birth", 1)) and (Date2DMY(Today, 2) = Date2DMY(ObjCust."Date Of Birth", 2)) then begin
                     Sfactory.FnSendSMS('MEMBERBIRTHDAY', StrSubstNo(bIRTHDAYMSG, ObjCust."First Name", objcompInfo.Name), Format(ObjCust."No."), Format(ObjCust."Mobile Phone No"));
+                    Sfactory.FnSendEmailGlobal(ObjCust."First Name", 'HAPPY BIRTHDAY', StrSubstNo(bIRTHDAYMSG, ObjCust."First Name", objcompInfo.Name), ObjCust."E-Mail", '');
                 end;
             until ObjCust.Next() = 0;
         end;
@@ -55,8 +54,10 @@ codeunit 50166 "Notifications' Handling"
                 if objLschedule.Find('-') then begin
                     ObjCust.Reset();
                     ObjCust.SetRange(ObjCust."No.", objLschedule."Member No.");
-                    if ObjCust.Find('-') then
+                    if ObjCust.Find('-') then begin
                         Sfactory.FnSendSMS('LOANREMINDER', 'Dear Member, Remember to make your Loan repayment due tomorrow.', Format(ObjCust."No."), Format(ObjCust."Mobile Phone No"));
+                        Sfactory.FnSendEmailGlobal(ObjCust."First Name", 'LOAN REPAYMENT REMINDER', 'Dear Member, Remember to make your Loan repayment due tomorrow.', ObjCust."E-Mail", '');
+                    end;
                 end;
             until ObjLoansRec.Next() = 0;
         end
@@ -76,6 +77,8 @@ codeunit 50166 "Notifications' Handling"
                 ObjCust.SetRange(ObjCust."No.", objLschedule."Member No.");
                 if ObjCust.Find('-') then
                     Sfactory.FnSendSMS('LOANDEFAULTER', StrSubstNo(DefaulterMsg, ObjCust."First Name", ObjLoansRec."Loan Product Type Name", ObjLoansRec."Amount in Arrears"), Format(ObjCust."No."), Format(ObjCust."Mobile Phone No"));
+                Sfactory.FnSendEmailGlobal(ObjCust."First Name", 'DEFAULTED LOAN', StrSubstNo(DefaulterMsg, ObjCust."First Name", ObjLoansRec."Loan Product Type Name", ObjLoansRec."Amount in Arrears"), ObjCust."E-Mail",
+                '');
             until ObjLoansRec.Next() = 0;
         end
     end;
