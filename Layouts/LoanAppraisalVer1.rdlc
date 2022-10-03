@@ -22,7 +22,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!LoanDefaultInfo.Value</Value>
+                    <Value>=Fields!LoanDefaultInfo.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>6pt</FontSize>
@@ -36,14 +36,14 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Remarks: </Value>
+                    <Value>Remarks: </Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Remarks_LoansRegister.Value</Value>
+                    <Value>=Fields!Remarks_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>6pt</FontSize>
@@ -78,7 +78,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">QUALIFICATION CRITERIA</Value>
+                    <Value>QUALIFICATION CRITERIA</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -120,7 +120,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">FEES &amp; COMISSIONS</Value>
+                    <Value>FEES &amp; COMISSIONS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -161,7 +161,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">QUALIFICATION: GUARANTORS</Value>
+                    <Value>QUALIFICATION: GUARANTORS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -198,7 +198,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!GShares.Value</Value>
+                    <Value>=Fields!GShares.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -235,7 +235,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">QUALIFICATION:DEPOSITS</Value>
+                    <Value>QUALIFICATION:DEPOSITS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -271,7 +271,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!DepX.Value</Value>
+                    <Value>=Fields!DepX.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -304,7 +304,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Share Boosting Fee</Value>
+                    <Value>Share Boosting Fee</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -340,7 +340,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!ShareBoostComm.Value</Value>
+                    <Value>=Fields!ShareBoostComm.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -377,7 +377,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">APPLIED AMOUNT:</Value>
+                    <Value>APPLIED AMOUNT:</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -414,7 +414,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Requested_Amount_.Value</Value>
+                    <Value>=Fields!Loans__Requested_Amount_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -452,7 +452,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">QUALIFYING AMOUNT:</Value>
+                    <Value>QUALIFYING AMOUNT:</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -489,7 +489,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Reccom_Amount.Value</Value>
+                    <Value>=Fields!Reccom_Amount.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -527,7 +527,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">TOP-UP INFORMATION</Value>
+                    <Value>TOP-UP INFORMATION</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -572,7 +572,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">LOAN APPLICATION DETAILS</Value>
+                    <Value>LOAN APPLICATION DETAILS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -617,7 +617,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>7pt</FontSize>
@@ -659,7 +659,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>7pt</FontSize>
@@ -700,7 +700,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Loan__No___Control1102760138Caption.Value</Value>
+                    <Value>=Fields!Loans__Loan__No___Control1102760138Caption.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -732,7 +732,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Loan__No__.Value</Value>
+                    <Value>=Fields!Loans__Loan__No__.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -763,7 +763,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Staff_No__Control1102760144Caption.Value</Value>
+                    <Value>=Fields!Loans__Staff_No__Control1102760144Caption.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -798,7 +798,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Staff_No_.Value</Value>
+                    <Value>=Fields!Loans__Staff_No_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -832,7 +832,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Application_Date__Control1102760139Caption.Value</Value>
+                    <Value>=Fields!Loans__Application_Date__Control1102760139Caption.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -864,7 +864,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Application_Date_.Value</Value>
+                    <Value>=Fields!Loans__Application_Date_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -896,7 +896,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans_Installments_Control1102760145Caption.Value</Value>
+                    <Value>=Fields!Loans_Installments_Control1102760145Caption.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -928,7 +928,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans_Installments.Value</Value>
+                    <Value>=Fields!Loans_Installments.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -959,7 +959,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loan_TypeCaption_Control1102760134.Value</Value>
+                    <Value>=Fields!Loan_TypeCaption_Control1102760134.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -991,7 +991,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Loan_Product_Type_.Value</Value>
+                    <Value>=Fields!Loans__Loan_Product_Type_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1022,7 +1022,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__No__Of_Guarantors__Control1102760146Caption.Value</Value>
+                    <Value>=Fields!Loans__No__Of_Guarantors__Control1102760146Caption.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1054,7 +1054,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__No__Of_Guarantors_.Value</Value>
+                    <Value>=Fields!Loans__No__Of_Guarantors_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1085,7 +1085,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!MemberCaption_Control1102760133.Value</Value>
+                    <Value>=Fields!MemberCaption_Control1102760133.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1117,7 +1117,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans_Loans__Client_Code_.Value</Value>
+                    <Value>=Fields!Loans_Loans__Client_Code_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1148,7 +1148,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Repayment Amount</Value>
+                    <Value>Repayment Amount</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1180,7 +1180,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans_Repayment.Value</Value>
+                    <Value>=Fields!Loans_Repayment.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1213,7 +1213,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Member Name</Value>
+                    <Value>Member Name</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1246,7 +1246,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!ClientName_LoansRegister.Value</Value>
+                    <Value>=Fields!ClientName_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1279,7 +1279,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Amount_AppliedCaption_Control1102760132.Value</Value>
+                    <Value>=Fields!Amount_AppliedCaption_Control1102760132.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1311,7 +1311,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Loans__Requested_Amount_.Value</Value>
+                    <Value>=Fields!Loans__Requested_Amount_.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1344,7 +1344,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">PAY</Value>
+                    <Value>PAY</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1378,7 +1378,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1411,7 +1411,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">DEPOSITS ANALYSIS</Value>
+                    <Value>DEPOSITS ANALYSIS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1453,7 +1453,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                     </Style>
@@ -1492,7 +1492,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>7pt</FontSize>
@@ -1532,7 +1532,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto" />
+                    <Value />
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>7pt</FontSize>
@@ -1571,7 +1571,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Member_DepositsCaption_Control1102760148.Value</Value>
+                    <Value>=Fields!Member_DepositsCaption_Control1102760148.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1603,7 +1603,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Cshares.Value</Value>
+                    <Value>=Fields!Cshares.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1636,7 +1636,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Offset Amount:</Value>
+                    <Value>Offset Amount:</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1668,7 +1668,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Loan Balance After Offset</Value>
+                    <Value>Loan Balance After Offset</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1700,7 +1700,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!LOANBALANCE.Value-Fields!BRIGEDAMOUNT.Value</Value>
+                    <Value>=Fields!LOANBALANCE.Value-Fields!BRIGEDAMOUNT.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1732,7 +1732,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Loan Bal. Before Offset:</Value>
+                    <Value>Loan Bal. Before Offset:</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1764,7 +1764,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!LOANBALANCE.Value</Value>
+                    <Value>=Fields!LOANBALANCE.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1796,7 +1796,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Maxim__Amount_Avail__for_the_LoanCaption_Control1102760150.Value</Value>
+                    <Value>=Fields!Maxim__Amount_Avail__for_the_LoanCaption_Control1102760150.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1831,7 +1831,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!DepX.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!DepX.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1866,7 +1866,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!BRIGEDAMOUNT.Value</Value>
+                    <Value>=Fields!BRIGEDAMOUNT.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1898,7 +1898,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Deposits* </Value>
+                    <Value>Deposits* </Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1906,7 +1906,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!LoanDepositMultiplier.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!LoanDepositMultiplier.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -1938,7 +1938,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!DEpMultiplier.Value</Value>
+                    <Value>=Fields!DEpMultiplier.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2279,7 +2279,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">APPROVED  AMOUNT:</Value>
+                    <Value>APPROVED  AMOUNT:</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2316,7 +2316,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Approved_Amounts.Value</Value>
+                    <Value>=Fields!Approved_Amounts.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2347,79 +2347,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox33">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value EvaluationMode="Auto">Loan Processing Fee</Value>
-                    <Style>
-                      <FontFamily>Maiandra GD</FontFamily>
-                      <FontSize>9pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Left</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox32</rd:DefaultName>
-            <Top>8.12863in</Top>
-            <Left>3.49412in</Left>
-            <Height>0.20497in</Height>
-            <Width>1.83648in</Width>
-            <ZIndex>68</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox87">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!ProcessingFee.Value</Value>
-                    <Style>
-                      <FontFamily>Maiandra GD</FontFamily>
-                      <FontSize>9pt</FontSize>
-                      <Format>#,0.00;(#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox49</rd:DefaultName>
-            <Top>8.12863in</Top>
-            <Left>5.40004in</Left>
-            <Height>0.20497in</Height>
-            <Width>1.35595in</Width>
-            <ZIndex>69</ZIndex>
-            <Style>
-              <Border>
-                <Color>LightGrey</Color>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox34">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -2427,7 +2354,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Loan Insurance Fees</Value>
+                    <Value>Loan Insurance Fees</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2440,11 +2367,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox32</rd:DefaultName>
-            <Top>8.3336in</Top>
+            <Top>8.16023in</Top>
             <Left>3.49412in</Left>
             <Height>0.20497in</Height>
             <Width>1.83648in</Width>
-            <ZIndex>70</ZIndex>
+            <ZIndex>68</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -2463,7 +2390,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!VarLoanInsurance.Value</Value>
+                    <Value>=Fields!VarLoanInsurance.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2477,11 +2404,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox49</rd:DefaultName>
-            <Top>8.31971in</Top>
+            <Top>8.14634in</Top>
             <Left>5.38867in</Left>
             <Height>0.20497in</Height>
             <Width>1.36732in</Width>
-            <ZIndex>71</ZIndex>
+            <ZIndex>69</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -2500,7 +2427,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">GUARANTEE DETAILS</Value>
+                    <Value>GUARANTEE DETAILS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -2516,7 +2443,7 @@
             <Left>0.59464cm</Left>
             <Height>0.46771cm</Height>
             <Width>4.23134cm</Width>
-            <ZIndex>72</ZIndex>
+            <ZIndex>70</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2563,7 +2490,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Member No.</Value>
+                                  <Value>Member No.</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2598,7 +2525,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Member Name</Value>
+                                  <Value>Member Name</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2633,7 +2560,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Amount Guranteed</Value>
+                                  <Value>Amount Guranteed</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2668,7 +2595,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Outstandings Loans</Value>
+                                  <Value>Outstandings Loans</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2702,7 +2629,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Loan Arrears</Value>
+                                  <Value>Loan Arrears</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2736,7 +2663,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Current Shares</Value>
+                                  <Value>Current Shares</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2775,7 +2702,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Guarantor_Memb_No.Value</Value>
+                                  <Value>=Fields!Guarantor_Memb_No.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2809,7 +2736,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Name.Value</Value>
+                                  <Value>=Fields!Name.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2843,7 +2770,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!AmontGuaranteed_LoansGuaranteeDetails.Value</Value>
+                                  <Value>=Fields!AmontGuaranteed_LoansGuaranteeDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2878,7 +2805,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!LoanBalance_LoansGuaranteeDetails.Value)</Value>
+                                  <Value>=First(Fields!LoanBalance_LoansGuaranteeDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2912,7 +2839,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!VarTotalArrears.Value</Value>
+                                  <Value>=Fields!VarTotalArrears.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2946,7 +2873,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!Shares_LoansGuaranteeDetails.Value)</Value>
+                                  <Value>=First(Fields!Shares_LoansGuaranteeDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -2985,7 +2912,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3021,7 +2948,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!AmontGuaranteed_LoansGuaranteeDetails.Value)</Value>
+                                  <Value>=Sum(Fields!AmontGuaranteed_LoansGuaranteeDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3056,7 +2983,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!LoanBalance_LoansGuaranteeDetails.Value)</Value>
+                                  <Value>=Sum(Fields!LoanBalance_LoansGuaranteeDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3091,7 +3018,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!VarTotalArrears.Value)</Value>
+                                  <Value>=Sum(Fields!VarTotalArrears.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3126,7 +3053,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!Shares_LoansGuaranteeDetails.Value)</Value>
+                                  <Value>=Sum(Fields!Shares_LoansGuaranteeDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3197,7 +3124,7 @@
             <Left>0.57335cm</Left>
             <Height>1.56188cm</Height>
             <Width>16.95593cm</Width>
-            <ZIndex>73</ZIndex>
+            <ZIndex>71</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3211,7 +3138,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Total Deductions</Value>
+                    <Value>Total Deductions</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -3225,11 +3152,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox32</rd:DefaultName>
-            <Top>8.82409in</Top>
+            <Top>8.65072in</Top>
             <Left>3.49609in</Left>
             <Height>0.20497in</Height>
             <Width>1.83648in</Width>
-            <ZIndex>74</ZIndex>
+            <ZIndex>72</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -3248,7 +3175,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!Upfronts.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!Upfronts.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -3263,11 +3190,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox49</rd:DefaultName>
-            <Top>8.82409in</Top>
+            <Top>8.65072in</Top>
             <Left>5.39637in</Left>
             <Height>0.20497in</Height>
             <Width>1.36535in</Width>
-            <ZIndex>75</ZIndex>
+            <ZIndex>73</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -3286,7 +3213,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Net Disbursed</Value>
+                    <Value>Net Disbursed</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -3300,11 +3227,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox32</rd:DefaultName>
-            <Top>9.05684in</Top>
+            <Top>8.88347in</Top>
             <Left>3.49609in</Left>
             <Height>0.20497in</Height>
             <Width>1.83648in</Width>
-            <ZIndex>76</ZIndex>
+            <ZIndex>74</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -3323,7 +3250,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!Netdisbursed.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!Netdisbursed.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>8pt</FontSize>
@@ -3338,11 +3265,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox49</rd:DefaultName>
-            <Top>9.04295in</Top>
+            <Top>8.86958in</Top>
             <Left>5.39637in</Left>
             <Height>0.20497in</Height>
             <Width>1.36535in</Width>
-            <ZIndex>77</ZIndex>
+            <ZIndex>75</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -3392,7 +3319,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Loan Type</Value>
+                                  <Value>Loan Type</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3427,7 +3354,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Offset Amount</Value>
+                                  <Value>Offset Amount</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3462,7 +3389,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Interest On Offset</Value>
+                                  <Value>Interest On Offset</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3497,7 +3424,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Booster Interest</Value>
+                                  <Value>Booster Interest</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3532,7 +3459,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Current Year:Insurance</Value>
+                                  <Value>Current Year:Insurance</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3566,7 +3493,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Tax On Levy</Value>
+                                  <Value>Tax On Levy</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3600,7 +3527,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Total Offset</Value>
+                                  <Value>Total Offset</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3639,7 +3566,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!ProductDescription.Value</Value>
+                                  <Value>=Fields!ProductDescription.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3673,7 +3600,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Loans_Top_up__Principle_Top_Up_.Value</Value>
+                                  <Value>=Fields!Loans_Top_up__Principle_Top_Up_.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3708,7 +3635,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Loans_Top_up__Interest_Top_Up_.Value</Value>
+                                  <Value>=Fields!Loans_Top_up__Interest_Top_Up_.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3743,7 +3670,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Loans_Top_up_Commision.Value</Value>
+                                  <Value>=Fields!Loans_Top_up_Commision.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3778,7 +3705,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!LoanInsuranceCurrentYear_LoanOffsetDetails.Value</Value>
+                                  <Value>=Fields!LoanInsuranceCurrentYear_LoanOffsetDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3811,7 +3738,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!TaxOnComission_LoanOffsetDetails.Value</Value>
+                                  <Value>=Fields!TaxOnComission_LoanOffsetDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3845,7 +3772,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Loans_Top_up__Total_Top_Up_.Value</Value>
+                                  <Value>=Fields!Loans_Top_up__Total_Top_Up_.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3884,7 +3811,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3917,7 +3844,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!Loans_Top_up__Principle_Top_Up_.Value)</Value>
+                                  <Value>=Sum(Fields!Loans_Top_up__Principle_Top_Up_.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3952,7 +3879,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!Loans_Top_up__Interest_Top_Up_.Value)</Value>
+                                  <Value>=Sum(Fields!Loans_Top_up__Interest_Top_Up_.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -3987,7 +3914,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!Loans_Top_up_Commision.Value)</Value>
+                                  <Value>=Sum(Fields!Loans_Top_up_Commision.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4022,7 +3949,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!LoanInsuranceCurrentYear_LoanOffsetDetails.Value)</Value>
+                                  <Value>=Sum(Fields!LoanInsuranceCurrentYear_LoanOffsetDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4056,7 +3983,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!TaxOnComission_LoanOffsetDetails.Value)</Value>
+                                  <Value>=Sum(Fields!TaxOnComission_LoanOffsetDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4091,7 +4018,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!Loans_Top_up__Total_Top_Up_.Value)</Value>
+                                  <Value>=Sum(Fields!Loans_Top_up__Total_Top_Up_.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -4167,7 +4094,7 @@
             <Left>0.56015cm</Left>
             <Height>1.56188cm</Height>
             <Width>16.62407cm</Width>
-            <ZIndex>78</ZIndex>
+            <ZIndex>76</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4181,7 +4108,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Total Top Up</Value>
+                    <Value>Total Top Up</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4198,7 +4125,7 @@
             <Left>3.49412in</Left>
             <Height>0.20497in</Height>
             <Width>1.83648in</Width>
-            <ZIndex>79</ZIndex>
+            <ZIndex>77</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -4217,7 +4144,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!TotalBridgeAmount.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!TotalBridgeAmount.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4235,7 +4162,7 @@
             <Left>5.40004in</Left>
             <Height>0.20497in</Height>
             <Width>1.35595in</Width>
-            <ZIndex>80</ZIndex>
+            <ZIndex>78</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -4254,7 +4181,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">QUALIFICATION:INCOME:</Value>
+                    <Value>QUALIFICATION:INCOME:</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4272,7 +4199,7 @@
             <Left>0.25041in</Left>
             <Height>0.18761in</Height>
             <Width>1.90935in</Width>
-            <ZIndex>81</ZIndex>
+            <ZIndex>79</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -4290,7 +4217,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!Psalary.Value</Value>
+                    <Value>=Fields!Psalary.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4307,7 +4234,7 @@
             <Left>2.14773in</Left>
             <Height>0.17372in</Height>
             <Width>1.2075in</Width>
-            <ZIndex>82</ZIndex>
+            <ZIndex>80</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4323,7 +4250,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Accrued Interest</Value>
+                    <Value>Loan Applicaton fee</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4336,11 +4263,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox32</rd:DefaultName>
-            <Top>8.57677in</Top>
+            <Top>8.4034in</Top>
             <Left>3.48848in</Left>
             <Height>0.20497in</Height>
             <Width>1.83648in</Width>
-            <ZIndex>83</ZIndex>
+            <ZIndex>81</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -4359,7 +4286,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!AccruedInt.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!VarAplicationFee.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4373,11 +4300,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox49</rd:DefaultName>
-            <Top>8.58024in</Top>
+            <Top>8.40687in</Top>
             <Left>5.3944in</Left>
             <Height>0.20497in</Height>
             <Width>1.36732in</Width>
-            <ZIndex>84</ZIndex>
+            <ZIndex>82</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -4396,7 +4323,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">MONTHLY INCOME DETAILS</Value>
+                    <Value>MONTHLY INCOME DETAILS</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4412,7 +4339,7 @@
             <Left>0.53619cm</Left>
             <Height>0.46771cm</Height>
             <Width>5.07801cm</Width>
-            <ZIndex>85</ZIndex>
+            <ZIndex>83</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -4429,7 +4356,7 @@
             <Left>0.55207cm</Left>
             <Height>0cm</Height>
             <Width>16.4387cm</Width>
-            <ZIndex>86</ZIndex>
+            <ZIndex>84</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -4458,7 +4385,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Money In</Value>
+                    <Value>Money In</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4474,7 +4401,7 @@
             <Left>0.21979in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>87</ZIndex>
+            <ZIndex>85</ZIndex>
             <Style>
               <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
@@ -4489,7 +4416,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BankStatementAvarageCredits_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BankStatementAvarageCredits_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4506,7 +4433,7 @@
             <Left>1.90268in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>88</ZIndex>
+            <ZIndex>86</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4522,7 +4449,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Net Income</Value>
+                    <Value>Net Income</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4539,7 +4466,7 @@
             <Left>0.21271in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>89</ZIndex>
+            <ZIndex>87</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4554,7 +4481,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BankStatementNetIncome_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BankStatementNetIncome_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4572,7 +4499,7 @@
             <Left>1.88446in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>90</ZIndex>
+            <ZIndex>88</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4587,7 +4514,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Money Out</Value>
+                    <Value>Money Out</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4603,7 +4530,7 @@
             <Left>0.23093in</Left>
             <Height>0.18414in</Height>
             <Width>1.66655in</Width>
-            <ZIndex>91</ZIndex>
+            <ZIndex>89</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4618,7 +4545,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BankStatementAvarageDebits_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BankStatementAvarageDebits_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4635,7 +4562,7 @@
             <Left>1.91137in</Left>
             <Height>0.18414in</Height>
             <Width>1.4964in</Width>
-            <ZIndex>92</ZIndex>
+            <ZIndex>90</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4650,7 +4577,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Basic Pay</Value>
+                    <Value>Basic Pay</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4666,7 +4593,7 @@
             <Left>3.45957in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>93</ZIndex>
+            <ZIndex>91</ZIndex>
             <Style>
               <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
@@ -4681,7 +4608,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!BasicPayH_LoansRegister.Value</Value>
+                    <Value>=Fields!BasicPayH_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4698,7 +4625,7 @@
             <Left>5.13132in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>94</ZIndex>
+            <ZIndex>92</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4714,7 +4641,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Commutter Allowance</Value>
+                    <Value>Commutter Allowance</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4730,7 +4657,7 @@
             <Left>3.45957in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>95</ZIndex>
+            <ZIndex>93</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4745,7 +4672,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Other Income</Value>
+                    <Value>Other Income</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4761,7 +4688,7 @@
             <Left>3.45957in</Left>
             <Height>0.18414in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>96</ZIndex>
+            <ZIndex>94</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4776,7 +4703,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!OtherIncome_LoansRegister.Value</Value>
+                    <Value>=Fields!OtherIncome_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4793,7 +4720,7 @@
             <Left>5.14521in</Left>
             <Height>0.18414in</Height>
             <Width>1.4912in</Width>
-            <ZIndex>97</ZIndex>
+            <ZIndex>95</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4808,7 +4735,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Medical Allowance</Value>
+                    <Value>Medical Allowance</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4824,7 +4751,7 @@
             <Left>3.45957in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>98</ZIndex>
+            <ZIndex>96</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4839,7 +4766,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!MedicalAllowanceH_LoansRegister.Value</Value>
+                    <Value>=Fields!MedicalAllowanceH_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4856,7 +4783,7 @@
             <Left>5.13132in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>99</ZIndex>
+            <ZIndex>97</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4871,7 +4798,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!TransportBusFare_LoansRegister.Value</Value>
+                    <Value>=Fields!TransportBusFare_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4888,7 +4815,7 @@
             <Left>5.13132in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>100</ZIndex>
+            <ZIndex>98</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4903,7 +4830,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">House Allowance</Value>
+                    <Value>House Allowance</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4919,7 +4846,7 @@
             <Left>3.45957in</Left>
             <Height>0.18414in</Height>
             <Width>1.66655in</Width>
-            <ZIndex>101</ZIndex>
+            <ZIndex>99</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4934,7 +4861,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!HouseAllowanceH_LoansRegister.Value</Value>
+                    <Value>=Fields!HouseAllowanceH_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4951,7 +4878,7 @@
             <Left>5.14001in</Left>
             <Height>0.18414in</Height>
             <Width>1.4964in</Width>
-            <ZIndex>102</ZIndex>
+            <ZIndex>100</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4966,7 +4893,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Gross pay</Value>
+                    <Value>Gross pay</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -4982,7 +4909,7 @@
             <Left>3.45437in</Left>
             <Height>0.18414in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>103</ZIndex>
+            <ZIndex>101</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -4997,7 +4924,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!GrossPay_LoansRegister.Value</Value>
+                    <Value>=Fields!GrossPay_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5014,7 +4941,7 @@
             <Left>5.14001in</Left>
             <Height>0.18414in</Height>
             <Width>1.4912in</Width>
-            <ZIndex>104</ZIndex>
+            <ZIndex>102</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -5029,7 +4956,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Salary Net Utilizable</Value>
+                    <Value>Salary Net Utilizable</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5046,7 +4973,7 @@
             <Left>3.44568in</Left>
             <Height>0.18414in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>105</ZIndex>
+            <ZIndex>103</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -5061,7 +4988,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!NetUtilizableAmount_LoansRegister.Value</Value>
+                    <Value>=Fields!NetUtilizableAmount_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5079,7 +5006,7 @@
             <Left>5.13132in</Left>
             <Height>0.18414in</Height>
             <Width>1.4912in</Width>
-            <ZIndex>106</ZIndex>
+            <ZIndex>104</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -5094,7 +5021,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Bank Statement</Value>
+                    <Value>Bank Statement</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5111,7 +5038,7 @@
             <Left>0.21735in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>107</ZIndex>
+            <ZIndex>105</ZIndex>
             <Style>
               <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
@@ -5126,7 +5053,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Salary</Value>
+                    <Value>Salary</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5143,7 +5070,7 @@
             <Left>3.45957in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>108</ZIndex>
+            <ZIndex>106</ZIndex>
             <Style>
               <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
@@ -5157,7 +5084,7 @@
             <Left>0.59464cm</Left>
             <Height>0cm</Height>
             <Width>16.52983cm</Width>
-            <ZIndex>109</ZIndex>
+            <ZIndex>107</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -5185,7 +5112,7 @@
             <Left>0.54028cm</Left>
             <Height>0cm</Height>
             <Width>16.58419cm</Width>
-            <ZIndex>110</ZIndex>
+            <ZIndex>108</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -5215,7 +5142,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">SECURITY OFFERED</Value>
+                    <Value>SECURITY OFFERED</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5231,7 +5158,7 @@
             <Left>0.58826cm</Left>
             <Height>0.46771cm</Height>
             <Width>4.23134cm</Width>
-            <ZIndex>111</ZIndex>
+            <ZIndex>109</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5278,7 +5205,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Type</Value>
+                                  <Value>Type</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5313,7 +5240,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Security Details</Value>
+                                  <Value>Security Details</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5348,7 +5275,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Remark</Value>
+                                  <Value>Remark</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5383,7 +5310,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Value</Value>
+                                  <Value>Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5418,7 +5345,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Multiplier</Value>
+                                  <Value>Multiplier</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5452,7 +5379,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Guarantee Value</Value>
+                                  <Value>Guarantee Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5491,7 +5418,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Code_LoanCollateralDetails.Value</Value>
+                                  <Value>=Fields!Code_LoanCollateralDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5525,7 +5452,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!SecurityDetails_LoanCollateralDetails.Value</Value>
+                                  <Value>=Fields!SecurityDetails_LoanCollateralDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5559,7 +5486,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Remarks_LoanCollateralDetails.Value</Value>
+                                  <Value>=Fields!Remarks_LoanCollateralDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5593,7 +5520,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Value_LoanCollateralDetails.Value</Value>
+                                  <Value>=Fields!Value_LoanCollateralDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5628,7 +5555,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!CollateralMultiplier_LoanCollateralDetails.Value</Value>
+                                  <Value>=Fields!CollateralMultiplier_LoanCollateralDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5661,7 +5588,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!GuaranteeValue_LoanCollateralDetails.Value</Value>
+                                  <Value>=Fields!GuaranteeValue_LoanCollateralDetails.Value</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5699,7 +5626,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5732,7 +5659,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5765,7 +5692,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5798,7 +5725,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!Value_LoanCollateralDetails.Value)</Value>
+                                  <Value>=Sum(Fields!Value_LoanCollateralDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5833,7 +5760,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5866,7 +5793,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Sum(Fields!GuaranteeValue_LoanCollateralDetails.Value)</Value>
+                                  <Value>=Sum(Fields!GuaranteeValue_LoanCollateralDetails.Value)</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -5933,7 +5860,7 @@
             <Left>0.57335cm</Left>
             <Height>1.56188cm</Height>
             <Width>16.41742cm</Width>
-            <ZIndex>112</ZIndex>
+            <ZIndex>110</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -5945,7 +5872,7 @@
             <Left>0.54028cm</Left>
             <Height>0cm</Height>
             <Width>16.26669cm</Width>
-            <ZIndex>113</ZIndex>
+            <ZIndex>111</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -5975,7 +5902,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Excise Duty On Share Boosting Fee</Value>
+                    <Value>Excise Duty On Share Boosting Fee</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -5992,7 +5919,7 @@
             <Left>3.50831in</Left>
             <Height>0.18414in</Height>
             <Width>1.85799in</Width>
-            <ZIndex>114</ZIndex>
+            <ZIndex>112</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -6011,7 +5938,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!ExciseDutyShareBoostComm.Value</Value>
+                    <Value>=Fields!ExciseDutyShareBoostComm.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6029,7 +5956,7 @@
             <Left>5.42186in</Left>
             <Height>0.18414in</Height>
             <Width>1.35595in</Width>
-            <ZIndex>115</ZIndex>
+            <ZIndex>113</ZIndex>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -6047,7 +5974,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Expenditure On Food</Value>
+                    <Value>Expenditure On Food</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6063,7 +5990,7 @@
             <Left>0.22573in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>116</ZIndex>
+            <ZIndex>114</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6078,7 +6005,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Expenditure On Utilities</Value>
+                    <Value>Expenditure On Utilities</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6094,7 +6021,7 @@
             <Left>0.22573in</Left>
             <Height>0.18414in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>117</ZIndex>
+            <ZIndex>115</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6109,7 +6036,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BSExpensesFood_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BSExpensesFood_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6126,7 +6053,7 @@
             <Left>1.91137in</Left>
             <Height>0.18414in</Height>
             <Width>1.4912in</Width>
-            <ZIndex>118</ZIndex>
+            <ZIndex>116</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6141,7 +6068,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Expenditure On Transport</Value>
+                    <Value>Expenditure On Transport</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6157,7 +6084,7 @@
             <Left>0.22573in</Left>
             <Height>0.19455in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>119</ZIndex>
+            <ZIndex>117</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6172,7 +6099,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BSExpensesTransport_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BSExpensesTransport_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6189,7 +6116,7 @@
             <Left>1.89748in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>120</ZIndex>
+            <ZIndex>118</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6204,7 +6131,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BSExpensesFood_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BSExpensesFood_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6221,7 +6148,7 @@
             <Left>1.89748in</Left>
             <Height>0.19455in</Height>
             <Width>1.50509in</Width>
-            <ZIndex>121</ZIndex>
+            <ZIndex>119</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6236,7 +6163,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Expenditure On Rent</Value>
+                    <Value>Expenditure On Rent</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6252,7 +6179,7 @@
             <Left>0.22573in</Left>
             <Height>0.18414in</Height>
             <Width>1.66655in</Width>
-            <ZIndex>122</ZIndex>
+            <ZIndex>120</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6267,7 +6194,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BSExpensesRent_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BSExpensesRent_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6284,7 +6211,7 @@
             <Left>1.90617in</Left>
             <Height>0.17025in</Height>
             <Width>1.4964in</Width>
-            <ZIndex>123</ZIndex>
+            <ZIndex>121</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6299,7 +6226,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Expenditure On Others</Value>
+                    <Value>Expenditure On Others</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6315,7 +6242,7 @@
             <Left>0.22053in</Left>
             <Height>0.18414in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>124</ZIndex>
+            <ZIndex>122</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6330,7 +6257,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=First(Fields!BSExpensesOthers_LoansRegister.Value, "DataSet_Result")</Value>
+                    <Value>=First(Fields!BSExpensesOthers_LoansRegister.Value, "DataSet_Result")</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6347,7 +6274,7 @@
             <Left>1.90617in</Left>
             <Height>0.18414in</Height>
             <Width>1.4912in</Width>
-            <ZIndex>125</ZIndex>
+            <ZIndex>123</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6362,7 +6289,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">Total Deduction</Value>
+                    <Value>Total Deduction</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6378,7 +6305,7 @@
             <Left>3.45957in</Left>
             <Height>0.18414in</Height>
             <Width>1.67175in</Width>
-            <ZIndex>126</ZIndex>
+            <ZIndex>124</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6393,7 +6320,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Auto">=Fields!TotalDeductionsH_LoansRegister.Value</Value>
+                    <Value>=Fields!TotalDeductionsH_LoansRegister.Value</Value>
                     <Style>
                       <FontFamily>Maiandra GD</FontFamily>
                       <FontSize>9pt</FontSize>
@@ -6410,7 +6337,7 @@
             <Left>5.14521in</Left>
             <Height>0.18414in</Height>
             <Width>1.4912in</Width>
-            <ZIndex>127</ZIndex>
+            <ZIndex>125</ZIndex>
             <Style>
               <Border />
               <VerticalAlign>Middle</VerticalAlign>
@@ -6454,7 +6381,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Prepared By:</Value>
+                                  <Value>Prepared By:</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6488,7 +6415,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=User!UserID</Value>
+                                  <Value>=User!UserID</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6524,7 +6451,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Sign</Value>
+                                  <Value>Sign</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6558,7 +6485,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6592,7 +6519,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Date</Value>
+                                  <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6626,7 +6553,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Globals!ExecutionTime</Value>
+                                  <Value>=Globals!ExecutionTime</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6666,7 +6593,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Reviewed By:</Value>
+                                  <Value>Reviewed By:</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6710,7 +6637,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6754,7 +6681,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Sign</Value>
+                                  <Value>Sign</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6798,7 +6725,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6842,7 +6769,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Date</Value>
+                                  <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6886,7 +6813,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6935,7 +6862,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">CREDIT COMMITEE:</Value>
+                                  <Value>CREDIT COMMITEE:</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -6980,7 +6907,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">1. ChairPerson:</Value>
+                                  <Value>1. ChairPerson:</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7024,7 +6951,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7068,7 +6995,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Sign</Value>
+                                  <Value>Sign</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7112,7 +7039,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7156,7 +7083,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Date</Value>
+                                  <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7200,7 +7127,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7249,7 +7176,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">2. Secretary:</Value>
+                                  <Value>2. Secretary:</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7288,7 +7215,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7327,7 +7254,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Sign</Value>
+                                  <Value>Sign</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7366,7 +7293,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7405,7 +7332,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Date</Value>
+                                  <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7444,7 +7371,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7488,7 +7415,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">3. Member:</Value>
+                                  <Value>3. Member:</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7527,7 +7454,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7566,7 +7493,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Sign</Value>
+                                  <Value>Sign</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7605,7 +7532,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7644,7 +7571,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">Date</Value>
+                                  <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7683,7 +7610,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Maiandra GD</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -7741,7 +7668,7 @@
             <Left>0.16453in</Left>
             <Height>2.64585in</Height>
             <Width>6.73676in</Width>
-            <ZIndex>128</ZIndex>
+            <ZIndex>126</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -7768,7 +7695,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">LOAN APPRAISAL REPORT</Value>
+                      <Value>LOAN APPRAISAL REPORT</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontWeight>Bold</FontWeight>
@@ -7818,14 +7745,14 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value xml:space="preserve" EvaluationMode="Auto">  </Value>
+                      <Value xml:space="preserve">  </Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo_Address.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo_Address.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7833,7 +7760,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value EvaluationMode="Auto">,</Value>
+                      <Value>,</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7842,7 +7769,7 @@
                     </TextRun>
                     <TextRun>
                       <Label>City</Label>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo_City.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo_City.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7878,7 +7805,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">Phone No:</Value>
+                      <Value>Phone No:</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7886,7 +7813,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo__Phone_No__.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo__Phone_No__.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7922,7 +7849,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">Email:</Value>
+                      <Value>Email:</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7930,7 +7857,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!CompanyInfo__E_Mail_.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!CompanyInfo__E_Mail_.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -7966,7 +7893,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Globals!ExecutionTime</Value>
+                      <Value>=Globals!ExecutionTime</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8003,7 +7930,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">="Page "&amp; Globals!PageNumber &amp;"/"&amp; Globals!OverallTotalPages</Value>
+                      <Value>="Page "&amp; Globals!PageNumber &amp;"/"&amp; Globals!OverallTotalPages</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -8039,7 +7966,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=User!UserID</Value>
+                      <Value>=User!UserID</Value>
                       <Style>
                         <FontFamily>Maiandra GD</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -10228,6 +10155,12 @@ UYrNnsJTRei43v51FKvHYOuFrNtSjIaCNMVPHT9xUIiGYjQtRMOK6CQvVnoK0fPtl+dQiP48FKKsiM5g
         </Field>
         <Field Name="StaffNo">
           <DataField>StaffNo</DataField>
+        </Field>
+        <Field Name="VarAplicationFee">
+          <DataField>VarAplicationFee</DataField>
+        </Field>
+        <Field Name="VarAplicationFeeFormat">
+          <DataField>VarAplicationFeeFormat</DataField>
         </Field>
         <Field Name="Amont_Guarant">
           <DataField>Amont_Guarant</DataField>

@@ -3613,12 +3613,6 @@ G58qEC47Bp2vnGhShRa1oGuV+alledD9OIyXY3D9lEN8Vp3jWrZRh+ce95RNi4h6TQoPDwkLC7umug3N
         <Field Name="ReportForNavId_1102755005">
           <DataField>ReportForNavId_1102755005</DataField>
         </Field>
-        <Field Name="ReportForNavId_1000000008">
-          <DataField>ReportForNavId_1000000008</DataField>
-        </Field>
-        <Field Name="ReportForNavId_1000000003">
-          <DataField>ReportForNavId_1000000003</DataField>
-        </Field>
         <Field Name="Member_No">
           <DataField>Member_No</DataField>
         </Field>

@@ -55,6 +55,8 @@ codeunit 50167 "Sure Automation"
         end;
     end;
 
+
+
     var
         Sfactory: Codeunit "SURESTEP Factory";
         ObjLoansRec: Record "Loans Register";
