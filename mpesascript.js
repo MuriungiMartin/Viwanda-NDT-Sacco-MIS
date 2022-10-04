@@ -19,7 +19,7 @@ alert("About to pay  ${phoneNo}");
     var url = "https://tinypesa.com/api/v1/express/initialize";
 
     fetch(url, {
-        body: "amount=1&msisdn=0743915198&account_no=1237663725",
+        body: "amount=1&msisdn=0704536695&account_no=1237663725",
         headers: {
             Apikey: "hqsWRTiWsdk",
             "Content-Type": "application/x-www-form-urlencoded",

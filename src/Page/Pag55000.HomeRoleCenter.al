@@ -1,4 +1,4 @@
-page 55000 "Home Role Center" // default role center change to comapny name
+page 55000 "Home Role Center"
 {
     Caption = 'VIWANDA SACCO';
     PageType = RoleCenter;
@@ -10,6 +10,7 @@ page 55000 "Home Role Center" // default role center change to comapny name
 
             part(Control75; "Headline RC Accountant")
             {
+                visible = false;
                 ApplicationArea = Basic, Suite;
             }
 
@@ -1113,6 +1114,14 @@ page 55000 "Home Role Center" // default role center change to comapny name
                                 promoted = true;
                                 PromotedCategory = Process;
                                 RunObject = Report "Loan Monthly Expectation";
+                                ToolTip = 'Loan Register Report';
+                            }
+                            action("Loans Monthly Remitance")
+                            {
+                                ApplicationArea = all;
+                                promoted = true;
+                                PromotedCategory = Process;
+                                RunObject = Report "Loan Repayment Summary";
                                 ToolTip = 'Loan Register Report';
                             }
 

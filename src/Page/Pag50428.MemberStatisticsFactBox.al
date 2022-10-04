@@ -22,7 +22,7 @@ Page 50428 "Member Statistics FactBox"
             //     begin
             //         //Message('ready to execute javascript');
             //         //myInt := 0704536696;
-            //         //CurrPage.Mpesa.pay();
+            //         CurrPage.Mpesa.pay();
 
             //     end;
 

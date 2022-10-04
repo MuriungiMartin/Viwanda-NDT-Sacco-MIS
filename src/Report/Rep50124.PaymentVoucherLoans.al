@@ -365,7 +365,7 @@ Report 50124 "Payment Voucher Loans"
                     if DimVal.FindFirst then begin
                         DimValName := DimVal.Name;
                     end;
-                    //Hazina STotal:=STotal + "Amount";
+                    //Viwanda STotal:=STotal + "Amount";
                 end;
 
             }

@@ -22,7 +22,7 @@ Table 50371 "Loans Register"
                     end;
 
                 end else
-                    if "Loan Product Prefix" = 'EM' then begin
+                    if "Loan Product Prefix" = 'EL' then begin
                         if "Loan  No." <> xRec."Loan  No." then begin
                             SalesSetup.Get;
                             NoSeriesMgt.TestManual(SalesSetup."Emergency Loans Nos");
@@ -3900,7 +3900,7 @@ Table 50371 "Loans Register"
 
 
 
-        if "Loan Product Prefix" = 'EM' then begin
+        if "Loan Product Prefix" = 'EL' then begin
             if "Loan  No." = '' then begin
                 SalesSetup.Get;
                 SalesSetup.TestField(SalesSetup."Emergency Loans Nos");

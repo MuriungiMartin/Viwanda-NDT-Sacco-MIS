@@ -344,7 +344,7 @@ Report 50131 "Cash Voucher Report"
                     if DimVal.FindFirst then begin
                         DimValName := DimVal.Name;
                     end;
-                    //Hazina STotal:=STotal + "Amount";
+                    //Viwanda STotal:=STotal + "Amount";
                 end;
 
             }

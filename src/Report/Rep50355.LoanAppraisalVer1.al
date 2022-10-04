@@ -696,6 +696,10 @@ Report 50355 "Loan Appraisal Ver1"
             column(StaffNo; Memba."Payroll No")
             {
             }
+            column(VarAplicationFee; VarAplicationFee)
+            {
+
+            }
             dataitem("Loans Guarantee Details"; "Loans Guarantee Details")
             {
                 DataItemLink = "Loan No" = field("Loan  No.");

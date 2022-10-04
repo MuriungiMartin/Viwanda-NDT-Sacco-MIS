@@ -1090,7 +1090,7 @@ Report 50333 "Individual Payslips.."
                     Branchno := objEmp."Branch Bank";
                     strAccountNo := objEmp."Bank Account Number";
                     strBank := objEmp."Main Bank";
-                    //  dept:=objEmp."Cost Center Name"; Hazina Should Correct
+                    //  dept:=objEmp."Cost Center Name"; Viwanda Should Correct
                 end;
                 /*bankStruct.RESET;
 				bankStruct.SETRANGE (bankStruct."Bank Code",Bankno);

@@ -317,7 +317,7 @@ Report 50126 "Funds Transfer report-new"
                     if DimVal.FindFirst then begin
                         DimValName := DimVal.Name;
                     end;
-                    //Hazina STotal:=STotal + "Amount";
+                    //Viwanda STotal:=STotal + "Amount";
                 end;
 
             }

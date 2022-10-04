@@ -42,7 +42,7 @@
                       <CellContents>
                         <Image Name="Image1">
                           <Source>Embedded</Source>
-                          <Value>LOGOHAZINA</Value>
+                          <Value>LOGOViwanda</Value>
                           <Sizing>FitProportional</Sizing>
                           <Style>
                             <Border>
@@ -61,7 +61,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">HAZINA SACCO SOCIETY MEMBERSHIP CARD</Value>
+                                  <Value EvaluationMode="Auto">Viwanda SACCO SOCIETY MEMBERSHIP CARD</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -117,7 +117,7 @@
                       <CellContents>
                         <Image Name="Image2">
                           <Source>Embedded</Source>
-                          <Value>LOGOHAZINA</Value>
+                          <Value>LOGOViwanda</Value>
                           <Sizing>FitProportional</Sizing>
                           <Style>
                             <Border>
@@ -1573,7 +1573,7 @@ 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</ImageData>
     </EmbeddedImage>
-    <EmbeddedImage Name="LOGOHAZINA">
+    <EmbeddedImage Name="LOGOViwanda">
       <MIMEType>image/png</MIMEType>
       <ImageData>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

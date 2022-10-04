@@ -33,11 +33,11 @@ Codeunit 50017 "Process Bank Acc. Rec Lines-2"
 
         // if not PostingExch.ImportToPostExch(PostExchDef)then
         //   exit(false);
-        //hazina
+        //Viwanda
         ProgressWindow.Open(ProgressWindowMsg);
 
         CreateBankAccRecLineTemplate(BankAccReconLine, BankAccRecon, PostingExch);
-        // Hazina PostExchLineDef.SETRANGE("Posting Exch. Def Code",PostExchDef.Code);
+        // Viwanda PostExchLineDef.SETRANGE("Posting Exch. Def Code",PostExchDef.Code);
         PostExchLineDef.FindFirst;
 
         PostExchMapping.Get(PostExchDef.Code, PostExchLineDef.Code, Database::"Bank Acc. Statement Linevb");

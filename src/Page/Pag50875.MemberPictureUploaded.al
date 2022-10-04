@@ -30,7 +30,7 @@ Page 50875 "Member Picture-Uploaded"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 ToolTip = 'Activate the camera on the device.';
-                Visible = CameraAvailable and (HideActions = false);
+                Visible = CameraAvailable;
 
                 trigger OnAction()
                 begin
@@ -142,7 +142,7 @@ Page 50875 "Member Picture-Uploaded"
         TestField("No.");
         //TESTFIELD(Description);
 
-        if Signature.Count > 0 then
+        if Piccture.Count > 0 then
             if not Confirm(OverrideImageQst) then
                 Error('');
 
@@ -151,8 +151,8 @@ Page 50875 "Member Picture-Uploaded"
         if FileName = '' then
             Error('');
 
-        Clear(Signature);
-        Signature.ImportFile(FileName, ClientFileName);
+        Clear(Piccture);
+        Piccture.ImportFile(FileName, ClientFileName);
         if not Insert(true) then
             Modify(true);
 
@@ -161,7 +161,7 @@ Page 50875 "Member Picture-Uploaded"
 
     local procedure SetEditableOnPictureActions()
     begin
-        DeleteExportEnabled := Signature.Count <> 0;
+        DeleteExportEnabled := Piccture.Count <> 0;
     end;
 
     procedure IsCameraAvailable(): Boolean
@@ -182,7 +182,7 @@ Page 50875 "Member Picture-Uploaded"
         if not Confirm(DeleteImageQst) then
             exit;
 
-        Clear(Signature);
+        Clear(Piccture);
         Modify(true);
     end;
 

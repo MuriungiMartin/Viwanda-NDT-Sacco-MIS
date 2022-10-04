@@ -24,6 +24,39 @@ codeunit 50167 "Sure Automation"
         end;
     end;
 
+    procedure FnGetMemberFreeShares()
+    var
+        varTotalGuaranteedAmount: decimal;
+        VarTotalLoansOutstanding: Decimal;
+        ObjCustRec: record Customer;
+    begin
+        ObjCust.Reset();
+        ObjCust.SetAutoCalcFields(ObjCust."Outstanding Balance");
+        if ObjCust.FindSet() then begin
+            repeat
+                ObjCustRec.Reset();
+                ObjCustRec.SetRange(ObjCustRec."No.", ObjCust."No.");
+                if ObjCustRec.find('-') then begin
+                    repeat
+                        VarTotalLoansOutstanding += ObjCustRec."Outstanding Balance";
+                    until ObjCustRec.Next() = 0;
+                end;
+                ObjGuarantors.Reset();
+                ObjGuarantors.SetRange(ObjGuarantors."Member No");
+                ObjGuarantors.SetAutoCalcFields(ObjGuarantors."Outstanding Balance");
+                if ObjGuarantors.FindSet() then begin
+                    repeat
+                        varTotalGuaranteedAmount += ObjGuarantors."Current Amount Guaranteed";
+                    until ObjGuarantors.Next() = 0;
+                end;
+                ObjCust."Free Shares" := (ObjCust."Current Shares" - (varTotalGuaranteedAmount + VarTotalLoansOutstanding));
+                ObjCust.Modify();
+            until ObjCust.Next() = 0;
+        end;
+    end;
+
+
+
     var
         Sfactory: Codeunit "SURESTEP Factory";
         ObjLoansRec: Record "Loans Register";

@@ -181,7 +181,7 @@ Report 50925 "Loan Demand Notice"
                             SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
                             SMSMessage."SMS Message" := 'Defaulter First Notice: You have defaulted Loan No. '
                             + Loans."Loan  No." + ' of KSHs.' + Format(Loans."Approved Amount") +
-                                                      ' at HAZINA SACCO LTD. ';
+                                                      ' at Viwanda SACCO LTD. ';
                             Cust.Reset;
                             if Cust.Get(Loans."Client Code") then
                                 SMSMessage."Telephone No" := Cust."Phone No.";
@@ -284,7 +284,7 @@ Report 50925 "Loan Demand Notice"
                                     SMSMessage."Sent To Server" := SMSMessage."sent to server"::No;
                                     SMSMessage."SMS Message" := 'Defaulter First Notice: This is to notify you that '
                                     + LoansREC."Client Name" + ' has defaulted a loan you had guaranteed of KSHs.' + Format(Loans."Approved Amount") +
-                                                              ' at HAZINA SACCO LTD. ';
+                                                              ' at Viwanda SACCO LTD. ';
                                     Cust1.Reset;
                                     if Cust1.Get("Loan Guarantors"."Member No") then
                                         SMSMessage."Telephone No" := Cust1."Phone No.";
