@@ -3,6 +3,8 @@ Report 50377 "Dividend Register"
 {
     RDLCLayout = 'Layouts/DividendRegister.rdlc';
     DefaultLayout = RDLC;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = all;
 
     dataset
     {
@@ -173,7 +175,6 @@ Report 50377 "Dividend Register"
                 TPDiv := TPDiv + PayableDiv;
                 TDividendCapitalized := TDividendCapitalized + DividendCapitalized;
                 TSharesDiv := TSharesDiv + SharesDiv;
-                //****************************************kk
                 WithholdingTax := 0;
                 PayableDiv := 0;
                 SharesDiv := 100;
@@ -182,12 +183,6 @@ Report 50377 "Dividend Register"
                 TPDiv := 0;
                 TSharesDiv := 0;
                 CalcFields(Customer."Dividend Amount", Customer."Current Shares", Customer."Shares Retained");
-                //>IF Customer."Dividend Amount" <> 0 THEN BEGIN
-                //Customer.SETRANGE(Customer."Date Filter",Date1);
-                //Share:=("Shares Variance");
-                //>END;
-                //>IF Customer."Dividend Amount" <> 0 THEN BEGIN
-                //Customer.SETRANGE(Customer."Date Filter",Date2);
                 GDiv := Customer."Dividend Amount" / 0.95;
                 WithholdingTax := GDiv * (GenSetup."Withholding Tax (%)" / 100);
                 PayableDiv := Customer."Dividend Amount";
@@ -195,7 +190,6 @@ Report 50377 "Dividend Register"
                 TWTax := TWTax + WithholdingTax;
                 TPDiv := TPDiv + PayableDiv;
                 TSharesDiv := TSharesDiv + SharesDiv;
-                //****************************************kk
             end;
 
         }

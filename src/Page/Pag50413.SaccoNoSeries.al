@@ -33,10 +33,12 @@ Page 50413 "Sacco No. Series"
                 }
                 field("Micro Loans"; "Micro Loans")
                 {
+                    Visible = false;
                     ApplicationArea = Basic;
                 }
                 field("Members Nos"; "Members Nos")
                 {
+                    Visible = false;
                     ApplicationArea = Basic;
                 }
                 field("Emergency Loans Nos"; "Emergency Loans Nos")

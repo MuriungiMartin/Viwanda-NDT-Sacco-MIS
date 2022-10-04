@@ -918,6 +918,8 @@ Codeunit 50162 "WorkflowIntegration"
     begin
     end;
 
+
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Approvals Mgmt.", 'OnPopulateApprovalEntryArgument', '', true, true)]
     local procedure PopulateSurestepEntries(RecRef: RecordRef; WorkflowStepInstance: Record "Workflow Step Instance"; var ApprovalEntryArgument: Record "Approval Entry")
     var
@@ -994,12 +996,6 @@ Codeunit 50162 "WorkflowIntegration"
                     ApprovalEntryArgument."Document Type" := ApprovalEntryArgument."document type"::"ChequeRegister";
                     ApprovalEntryArgument."Document No." := VarChequeregister."Cheque No";
                     ApprovalEntryArgument.Amount := VarChequeregister."Cheque Amount";
-
-
-
-
-
-
                 end;
             //Membership Applications
             Database::"Membership Applications":
@@ -1533,6 +1529,7 @@ Codeunit 50162 "WorkflowIntegration"
 
         //--------------------------End Add
         end;
+        OnAfterPopulateCustomApprovalEntries(ApprovalEntryArgument);
 
 
     end;
@@ -1567,29 +1564,6 @@ Codeunit 50162 "WorkflowIntegration"
     procedure OnCancelLoanRestructureApprovalRequest(var LoanRestructure: Record "Loan Rescheduling")
     begin
     end;
-
-    // local procedure FnApproveRecordsWithSameSequenceNumber(ObjRec: Record "Approval Entry")
-    // var
-    //     ApprovalEntry: Record "Approval Entry";
-    //     ObjApprovalEntries: Record "Approval Entry";
-    // begin
-    //     ObjApprovalEntries.Reset;
-    //     ObjApprovalEntries.SetRange("Sequence No.",ObjRec."Sequence No.");
-    //     ObjApprovalEntries.SetRange("Document No.",ObjRec."Document No.");
-    //     //ObjApprovalEntries.SETRANGE("Approve All",TRUE);
-    //     if ObjApprovalEntries.Find('-') then
-    //       begin
-    //         repeat
-    //           if (ObjApprovalEntries.Status<>ObjApprovalEntries.Status::Canceled) or (ObjApprovalEntries.Status<>ObjApprovalEntries.Status::Rejected) then
-    //             begin
-    //               ObjApprovalEntries.Validate(Status,ApprovalEntry.Status::Approved);
-    //               ObjApprovalEntries.Modify(true);
-    //               OnApproveApprovalRequest(ObjApprovalEntries);
-    //               end;
-    //         until ObjApprovalEntries.Next=0;
-    //       end;
-    // end;
-
 
     procedure CheckSweepingInstructionsApprovalsWorkflowEnabled(var SweepingInstructions: Record "Member Sweeping Instructions"): Boolean
     begin
@@ -1771,6 +1745,14 @@ Codeunit 50162 "WorkflowIntegration"
     procedure OnCancelSalaryProcessingApprovalRequest(var SProcessing: Record "Salary Processing Headerr")
     begin
     end;
+
+    [IntegrationEvent(false, false)]
+    procedure OnAfterPopulateCustomApprovalEntries(var ApprovalEntry: Record "Approval Entry")
+    begin
+
+    end;
+
+
 
     var
         SurestepWFEvents: Codeunit "Custom Workflow Events";

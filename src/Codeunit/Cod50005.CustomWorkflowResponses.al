@@ -588,7 +588,6 @@ Codeunit 50005 "Custom Workflow Responses"
             //Membership Application
             Database::"Membership Applications":
                 begin
-                    //  Message('we here');
                     RecRef.SetTable(MembershipApplication);
                     MembershipApplication.Validate(Status, MembershipApplication.Status::"Pending Approval");
                     MembershipApplication.Modify(true);
@@ -2217,8 +2216,430 @@ Codeunit 50005 "Custom Workflow Responses"
 
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, codeunit::"Approvals Mgmt.", 'OnSetStatusToPendingApproval', '', false, false)]
+    procedure OnSetStatusToPendingApproval(RecRef: RecordRef; var Variant: Variant; var IsHandled: Boolean)
+    var
+        PaymentHeader: Record "Payments Header";
+        MembershipApplication: Record "Membership Applications";
+        LoanApplication: Record "Loans Register";
+        LoanDisbursement: Record "Loan Disburesment-Batching";
+        StandingOrder: Record "Standing Orders";
+        MWithdrawal: Record "Membership Exist";
+        ATMCard: Record "ATM Card Applications";
+        GuarantorR: Record "Loan Recovery Header";
+        ChangeRequest: Record "Change Request";
+        TTransactions: Record "Treasury Transactions";
+        FAccount: Record "FOSA Account Applicat. Details";
+        SReq: Record "Store Requistion Header";
+        SaccoTransfers: Record "Sacco Transfers";
+        ChequeDiscounting: Record "Cheque Discounting";
+        ImprestRequisition: Record "Imprest Header";
+        ImprestSurrender: Record "Imprest Surrender Header";
+        LeaveApplication: Record "HR Leave Application";
+        BulkWithdrawal: Record "Bulk Withdrawal Application";
+        PackageLodge: Record "Safe Custody Package Register";
+        PackageRetrieval: Record "Package Retrieval Register";
+        HouseChange: Record "House Group Change Request";
+        CRMTraining: Record "CRM Trainings";
+        PettyCash: Record "Payment Header.";
+        StaffClaims: Record "Staff Claims Header";
+        MemberAgentNOKChange: Record "Member Agent/Next Of Kin Chang";
+        HouseRegistration: Record "House Groups Registration";
+        LoanPayOff: Record "Loan PayOff";
+        FixedDeposit: Record "Fixed Deposit Placement";
+        EFTRTGS: Record "EFT/RTGS Header";
+        LDemand: Record "Default Notices Register";
+        OverDraft: Record "OverDraft Application";
+        LoanRestructure: Record "Loan Restructure";
+        SweepingInstructions: Record "Member Sweeping Instructions";
+        ChequeBook: Record "Cheque Book Application";
+        LoanTrunch: Record "Loan trunch Disburesment";
+        InwardChequeClearing: Record "Cheque Receipts-Family";
+        InvalidPaybillTransactions: Record "Paybill Processing Header";
+        InternalPV: Record "Internal PV Header";
+        ChequeRegister: Record ChequeRegister;
+        JournalBatch: Record "Gen. Journal Batch";
+        SProcessing: Record "Salary Processing Headerr";
+        GuarantorshipSubstitution: Record "Guarantorship Substitution H";
+    begin
+        RecRef.GetTable(Variant);
+        case RecRef.Number of
+            //Payment Header
+            Database::"Payments Header":
+                begin
+                    RecRef.SetTable(PaymentHeader);
+                    PaymentHeader.Validate(Status, PaymentHeader.Status::"Pending Approval");
+                    PaymentHeader.Modify(true);
+                    IsHandled := true;
+
+                end;
+            //Cheque Register
+
+            Database::ChequeRegister:
+                begin
+                    RecRef.SetTable(ChequeRegister);
+                    ChequeRegister.Validate(Status, ChequeRegister.Status::"Pending");
+                    ChequeRegister.Modify(true);
+                    IsHandled := true;
+
+                end;
+
+
+            //Membership Application
+            Database::"Membership Applications":
+                begin
+                    RecRef.SetTable(MembershipApplication);
+                    MembershipApplication.Validate(Status, MembershipApplication.Status::"Pending Approval");
+                    MembershipApplication.Modify(true);
+
+                    IsHandled := true;
+                end;
+            //Loan Application
+            Database::"Loans Register":
+                begin
+                    RecRef.SetTable(LoanApplication);
+                    // LoanApplication.Validate("Loan Status", LoanApplication."loan status"::Appraisal);
+                    LoanApplication.Validate("Approval Status", LoanApplication."approval status"::Pending);
+                    IsHandled := true;
+                    LoanApplication.Modify(true);
+                end;
+            //Guarantor substitutionn
+            Database::"Guarantorship Substitution H":
+                begin
+                    RecRef.SetTable(GuarantorshipSubstitution);
+                    GuarantorshipSubstitution.Validate(Status, GuarantorshipSubstitution.Status::Pending);
+                    GuarantorshipSubstitution.Modify;
+                    Variant := GuarantorshipSubstitution;
+                end;
+            //Standing Order
+            Database::"Standing Orders":
+                begin
+                    RecRef.SetTable(StandingOrder);
+                    StandingOrder.Validate(Status, StandingOrder.Status::Pending);
+                    StandingOrder.Modify(true);
+                    Variant := StandingOrder;
+                end;
+
+            //Loan Disbursement
+            Database::"Loan Disburesment-Batching":
+                begin
+                    RecRef.SetTable(LoanDisbursement);
+                    LoanDisbursement.Validate(Status, LoanDisbursement.Status::"Pending Approval");
+                    LoanDisbursement.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Membership Withdrawal
+            Database::"Membership Exist":
+                begin
+                    RecRef.SetTable(MWithdrawal);
+                    MWithdrawal.Validate(Status, MWithdrawal.Status::Pending);
+                    MWithdrawal.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //ATM Card
+            Database::"ATM Card Applications":
+                begin
+                    RecRef.SetTable(ATMCard);
+                    ATMCard.Validate(Status, ATMCard.Status::Pending);
+                    ATMCard.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Guarantor Recovery
+            Database::"Loan Recovery Header":
+                begin
+                    RecRef.SetTable(GuarantorR);
+                    GuarantorR.Validate(Status, GuarantorR.Status::Pending);
+                    GuarantorR.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Change Request
+            Database::"Change Request":
+                begin
+                    RecRef.SetTable(ChangeRequest);
+                    ChangeRequest.Validate(Status, ChangeRequest.Status::Pending);
+                    ChangeRequest.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Treasury Transaction
+            Database::"Treasury Transactions":
+                begin
+                    RecRef.SetTable(TTransactions);
+                    TTransactions.Validate(Status, TTransactions.Status::"Pending Approval");
+                    TTransactions.Modify(true);
+                    IsHandled := true;
+                end;
+            //FOSA Account Application
+            Database::"FOSA Account Applicat. Details":
+                begin
+                    RecRef.SetTable(FAccount);
+                    FAccount.Validate(Status, FAccount.Status::Pending);
+                    FAccount.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Stores Requisition
+            Database::"Store Requistion Header":
+                begin
+                    RecRef.SetTable(SReq);
+                    SReq.Validate(Status, SReq.Status::"Pending Approval");
+                    SReq.Modify(true);
+                    IsHandled := true;
+                end;
+            //Sacco Transfers
+            Database::"Sacco Transfers":
+                begin
+                    RecRef.SetTable(SaccoTransfers);
+                    SaccoTransfers.Validate(Status, SaccoTransfers.Status::"Pending Approval");
+                    SaccoTransfers.Modify(true);
+                    IsHandled := true;
+                end;
+            //Cheque Discounting
+            Database::"Cheque Discounting":
+                begin
+                    RecRef.SetTable(ChequeDiscounting);
+                    ChequeDiscounting.Validate(Status, ChequeDiscounting.Status::"Pending Approval");
+                    ChequeDiscounting.Modify(true);
+                    IsHandled := true;
+                end;
+            //Imprest Requisition
+            Database::"Imprest Header":
+                begin
+                    RecRef.SetTable(ImprestRequisition);
+                    ImprestRequisition.Validate(Status, ImprestRequisition.Status::"Pending Approval");
+                    ImprestRequisition.Modify(true);
+                    IsHandled := true;
+                end;
+            //Imprest Surrender
+            Database::"Imprest Surrender Header":
+                begin
+                    RecRef.SetTable(ImprestSurrender);
+                    ImprestSurrender.Validate(Status, ImprestSurrender.Status::"Pending Approval");
+                    ImprestSurrender.Modify(true);
+                    IsHandled := true;
+                end;
+            //Leave Application
+            Database::"HR Leave Application":
+                begin
+                    RecRef.SetTable(LeaveApplication);
+                    LeaveApplication.Validate(Status, LeaveApplication.Status::"Pending Approval");
+                    LeaveApplication.Modify(true);
+                    IsHandled := true;
+                end;
+            //Bulk Withdrawal
+            Database::"Bulk Withdrawal Application":
+                begin
+                    RecRef.SetTable(BulkWithdrawal);
+                    BulkWithdrawal.Validate(Status, BulkWithdrawal.Status::"Pending Approval");
+                    BulkWithdrawal.Modify(true);
+                    IsHandled := true;
+                end;
+            //Package Lodge
+            Database::"Safe Custody Package Register":
+                begin
+                    RecRef.SetTable(PackageLodge);
+                    PackageLodge.Validate(Status, PackageLodge.Status::"Pending Approval");
+                    PackageLodge.Modify(true);
+                    IsHandled := true;
+                end;
+            //Package Retrieval
+            Database::"Package Retrieval Register":
+                begin
+                    RecRef.SetTable(PackageRetrieval);
+                    PackageRetrieval.Validate(Status, PackageRetrieval.Status::"Pending Approval");
+                    PackageRetrieval.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //House Change
+            Database::"House Group Change Request":
+                begin
+                    RecRef.SetTable(HouseChange);
+                    HouseChange.Validate(Status, HouseChange.Status::"Pending Approval");
+                    HouseChange.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //CRM
+            Database::"CRM Trainings":
+                begin
+                    RecRef.SetTable(CRMTraining);
+                    CRMTraining.Validate(Status, CRMTraining.Status::Pending);
+                    CRMTraining.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Petty Cash
+            Database::"Payment Header.":
+                begin
+                    RecRef.SetTable(PettyCash);
+                    PettyCash.Validate(Status, PettyCash.Status::"Pending Approval");
+                    PettyCash.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Staff Claims
+            Database::"Staff Claims Header":
+                begin
+                    RecRef.SetTable(StaffClaims);
+                    StaffClaims.Validate(Status, StaffClaims.Status::"Pending Approval");
+                    StaffClaims.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Member Agent/NOK Change
+            Database::"Member Agent/Next Of Kin Chang":
+                begin
+                    RecRef.SetTable(MemberAgentNOKChange);
+                    MemberAgentNOKChange.Validate(Status, MemberAgentNOKChange.Status::"Pending Approval");
+                    MemberAgentNOKChange.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //House Registration
+            Database::"House Groups Registration":
+                begin
+                    RecRef.SetTable(HouseRegistration);
+                    HouseRegistration.Validate(Status, HouseRegistration.Status::"Pending Approval");
+                    HouseRegistration.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Loan PayOff
+            Database::"Loan PayOff":
+                begin
+                    RecRef.SetTable(LoanPayOff);
+                    LoanPayOff.Validate(Status, LoanPayOff.Status::"Pending Approval");
+                    LoanPayOff.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Fixed Deposit
+            Database::"Fixed Deposit Placement":
+                begin
+                    RecRef.SetTable(FixedDeposit);
+                    FixedDeposit.Validate(Status, FixedDeposit.Status::"Pending Approval");
+                    FixedDeposit.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //EFTRTGS
+            Database::"EFT/RTGS Header":
+                begin
+                    RecRef.SetTable(EFTRTGS);
+                    EFTRTGS.Validate(Status, EFTRTGS.Status::"Pending Approval");
+                    EFTRTGS.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Loan Demand Notices
+            Database::"Default Notices Register":
+                begin
+                    RecRef.SetTable(LDemand);
+                    LDemand.Validate(Status, LDemand.Status::"Pending Approval");
+                    LDemand.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Over Draft
+            Database::"OverDraft Application":
+                begin
+                    RecRef.SetTable(OverDraft);
+                    OverDraft.Validate(Status, OverDraft.Status::"Pending Approval");
+                    OverDraft.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Loan Restructure
+            Database::"Loan Restructure":
+                begin
+                    RecRef.SetTable(LoanRestructure);
+                    LoanRestructure.Validate(Status, LoanRestructure.Status::"Pending Approval");
+                    LoanRestructure.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Sweeping Instructions
+            Database::"Member Sweeping Instructions":
+                begin
+                    RecRef.SetTable(SweepingInstructions);
+                    SweepingInstructions.Validate(Status, SweepingInstructions.Status::"Pending Approval");
+                    SweepingInstructions.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Cheque Book Application
+            Database::"Cheque Book Application":
+                begin
+                    RecRef.SetTable(ChequeBook);
+                    ChequeBook.Validate(Status, ChequeBook.Status::"Pending Approval");
+                    ChequeBook.Modify(true);
+                    IsHandled := true;
+                end;
+
+
+            //Loan Trunch
+            Database::"Loan trunch Disburesment":
+                begin
+                    RecRef.SetTable(LoanTrunch);
+                    LoanTrunch.Validate(Status, LoanTrunch.Status::"Pending Approval");
+                    LoanTrunch.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Inward Cheque Clearing
+            Database::"Cheque Receipts-Family":
+                begin
+                    RecRef.SetTable(InwardChequeClearing);
+                    InwardChequeClearing.Validate(Status, InwardChequeClearing.Status::"Pending Approval");
+                    InwardChequeClearing.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Invalid Paybill Transactions
+            Database::"Paybill Processing Header":
+                begin
+                    RecRef.SetTable(InvalidPaybillTransactions);
+                    InvalidPaybillTransactions.Validate(Status, InvalidPaybillTransactions.Status::"Pending Approval");
+                    InvalidPaybillTransactions.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Internal PV
+            Database::"Internal PV Header":
+                begin
+                    RecRef.SetTable(InternalPV);
+                    InternalPV.Validate(Status, InternalPV.Status::"Pending Approval");
+                    InternalPV.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Journal Batch
+            Database::"Gen. Journal Batch":
+                begin
+                    RecRef.SetTable(JournalBatch);
+                    JournalBatch.Validate(Status, JournalBatch.Status::"Pending Approval");
+                    JournalBatch.Modify(true);
+                    IsHandled := true;
+                end;
+
+            //Salary Processing
+            Database::"Salary Processing Headerr":
+                begin
+                    RecRef.SetTable(SProcessing);
+                    SProcessing.Validate(Status, SProcessing.Status::"Pending Approval");
+                    SProcessing.Modify(true);
+                    IsHandled := true;
+                end;
+        end;
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Workflow Response Handling", 'OnExecuteWorkflowResponse', '', true, true)]
-    local procedure OnSetStatusToPendingApproval(var Variant: Variant)
+    local procedure SetRecStatusToPendingApproval(var Variant: Variant)
     var
         ChequeRegister: Record ChequeRegister;
         RecRef: RecordRef;
@@ -2287,7 +2708,7 @@ Codeunit 50005 "Custom Workflow Responses"
             Database::"Loans Register":
                 begin
                     RecRef.SetTable(LoanApplication);
-                    LoanApplication.Validate("Loan Status", LoanApplication."loan status"::Appraisal);
+                    //LoanApplication.Validate("Loan Status", LoanApplication."loan status"::Appraisal);
                     LoanApplication.Validate("Approval Status", LoanApplication."approval status"::Pending);
                     LoanApplication.Modify(true);
                     Variant := LoanApplication;
@@ -2812,6 +3233,12 @@ Codeunit 50005 "Custom Workflow Responses"
                 end;
 
         end
+
+    end;
+
+    [IntegrationEvent(false, false)]
+    procedure OnAfterSetStatusToPendingApproval(var ApprovalEntry: Record "Approval Entry")
+    begin
 
     end;
 

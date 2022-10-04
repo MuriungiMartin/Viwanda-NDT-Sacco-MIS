@@ -9,66 +9,6 @@ Codeunit 50007 "SURESTEP Factory"
         VarLoanDisburesementDay: Integer;
         modify: Boolean;
     begin
-        ////message(FORMAT(FnRunGetMemberLoanAmountDueFreezing('001006142')));
-        //FnRunAutoUnFreezeMemberLoanDueAmount;
-
-        //FnUpdateLoanPortfolio(20193101D);
-        //FnRunProcessAssetDepreciationCustom
-        //FnRunGetDepositArrearsPenalty;
-
-        //FnRunSendScheduledAccountStatements()
-        //FnCreateGuarantorRecoveryReimbursment('001018487',20000,'001401006986','REFUND00234');
-
-        //FnAccrueInterestOneOffLoans('00130400027934');
-        //FnRunAfterCashDepositProcess('001501004576');
-
-        //FnCreateGuarantorRecoveryReimbursment('001405000016');
-
-        //FnRunGetMembershipDormancyStatus(WORKDATE);
-
-        //FnRunMemberCreditScoring('002000001');
-        /*
-        GenSetUp.GET;
-        Loan.RESET;
-        Loan.SETRANGE(Posted,TRUE);
-        Loan.SETFILTER("Application Date",'<>%1',0D);
-        IF Loan.FINDSET THEN
-          REPEAT
-                modify:=FALSE;
-                 IF Loan."Loan Disbursement Date"=0D THEN BEGIN
-                   modify:=TRUE;
-                   Loan."Loan Disbursement Date":=Loan."Application Date";
-                   VarLoanDisburesementDay:=DATE2DMY(Loan."Loan Disbursement Date",1);
-        
-                   END;
-        
-                    IF Loan."Repayment Start Date"=0D THEN BEGIN
-                        modify:=TRUE;
-        
-                      IF VarLoanDisburesementDay>GenSetUp."Last Date of Checkoff Advice" THEN
-                        Loan."Repayment Start Date":=CALCDATE('CM',(CALCDATE('1M',Loan."Loan Disbursement Date")))
-                      ELSE
-                        Loan."Repayment Start Date":=CALCDATE('CM',Loan."Loan Disbursement Date");
-        
-                    END;
-        
-                   IF modify THEN BEGIN
-                     Loan.MODIFY;
-                     COMMIT;
-                   END;
-        
-                FnGenerateLoanRepaymentSchedule(Loan."Loan  No.");
-        
-        
-            UNTIL Loan.NEXT = 0;*/
-
-        Loan.Get('LN10130');
-
-
-
-        //message(Format(FnCalculateLoanInterest(Loan, Today)));
-
-        //FnRunPasswordChangeonNextLogin();
 
     end;
 
@@ -3944,6 +3884,47 @@ Codeunit 50007 "SURESTEP Factory"
         end;
     end;
 
+    procedure FnSendEmailGlobal("Recipient Name": Text; Subject: Text; Body: text; "Recipient Email": Text; "AddCC": Text) "Sent?": Boolean
+    var
+        Recipients: List of [Text];
+        CCList: List of [TExt];
+    begin
+
+        if FnValidateEmailAddress("Recipient Email") then begin
+            SMTPSetup.Reset;
+            SMTPSetup.Get;
+            Recipients.Add("Recipient Email");
+            CCList.Add(AddCC);
+            SMTP.Createmessage('Viwanda Sacco', SMTPSetup."Email Sender Address", Recipients, Subject, '', true);
+            SMTP.AppendBody('<html> <body> <font face="Maiandra GD,Garamond,Tahoma", size = "3">');
+            SMTP.AppendBody('Dear ' + "Recipient Email" + ',');
+            SMTP.AppendBody('<br><br>');
+            SMTP.AppendBody(Body);
+            SMTP.AppendBody('<br><br>');
+            SMTP.AppendBody('<HR>');
+            SMTP.AppendBody('Kind Regards');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('<img src="https://viwandasacco.com/templates/assets/images/vlogo.png" alt="VSacco Logo">');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('Viwanda Sacco SOCIETY LIMITED');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('P.O. Box 78029 - 00507 Nairobi, Kenya');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('Tel: 0711086156');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('info@viwandasacco.com');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('www.viwandasacco.com');
+            SMTP.AppendBody('<br>');
+            SMTP.AppendBody('Empowering People, Transforming Lives');
+            SMTP.AppendBody('<br>');
+            if FnValidateEmailAddress(AddCC) = true then begin
+                SMTP.AddCC(CCList);
+            end;
+            SMTP.Send();
+        end
+
+    end;
 
     procedure FnSendStatementViaMail("Recepient Name": Text; Subject: Text; Body: Text; "Recepient Email": Text; "Report Name": Text; AddCC: Text) Result: Boolean
     var
@@ -3968,7 +3949,7 @@ Codeunit 50007 "SURESTEP Factory"
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('Viwanda Sacco SOCIETY LIMITED');
             SMTP.AppendBody('<br>');
-            SMTP.AppendBody('P.O. Box 1240 - 00502 Nairobi, Kenya');
+            SMTP.AppendBody('P.O. Box 78029 - 00507 Nairobi, Kenya');
             SMTP.AppendBody('<br>');
             SMTP.AppendBody('Tel: 0711086156');
             SMTP.AppendBody('<br>');
