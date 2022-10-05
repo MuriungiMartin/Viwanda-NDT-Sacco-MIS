@@ -2,7 +2,7 @@
 Page 50410 "Loan Products Setup List"
 {
     CardPageID = "Loan Products Setup Card";
-    DeleteAllowed = false;
+    DeleteAllowed = true;
     Editable = false;
     PageType = List;
     UsageCategory = Lists;

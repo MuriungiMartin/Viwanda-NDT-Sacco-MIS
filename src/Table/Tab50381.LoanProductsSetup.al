@@ -4,6 +4,7 @@ Table 50381 "Loan Products Setup"
     DrillDownPageId = "Loan Products Setup List";
     LookupPageId = "Loan Products Setup List";
 
+
     fields
     {
         field(1; "Code"; Code[20])
