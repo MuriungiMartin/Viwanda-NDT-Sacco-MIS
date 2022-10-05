@@ -719,18 +719,16 @@ Page 51385 "Loan Application Card(BOSA)"
                         if Disabled <> true then begin
                             Rec.PAYE := SFactory.FnCalculatePaye("Chargeable Pay");
                         end;
-                        Message('Rec Paye %1', Rec.PAYE);
 
                         TotalDeductions := "Monthly Contribution" + NSSF + NHIF + PAYE + "Risk MGT" + "Staff Union Contribution" + "Medical Insurance"
                         + "Life Insurance" + "Other Liabilities" + "Other Loans Repayments" + "Sacco Deductions" + "Provident Fund (Self)";
 
-                        Message('total deduc %1', TotalDeductions);
                         "Utilizable Amount" := GrossPay - TotalDeductions;
                         "Net take home 2" := GrossPay - (TotalDeductions + "Existing Loan Repayments");
 
                         NetUtilizable := ROUND(("Utilizable Amount" - "Least Retained Amount" - "Existing Loan Repayments" + "Bridge Amount Release" + "Non Payroll Payments"), 5, '<');
                         "Net Utilizable Amount" := NetUtilizable;
-                        "Salary Net Utilizable" := netutilizable;
+                        "Salary Net Utilizable" := (2 / 3) * netutilizable;
                         "Total DeductionsH" := TotalDeductions;
                         "Net take Home" := Nettakehome;
                         Modify;
