@@ -12488,6 +12488,7 @@ Codeunit 50007 "SURESTEP Factory"
     end;
 
 
+
     procedure FnRunMemberCreditScoring(VarMemberNo: Code[30])
     var
         ObjMembers: Record Customer;
@@ -13677,6 +13678,15 @@ Codeunit 50007 "SURESTEP Factory"
 
             exit(IsValidPhoneNo);
         end;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Company-Initialize", 'OnCompanyInitialize', '', false, false)]
+    procedure AddWorkflowEvents()
+    var
+        CustomWorkFlowEvents: Codeunit "Custom Workflow Events";
+    begin
+        CustomWorkFlowEvents.AddEventsToLib();
+
     end;
 }
 

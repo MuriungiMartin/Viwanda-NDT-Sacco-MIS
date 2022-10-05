@@ -421,12 +421,15 @@ Page 50366 "Members List"
     var
         Cust: Record Customer;
     begin
-        if cust.FindSet() then
-            repeat
-                Cust.ISNormalMember := true;
-                Cust.Name := (Cust."First Name" + ' ' + cust."Middle Name" + ' ' + cust."Last Name");
-                cust.Modify();
-            until Cust.Next() = 0;
+        // if cust.FindSet() then begin
+        //     repeat
+        //         Cust.ISNormalMember := true;
+        //         Cust.Name := Cust."First Name" + ' ' + cust."Middle Name" + ' ' + cust."Last Name";
+        //         cust.Modify();
+        //     until Cust.Next() = 0;
+        // end;
+
+        Codeunit.Run(Codeunit::"Custom Workflow Events");
 
 
 
