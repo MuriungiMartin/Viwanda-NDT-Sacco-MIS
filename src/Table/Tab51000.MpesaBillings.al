@@ -37,6 +37,10 @@ table 51000 "MpesaBillings"
         {
 
         }
+        field(9; "Bill Amount"; Decimal)
+        {
+
+        }
     }
 
     keys

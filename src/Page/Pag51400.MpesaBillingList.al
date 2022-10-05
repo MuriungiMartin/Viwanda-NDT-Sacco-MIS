@@ -3,6 +3,7 @@ page 51400 "Mpesa Billing List"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
+    CardPageId = MpesaBilling;
     SourceTable = MpesaBillings;
 
     layout

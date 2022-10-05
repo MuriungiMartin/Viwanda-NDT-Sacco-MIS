@@ -6114,6 +6114,10 @@ Codeunit 50007 "SURESTEP Factory"
 
                         VarLPrincipal := ROUND(VarLPrincipal, 100, '>');
                         //======================================================================================Grace Period
+                        if VarLBalance < varlprincipal then
+                            varlprincipal := varlbalance
+                        else
+                            varlprincipal := varlprincipal;
                         if VarGrPrinciple > 0 then begin
                             VarLPrincipal := 0;
                             VarLInsurance := 0
@@ -6139,11 +6143,7 @@ Codeunit 50007 "SURESTEP Factory"
                             VarApplicationFee := 0;
                         end;
 
-                        if VarLBalance<varlprincipal then
-                        varlprincipal:=varlbalance
-                        else
-                        varlprincipal := varlprincipal;
-                        //message('Installment number %1, appfee %2', VarInstalNo, VarApplicationFee);
+                        //message('Installment number %1, appfee %2', VarInstalNo, VarApplicationFee)
                         ObjRepaymentschedule.Init;
                         ObjRepaymentschedule."Entry No" := ScheduleEntryNo;
                         ObjRepaymentschedule."Repayment Code" := VarRepayCode;
