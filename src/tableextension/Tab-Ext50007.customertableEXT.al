@@ -601,21 +601,21 @@ tableextension 50007 "customertableEXT" extends Customer
                 //"Advice Type":="Advice Type"::Adjustment;
 
 
-                DataSheet.Init;
-                DataSheet."PF/Staff No" := "Payroll No";
-                DataSheet."Type of Deduction" := 'Shares/Deposits';
-                DataSheet."Remark/LoanNO" := 'ADJ FORM';
-                DataSheet.Name := Name;
-                DataSheet."ID NO." := "ID No.";
-                DataSheet."Amount ON" := "Monthly Contribution";
-                DataSheet."REF." := '2026';
-                DataSheet."New Balance" := "Current Shares" * -1;
-                DataSheet.Date := Today;
-                DataSheet."Amount OFF" := xRec."Monthly Contribution";
-                DataSheet.Employer := "Employer Code";
-                DataSheet."Transaction Type" := DataSheet."transaction type"::ADJUSTMENT;
-                //DataSheet."Sort Code":=PTEN;
-                DataSheet.Insert;
+                // DataSheet.Init;
+                // DataSheet."PF/Staff No" := "Payroll No";
+                // DataSheet."Type of Deduction" := 'Shares/Deposits';
+                // DataSheet."Remark/LoanNO" := 'ADJ FORM';
+                // DataSheet.Name := Name;
+                // DataSheet."ID NO." := "ID No.";
+                // DataSheet."Amount ON" := "Monthly Contribution";
+                // DataSheet."REF." := '2026';
+                // DataSheet."New Balance" := "Current Shares" * -1;
+                // DataSheet.Date := Today;
+                // DataSheet."Amount OFF" := xRec."Monthly Contribution";
+                // DataSheet.Employer := "Employer Code";
+                // DataSheet."Transaction Type" := DataSheet."transaction type"::ADJUSTMENT;
+                // //DataSheet."Sort Code":=PTEN;
+                // DataSheet.Insert;
 
             end;
         }

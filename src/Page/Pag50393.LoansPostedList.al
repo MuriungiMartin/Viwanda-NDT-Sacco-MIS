@@ -222,38 +222,14 @@ Page 50393 "Loans Posted List"
 
                     trigger OnAction()
                     begin
-                        //SFactory.FnRunLoanAmountDue("Loan  No.");
-                        //SFactory.FnGenerateLoanRepaymentSchedule("Loan  No.");
-                        //COMMIT;
-
+                        commit;
                         LoanApp.Reset;
                         LoanApp.SetRange(LoanApp."Loan  No.", "Loan  No.");
                         if LoanApp.Find('-') then
-                            Report.run(50949, true, false, LoanApp);
+                            Report.run(50477, true, false, LoanApp);
                     end;
                 }
-                action("View ScheduleNew1")
-                {
-                    ApplicationArea = Basic;
-                    Caption = 'Rescheduled Schedule';
-                    Image = "Table";
-                    Promoted = true;
-                    PromotedCategory = "Report";
-                    PromotedOnly = true;
-                    ShortCutKey = 'Ctrl+F7';
 
-                    trigger OnAction()
-                    begin
-                        //SFactory.FnRunLoanAmountDue("Loan  No.");
-                        //SFactory.FnGenerateLoanRepaymentSchedule("Loan  No.");
-                        //COMMIT;
-
-                        LoanApp.Reset;
-                        LoanApp.SetRange(LoanApp."Loan  No.", "Loan  No.");
-                        if LoanApp.Find('-') then
-                            Report.Run(50477, true, false, LoanApp);
-                    end;
-                }
                 action("Loans to Offset")
                 {
                     ApplicationArea = Basic;
@@ -329,24 +305,17 @@ Page 50393 "Loans Posted List"
                     PromotedCategory = "Report";
                     PromotedOnly = true;
                     ShortCutKey = 'Ctrl+F7';
-                    Visible = false;
+                    Visible = true;
 
                     trigger OnAction()
                     begin
-                        //SFactory.FnGenerateLoanRepaymentSchedule("Loan  No.");
-                        SFactory.FnGenerateLoanRepaymentSchedule("Loan  No.");
-
-                        Commit;
-
                         LoanApp.Reset;
-                        LoanApp.SetRange(LoanApp."Loan  No.", "Loan  No.");
-                        if LoanApp.Find('-') then
-                            SFactory.FnGenerateLoanRepaymentSchedule("Loan  No.");
-                        if LoanApp."Loan Product Type" <> 'INST' then begin
-                            Report.Run(50477, true, false, LoanApp);
-                        end else begin
-                            Report.Run(50477, true, false, LoanApp);
+                        if LoanApp.Findset then begin
+                            repeat
+                                SFactory.FnGenerateLoanRepaymentSchedule(LoanApp."Loan  No.");
+                            until LoanApp.next = 0;
                         end;
+
                     end;
                 }
                 action("Payoff Loan")

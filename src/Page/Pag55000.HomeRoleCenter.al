@@ -1,6 +1,6 @@
 page 55000 "Home Role Center"
 {
-    Caption = 'INDEX PAGE';
+    Caption = 'VIWANDA SACCO';
     PageType = RoleCenter;
 
     layout
