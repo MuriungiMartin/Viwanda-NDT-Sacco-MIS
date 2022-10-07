@@ -1,13 +1,3 @@
-function createIframe()
-{
-    var placeholder=document.getElementById('controlAddIn');
-    var webPage= document.createElement('iframe');
-    webPage.id='webPage';
-    webPage.height='100%';
-    webPage.width='100%';
-    placeholder.appendChild(webPage);
-}
-
 function pay(phoneNo,Amount) {
 alert(`About to bill  ${phoneNo} , KSH ${Amount}`);
     var url = "https://tinypesa.com/api/v1/express/initialize";
