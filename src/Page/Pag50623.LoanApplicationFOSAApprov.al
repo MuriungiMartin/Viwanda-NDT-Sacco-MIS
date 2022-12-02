@@ -433,7 +433,7 @@ Page 50623 "Loan Application FOSA(Approv)"
         ObjLoanStages: Record "Loan Stages";
         ObjLoanApplicationStages: Record "Loan Application Stages";
         ObjCust: Record Customer;
-        ObjMemberLedg: Record "Member Ledger Entry";
+        ObjMemberLedg: Record "Cust. Ledger Entry";
 
 
     procedure UpdateControl()

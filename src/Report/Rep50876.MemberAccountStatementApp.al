@@ -318,7 +318,7 @@ Report 50876 "Member Account Statement(App)"
                     end;
 
                 }
-                dataitem(loan; "Member Ledger Entry")
+                dataitem(loan; "Cust. Ledger Entry")
                 {
                     DataItemLink = "Loan No" = field("Loan  No.");
                     DataItemTableView = sorting("Created On") where("Transaction Type" = filter(Loan | "Loan Repayment" | "Loan Insurance Charged" | "Loan Insurance Paid" | "Loan Penalty Charged" | "Loan Penalty Paid" | "Interest Paid" | "Interest Due"), "Document No." = filter(<> 'BALB/F9THNOV2018'));

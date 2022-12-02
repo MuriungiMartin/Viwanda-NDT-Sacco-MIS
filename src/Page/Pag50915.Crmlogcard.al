@@ -907,7 +907,7 @@ Page 50915 "Crm log card"
 
     var
         Cust: Record Customer;
-        PvApp: Record "Member Ledger Entry";
+        PvApp: Record "Cust. Ledger Entry";
         CustCare: Record "General Equiries.";
         CQuery: Record "General Equiries.";
         employer: Record "Sacco Employers";

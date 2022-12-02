@@ -151,7 +151,7 @@ Report 50956 "Process Loan Interest:Cash B."
         Temp: Record "Funds General Setup";
         JBatch: Code[10];
         Jtemplate: Code[10];
-        CustLedger: Record "Member Ledger Entry";
+        CustLedger: Record "Cust. Ledger Entry";
         ObjInterestDuePeriod: Record "Interest Due Period";
         FiscalYearStartDate: Date;
         "ExtDocNo.": Text[30];

@@ -128,7 +128,7 @@ Report 50380 "Withdrawn Members"
         LCount: Integer;
         RFilters: Text[250];
         DValue: Record "Dimension Value";
-        VALREPAY: Record "Member Ledger Entry";
+        VALREPAY: Record "Cust. Ledger Entry";
         Loans_RegisterCaptionLbl: label 'Approved Loans Report';
         CurrReport_PAGENOCaptionLbl: label 'Page';
         Loan_TypeCaptionLbl: label 'Loan Type';

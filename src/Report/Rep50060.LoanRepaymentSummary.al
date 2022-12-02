@@ -278,7 +278,7 @@ Report 50060 "Loan Repayment Summary"
         VarAccountTypeBalance: Decimal;
         ObjLoans: Record "Loans Register";
         ObjLoanRepaymentSchedule: Record "Loan Repayment Schedule";
-        ObjMemberLedger: Record "Member Ledger Entry";
+        ObjMemberLedger: Record "Cust. Ledger Entry";
         ObjInterestAccrued: Record "Interest Due Ledger Entry";
         ObjPenaltyCharged: Record "Daily Interest/Penalty Buffer";
         VarActualPrincipleRepayment: Decimal;

@@ -367,7 +367,7 @@
           <source>Options</source>
           <target>Indstillinger</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Member Ledger Entry Change - Control Options - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Cust. Ledger Entry Change - Control Options - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 154787506 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>

@@ -105,7 +105,7 @@ Report 50533 "Loan Statement-FOSA"
                 column(OustandingInterest_Loans; Loans."Outstanding Interest")
                 {
                 }
-                dataitem(loan; "Member Ledger Entry")
+                dataitem(loan; "Cust. Ledger Entry")
                 {
                     DataItemLink = "FOSA Account No." = field("Client Code"), "Loan No" = field("Loan  No."), "Posting Date" = field("Date filter");
                     DataItemTableView = sorting("Posting Date") where("Transaction Type" = filter("Share Capital" | "Interest Paid" | "Deposit Contribution" | "Insurance Contribution"));
@@ -293,7 +293,7 @@ Report 50533 "Loan Statement-FOSA"
 
     trigger OnInitReport()
     begin
-        //REPORT.RUN(REPORT::"Member Ledger Entry Change");
+        //REPORT.RUN(REPORT::"Cust. Ledger Entry Change");
         //COMMIT;
         ;
 

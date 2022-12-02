@@ -29,7 +29,7 @@ Report 50473 "Loans Statement"
                 column(Approved_Amount; "Loans Register"."Approved Amount")
                 {
                 }
-                dataitem(CustL2; "Member Ledger Entry")
+                dataitem(CustL2; "Cust. Ledger Entry")
 
                 {
                     DataItemLink = "Customer No." = field("Client Code"), "Posting Date" = field("Date filter"), "Loan No" = field("Loan  No.");
@@ -56,7 +56,7 @@ Report 50473 "Loans Statement"
                     {
                     }
                 }
-                dataitem(CustL3; "Member Ledger Entry")
+                dataitem(CustL3; "Cust. Ledger Entry")
                 {
                     DataItemLink = "Customer No." = field("Client Code"), "Posting Date" = field("Date filter"), "Loan No" = field("Loan  No.");
                     DataItemTableView = sorting("Posting Date") where("Transaction Type" = filter("Interest Due" | "Interest Paid"));

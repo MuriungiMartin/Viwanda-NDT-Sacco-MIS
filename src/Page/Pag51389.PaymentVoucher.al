@@ -1200,6 +1200,7 @@ page 51389 "Payment Voucher"
     procedure LinesExists(): Boolean
     var
         PayLines: Record "Payment Line";
+        qwerty: Record "Detailed Cust. Ledg. Entry";
     begin
 
         HasLines := FALSE;

@@ -744,7 +744,7 @@ tableextension 50000 "VendorExtension" extends Vendor
         }
         field(69026; "Group Loan Balance"; Decimal)
         {
-            CalcFormula = - Sum("Member Ledger Entry".Amount WHERE("Transaction Type" = FILTER("Junior Savings" | "FOSA Shares"), "Group Code" = FIELD("Group Code")));
+            CalcFormula = - Sum("Cust. Ledger Entry"."Transaction Amount" WHERE("Transaction Type" = FILTER("Junior Savings" | "FOSA Shares"), "Group Code" = FIELD("Group Code")));
             FieldClass = FlowField;
         }
         field(69027; CodeDelete; Code[20])
@@ -848,14 +848,14 @@ tableextension 50000 "VendorExtension" extends Vendor
         }
         field(69050; "Outstanding Loans"; Decimal)
         {
-            CalcFormula = Sum("Member Ledger Entry".Amount WHERE("FOSA Account No." = FIELD("No."),
+            CalcFormula = Sum("Cust. Ledger Entry"."Transaction Amount" WHERE("FOSA Account No." = FIELD("No."),
                                                                   "Transaction Type" = FILTER("Share Capital" | "Interest Paid" | "FOSA Shares"),
                                                                   "Posting Date" = FIELD("Date Filter")));
             FieldClass = FlowField;
         }
         field(69051; "Outstanding Interest"; Decimal)
         {
-            CalcFormula = Sum("Member Ledger Entry".Amount WHERE("FOSA Account No." = FIELD("No."),
+            CalcFormula = Sum("Cust. Ledger Entry"."Transaction Amount" WHERE("FOSA Account No." = FIELD("No."),
                                                                   "Transaction Type" = FILTER("Deposit Contribution" | "Insurance Contribution"),
                                                                   "Posting Date" = FIELD("Date Filter")));
             FieldClass = FlowField;

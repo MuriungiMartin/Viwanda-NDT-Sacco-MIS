@@ -799,7 +799,7 @@
           <source>Dimension Set ID</source>
           <target>Dimension Set ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table Member Ledger Entry - Field Dimension Set ID - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Cust. Ledger Entry - Field Dimension Set ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1152218730 - Field 1874242537 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Officer</source>

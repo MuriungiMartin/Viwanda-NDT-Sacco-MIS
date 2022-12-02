@@ -166,7 +166,7 @@ Report 50929 "Last Contribution Dates"
         CountCaptionLbl: label 'Count';
         Grand_TotalCaptionLbl: label 'Grand Total';
         Company: Record "Company Information";
-        ObjMemberLedger: Record "Member Ledger Entry";
+        ObjMemberLedger: Record "Cust. Ledger Entry";
         VarCount: Integer;
         VarLastContributionAmount: Decimal;
         VarLastTransDate: Date;

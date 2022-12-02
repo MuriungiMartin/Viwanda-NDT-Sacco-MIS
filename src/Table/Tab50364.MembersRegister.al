@@ -317,7 +317,7 @@ Table 50364 "Members Register"
         field(59; "Balance (LCY)"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = sum("Member Ledger Entry"."Amount (LCY)" where("Customer No." = field("No.")));
+            CalcFormula = sum("Cust. Ledger Entry"."Amount (LCY)" where("Customer No." = field("No.")));
             Caption = 'Balance (LCY)';
             Editable = false;
             FieldClass = FlowField;
@@ -1854,7 +1854,7 @@ Table 50364 "Members Register"
         }
         field(68064; "Accrued Interest"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Transaction Type" = filter("Deposit Contribution")));
             Editable = false;
             FieldClass = FlowField;
@@ -1889,7 +1889,7 @@ Table 50364 "Members Register"
         }
         field(68077; "Last Payment Date"; Date)
         {
-            CalcFormula = max("Member Ledger Entry"."Posting Date" where("Customer No." = field("No.")));
+            CalcFormula = max("Cust. Ledger Entry"."Posting Date" where("Customer No." = field("No.")));
             FieldClass = FlowField;
         }
         field(68078; "Discounted Amount"; Decimal)
@@ -1919,13 +1919,13 @@ Table 50364 "Members Register"
         }
         field(68083; "FOSA Outstanding Balance"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Transaction Type" = filter("Share Capital" | "Interest Paid" | "FOSA Shares")));
             FieldClass = FlowField;
         }
         field(68084; "FOSA Oustanding Interest"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Transaction Type" = filter("Deposit Contribution")));
             FieldClass = FlowField;
         }
@@ -2257,7 +2257,7 @@ Table 50364 "Members Register"
         }
         field(68183; "Member withdrawable Deposits"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Document No." = field("Document No. Filter"),
                                                                   "Transaction Type" = const("Safari Savings")));
@@ -2311,7 +2311,7 @@ Table 50364 "Members Register"
         }
         field(68195; "Development Shares"; Decimal)
         {
-            // CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            // CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
             //                                                       "Transaction Type" = filter(),
             //                                                       "Posting Date" = field("Date filter"), Reversed = filter(false)));
             // FieldClass = FlowField;
@@ -2365,7 +2365,7 @@ Table 50364 "Members Register"
         }
         field(69040; "Total Loans Outstanding"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
             FieldClass = FlowField;
         }
@@ -2504,7 +2504,7 @@ Table 50364 "Members Register"
         }
         field(69078; "Investment Account"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Document No." = field("Document No. Filter"),
                                                                   "Transaction Type" = const("Loan Insurance Charged")));
@@ -2831,7 +2831,7 @@ Table 50364 "Members Register"
         }
         field(69141; "Risk Fund Arrears"; Decimal)
         {
-            // CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            // CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
             //                                                       "Transaction Type" = filter("45" | "44"),
             //                                                       "Posting Date" = field("Date filter"), Reversed = filter(false)));
             // FieldClass = FlowField;
@@ -2844,14 +2844,14 @@ Table 50364 "Members Register"
         }
         field(69144; "Benevolent Fund"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter("Benevolent Fund")));
             FieldClass = FlowField;
         }
         field(69145; "Risk Fund Paid"; Decimal)
         {
-            // CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            // CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
             //                                                       "Transaction Type" = filter(),
             //                                                       "Posting Date" = field("Date filter"), Reversed = filter(false)));
             // FieldClass = FlowField;
@@ -2868,21 +2868,21 @@ Table 50364 "Members Register"
         }
         field(69149; "Funeral Rider"; Decimal)
         {
-            // CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            // CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
             //                                                       "Transaction Type" = filter("48"),
             //                                                       "Posting Date" = field("Date filter"), Reversed = filter(false)));
             // FieldClass = FlowField;
         }
         field(69150; "Loan Liabilities"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter("Share Capital" | "Interest Paid" | "Deposit Contribution" | "Insurance Contribution")));
             FieldClass = FlowField;
         }
         field(69151; "Last Deposit Contribution Date"; Date)
         {
-            CalcFormula = max("Member Ledger Entry"."Posting Date" where("Customer No." = field("No."),
+            CalcFormula = max("Cust. Ledger Entry"."Posting Date" where("Customer No." = field("No."),
                                                                           "Transaction Type" = filter("Deposit Contribution"),
                                                                           Amount = filter(< 0)));
             FieldClass = FlowField;
@@ -2957,7 +2957,7 @@ Table 50364 "Members Register"
         }
         field(69168; "Group Loan Balance"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Group Code" = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Group Code" = field("No."),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment"),
                                                                   "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = false;
@@ -3117,7 +3117,7 @@ Table 50364 "Members Register"
         }
         field(69201; "Loan Recovered From Guarantors"; Code[20])
         {
-            CalcFormula = lookup("Member Ledger Entry"."Recoverd Loan" where("Customer No." = field("No.")));
+            CalcFormula = lookup("Cust. Ledger Entry"."Recoverd Loan" where("Customer No." = field("No.")));
             FieldClass = FlowField;
         }
         field(69202; "ID Date of Issue"; Date)
@@ -3161,7 +3161,7 @@ Table 50364 "Members Register"
         }
         field(69215; "Last Contribution Entry No"; Integer)
         {
-            CalcFormula = max("Member Ledger Entry"."Entry No." where("Customer No." = field("No."),
+            CalcFormula = max("Cust. Ledger Entry"."Entry No." where("Customer No." = field("No."),
                                                                        "Transaction Type" = filter("Deposit Contribution"),
                                                                        Amount = filter(< 0)));
             FieldClass = FlowField;
@@ -3386,7 +3386,7 @@ Table 50364 "Members Register"
         }
         field(69246; "Total BOSA Loan Balance"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment"),
                                                                   "Loan Type" = filter('301' | '302' | '303' | '306' | '322')));
             FieldClass = FlowField;
@@ -3589,7 +3589,7 @@ Table 50364 "Members Register"
         }
         field(69286; "Emergency Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('EL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3597,7 +3597,7 @@ Table 50364 "Members Register"
         }
         field(69287; "Instant Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('IL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3605,7 +3605,7 @@ Table 50364 "Members Register"
         }
         field(69288; "Maono Shamba Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('MSL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3613,7 +3613,7 @@ Table 50364 "Members Register"
         }
         field(69289; "School Fees Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('SL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3621,7 +3621,7 @@ Table 50364 "Members Register"
         }
         field(69290; "Super Plus Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('SPL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3629,7 +3629,7 @@ Table 50364 "Members Register"
         }
         field(69291; "Super School Fees Laon"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('SSL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3637,7 +3637,7 @@ Table 50364 "Members Register"
         }
         field(69292; "Top Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('TL'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3645,7 +3645,7 @@ Table 50364 "Members Register"
         }
         field(69293; "Top Loan 1"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('TL1'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3653,7 +3653,7 @@ Table 50364 "Members Register"
         }
         field(69294; "Vs Member Loan"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("No."),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("No."),
                                                                   "Loan Type" = const('VS-MEMBER'),
                                                                   "Posting Date" = field("Date Filter"),
                                                                   "Transaction Type" = filter(Loan | "Loan Repayment")));
@@ -3982,7 +3982,7 @@ Table 50364 "Members Register"
 
     procedure TestNoEntriesExist(CurrentFieldName: Text[100]; GLNO: Code[20])
     var
-        MemberLedgEntry: Record "Member Ledger Entry";
+        MemberLedgEntry: Record "Cust. Ledger Entry";
     begin
         //To prevent change of field
         MemberLedgEntry.SetCurrentkey(MemberLedgEntry."Customer No.");

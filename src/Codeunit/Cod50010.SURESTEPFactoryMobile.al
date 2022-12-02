@@ -44,7 +44,7 @@ Codeunit 50010 "SURESTEP FactoryMobile"
         UserSetup: Record User;
         ObjVendor: Record Vendor;
         ObjProducts: Record "Account Types-Saving Products";
-        ObjMemberLedgerEntry: Record "Member Ledger Entry";
+        ObjMemberLedgerEntry: Record "Cust. Ledger Entry";
         ObjLoans: Record "Loans Register";
         ObjBanks: Record "Bank Account";
         ObjLoanProductSetup: Record "Loan Products Setup";

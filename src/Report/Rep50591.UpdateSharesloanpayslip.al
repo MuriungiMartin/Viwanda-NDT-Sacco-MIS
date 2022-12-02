@@ -105,9 +105,9 @@ Report 50591 "Update Shares & loan payslip"
 
     var
         Totalshares: Decimal;
-        memb: Record "Member Ledger Entry";
+        memb: Record "Cust. Ledger Entry";
         LoanR: Record "Loans Register";
-        membRep: Record "Member Ledger Entry";
+        membRep: Record "Cust. Ledger Entry";
         LastAmount: Decimal;
         LNRepay: Decimal;
         LNPric: Decimal;

@@ -618,7 +618,7 @@ Table 50398 "Sacco General Set-Up"
         }
         field(176; "Benevolent Fund Contribution"; Decimal)
         {
-            
+
         }
         field(177; "ATM Card Renewal Fee Coop"; Decimal)
         {
@@ -890,6 +890,10 @@ Table 50398 "Sacco General Set-Up"
         field(257; "Withdrawal Interest Penalty"; Decimal)
         {
 
+        }
+        field(258; "No of months int penalty"; Integer)
+        {
+            Caption = 'No. Of Months for interest Penalty';
         }
 
 

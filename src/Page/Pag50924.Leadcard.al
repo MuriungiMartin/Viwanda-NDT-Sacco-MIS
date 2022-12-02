@@ -542,7 +542,7 @@ Page 50924 "Lead card"
 
     var
         Cust: Record Customer;
-        PvApp: Record "Member Ledger Entry";
+        PvApp: Record "Cust. Ledger Entry";
         CustCare: Record "General Equiries.";
         CQuery: Record "General Equiries.";
         employer: Record "Sacco Employers";

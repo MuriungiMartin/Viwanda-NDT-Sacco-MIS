@@ -56,7 +56,7 @@ Report 50135 "Process Standing Order Ver1"
         ObjAccountType: Record "Account Types-Saving Products";
         VarAccountDescription: Text[1024];
         ObjGLEntry: Record "G/L Entry";
-        ObjMemberLedger: Record "Member Ledger Entry";
+        ObjMemberLedger: Record "Cust. Ledger Entry";
         ObjBankLedger: Record "Bank Account Ledger Entry";
         ObjVendorLedger: Record "Vendor Ledger Entry";
         ObjDetailedVendorLedger: Record "Detailed Vendor Ledg. Entry";

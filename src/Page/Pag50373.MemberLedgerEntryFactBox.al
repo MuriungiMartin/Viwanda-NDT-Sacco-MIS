@@ -1,9 +1,9 @@
 #pragma warning disable AA0005, AA0008, AA0018, AA0021, AA0072, AA0137, AA0201, AA0206, AA0218, AA0228, AL0424, AW0006 // ForNAV settings
-Page 50373 "Member Ledger Entry FactBox"
+Page 50373 "Cust. Ledger Entry FactBox"
 {
-    Caption = 'Member Ledger Entry Details';
+    Caption = 'Cust. Ledger Entry Details';
     PageType = CardPart;
-    SourceTable = "Member Ledger Entry";
+    SourceTable = "Cust. Ledger Entry";
 
     layout
     {
@@ -163,18 +163,18 @@ Page 50373 "Member Ledger Entry FactBox"
     end;
 
 
-    procedure GetNoOfAppliedEntries(CustLedgerEntry: Record "Member Ledger Entry"): Integer
+    procedure GetNoOfAppliedEntries(CustLedgerEntry: Record "Cust. Ledger Entry"): Integer
     begin
         GetAppliedEntries(CustLedgerEntry);
         exit(CustLedgerEntry.Count);
     end;
 
 
-    procedure GetAppliedEntries(var CustLedgerEntry: Record "Member Ledger Entry")
+    procedure GetAppliedEntries(var CustLedgerEntry: Record "Cust. Ledger Entry")
     var
         DtldCustLedgEntry1: Record "Detailed Cust. Ledg. Entry";
         DtldCustLedgEntry2: Record "Detailed Cust. Ledg. Entry";
-        CreateCustLedgEntry: Record "Member Ledger Entry";
+        CreateCustLedgEntry: Record "Cust. Ledger Entry";
     begin
         CreateCustLedgEntry := CustLedgerEntry;
 
@@ -233,7 +233,7 @@ Page 50373 "Member Ledger Entry FactBox"
     end;
 
 
-    procedure GetDocumentHeading(CustLedgerEntry: Record "Member Ledger Entry"): Text[50]
+    procedure GetDocumentHeading(CustLedgerEntry: Record "Cust. Ledger Entry"): Text[50]
     var
         Heading: Text[50];
     begin

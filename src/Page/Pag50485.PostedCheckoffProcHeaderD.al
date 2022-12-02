@@ -310,7 +310,7 @@ Page 50485 "Posted Checkoff Proc. Header-D"
         GenBatches: Record "Gen. Journal Batch";
         Datefilter: Text[50];
         ReceiptLine: Record "Checkoff Lines-Distributed";
-        MembLedg: Record "Member Ledger Entry";
+        MembLedg: Record "Cust. Ledger Entry";
         SFactory: Codeunit "SURESTEP Factory";
         BATCH_NAME: Code[50];
         BATCH_TEMPLATE: Code[50];

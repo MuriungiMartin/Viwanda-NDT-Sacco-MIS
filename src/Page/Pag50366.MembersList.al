@@ -337,6 +337,7 @@ Page 50366 "Members List"
 
                     trigger OnAction()
                     begin
+                        Commit();
                         Cust.Reset;
                         Cust.SetRange(Cust."No.", "No.");
                         if Cust.Find('-') then
@@ -429,7 +430,7 @@ Page 50366 "Members List"
         //     until Cust.Next() = 0;
         // end;
 
-        Codeunit.Run(Codeunit::"Custom Workflow Events");
+        //Codeunit.Run(Codeunit::"Custom Workflow Events");
 
 
 

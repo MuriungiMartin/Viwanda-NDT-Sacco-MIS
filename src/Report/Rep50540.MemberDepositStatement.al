@@ -49,7 +49,7 @@ Report 50540 "Member Deposit Statement"
             column(Company_Picture; Company.Picture)
             {
             }
-            dataitem(Shares; "Member Ledger Entry")
+            dataitem(Shares; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("No."), "Posting Date" = field("Date Filter");
                 DataItemTableView = sorting("Transaction Type", "Loan No", "Posting Date") where("Transaction Type" = const("Recovery Account"));
@@ -101,7 +101,7 @@ Report 50540 "Member Deposit Statement"
                 end;
 
             }
-            dataitem(Deposits; "Member Ledger Entry")
+            dataitem(Deposits; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("No."), "Posting Date" = field("Date Filter");
                 DataItemTableView = where("Transaction Type" = filter(Loan));
@@ -151,7 +151,7 @@ Report 50540 "Member Deposit Statement"
                 end;
 
             }
-            dataitem(Dividend; "Member Ledger Entry")
+            dataitem(Dividend; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("No."), "Posting Date" = field("Date Filter");
                 DataItemTableView = sorting("Transaction Type", "Loan No", "Posting Date") where("Transaction Type" = const("Additional Shares"));
@@ -198,7 +198,7 @@ Report 50540 "Member Deposit Statement"
                 end;
 
             }
-            dataitem(Benevolent; "Member Ledger Entry")
+            dataitem(Benevolent; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("No."), "Posting Date" = field("Date Filter");
                 DataItemTableView = sorting("Transaction Type", "Loan No", "Posting Date") where("Transaction Type" = const("Benevolent Fund"), Reversed = filter(false));
@@ -244,7 +244,7 @@ Report 50540 "Member Deposit Statement"
                 end;
 
             }
-            dataitem(Risk; "Member Ledger Entry")
+            dataitem(Risk; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("No."), "Posting Date" = field("Date Filter");
                 //DataItemTableView = sorting("Transaction Type","Loan No","Posting Date") where("Transaction Type"=filter("44"|"45));
@@ -328,7 +328,7 @@ Report 50540 "Member Deposit Statement"
                 column(ModeofDisbursement_Loans; Loans."Mode of Disbursement")
                 {
                 }
-                dataitem(loan; "Member Ledger Entry")
+                dataitem(loan; "Cust. Ledger Entry")
                 {
                     DataItemLink = "Customer No." = field("Client Code"), "Loan No" = field("Loan  No."), "Posting Date" = field("Date filter");
                     DataItemTableView = sorting("Posting Date") where("Transaction Type" = filter("Share Capital" | "Interest Paid"), "Loan No" = filter(<> ''), Description = filter(<> 'Interest on salary advance'));
@@ -399,7 +399,7 @@ Report 50540 "Member Deposit Statement"
                     end;
 
                 }
-                dataitem(Interest; "Member Ledger Entry")
+                dataitem(Interest; "Cust. Ledger Entry")
                 {
                     DataItemLink = "Customer No." = field("Client Code"), "Loan No" = field("Loan  No."), "Posting Date" = field("Date filter");
                     DataItemTableView = sorting("Transaction Type", "Loan No", "Posting Date") where("Transaction Type" = filter("Deposit Contribution" | "Insurance Contribution"), "Loan No" = filter(<> ''), Description = filter(<> 'Interest on salary advance'));

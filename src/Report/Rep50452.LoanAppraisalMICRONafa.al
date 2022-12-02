@@ -212,7 +212,7 @@ Report 50452 "Loan Appraisal MICRO Nafa"
                 {
                 }
             }
-            dataitem(LoanApp; "Member Ledger Entry")
+            dataitem(LoanApp; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("BOSA No");
                 DataItemTableView = where("Transaction Type" = filter("Share Capital" | "Interest Paid"));

@@ -165,7 +165,7 @@ Table 50549 "Funeral Expense Payment"
         NoSeriesMgt: Codeunit NoSeriesManagement;
         Cust: Record Customer;
         Loans: Record "Loans Register";
-        MemLed: Record "Member Ledger Entry";
+        MemLed: Record "Cust. Ledger Entry";
         IntTotal: Decimal;
         LoanTotal: Decimal;
         GenSetup: Record "Sacco General Set-Up";

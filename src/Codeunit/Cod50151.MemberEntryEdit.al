@@ -3,7 +3,7 @@ Codeunit 50151 "Member. Entry-Edit"
 {
     Permissions = TableData "Cust. Ledger Entry" = imd,
                   TableData "Detailed Cust. Ledg. Entry" = m;
-    TableNo = "Member Ledger Entry";
+    TableNo = "Cust. Ledger Entry";
 
     trigger OnRun()
     begin
@@ -31,7 +31,7 @@ Codeunit 50151 "Member. Entry-Edit"
     end;
 
     var
-        CustLedgEntry: Record "Member Ledger Entry";
+        CustLedgEntry: Record "Cust. Ledger Entry";
         DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
 }
 

@@ -225,7 +225,7 @@ Table 50711 "Loan Rescheduling"
 
     local procedure getDisbursedAmount(ClientNo: Code[20]; LoanNo: Code[20]): Decimal
     var
-        MembLedEntry: Record "Member Ledger Entry";
+        MembLedEntry: Record "Cust. Ledger Entry";
     begin
         MembLedEntry.Reset;
         MembLedEntry.SetRange(MembLedEntry."Customer No.", ClientNo);

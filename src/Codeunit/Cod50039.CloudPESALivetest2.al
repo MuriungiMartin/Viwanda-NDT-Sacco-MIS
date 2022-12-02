@@ -53,7 +53,7 @@ Codeunit 50039 "CloudPESALivetest2"
         DetailedVendorLedgerEntry: Record "Detailed Vendor Ledg. Entry";
         dashboardDataFilter: Date;
         VendorLedgerEntry: Record "Vendor Ledger Entry";
-        MemberLedgerEntry: Record "Member Ledger Entry";
+        MemberLedgerEntry: Record "Cust. Ledger Entry";
         LoansTable: Record "Loans Register";
         SurePESAApplications: Record "CloudPESA Applications";
         GenJournalLine: Record "Gen. Journal Line";

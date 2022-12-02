@@ -9,7 +9,7 @@ tableextension 50034 "CVLedgerEntryBufferExt" extends "CV Ledger Entry Buffer"
     var
         myInt: Integer;
 
-    procedure CopyFromMemberLedgEntry(MemberLedgEntry: Record "Member Ledger Entry")
+    procedure CopyFromMemberLedgEntry(MemberLedgEntry: Record "Cust. Ledger Entry")
     begin
         TransferFields(MemberLedgEntry);
         Amount := MemberLedgEntry.Amount;

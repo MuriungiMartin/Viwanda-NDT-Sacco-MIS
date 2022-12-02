@@ -245,7 +245,7 @@ Report 50982 "Balance Interest"
         Temp: Record "Funds General Setup";
         JBatch: Code[10];
         Jtemplate: Code[10];
-        CustLedger: Record "Member Ledger Entry";
+        CustLedger: Record "Cust. Ledger Entry";
         AccountingPeriod: Record "Interest Due Period";
         FiscalYearStartDate: Date;
         "ExtDocNo.": Text[30];
@@ -254,7 +254,7 @@ Report 50982 "Balance Interest"
         loanapp: Record "Loans Register";
         SDATE: Text[30];
         MonthName: Text;
-        MembLedg: Record "Member Ledger Entry";
+        MembLedg: Record "Cust. Ledger Entry";
 
     local procedure FnProductSource(Product: Code[50]) Source: Code[50]
     var

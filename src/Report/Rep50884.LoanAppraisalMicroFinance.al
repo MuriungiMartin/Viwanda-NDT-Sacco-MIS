@@ -1828,7 +1828,7 @@ Report 50884 "Loan Appraisal Micro Finance"
         SaccoDed: Decimal;
         ProductCharges: Record "Loan Product Charges";
         LoanInsurance: Decimal;
-        CustLeg: Record "Member Ledger Entry";
+        CustLeg: Record "Cust. Ledger Entry";
         BoostedAmount2: Decimal;
         ShareBoostComm: Decimal;
         currentshare: Decimal;

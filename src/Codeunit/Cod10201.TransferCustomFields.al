@@ -97,12 +97,12 @@ Codeunit 10201 "Transfer Custom Fields"
     end;
 
 
-    procedure GenJnlLineTOMembLedgEntry(var GenJnlLine: Record "Gen. Journal Line"; var MembLedgEntry: Record "Member Ledger Entry")
+    procedure GenJnlLineTOMembLedgEntry(var GenJnlLine: Record "Gen. Journal Line"; var MembLedgEntry: Record "Cust. Ledger Entry")
     begin
     end;
 
 
-    procedure MembLedgEntryTOCVLedgEntryBuf(var MembLedgEntry: Record "Member Ledger Entry"; var CVLedgEntryBuf: Record "CV Ledger Entry Buffer")
+    procedure MembLedgEntryTOCVLedgEntryBuf(var MembLedgEntry: Record "Cust. Ledger Entry"; var CVLedgEntryBuf: Record "CV Ledger Entry Buffer")
     begin
     end;
 }

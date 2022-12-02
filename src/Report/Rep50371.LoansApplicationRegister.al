@@ -489,7 +489,7 @@ Report 50371 "Loans Application Register"
         LCount: Integer;
         RFilters: Text[250];
         DValue: Record "Dimension Value";
-        VALREPAY: Record "Member Ledger Entry";
+        VALREPAY: Record "Cust. Ledger Entry";
         GenSetUp: Record "Sacco General Set-Up";
         LoanApp: Record "Loans Register";
         CustRec: Record Customer;

@@ -1010,7 +1010,7 @@ Report 50532 "Process Pension Batch"
         ExciseFee: Decimal;
         SalaryHeader: Record "Pension Processing Headerr";
         ELoanBuffer: Record "E-Loan Salary Buffer";
-        CustLedger: Record "Member Ledger Entry";
+        CustLedger: Record "Cust. Ledger Entry";
         MonthlyInt: Decimal;
 
     procedure PostBOSAEntries()

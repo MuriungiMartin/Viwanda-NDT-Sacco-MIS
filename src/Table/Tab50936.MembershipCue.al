@@ -198,7 +198,7 @@ Table 50936 "Membership Cue"
         }
         field(47; "Joint Accounts"; Integer)
         {
-            CalcFormula = count("Member Ledger Entry" where("Customer No." = const('NO'),
+            CalcFormula = count("Cust. Ledger Entry" where("Customer No." = const('NO'),
                                                              "Transaction Type" = const("Junior Savings")));
             FieldClass = FlowField;
         }

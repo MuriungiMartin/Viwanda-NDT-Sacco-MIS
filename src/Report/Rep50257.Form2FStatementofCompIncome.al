@@ -483,7 +483,7 @@ Report 50257 "Form2F Statement of CompIncome"
         DateFilter11: Text;
         FinancialYear: Integer;
         InterestonLoanPortfolio: Decimal;
-        MemberLedgerEntry: Record "Member Ledger Entry";
+        MemberLedgerEntry: Record "Cust. Ledger Entry";
         FeesCommissiononLoanPortfolio: Decimal;
         GLAccount: Record "G/L Account";
         GLEntry: Record "G/L Entry";

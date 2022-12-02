@@ -212,7 +212,7 @@ Table 50496 "Customer Care Logs"
         Loans: Record "Loans Register";
         GenSetUp: Record "Sacco General Set-Up";
         Cust: Record Customer;
-        PVApp: Record "Member Ledger Entry";
+        PVApp: Record "Cust. Ledger Entry";
         UserMgt: Codeunit "User Setup Management";
         PRD: Record Customer;
 }

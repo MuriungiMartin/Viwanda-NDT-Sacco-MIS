@@ -143,7 +143,7 @@ Table 50476 "Loan Calc. Loans to Offset"
         }
         field(9; "Interest Paid"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Customer No." = field("Client Code"),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Client Code"),
                                                                   "Loan No" = field("Loan Top Up"),
                                                                   "Transaction Type" = filter("Insurance Contribution")));
             FieldClass = FlowField;

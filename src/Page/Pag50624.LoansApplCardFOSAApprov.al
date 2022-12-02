@@ -1014,7 +1014,7 @@ Page 50624 "Loans Appl Card FOSA (Approv)"
         VarMonth5Datefilter: Text;
         VarMonth6Datefilter: Text;
         ObjCust: Record Customer;
-        ObjMemberLedg: Record "Member Ledger Entry";
+        ObjMemberLedg: Record "Cust. Ledger Entry";
         TrunchDetailsVisible: Boolean;
         VarAmounttoDisburse: Decimal;
         ObjMemberCellG: Record "Member House Groups";

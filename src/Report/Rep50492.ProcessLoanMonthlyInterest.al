@@ -232,7 +232,7 @@ Report 50492 "Process Loan Monthly Interest"
         Temp: Record "Funds General Setup";
         JBatch: Code[10];
         Jtemplate: Code[10];
-        CustLedger: Record "Member Ledger Entry";
+        CustLedger: Record "Cust. Ledger Entry";
         AccountingPeriod: Record "Interest Due Period";
         FiscalYearStartDate: Date;
         "ExtDocNo.": Text[30];

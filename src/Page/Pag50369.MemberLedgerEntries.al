@@ -8,7 +8,7 @@ Page 50369 "Member Ledger Entries"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = Card;
-    SourceTable = "Member Ledger Entry";
+    SourceTable = "Cust. Ledger Entry";
 
     layout
     {
@@ -165,7 +165,7 @@ Page 50369 "Member Ledger Entries"
         }
         area(factboxes)
         {
-            part("Member Ledger Entry FactBox"; "Member Ledger Entry FactBox")
+            part("Cust. Ledger Entry FactBox"; "Cust. Ledger Entry FactBox")
             {
                 SubPageLink = "Entry No." = field("Entry No.");
                 Visible = true;
@@ -270,11 +270,11 @@ Page 50369 "Member Ledger Entries"
 
                     trigger OnAction()
                     var
-                        MemberLedger: Record "Member Ledger Entry";
+                        MemberLedger: Record "Cust. Ledger Entry";
                     begin
                         MemberLedger := Rec;
                         CurrPage.SetSelectionFilter(MemberLedger);
-                        MemberLedger.EmailRecords(true);
+                        //  MemberLedger.EmailRecords(true);
                     end;
                 }
             }
@@ -290,7 +290,7 @@ Page 50369 "Member Ledger Entries"
     var
         Navigate: Page Navigate;
         UserSetup: Record "User Setup";
-        ObjMemberLedgerEntries: Record "Member Ledger Entry";
+        ObjMemberLedgerEntries: Record "Cust. Ledger Entry";
         ObjLoans: Record "Loans Register";
 }
 

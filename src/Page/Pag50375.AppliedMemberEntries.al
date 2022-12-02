@@ -4,7 +4,7 @@ Page 50375 "Applied Member Entries"
     PageType = List;
     UsageCategory = Lists;
     ApplicationArea = All;
-    SourceTable = "Member Ledger Entry";
+    SourceTable = "Cust. Ledger Entry";
 
     layout
     {

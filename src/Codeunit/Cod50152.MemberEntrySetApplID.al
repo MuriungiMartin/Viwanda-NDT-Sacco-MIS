@@ -11,7 +11,7 @@ Codeunit 50152 "Member Entry-Set Appl.ID"
         CustEntryApplID: Code[20];
 
 
-    procedure SetApplId(var CustLedgEntry: Record "Member Ledger Entry"; ApplyingCustLedgEntry: Record "Member Ledger Entry"; AppliedAmount: Decimal; PmtDiscAmount: Decimal; AppliesToID: Code[20])
+    procedure SetApplId(var CustLedgEntry: Record "Cust. Ledger Entry"; ApplyingCustLedgEntry: Record "Cust. Ledger Entry"; AppliedAmount: Decimal; PmtDiscAmount: Decimal; AppliesToID: Code[20])
     begin
         CustLedgEntry.LockTable;
         if CustLedgEntry.Find('-') then begin

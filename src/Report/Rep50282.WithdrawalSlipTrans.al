@@ -374,7 +374,7 @@ Report 50282 "Withdrawal Slip -Trans"
         STODeductedAmount: Decimal;
         NoticeAmount: Decimal;
         AccountNotices: Record "Account Notices";
-        Cust: Record "Member Ledger Entry";
+        Cust: Record "Cust. Ledger Entry";
         AccountHolders: Record Vendor;
         ChargesOnFD: Decimal;
         TotalGuaranted: Decimal;

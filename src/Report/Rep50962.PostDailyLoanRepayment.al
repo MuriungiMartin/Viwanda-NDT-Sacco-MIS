@@ -247,7 +247,7 @@ Report 50962 "Post Daily Loan Repayment"
         ObjHouse: Record "Member House Groups";
         ObjLoansGuarantors: Record "Loans Guarantee Details";
         SMSScheduledOn: DateTime;
-        ObjMemberLedger: Record "Member Ledger Entry";
+        ObjMemberLedger: Record "Cust. Ledger Entry";
 
     local procedure FnRunMarkClearedLoansClosed()
     begin

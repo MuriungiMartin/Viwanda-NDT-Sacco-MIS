@@ -38,7 +38,7 @@ Codeunit 50022 "AgencyCode"
         DetailedVendorLedgerEntry: Record "Detailed Vendor Ledg. Entry";
         dashboardDataFilter: Date;
         VendorLedgerEntry: Record "Vendor Ledger Entry";
-        MemberLedgerEntry: Record "Member Ledger Entry";
+        MemberLedgerEntry: Record "Cust. Ledger Entry";
         GenJournalLine: Record "Gen. Journal Line";
         GenBatches: Record "Gen. Journal Batch";
         LineNo: Integer;

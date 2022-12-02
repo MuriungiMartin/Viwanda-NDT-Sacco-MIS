@@ -33,7 +33,7 @@ codeunit 50130 "PostingCodeunit"
         LineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         Memb: Record Customer;
         MembPostingGr: Record "Customer Posting Group";
-        MembLedgEntry: Record "Member Ledger Entry";
+        MembLedgEntry: Record "Cust. Ledger Entry";
         CVLedgEntryBuf: Record "CV Ledger Entry Buffer";
         TempDtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer" temporary;
         DtldMembLedgEntry: Record "Detailed Cust. Ledg. Entry";
@@ -333,7 +333,7 @@ codeunit 50130 "PostingCodeunit"
             MembLedgEntry."Created On" := CurrentDatetime;
             MembLedgEntry."Application Source" := "Application Source";
             MembLedgEntry."Computer Name" := ComputerName.FnGetComputerName();
-            MembLedgEntry.UpdateDebitCredit(Correction);
+            //MembLedgEntry.UpdateDebitCredit(Correction);
             MembLedgEntry.Insert(true);
 
             Cu12.CreateGLEntryBalAcc(GenJournalLine, MembPostingGr."Receivables Account", "Amount (LCY)", "Source Currency Amount",
@@ -348,7 +348,7 @@ codeunit 50130 "PostingCodeunit"
         exit(TempGLEntryBuf.IsEmpty);
     end;
 
-    local procedure InitMembLedgEntry(GenJournalLine: Record "Gen. Journal Line"; var MembLedgEntry: Record "Member Ledger Entry")
+    local procedure InitMembLedgEntry(GenJournalLine: Record "Gen. Journal Line"; var MembLedgEntry: Record "Cust. Ledger Entry")
     begin
         MembLedgEntry.Reset();
         if MembLedgEntry.Find('+') then begin
@@ -364,11 +364,11 @@ codeunit 50130 "PostingCodeunit"
 
     local procedure ApplyMembLedgEntry(var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer"; var DtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer"; GenJournalLine: Record "Gen. Journal Line"; Memb: Record Customer)
     var
-        OldMembLedgEntry: Record "Member Ledger Entry";
+        OldMembLedgEntry: Record "Cust. Ledger Entry";
         OldCVLedgEntryBuf: Record "CV Ledger Entry Buffer";
-        NewMembLedgEntry: Record "Member Ledger Entry";
+        NewMembLedgEntry: Record "Cust. Ledger Entry";
         NewCVLedgEntryBuf2: Record "CV Ledger Entry Buffer";
-        TempOldMembLedgEntry: Record "Member Ledger Entry" temporary;
+        TempOldMembLedgEntry: Record "Cust. Ledger Entry" temporary;
         Completed: Boolean;
         AppliedAmount: Decimal;
         NewRemainingAmtBeforeAppln: Decimal;
@@ -412,9 +412,9 @@ codeunit 50130 "PostingCodeunit"
     END;
 
 
-    local procedure PrepareTempMembLedgEntry(GenJournalLine: Record "Gen. Journal Line"; var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer"; var TempOldMembLedgEntry: Record "Member Ledger Entry" temporary; Memb: Record Customer; var ApplyingDate: Date): Boolean
+    local procedure PrepareTempMembLedgEntry(GenJournalLine: Record "Gen. Journal Line"; var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer"; var TempOldMembLedgEntry: Record "Cust. Ledger Entry" temporary; Memb: Record Customer; var ApplyingDate: Date): Boolean
     var
-        OldMembLedgEntry: Record "Member Ledger Entry";
+        OldMembLedgEntry: Record "Cust. Ledger Entry";
         SalesSetup: Record "Sales & Receivables Setup";
         GenJnlApply: Codeunit "Gen. Jnl.-Apply";
         RemainingAmount: Decimal;
@@ -487,7 +487,7 @@ codeunit 50130 "PostingCodeunit"
         TransferCustomFields: Codeunit "Transfer Custom Fields";
         UnrealizedRemainingAmountInvestor: Decimal;
         CheckUnrealizedMemb: Boolean;
-        UnrealizedMembLedgEntry: Record "Member Ledger Entry";
+        UnrealizedMembLedgEntry: Record "Cust. Ledger Entry";
         UnrealizedRemainingAmountMemb: Decimal;
         Found: Boolean;
         TempGLEntryBuf: Record "G/L Entry" temporary;

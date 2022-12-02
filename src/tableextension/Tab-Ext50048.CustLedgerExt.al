@@ -30,7 +30,7 @@ tableextension 50048 "CustLedgerExt" extends "Cust. Ledger Entry"
         }
         field(68007; Totals; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Document No." = filter('JUNE  15/06/14')));
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Document No." = filter('JUNE  15/06/14')));
             FieldClass = FlowField;
         }
 
@@ -42,14 +42,14 @@ tableextension 50048 "CustLedgerExt" extends "Cust. Ledger Entry"
         }
         field(68011; "Total Debits"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Transaction Type" = filter("Share Capital"),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Transaction Type" = filter("Share Capital"),
                                                                   "Loan Type" = field("Loan Type"),
                                                                   "Posting Date" = field("Posting Date")));
             FieldClass = FlowField;
         }
         field(68012; "Total Credits"; Decimal)
         {
-            CalcFormula = sum("Member Ledger Entry".Amount where("Transaction Type" = filter("Interest Paid"),
+            CalcFormula = sum("Cust. Ledger Entry"."Transaction Amount" where("Transaction Type" = filter("Interest Paid"),
                                                                   "Loan Type" = field("Loan Type"),
                                                                   "Posting Date" = field("Posting Date")));
             FieldClass = FlowField;
@@ -131,5 +131,5 @@ tableextension 50048 "CustLedgerExt" extends "Cust. Ledger Entry"
 
     var
         myInt: Integer;
-        MEmbeLedger: Record "Member Ledger Entry";
+        MEmbeLedger: Record "Cust. Ledger Entry";
 }

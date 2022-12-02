@@ -63,7 +63,7 @@ Report 50541 "Unallocated Funds"
             column(Company_Email; Company."E-Mail")
             {
             }
-            dataitem(UnallocatedFunds; "Member Ledger Entry")
+            dataitem(UnallocatedFunds; "Cust. Ledger Entry")
             {
                 DataItemLink = "Customer No." = field("No."), "Posting Date" = field("Date Filter");
                 DataItemTableView = sorting("Posting Date") order(ascending) where("Transaction Type" = filter("Loan Insurance Paid"));

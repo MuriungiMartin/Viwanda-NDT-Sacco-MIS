@@ -510,7 +510,7 @@ Table 50557 "General Equiries."
         Loans: Record "Loans Register";
         GenSetUp: Record "Sacco General Set-Up";
         Cust: Record Customer;
-        PVApp: Record "Member Ledger Entry";
+        PVApp: Record "Cust. Ledger Entry";
         UserMgt: Codeunit "User Setup Management";
         PRD: Record Customer;
         ObjEmployers: Record "Sacco Employers";

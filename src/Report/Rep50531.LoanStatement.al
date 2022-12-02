@@ -107,7 +107,7 @@ Report 50531 "Loan Statement"
                 column(TransType; loan."Transaction Type")
                 {
                 }
-                dataitem(loan; "Member Ledger Entry")
+                dataitem(loan; "Cust. Ledger Entry")
                 {
                     DataItemLink = "Customer No." = field("Client Code"), "Loan No" = field("Loan  No."), "Posting Date" = field("Date filter");
                     DataItemTableView = sorting("Posting Date") where("Transaction Type" = filter(Loan | "Loan Repayment" | "Interest Paid" | "Interest Due" | "Loan Insurance Charged" | "Loan Insurance Paid" | "Loan Penalty Charged" | "Loan Penalty Paid"));

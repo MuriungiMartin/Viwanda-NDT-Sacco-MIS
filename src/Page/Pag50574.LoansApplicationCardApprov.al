@@ -1376,7 +1376,7 @@ Page 50574 "Loans Application Card(Approv)"
         VarMonth6Datefilter: Text;
         ObjCollateral: Record "Loan Collateral Details";
         ObjCust: Record Customer;
-        ObjMemberLedg: Record "Member Ledger Entry";
+        ObjMemberLedg: Record "Cust. Ledger Entry";
         ObjMemberCellG: Record "Member House Groups";
         VarAmounttoDisburse: Decimal;
         TrunchDetailsVisible: Boolean;
@@ -1390,7 +1390,7 @@ Page 50574 "Loans Application Card(Approv)"
         Filename: Text[250];
         SMTPSetup: Record "SMTP Mail Setup";
         ObjLoans: Record "Loans Register";
-        ObjMemberLedger: Record "Member Ledger Entry";
+        ObjMemberLedger: Record "Cust. Ledger Entry";
         VarLineNo: Integer;
         VarMemberName: Text;
         ObjLoansII: Record "Loans Register";

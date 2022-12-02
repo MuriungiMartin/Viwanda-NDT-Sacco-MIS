@@ -2,7 +2,7 @@
 Page 50374 "Apply Member Entries"
 {
     PageType = Card;
-    SourceTable = "Member Ledger Entry";
+    SourceTable = "Cust. Ledger Entry";
 
     layout
     {

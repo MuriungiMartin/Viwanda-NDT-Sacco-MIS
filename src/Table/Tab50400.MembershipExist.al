@@ -78,6 +78,19 @@ Table 50400 "Membership Exist"
                         VarLoanDue := SFactory.FnRunLoanAmountDue(Loans."Loan  No.");
                         IntTotal := IntTotal + (Loans."Current Interest Due");
                         LoanTotal := LoanTotal + Loans."Outstanding Balance";
+                        if (LoanTotal + IntTotal) > 0 then begin
+                            if "Charge Penalty" then begin
+                                GenSetup.Get();
+                                ObjLSchedule.Reset();
+                                ;
+                                ObjLSchedule.SetRange(ObjLSchedule."Loan No.", Loans."Loan  No.");
+                                if ObjLSchedule.Find('-') then begin
+                                    WithdrawalFeeCharged += ((GenSetup."Withdrawal Interest Penalty" / 100) * (ObjLSchedule."Monthly Interest") * GenSetup."No of months int penalty");
+
+                                end;
+
+                            end;
+                        end;
                     until Loans.Next = 0;
                 end;
                 //FOSA Loans
@@ -100,6 +113,7 @@ Table 50400 "Membership Exist"
                 "Total Interest" := IntTotal;
                 "Total Loans FOSA" := LoanTotalFOSA;
                 "Total Oustanding Int FOSA" := IntTotalFOSA;
+                "Withdrawal Fee Charged" := WithdrawalFeeCharged;
                 "Total Lesses" := "Total Loan" + "Total Interest" + "Total Loans FOSA" + "Total Oustanding Int FOSA";
                 "Net Payable to the Member" := "Total Adds" - "Total Lesses";
 
@@ -283,24 +297,28 @@ Table 50400 "Membership Exist"
         }
         field(46; "Notice Date"; Date)
         {
-           trigger OnValidate()
-          
-           begin
-            GenSetup.Get();
-            "Muturity Date" := CalcDate(GenSetup."Withdrwal Notice Period", "Notice Date");
-            Modify();
+            trigger OnValidate()
 
-            
-           end;
-           
+            begin
+                GenSetup.Get();
+                "Muturity Date" := CalcDate(GenSetup."Withdrwal Notice Period", "Notice Date");
+                Modify();
+
+
+            end;
+
 
         }
-        
+
         field(47; "Muturity Date"; Date)
         {
 
         }
-          field(48; "Charge Penalty"; Boolean)
+        field(48; "Charge Penalty"; Boolean)
+        {
+
+        }
+        field(49; "Withdrawal Fee Charged"; Decimal)
         {
 
         }
@@ -345,6 +363,7 @@ Table 50400 "Membership Exist"
         SFactory: Codeunit "SURESTEP Factory";
         VarLoanDue: Decimal;
         Closure: Record "Membership Exist";
+        WithdrawalFeeCharged: Decimal;
+        ObjLSchedule: record "Loan Repayment Schedule";
         ExitingMember: Text;
 }
-

@@ -2,7 +2,7 @@
 Codeunit 50154 "MembEntry-Apply Posted Entrie"
 {
     Permissions = TableData "Cust. Ledger Entry" = rimd;
-    TableNo = "Member Ledger Entry";
+    TableNo = "Cust. Ledger Entry";
 
     trigger OnRun()
     var
@@ -320,10 +320,10 @@ Codeunit 50154 "MembEntry-Apply Posted Entrie"
     end;
 
 
-    procedure ApplyCustEntryformEntry(var ApplyingCustLedgEntry: Record "Member Ledger Entry")
+    procedure ApplyCustEntryformEntry(var ApplyingCustLedgEntry: Record "Cust. Ledger Entry")
     var
         ApplyCustEntries: Page "Apply Member Entries";
-        CustledgEntry: Record "Member Ledger Entry";
+        CustledgEntry: Record "Cust. Ledger Entry";
         CustEntryApplID: Code[20];
         OK: Boolean;
     begin

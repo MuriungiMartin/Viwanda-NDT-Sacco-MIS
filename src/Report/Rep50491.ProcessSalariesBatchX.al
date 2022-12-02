@@ -1012,7 +1012,7 @@ Report 50491 "Process Salaries BatchX"
         ExciseFee: Decimal;
         SalaryHeader: Record "Salary Processing Headerr";
         ELoanBuffer: Record "E-Loan Salary Buffer";
-        CustLedger: Record "Member Ledger Entry";
+        CustLedger: Record "Cust. Ledger Entry";
         MonthlyInt: Decimal;
 
     procedure PostBOSAEntries()

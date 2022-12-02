@@ -2064,7 +2064,7 @@ Codeunit 50015 "Payroll Processing"
 
     local procedure FnUpdateBalances("Payroll Employee Transactions.": Record "Payroll Employee Transactions.")
     var
-        ObjMemberLedger: Record "Member Ledger Entry";
+        ObjMemberLedger: Record "Cust. Ledger Entry";
         Totalshares: Decimal;
         ObjLoanRegister: Record "Loans Register";
         LNPric: Decimal;

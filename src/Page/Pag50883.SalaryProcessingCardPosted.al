@@ -342,7 +342,7 @@ Page 50883 "Salary Processing Card(Posted)"
         Sto: Record "Standing Orders";
         ELoanBuffer: Record "E-Loan Salary Buffer";
         ObjVendor: Record Vendor;
-        MembLedg: Record "Member Ledger Entry";
+        MembLedg: Record "Cust. Ledger Entry";
         SFactory: Codeunit "SURESTEP Factory";
         BATCH_NAME: Code[50];
         BATCH_TEMPLATE: Code[50];

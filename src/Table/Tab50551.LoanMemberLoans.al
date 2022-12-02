@@ -130,7 +130,7 @@ Table 50551 "Loan Member Loans"
         }
         field(17; Shares; Decimal)
         {
-            CalcFormula = - sum("Member Ledger Entry".Amount where("Customer No." = field("Member No"),
+            CalcFormula = - sum("Cust. Ledger Entry"."Transaction Amount" where("Customer No." = field("Member No"),
                                                                    "Transaction Type" = filter(Loan),
                                                                    "Posting Date" = field("Date filter"), Reversed = filter(false)));
             Editable = true;
