@@ -752,13 +752,7 @@ Report 50355 "Loan Appraisal Ver1"
                 trigger OnAfterGetRecord();
                 begin
                     if ObjCustRecord.Get("Loans Guarantee Details"."Member No") then begin
-                        if ObjCustRecord."No." = '1034' then begin
-                            ObjCustRecord."Member Paying Type" := ObjCustRecord."Member Paying Type"::"KIE Member";
-                            ObjCustRecord.Modify();
-                            "Loans Register"."Loan Deposit Multiplier" := 3;
-                            "Loans Register".Modify();
-                            Message('multiplier modified');
-                        end;
+
                         VarTShares := VarTShares + ObjCustRecord."Current Savings";
                         VarTLoans := VarTLoans + ObjCustRecord."Principal Balance";
                     end;
@@ -786,7 +780,7 @@ Report 50355 "Loan Appraisal Ver1"
                         repeat
                             ObjLoans.Reset;
                             ObjLoans.SetRange(ObjLoans."Loan  No.", ObjLoanCollateral."Loan No");
-                            ObjLoans.SetFilter(ObjLoans."Loan Product Type", '%1|%2|%3|%4', '301', '302', '303', '306', '322');
+                            //ObjLoans.SetFilter(ObjLoans."Loan Product Type", '%1|%2|%3|%4', '301', '302', '303', '306', '322');
                             if ObjLoans.FindSet then begin
                                 ObjLoans.CalcFields(ObjLoans."Outstanding Balance");
                                 if ObjLoans."Outstanding Balance" > 0 then begin
@@ -1028,14 +1022,7 @@ Report 50355 "Loan Appraisal Ver1"
                 PrincipalAmount: Decimal;
             begin
                 if ObjCustRecord.Get("Loans Register"."Client Code") then begin
-                    if ObjCustRecord."No." = '1034' then begin
-                        ObjCustRecord."Member Paying Type" := ObjCustRecord."Member Paying Type"::"KIE Member";
-                        ObjCustRecord.Modify();
-                        "Loans Register"."Loan Deposit Multiplier" := 3;
-                        "Loans Register"."Member Paying Type" := "Loans Register"."Member Paying Type"::"KIE Member";
-                        "Loans Register".Modify();
-                        Message('multiplier modified');
-                    end;
+                   
                 end;
                 VarTotalRepaymentReinstated := FnRunGetLoanOffsetRepayments("Loan  No.");
                 if Memba.Get("Loans Register"."Client Code") then;

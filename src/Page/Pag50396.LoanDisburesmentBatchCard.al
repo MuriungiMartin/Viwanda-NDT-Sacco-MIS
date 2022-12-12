@@ -362,7 +362,7 @@ Page 50396 "Loan Disburesment Batch Card"
                         GenJournalLine.SetRange("Journal Template Name", 'PAYMENTS');
                         GenJournalLine.SetRange("Journal Batch Name", 'LOANS');
                         if GenJournalLine.Find('-') then begin
-                            //   Codeunit.Run(Codeunit::"Gen. Jnl.-Post", GenJournalLine);
+                            Codeunit.Run(Codeunit::"Gen. Jnl.-Post", GenJournalLine);
                         end;
 
 
@@ -402,12 +402,12 @@ Page 50396 "Loan Disburesment Batch Card"
                             LoanApps."Issued Date" := WorkDate;
                             LoanApps."Offset Eligibility Amount" := LoanApps."Approved Amount" * 0.5;
                             LoanApps."Posting Date" := WorkDate;
-                            // LoanApps."Disbursed By" := UserId;
-                            // LoanApps."Loan Disbursement Date" := Today;
-                            // LoanApps.Modify;
-                            // Posted := true;
-                            // "Posted By" := UserId;
-                            // "Posting Date" := WorkDate;
+                            LoanApps."Disbursed By" := UserId;
+                            LoanApps."Loan Disbursement Date" := Today;
+                            LoanApps.Modify;
+                            Posted := true;
+                            "Posted By" := UserId;
+                            "Posting Date" := WorkDate;
                             Message('Loans Disbursed Successfully. The Members has been notified via SMS and Email.');
                             Commit;
 
@@ -2256,7 +2256,6 @@ Page 50396 "Loan Disburesment Batch Card"
                     PChargeAmount := PCharges.Amount;
                     IF PCharges."Use Perc" = TRUE THEN
                         PChargeAmount := (LoanApps."Approved Amount" * PCharges.Percentage / 100);
-                    Message('About to charge appfee %1', PChargeAmount);
                     //----------------------Debit Application fee Receivable Account a/c-----------------------------------------------------
                     LineNo := LineNo + 10000;
                     SFactory.FnCreateGnlJournalLineBalanced(BATCH_TEMPLATE, BATCH_NAME, DOCUMENT_NO, LineNo, GenJournalLine."Transaction Type"::"Loan Application Fee charged",

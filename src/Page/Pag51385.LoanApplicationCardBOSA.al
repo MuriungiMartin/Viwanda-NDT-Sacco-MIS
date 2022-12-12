@@ -17,10 +17,10 @@ Page 51385 "Loan Application Card(BOSA)"
             {
                 Caption = 'General';
 
-                field("Loan Product Prefix"; "Loan Product Prefix")
-                {
+                // field("Loan Product Prefix"; "Loan Product Prefix")
+                // {
 
-                }
+                // }
                 field("Loan  No."; "Loan  No.")
                 {
                     ApplicationArea = Basic;

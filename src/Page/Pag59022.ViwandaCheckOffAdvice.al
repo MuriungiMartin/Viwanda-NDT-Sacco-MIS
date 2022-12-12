@@ -142,7 +142,6 @@ page 59022 "Viwanda CheckOff Advice"
                     VarLoanInterest := ObjCust."Outstanding Interest";
                 end;
                 if ObjCust."Outstanding Balance" > 0 then begin
-                    Message('here');
                     ObjLoan.Reset();
                     ObjLoan.SetRange(ObjLoan."Client Code", ObjCust."No.");
                     ObjLoan.SetAutoCalcFields(ObjLoan."Outstanding Balance");
@@ -186,7 +185,6 @@ page 59022 "Viwanda CheckOff Advice"
             ObjCust.Next() = 0;
         end;
         Window.Close();
-        Message(ResultMsg, VarEntryNo);
     end;
 
 

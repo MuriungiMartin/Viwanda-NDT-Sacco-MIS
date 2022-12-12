@@ -13,24 +13,24 @@ Table 50371 "Loans Register"
             begin
 
                 //SURESTEP
-                if "Loan Product Prefix" = 'DL' then begin
+                // if "Loan Product Prefix" = 'DL' then begin
 
-                    if "Loan  No." <> xRec."Loan  No." then begin
-                        SalesSetup.Get;
-                        NoSeriesMgt.TestManual(SalesSetup."Development Loans Nos");
-                        "No. Series" := '';
-                    end;
+                if "Loan  No." <> xRec."Loan  No." then begin
+                    SalesSetup.Get;
+                    NoSeriesMgt.TestManual(SalesSetup."Development Loans Nos");
+                    "No. Series" := '';
+                end;
 
-                end else
-                    if "Loan Product Prefix" = 'EL' then begin
-                        if "Loan  No." <> xRec."Loan  No." then begin
-                            SalesSetup.Get;
-                            NoSeriesMgt.TestManual(SalesSetup."Emergency Loans Nos");
-                            "No. Series" := '';
-                        end;
+                // end else
+                //     if "Loan Product Prefix" = 'EL' then begin
+                // if "Loan  No." <> xRec."Loan  No." then begin
+                //     SalesSetup.Get;
+                //     NoSeriesMgt.TestManual(SalesSetup."Emergency Loans Nos");
+                //     "No. Series" := '';
+                // end;
 
 
-                    end;
+                // end;
                 //SURESTEP
 
 
@@ -3900,42 +3900,42 @@ Table 50371 "Loans Register"
 
 
 
-        if "Loan Product Prefix" = 'EL' then begin
-            if "Loan  No." = '' then begin
-                SalesSetup.Get;
-                SalesSetup.TestField(SalesSetup."Emergency Loans Nos");
-                NoSeriesMgt.InitSeries(SalesSetup."Emergency Loans Nos", xRec."No. Series", 0D, "Loan  No.", "No. Series");
-            end;
+        // if "Loan Product Prefix" = 'EL' then begin
+        //     if "Loan  No." = '' then begin
+        //         SalesSetup.Get;
+        //         SalesSetup.TestField(SalesSetup."Emergency Loans Nos");
+        //         NoSeriesMgt.InitSeries(SalesSetup."Emergency Loans Nos", xRec."No. Series", 0D, "Loan  No.", "No. Series");
+        //     end;
 
-        end else
-            if "Loan Product Prefix" = 'DL' then begin
-                if "Loan  No." = '' then begin
-                    SalesSetup.Get;
-                    SalesSetup.TestField(SalesSetup."Development Loans Nos");
-                    NoSeriesMgt.InitSeries(SalesSetup."Development Loans Nos", xRec."No. Series", 0D, "Loan  No.", "No. Series");
-                end;
-
-
-
-                //SURESTEP
-
-                "Application Date" := Today;
-                Advice := true;
+        // end else
+        //     if "Loan Product Prefix" = 'DL' then begin
+        if "Loan  No." = '' then begin
+            SalesSetup.Get;
+            SalesSetup.TestField(SalesSetup."Development Loans Nos");
+            NoSeriesMgt.InitSeries(SalesSetup."Development Loans Nos", xRec."No. Series", 0D, "Loan  No.", "No. Series");
+        end;
 
 
-                "Captured By" := UpperCase(UserId);
+
+        //SURESTEP
+
+        "Application Date" := Today;
+        Advice := true;
 
 
-                Users.Reset;
-                Users.SetRange(Users."User Name", "Captured By");
-                if Users.Find('-') then begin
-                    //   "Cashier Branch":=Users."Branch Code";
-                    //   "Branch Code":=Users."Branch Code";
-                    //   //MODIFY;
-                end;
+        "Captured By" := UpperCase(UserId);
 
-                "Mode of Disbursement" := "mode of disbursement"::EFT;
-            end;
+
+        Users.Reset;
+        Users.SetRange(Users."User Name", "Captured By");
+        if Users.Find('-') then begin
+            //   "Cashier Branch":=Users."Branch Code";
+            //   "Branch Code":=Users."Branch Code";
+            //   //MODIFY;
+        end;
+
+        "Mode of Disbursement" := "mode of disbursement"::EFT;
+        // end;
     end;
 
     trigger OnModify()

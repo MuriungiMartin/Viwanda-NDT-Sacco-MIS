@@ -271,6 +271,7 @@ Page 50369 "Member Ledger Entries"
                     trigger OnAction()
                     var
                         MemberLedger: Record "Cust. Ledger Entry";
+                       // DoPostCU: Codeunit DoPost
                     begin
                         MemberLedger := Rec;
                         CurrPage.SetSelectionFilter(MemberLedger);

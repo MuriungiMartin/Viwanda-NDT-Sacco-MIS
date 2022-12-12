@@ -2674,7 +2674,7 @@ Page 50361 "Membership Application Card"
             SMTPMail.AppendBody(SMTPSetup."Email Sender Name");
             SMTPMail.AppendBody('<br><br>');
             SMTPMail.AddAttachment(FileName, Attachment);
-            SMTPMail.Send;
+            SMTPMail.SendShowError();
         end;
 
 
@@ -2711,17 +2711,17 @@ Page 50361 "Membership Application Card"
         VarAccountTypes := VarAccountTypes + '</ul></p>';
 
         VarMemberName := SurestepFactory.FnConvertTexttoBeginingWordstostartWithCapital(Name);
-        VarTextExtension := '<p>At Viwanda Sacco, we provide you with a variety of efficient and convenient services that enable you to:</p>' +
-               '<p>1. Make Automated Deposit to your account through any Equity Bank Branch to our Account No. 1550262333007 and any Family Bank Branch via Utility Payment. You will provide your Viwanda Sacco 12-digit Account Number.</p>' +
-               '<p>2. Make Automated Deposits through MPESA or Equitel/Equity Bank Agents using our Paybill No. 521000 and through Family Bank Agents using Bill Payment Code 020, then provide your Account Number and Amount.</p>' +
-               '<p>3. Transact through our Mobile Banking Channels to Apply for Loans, MPESA Withdrawal, Account Transfers, Account Enquiries, Statement Requests etc. You can download Viwanda Sacco Mobile App on Google Play Store</p>';
+        // VarTextExtension := '<p>At Viwanda Sacco, we provide you with a variety of efficient and convenient services that enable you to:</p>' +
+        //        '<p>1. Make Automated Deposit to your account through any Equity Bank Branch to our Account No. 1550262333007 and any Family Bank Branch via Utility Payment. You will provide your Viwanda Sacco 12-digit Account Number.</p>' +
+        //        '<p>2. Make Automated Deposits through MPESA or Equitel/Equity Bank Agents using our Paybill No. 521000 and through Family Bank Agents using Bill Payment Code 020, then provide your Account Number and Amount.</p>' +
+        //        '<p>3. Transact through our Mobile Banking Channels to Apply for Loans, MPESA Withdrawal, Account Transfers, Account Enquiries, Statement Requests etc. You can download Viwanda Sacco Mobile App on Google Play Store</p>';
 
-        VarTextExtensionII := '<p>5. Access funds via Cardless ATM Withdrawal Service with Family Bank accessible to all our registered Mobile Banking Users. For guidelines send the word CARDLESS to 0705270662 or use our Mobile App.</p>' +
-               '<p>6. Apply for a Cheque Book and initiate cheque payments from your account at Viwanda Sacco.</p>' +
-               '<p>7. Process your salary to your Viwanda Sacco Account and benefit from very affordable salary loans.</p>' +
-               '<p>8. Operate an Ufalme Account and save in order to acquire Land/Housing in our upcoming projects.</p>' +
-               '<p>Visit our website <a href="http://www.viwandasacco.com">www.viwandasacco.com</a> for more information on our service offering.</p>' +
-               '<p>Thank you for choosing Viwanda Sacco. Our objective is to empower you economically and socially by promoting a Savings and Investments culture and providing affordable credit.</p>';
+        // VarTextExtensionII := '<p>5. Access funds via Cardless ATM Withdrawal Service with Family Bank accessible to all our registered Mobile Banking Users. For guidelines send the word CARDLESS to 0705270662 or use our Mobile App.</p>' +
+        //        '<p>6. Apply for a Cheque Book and initiate cheque payments from your account at Viwanda Sacco.</p>' +
+        //        '<p>7. Process your salary to your Viwanda Sacco Account and benefit from very affordable salary loans.</p>' +
+        //        '<p>8. Operate an Ufalme Account and save in order to acquire Land/Housing in our upcoming projects.</p>' +
+        //        '<p>Visit our website <a href="http://www.viwandasacco.com">www.viwandasacco.com</a> for more information on our service offering.</p>' +
+        //        '<p>Thank you for choosing Viwanda Sacco. Our objective is to empower you economically and socially by promoting a Savings and Investments culture and providing affordable credit.</p>';
 
 
         VarEmailSubject := 'WELCOME TO Viwanda Sacco';

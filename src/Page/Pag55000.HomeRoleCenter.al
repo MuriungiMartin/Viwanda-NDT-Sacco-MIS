@@ -1840,6 +1840,16 @@ page 55000 "Home Role Center"
                     ApplicationArea = Basic, Suite;
                     RunObject = page "User Setup";
                 }
+                action("Account types")
+                {
+                    ApplicationArea = Basic, Suite;
+                    RunObject = page "Account Types List";
+                }
+                action("Transaction Types Posting Setup")
+                {
+                    ApplicationArea = Basic, Suite;
+                    RunObject = page "TransactionTypePosting Setup";
+                }
                 group("Sacco Workflow Mgmt")
                 {
                     action("Workflow Categories")
