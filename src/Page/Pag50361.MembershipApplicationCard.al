@@ -3335,14 +3335,14 @@ Page 50361 "Membership Application Card"
     protected procedure FnValidatefields(MemberApp: Record "Membership Applications")
     begin
         TestField("ID No.");
-        TestField("Phone No.");
+        // TestField("Phone No.");
         TestField("KRA PIN");
         TestField("First Name");
         TestField("Last Name");
         TestField("Date of Birth");
         TestField("Postal Code");
-        TestField("Individual Category");
-        TestField("Bank Account No");
+       // TestField("Individual Category");
+        //TestField("Bank Account No");
 
     end;
 

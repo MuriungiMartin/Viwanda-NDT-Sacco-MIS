@@ -10,7 +10,7 @@ page 55000 "Home Role Center"
 
             part(Control75; "Headline RC Accountant")
             {
-                visible = false;
+
                 ApplicationArea = Basic, Suite;
             }
 
@@ -1909,6 +1909,7 @@ page 55000 "Home Role Center"
                 Caption = 'Salary Processing ';
                 RunObject = Page "Salary Processing List";
                 ToolTip = 'Prepare Salaries.';
+                Visible= false;
             }
             action("Payment Journal Entry")
             {
@@ -1944,6 +1945,7 @@ page 55000 "Home Role Center"
             group(Analysis)
             {
                 Caption = 'Analysis';
+                Visible= false;
                 action("Analysis &Views")
                 {
                     ApplicationArea = Dimensions;

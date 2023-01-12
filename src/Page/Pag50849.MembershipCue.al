@@ -28,16 +28,18 @@ Page 50849 "Membership Cue"
                 {
                     ApplicationArea = Basic;
                     Image = "None";
+                    StyleExpr = true;
                     DrillDownPageId = "Members List";
 
                 }
                 field("Non-Active Members"; "Non-Active Members")
                 {
+
                     ApplicationArea = Basic;
                     Image = PEople;
                     Style = Attention;
                     StyleExpr = true;
-                    Visible = true;
+                    Visible = false;
                     DrillDownPageId = "Members List";
 
                 }
@@ -201,26 +203,26 @@ Page 50849 "Membership Cue"
             //         DrillDownPageID = "HR Leave Applications List";
             //     }
             // }
-            cuegroup("Pending Documents")
-            {
-                Caption = 'Pending Documents';
-                field("Staff Claims Pending"; "Staff Claims Pending")
-                {
-                    ApplicationArea = Basic;
-                }
-                field("Staff Claims Approved"; "Staff Claims Approved")
-                {
-                    ApplicationArea = Basic;
-                }
-                field("Pending Cheque Payments"; "Pending Cheque Payments")
-                {
-                    ApplicationArea = Basic;
-                }
-                field("Approved Cheque Payments"; "Approved Cheque Payments")
-                {
-                    ApplicationArea = Basic;
-                }
-            }
+            // cuegroup("Pending Documents")
+            // {
+            //     Caption = 'Pending Documents';
+            //     field("Staff Claims Pending"; "Staff Claims Pending")
+            //     {
+            //         ApplicationArea = Basic;
+            //     }
+            //     field("Staff Claims Approved"; "Staff Claims Approved")
+            //     {
+            //         ApplicationArea = Basic;
+            //     }
+            //     field("Pending Cheque Payments"; "Pending Cheque Payments")
+            //     {
+            //         ApplicationArea = Basic;
+            //     }
+            //     field("Approved Cheque Payments"; "Approved Cheque Payments")
+            //     {
+            //         ApplicationArea = Basic;
+            //     }
+            // }
         }
     }
 

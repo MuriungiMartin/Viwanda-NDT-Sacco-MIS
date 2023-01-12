@@ -555,6 +555,7 @@ Table 50371 "Loans Register"
                     TestField(Installments);
                     LPrincipal := ROUND(LoanAmount / RepayPeriod, 1, '>');
                     LInterest := ROUND((InterestRate / 1200) * LoanAmount, 1, '>');
+                    //Insurance to be changed
                     Insuarence := 0.15 * LoanAmount;
 
                     if LoanAmount > 100000 then begin
