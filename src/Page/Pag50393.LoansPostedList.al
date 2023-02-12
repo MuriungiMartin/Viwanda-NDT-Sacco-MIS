@@ -119,11 +119,15 @@ Page 50393 "Loans Posted List"
                     PromotedOnly = true;
 
                     trigger OnAction()
+                    var
+                    LoanAppr : Report "Loan Appraisal Ver1";
                     begin
                         LoanApp.Reset;
                         LoanApp.SetRange(LoanApp."Loan  No.", "Loan  No.");
+                        Commit;
                         if LoanApp.Find('-') then begin
-                            Report.run(50355, true, false, LoanApp);
+                            //Report.run(50355, true, false, LoanApp);
+                            LoanAppr.Run;
                         end;
                     end;
                 }
@@ -148,13 +152,19 @@ Page 50393 "Loans Posted List"
                     PromotedOnly = true;
 
                     trigger OnAction()
+                    var
+                        Statement: Report "Loan Statement";
                     begin
                         Cust.Reset;
+                        Cust.SetCurrentKey(Cust."No.");
                         Cust.SetRange(Cust."No.", "Client Code");
                         Cust.SetFilter("Loan No. Filter", "Loan  No.");
                         Cust.SetFilter("Loan Product Filter", "Loan Product Type");
                         if Cust.Find('-') then
-                            Report.run(50531, true, false, Cust);
+                            // Report.run(Statement, true, false, Cust);
+                            Commit;
+                        Statement.Run;
+
                     end;
                 }
                 action("Member Accounts")

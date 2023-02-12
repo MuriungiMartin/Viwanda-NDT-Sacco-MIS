@@ -193,47 +193,47 @@ tableextension 50007 "customertableEXT" extends Customer
             OptionCaption = 'Active,Awaiting Exit,Exited,Dormant,Deceased';
             OptionMembers = Active,"Awaiting Exit",Exited,Dormant,Deceased;
 
-            trigger OnValidate()
-            begin
-                //Advice:=TRUE;
-                //"Status Change Date" := TODAY;
-                //"Last Marking Date" := TODAY;
-                //MODIFY;
-                /*
-                IF xRec.Status=xRec.Status::Deceased THEN
-                ERROR('Deceased status cannot be changed');
+            // trigger OnValidate()
+            // begin
+            //     //Advice:=TRUE;
+            //     //"Status Change Date" := TODAY;
+            //     //"Last Marking Date" := TODAY;
+            //     //MODIFY;
+            //     /*
+            //     IF xRec.Status=xRec.Status::Deceased THEN
+            //     ERROR('Deceased status cannot be changed');
                 
-                Vend2.RESET;
-                Vend2.SETRANGE(Vend2."Staff No","Payroll/Staff No");
-                Vend2.SETRANGE(Vend2."Account Type",'PRIME');
-                IF Vend2.FIND('-') THEN BEGIN
-                REPEAT
-                IF Status = Status::Deceased THEN BEGIN
-                IF (Vend2."Account Type"<>'JUNIOR') THEN BEGIN
-                Vend2.Status:=Vend2.Status::"6";
-                Vend2.Blocked:=Vend2.Blocked::All;
-                Vend2.MODIFY;
-                END;
-                END;
-                UNTIL Vend2.NEXT = 0;
-                END;
+            //     Vend2.RESET;
+            //     Vend2.SETRANGE(Vend2."Staff No","Payroll/Staff No");
+            //     Vend2.SETRANGE(Vend2."Account Type",'PRIME');
+            //     IF Vend2.FIND('-') THEN BEGIN
+            //     REPEAT
+            //     IF Status = Status::Deceased THEN BEGIN
+            //     IF (Vend2."Account Type"<>'JUNIOR') THEN BEGIN
+            //     Vend2.Status:=Vend2.Status::"6";
+            //     Vend2.Blocked:=Vend2.Blocked::All;
+            //     Vend2.MODIFY;
+            //     END;
+            //     END;
+            //     UNTIL Vend2.NEXT = 0;
+            //     END;
                 
-                //Charge Entrance fee on reinstament
-                IF Status=Status::"Re-instated" THEN BEGIN
-                GenSetUp.GET(0);
-                "Registration Fee":=GenSetUp."Registration Fee";
-                MODIFY;
-                END;
+            //     //Charge Entrance fee on reinstament
+            //     IF Status=Status::"Re-instated" THEN BEGIN
+            //     GenSetUp.GET(0);
+            //     "Registration Fee":=GenSetUp."Registration Fee";
+            //     MODIFY;
+            //     END;
                 
-                IF (Status<>Status::Active) OR (Status<>Status::Dormant) THEN
-                Blocked:=Blocked::All;
-                 */
+            //     IF (Status<>Status::Active) OR (Status<>Status::Dormant) THEN
+            //     Blocked:=Blocked::All;
+            //      */
 
-                "Previous Status" := xRec.Status;//==========================================================update previous Membership Status
-                "Status Change Date" := WorkDate;
-                "Status Changed By" := UserId;
+            //     "Previous Status" := xRec.Status;//==========================================================update previous Membership Status
+            //     "Status Change Date" := WorkDate;
+            //     "Status Changed By" := UserId;
 
-            end;
+            // end;
         }
         field(68013; "FOSA Account No."; Code[20])
         {
@@ -551,73 +551,73 @@ tableextension 50007 "customertableEXT" extends Customer
         field(68047; "Monthly Contribution"; Decimal)
         {
 
-            trigger OnValidate()
-            begin
-                //SURESTEP - Check Min Contractual Shares
-                /*IF GenSetUp."Contactual Shares (%)" <> 0 THEN BEGIN
-                IF "Monthly Contribution" <> 0 THEN BEGIN
-                GenSetUp.GET(0);
+            // trigger OnValidate()
+            // begin
+            //     //SURESTEP - Check Min Contractual Shares
+            //     /*IF GenSetUp."Contactual Shares (%)" <> 0 THEN BEGIN
+            //     IF "Monthly Contribution" <> 0 THEN BEGIN
+            //     GenSetUp.GET(0);
                 
-                Loans.RESET;
-                Loans.SETRANGE(Loans."Client Code","No.");
-                IF Loans.FIND('-') THEN BEGIN
-                REPEAT
-                Loans.CALCFIELDS(Loans."Outstanding Balance");
-                IF (Loans."Outstanding Balance" > 0) THEN BEGIN
-                IF MinShares < ((Loans."Approved Amount"* GenSetUp."Contactual Shares (%)")*0.01) THEN
-                MinShares:=(Loans."Approved Amount"* GenSetUp."Contactual Shares (%)")*0.01;
-                END;
-                UNTIL Loans.NEXT = 0;
-                END;
+            //     Loans.RESET;
+            //     Loans.SETRANGE(Loans."Client Code","No.");
+            //     IF Loans.FIND('-') THEN BEGIN
+            //     REPEAT
+            //     Loans.CALCFIELDS(Loans."Outstanding Balance");
+            //     IF (Loans."Outstanding Balance" > 0) THEN BEGIN
+            //     IF MinShares < ((Loans."Approved Amount"* GenSetUp."Contactual Shares (%)")*0.01) THEN
+            //     MinShares:=(Loans."Approved Amount"* GenSetUp."Contactual Shares (%)")*0.01;
+            //     END;
+            //     UNTIL Loans.NEXT = 0;
+            //     END;
                 
-                IF MinShares > GenSetUp."Max. Contactual Shares" THEN
-                MinShares := GenSetUp."Max. Contactual Shares";
+            //     IF MinShares > GenSetUp."Max. Contactual Shares" THEN
+            //     MinShares := GenSetUp."Max. Contactual Shares";
                 
                 
-                IF MinShares < GenSetUp."Min. Contribution" THEN
-                MinShares := GenSetUp."Min. Contribution";
+            //     IF MinShares < GenSetUp."Min. Contribution" THEN
+            //     MinShares := GenSetUp."Min. Contribution";
                 
-                IF "Monthly Contribution" <  MinShares THEN
-                ERROR('Monthly contribution cannot be less than the contractual shares i.e. %1',MinShares);
+            //     IF "Monthly Contribution" <  MinShares THEN
+            //     ERROR('Monthly contribution cannot be less than the contractual shares i.e. %1',MinShares);
                 
-                END;
-                END;
+            //     END;
+            //     END;
                 
-                IF xRec."Monthly Contribution" <> 0 THEN BEGIN
-                Advice:=TRUE;
-                "Advice Type":="Advice Type"::"Shares Adjustment";
-                END;
+            //     IF xRec."Monthly Contribution" <> 0 THEN BEGIN
+            //     Advice:=TRUE;
+            //     "Advice Type":="Advice Type"::"Shares Adjustment";
+            //     END;
                 
-                //SURESTEP - Check Min Contractual Shares
+            //     //SURESTEP - Check Min Contractual Shares
                 
-                "Previous Share Contribution":=xRec."Monthly Contribution"; */
+            //     "Previous Share Contribution":=xRec."Monthly Contribution"; */
 
 
-                "Previous Share Contribution" := xRec."Monthly Contribution";
+            //     "Previous Share Contribution" := xRec."Monthly Contribution";
 
 
 
-                Advice := true;
-                //"Advice Type":="Advice Type"::Adjustment;
+            //     Advice := true;
+            //     //"Advice Type":="Advice Type"::Adjustment;
 
 
-                // DataSheet.Init;
-                // DataSheet."PF/Staff No" := "Payroll No";
-                // DataSheet."Type of Deduction" := 'Shares/Deposits';
-                // DataSheet."Remark/LoanNO" := 'ADJ FORM';
-                // DataSheet.Name := Name;
-                // DataSheet."ID NO." := "ID No.";
-                // DataSheet."Amount ON" := "Monthly Contribution";
-                // DataSheet."REF." := '2026';
-                // DataSheet."New Balance" := "Current Shares" * -1;
-                // DataSheet.Date := Today;
-                // DataSheet."Amount OFF" := xRec."Monthly Contribution";
-                // DataSheet.Employer := "Employer Code";
-                // DataSheet."Transaction Type" := DataSheet."transaction type"::ADJUSTMENT;
-                // //DataSheet."Sort Code":=PTEN;
-                // DataSheet.Insert;
+            //     // DataSheet.Init;
+            //     // DataSheet."PF/Staff No" := "Payroll No";
+            //     // DataSheet."Type of Deduction" := 'Shares/Deposits';
+            //     // DataSheet."Remark/LoanNO" := 'ADJ FORM';
+            //     // DataSheet.Name := Name;
+            //     // DataSheet."ID NO." := "ID No.";
+            //     // DataSheet."Amount ON" := "Monthly Contribution";
+            //     // DataSheet."REF." := '2026';
+            //     // DataSheet."New Balance" := "Current Shares" * -1;
+            //     // DataSheet.Date := Today;
+            //     // DataSheet."Amount OFF" := xRec."Monthly Contribution";
+            //     // DataSheet.Employer := "Employer Code";
+            //     // DataSheet."Transaction Type" := DataSheet."transaction type"::ADJUSTMENT;
+            //     // //DataSheet."Sort Code":=PTEN;
+            //     // DataSheet.Insert;
 
-            end;
+            // end;
         }
         field(68048; "Investment B/F"; Decimal)
         {

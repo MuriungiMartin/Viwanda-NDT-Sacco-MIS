@@ -424,12 +424,12 @@ Page 50624 "Loans Appl Card FOSA (Approv)"
                     Caption = 'Rejection Date';
                 }
             }
-            part(Control8; "Loans Guarantee Details")
-            {
-                Caption = 'Guarantors  Detail';
-                Editable = false;
-                SubPageLink = "Loan No" = field("Loan  No.");
-            }
+            // part(Control8; "Loans Guarantee Details")
+            // {
+            //     Caption = 'Guarantors  Detail';
+            //     Editable = false;
+            //     SubPageLink = "Loan No" = field("Loan  No.");
+            // }
             part(Control7; "Loan Collateral Security")
             {
                 Caption = 'Other Securities';

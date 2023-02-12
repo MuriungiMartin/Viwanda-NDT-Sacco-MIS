@@ -45,10 +45,10 @@ Page 50831 "Group Application List"
                 {
                     ApplicationArea = Basic;
                 }
-                field("Bank Name"; "Bank Name")
-                {
-                    ApplicationArea = Basic;
-                }
+                // field("Bank Name"; "Bank Name")
+                // {
+                //     ApplicationArea = Basic;
+                // }
                 field("Bank Code"; "Bank Code")
                 {
                     ApplicationArea = Basic;

@@ -60,6 +60,10 @@ Page 50364 "Membership App Nominee Detail"
                 {
                     ApplicationArea = Basic;
                 }
+                field(OK;OK)
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }

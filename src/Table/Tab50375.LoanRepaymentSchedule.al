@@ -44,6 +44,7 @@ Table 50375 "Loan Repayment Schedule"
         }
         field(27; "Principal Repayment"; Decimal)
         {
+            FieldClass = Normal;
         }
         field(28; Paid; Boolean)
         {

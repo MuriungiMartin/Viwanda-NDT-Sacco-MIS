@@ -528,11 +528,11 @@ Page 50853 "Loan Application MICRO(Approv)"
                               "Client Code" = field("Client Code");
                 Visible = false;
             }
-            part(Control1000000013; "Loans Guarantee Details")
-            {
-                Caption = 'Guarantors  Detail';
-                SubPageLink = "Loan No" = field("Loan  No.");
-            }
+            // part(Control1000000013; "Loans Guarantee Details")
+            // {
+            //     Caption = 'Guarantors  Detail';
+            //     SubPageLink = "Loan No" = field("Loan  No.");
+            // }
             part(Control1000000012; "Loan Collateral Security")
             {
                 Caption = 'Other Securities';

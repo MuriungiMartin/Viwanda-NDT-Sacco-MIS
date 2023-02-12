@@ -2,7 +2,8 @@
 Page 50387 "Loans Guarantee Details"
 {
     PageType = ListPart;
-    RefreshOnActivate = false;
+    UsageCategory= Lists;
+        ApplicationArea= All;
     SourceTable = "Loans Guarantee Details";
 
     layout

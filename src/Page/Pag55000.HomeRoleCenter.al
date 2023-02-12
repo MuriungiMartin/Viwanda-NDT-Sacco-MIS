@@ -10,8 +10,7 @@ page 55000 "Home Role Center"
 
             part(Control75; "Headline RC Accountant")
             {
-
-                ApplicationArea = Basic, Suite;
+                ApplicationArea = All;
             }
 
             // part("Logo Cue"; "Sacco Logo")
@@ -299,6 +298,14 @@ page 55000 "Home Role Center"
                 RunObject = Page "Loans  List All";
                 RunPageView = WHERE("Outstanding Balance" = FILTER(<> 0));
                 ToolTip = 'View a summary of the Outstanding Loan Balances In The Sacco.';
+            }
+            action("Bulk Sms")
+            {
+                ApplicationArea = Basic, suite;
+                Caption ='Send SMS';
+                Image = Message;
+                RunObject = Page "Bulk SMS Header";
+                ToolTip =  'Send Bulk Sms to Members';
             }
             action("Receipts List")
             {

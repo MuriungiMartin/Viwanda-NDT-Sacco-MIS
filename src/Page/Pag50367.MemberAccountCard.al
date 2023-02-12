@@ -273,16 +273,18 @@ Page 50367 "Member Account Card"
                 {
                     ApplicationArea = Basic;
                     Editable = false;
+                    Visible = false;
                 }
                 field("Online Member"; "Online Member")
                 {
                     ApplicationArea = Basic;
-                    Editable = false;
+                    Editable = true;
                 }
                 field("KYC Completed"; "KYC Completed")
                 {
                     ApplicationArea = Basic;
                     Editable = false;
+                    Visible = false;
                 }
                 field("Block Mobile Loan"; "Block Mobile Loan")
                 {
@@ -322,6 +324,7 @@ Page 50367 "Member Account Card"
                 field("Bank Code"; "Bank Code")
                 {
                     ApplicationArea = Basic;
+                    Visible = false;
                 }
                 field("Bank Name"; "Bank Name")
                 {
@@ -359,11 +362,13 @@ Page 50367 "Member Account Card"
                 {
                     ApplicationArea = Basic;
                     Editable = false;
+                    Visible = false;
                 }
                 field("Fax No."; "Fax No.")
                 {
                     ApplicationArea = Basic;
                     Editable = false;
+                    Visible = false;
                 }
                 field("Home Address"; "Home Address")
                 {
@@ -537,6 +542,7 @@ Page 50367 "Member Account Card"
             group("Member Risk Rating")
             {
                 Editable = false;
+                Visible = false;
                 group("Member Risk Rate")
                 {
                     field("Individual Category"; "Individual Category")
@@ -566,6 +572,7 @@ Page 50367 "Member Account Card"
                 }
                 group("Product Risk Rating")
                 {
+                    Visible = false;
                     field("Electronic Payment"; "Electronic Payment")
                     {
                         ApplicationArea = Basic;
@@ -801,6 +808,7 @@ Page 50367 "Member Account Card"
             group("File Movement Tracker")
             {
                 Caption = 'File Movement Tracker';
+                Visible = false;
                 field(Filelocc; Filelocc)
                 {
                     ApplicationArea = Basic;
@@ -1039,6 +1047,7 @@ Page 50367 "Member Account Card"
                     PromotedOnly = true;
                     RunObject = Page "Member Account Signatory list";
                     RunPageLink = "Account No" = field("No.");
+                    Visible = false;
                 }
                 action("Account Agent Details")
                 {
@@ -1120,6 +1129,7 @@ Page 50367 "Member Account Card"
                     PromotedCategory = Process;
                     RunObject = Page "Individual Member Risk Rating";
                     RunPageLink = "Membership Application No" = field("No.");
+                    Visible = false;
 
                     trigger OnAction()
                     begin
@@ -1511,6 +1521,7 @@ Page 50367 "Member Account Card"
                     ApplicationArea = Basic;
                     Image = Reconcile;
                     Promoted = true;
+                    Visible = false;
                     PromotedCategory = Process;
                     RunObject = Page "Member Case History";
                     RunPageLink = "Member No." = field("No.");
@@ -1520,6 +1531,7 @@ Page 50367 "Member Account Card"
                     ApplicationArea = Basic;
                     Image = Calculate;
                     Promoted = true;
+                    Visible = false;
                     PromotedCategory = Process;
                     RunObject = Page "CRB Check Charge List";
                     RunPageLink = "Member No" = field("No.");
@@ -1591,11 +1603,11 @@ Page 50367 "Member Account Card"
 
                     trigger OnAction()
                     begin
-                        /*Cust.RESET;
-                        Cust.SETRANGE(Cust."No.","No.");
-                        IF Cust.FIND('-') THEN
-                        REPORT.RUN(,TRUE,FALSE,Cust);
-                        */
+                        // Cust.RESET;
+                        // Cust.SETRANGE(Cust."No.","No.");
+                        // IF Cust.FIND('-') THEN
+                        // REPORT.RUN(,TRUE,FALSE,Cust);
+
 
                     end;
                 }

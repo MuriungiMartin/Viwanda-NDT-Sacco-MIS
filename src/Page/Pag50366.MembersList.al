@@ -324,7 +324,9 @@ Page 50366 "Members List"
                         Cust.Reset;
                         Cust.SetRange(Cust."No.", "No.");
                         if Cust.Find('-') then
-                            Report.run(50886, true, false, Cust);
+                            Commit;
+                        Report.run(50886, true, false, Cust);
+
                     end;
                 }
                 action("Loan Statement")
@@ -420,7 +422,7 @@ Page 50366 "Members List"
     }
     trigger OnOpenPage()
     var
-        Cust: Record Customer;
+       // Cust: Record Customer;
     begin
         // if cust.FindSet() then begin
         //     repeat
@@ -431,6 +433,8 @@ Page 50366 "Members List"
         // end;
 
         //Codeunit.Run(Codeunit::"Custom Workflow Events");
+        //Codeunit.Run(Codeunit::"Workflow Event Handling");
+        Codeunit.Run(Codeunit::"Custom Workflow Responses");
 
 
 

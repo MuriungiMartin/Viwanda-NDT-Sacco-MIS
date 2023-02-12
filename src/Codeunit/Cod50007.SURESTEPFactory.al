@@ -292,12 +292,13 @@ Codeunit 50007 "SURESTEP Factory"
     procedure FnGetChargeFee(ProductCode: Code[50]; InsuredAmount: Decimal; ChargeType: Code[100]) FCharged: Decimal
     begin
         if ObjLoanProductSetup.Get(ProductCode) then begin
-            if ObjProductCharges."Loan Charge Type" = ObjProductCharges."Loan Charge Type"::"Loan Application Fee" then begin
-                ;
+            //if ObjProductCharges."Loan Charge Type" = ObjProductCharges."Loan Charge Type"::"Loan Application Fee" then begin
+                
                 ObjProductCharges.Reset;
                 ObjProductCharges.SetRange(ObjProductCharges."Product Code", ProductCode);
                 ObjProductCharges.SetRange(ObjProductCharges.Code, ChargeType);
                 if ObjProductCharges.Find('-') then begin
+                    message('Perc %1 amount %2',ObjProductCharges.Percentage,ObjProductCharges.Amount);
                     if ObjProductCharges."Use Perc" = true then begin
                         FCharged := InsuredAmount * (ObjProductCharges.Percentage / 100);
                     end
@@ -305,20 +306,20 @@ Codeunit 50007 "SURESTEP Factory"
                         FCharged := ObjProductCharges.Amount;
                     end;
                 end;
-            end;
-            if ObjProductCharges."Loan Charge Type" = ObjProductCharges."Loan Charge Type"::"Loan Insurance" then begin
-                ;
-                ObjProductCharges.Reset;
-                ObjProductCharges.SetRange(ObjProductCharges."Product Code", ProductCode);
-                ObjProductCharges.SetRange(ObjProductCharges.Code, ChargeType);
-                if ObjProductCharges.Find('-') then begin
-                    if ObjProductCharges."Use Perc" = true then begin
-                        FCharged := InsuredAmount * (ObjProductCharges.Percentage / 100);
-                    end
-                    else
-                        FCharged := ObjProductCharges.Amount;
-                end;
-            end;
+           // end;
+            // if ObjProductCharges."Loan Charge Type" = ObjProductCharges."Loan Charge Type"::"Loan Insurance" then begin
+            //     ;
+            //     ObjProductCharges.Reset;
+            //     ObjProductCharges.SetRange(ObjProductCharges."Product Code", ProductCode);
+            //     ObjProductCharges.SetRange(ObjProductCharges.Code, ChargeType);
+            //     if ObjProductCharges.Find('-') then begin
+            //         if ObjProductCharges."Use Perc" = true then begin
+            //             FCharged := InsuredAmount * (ObjProductCharges.Percentage / 100);
+            //         end
+            //         else
+            //             FCharged := ObjProductCharges.Amount;
+            //     end;
+            // end;
         end;
         exit(FCharged);
     end;
@@ -344,7 +345,7 @@ Codeunit 50007 "SURESTEP Factory"
         ObjMembers.SetRange(ObjMembers."Monthly Contribution", 0.0);
         if ObjMembers.FindSet then begin
             repeat
-                ObjMembers2."Monthly Contribution" := 500;
+                ObjMembers2."Monthly Contribution" := ObjMembers."Monthly Contribution";
                 ObjMembers2.Modify;
             until ObjMembers.Next = 0;
             //message('Succesfully done');

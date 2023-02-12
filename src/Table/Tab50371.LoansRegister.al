@@ -470,7 +470,7 @@ Table 50371 "Loans Register"
                         end;
                 end;
 
-                //"Approved Amount":="Requested Amount";
+                "Approved Amount" := "Requested Amount";
                 "Net Payment to FOSA" := "Requested Amount";
 
                 Validate("Approved Amount");
@@ -632,7 +632,7 @@ Table 50371 "Loans Register"
         {
             Editable = false;
         }
-        field(26; "Client Name"; Text[100])
+        field(26; "Client Name"; Code[100])
         {
             Editable = false;
         }
@@ -747,20 +747,21 @@ Table 50371 "Loans Register"
                 GenSetUp.Get;
                 VarLoanDisburesementDay := Date2dmy("Loan Disbursement Date", 1);
 
-                if VarLoanDisburesementDay > GenSetUp."Last Date of Checkoff Advice" then
-                    "Repayment Start Date" := CalcDate('CM', (CalcDate('1M', "Loan Disbursement Date")))
-                else
-                    "Repayment Start Date" := CalcDate('CM', "Loan Disbursement Date");
+                // if VarLoanDisburesementDay > GenSetUp."Last Date of Checkoff Advice" then
+                //     "Repayment Start Date" := CalcDate('CM', (CalcDate('1M', "Loan Disbursement Date")))
+                //else
+                "Repayment Start Date" := CalcDate('CM', "Loan Disbursement Date");
 
 
                 EndDate := Dmy2date(1, Month + 1, currYear) - 1;
 
-                //IF DAY <=23 THEN BEGIN
-                //"Repayment Start Date":=CALCDATE("Loan Disbursement Date");
-                //END ELSE BEGIN
-                //"Repayment Start Date":=CALCDATE('1M',"Loan Disbursement Date");
-                //END;
-                //"Expected Date of Completion":=CALCDATE('CM',CALCDATE('CM+1M',"Loan Disbursement Date")); TODO
+                // IF DAY := '<CM+30D>' THEN BEGIN
+
+                // "Repayment Start Date":=CALCDATE(DAY, "Loan Disbursement Date");
+                // END ELSE BEGIN
+                // "Repayment Start Date":=CALCDATE('1M',"Loan Disbursement Date");
+                // END;
+                "Expected Date of Completion" := CALCDATE('CM', CALCDATE('CM+1M', "Loan Disbursement Date"));
                 "Expected Date of Completion" := CalcDate(Format(Installments) + 'M', "Repayment Start Date");
             end;
         }
@@ -1469,6 +1470,7 @@ Table 50371 "Loans Register"
 
             trigger OnValidate()
             begin
+                "Staff No" := Customer."Member No";
             end;
         }
         field(68003; "BOSA Loan Amount"; Decimal)
@@ -3802,6 +3804,10 @@ Table 50371 "Loans Register"
         {
 
         }
+        // // field(51516297; "Loan Being Serviced"; Boolean)
+        // {
+
+        // } 
 
     }
 
@@ -3889,12 +3895,12 @@ Table 50371 "Loans Register"
         }
     }
 
-    trigger OnDelete()
-    begin
-        //IF "Loan Status"="Loan Status"::Approved THEN
-        Error('A loan cannot be deleted once created!.');
-        //TESTFIELD(Posted,FALSE);
-    end;
+    // trigger OnDelete()
+    // begin
+    //     //IF "Loan Status"="Loan Status"::Approved THEN
+    //     Error('A loan cannot be deleted once created!.');
+    //     //TESTFIELD(Posted,FALSE);
+    // end;
 
     trigger OnInsert()
     begin
@@ -4804,10 +4810,10 @@ Table 50371 "Loans Register"
                 SaccoGeneralSetUp.TestField("Last Date of Checkoff Advice");
                 Day := Date2dmy(Today, 1);
                 EndMonth := CalcDate('CM', Today);
-                if Day > SaccoGeneralSetUp."Last Date of Checkoff Advice" then
-                    EndMonth := CalcDate('1M+CM', EndMonth);
-                LoanTopup.Reset;
-                LoanTopup.SetRange("Loan Top Up", ObjLoans."Loan  No.");
+                // if Day > SaccoGeneralSetUp."Last Date of Checkoff Advice" then
+                //     EndMonth := CalcDate('1M+CM', EndMonth);
+                // LoanTopup.Reset;
+                // LoanTopup.SetRange("Loan Top Up", ObjLoans."Loan  No.");
                 if not LoanTopup.FindFirst then begin
                     ObjRepaymentSchedule.Reset;
                     ObjRepaymentSchedule.SetRange(ObjRepaymentSchedule."Loan No.", ObjLoans."Loan  No.");
@@ -4974,9 +4980,10 @@ Table 50371 "Loans Register"
                 SaccoGeneralSetUp.TestField("Last Date of Checkoff Advice");
                 Day := Date2dmy(Today, 1);
                 EndMonth := CalcDate('CM', Today);
-                if Day > SaccoGeneralSetUp."Last Date of Checkoff Advice" then
-                    EndMonth := CalcDate('1M+CM', EndMonth);
-                LoanTopup.Reset;
+
+                // if Day > (SaccoGeneralSetUp."Last Date of Checkoff Advice") then
+                //     EndMonth := CalcDate('1M+CM', EndMonth);
+                // LoanTopup.Reset;
                 LoanTopup.SetRange("Loan Top Up", ObjLoans."Loan  No.");
                 if not LoanTopup.FindFirst then begin
                     ObjRepaymentSchedule.Reset;

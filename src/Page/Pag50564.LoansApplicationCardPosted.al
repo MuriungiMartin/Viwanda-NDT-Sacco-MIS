@@ -588,12 +588,12 @@ Page 50564 "Loans Application Card(Posted)"
                     ApplicationArea = Basic;
                 }
             }
-            part(Control16; "Loans Guarantee Details")
-            {
-                Caption = 'Guarantors  Detail';
-                Editable = false;
-                SubPageLink = "Loan No" = field("Loan  No.");
-            }
+            // part(Control16; "Loans Guarantee Details")
+            // {
+            //     Caption = 'Guarantors  Detail';
+            //     Editable = false;
+            //     SubPageLink = "Loan No" = field("Loan  No.");
+            // }
             part(Control15; "Loan Collateral Security")
             {
                 Caption = 'Other Securities';

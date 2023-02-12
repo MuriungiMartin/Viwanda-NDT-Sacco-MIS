@@ -19,12 +19,12 @@ Page 50550 "Membership App Products"
                 field("Product Name"; "Product Name")
                 {
                     ApplicationArea = Basic;
-                    Editable = false;
+                    //Editable = fals;
                 }
                 field("Product Source"; "Product Source")
                 {
                     ApplicationArea = Basic;
-                    Editable = false;
+                    //Editable = false;
                 }
                 field("Account Category"; "Account Category")
                 {

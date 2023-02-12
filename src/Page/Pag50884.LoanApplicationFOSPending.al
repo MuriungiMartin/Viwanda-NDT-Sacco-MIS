@@ -535,11 +535,11 @@ Page 50884 "Loan Application FOS(Pending)"
                     Caption = 'Rejection Date';
                 }
             }
-            part(Control9; "Loans Guarantee Details")
-            {
-                Caption = 'Guarantors  Detail';
-                SubPageLink = "Loan No" = field("Loan  No.");
-            }
+            // part(Control9; "Loans Guarantee Details")
+            // {
+            //     Caption = 'Guarantors  Detail';
+            //     SubPageLink = "Loan No" = field("Loan  No.");
+            // }
             part(Control7; "Loan Collateral Security")
             {
                 Caption = 'Other Securities';

@@ -75,6 +75,7 @@ page 59022 "Viwanda CheckOff Advice"
                     if ObjAdvice.FindSet() then
                         ObjAdvice.DeleteAll();
                     FnGenerateViwandaAdvice();
+                
                 end;
             }
         }
@@ -144,6 +145,7 @@ page 59022 "Viwanda CheckOff Advice"
                 if ObjCust."Outstanding Balance" > 0 then begin
                     ObjLoan.Reset();
                     ObjLoan.SetRange(ObjLoan."Client Code", ObjCust."No.");
+                    //ObjLoan.SetRange(ObjLoan.beisng ssevice, true);
                     ObjLoan.SetAutoCalcFields(ObjLoan."Outstanding Balance");
                     ObjLoan.SetFilter(ObjLoan."Outstanding Balance", '>%1', 0);
                     if ObjLoan.Find('-') then begin

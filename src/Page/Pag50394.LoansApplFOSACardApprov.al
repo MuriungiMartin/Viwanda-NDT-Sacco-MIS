@@ -579,12 +579,12 @@ Page 50394 "Loans Appl FOSA Card(Approv)"
                 SubPageLink = "Loan No" = field("Loan  No."),
                               "Client Code" = field("Client Code");
             }
-            part(Control1000000004; "Loans Guarantee Details")
-            {
-                Caption = 'Guarantors  Detail';
-                Editable = false;
-                SubPageLink = "Loan No" = field("Loan  No.");
-            }
+            // part(Control1000000004; "Loans Guarantee Details")
+            // {
+            //     Caption = 'Guarantors  Detail';
+            //     Editable = false;
+            //     SubPageLink = "Loan No" = field("Loan  No.");
+            // }
             part(Control1000000005; "Loan Collateral Security")
             {
                 Caption = 'Other Securities';

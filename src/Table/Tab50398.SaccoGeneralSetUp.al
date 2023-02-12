@@ -856,7 +856,7 @@ Table 50398 "Sacco General Set-Up"
         field(249; "New Piggy Bank Credit G/L"; Code[20])
         {
         }
-        field(250; "Last Date of Checkoff Advice"; Integer)
+        field(250; "Last Date of Checkoff Advice"; Date)
         {
             DataClassification = ToBeClassified;
         }

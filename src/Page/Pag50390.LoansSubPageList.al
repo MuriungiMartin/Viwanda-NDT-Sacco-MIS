@@ -50,10 +50,36 @@ Page 50390 "Loans Sub-Page List"
                     ApplicationArea = Basic;
                     Caption = 'Requested Amount';
                 }
+
                 field("Approved Amount"; "Approved Amount")
                 {
                     ApplicationArea = Basic;
                 }
+                field(Repayment; Repayment)
+                {
+                    ApplicationArea = Basic;
+                }
+                // field("Loan Being Serviced"; "Loan Being Serviced")
+                // {
+                //     Editable = true;
+                //     ApplicationArea = All;
+                // }
+                // field("Monthly Repayment"; "Monthly Repayment")
+                // {
+                //     trigger OnAfterLookup(Selected: RecordRef)
+                //      var
+                //         LoanShcedule: Record "Loan Repayment Schedule";
+
+
+                //     begin
+                //         Selected.SetTable(LoanShcedule);
+                //         Validate("Loan  No.",LoanShcedule."Loan No.");
+                //         "Monthly Repayment" := LoanShcedule."Monthly Repayment";
+                //         LoanShcedule.Modify;
+
+                //     end;
+
+                // }
                 field("Loan Collateral Secured"; "Loan Collateral Secured")
                 {
                     ApplicationArea = Basic;
@@ -158,10 +184,7 @@ Page 50390 "Loans Sub-Page List"
                     Style = Attention;
                     StyleExpr = FieldStyleArrears;
                 }
-                field(Repayment; Repayment)
-                {
-                    ApplicationArea = Basic;
-                }
+
                 field("Loan Status"; "Loan Status")
                 {
                     ApplicationArea = Basic;
@@ -185,6 +208,7 @@ Page 50390 "Loans Sub-Page List"
                 {
                     ApplicationArea = Basic;
                 }
+
             }
         }
     }
@@ -232,6 +256,7 @@ Page 50390 "Loans Sub-Page List"
     end;
 
     var
+        "Monthly Repayment": Decimal;
         LoanType: Record "Loan Products Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
         FieldStyle: Text;

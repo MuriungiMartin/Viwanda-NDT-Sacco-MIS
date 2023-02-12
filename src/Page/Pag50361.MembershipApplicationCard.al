@@ -22,7 +22,7 @@ Page 50361 "Membership Application Card"
                 {
                     ApplicationArea = Basic;
                     Editable = false;
-                    Enabled = false;
+                    Enabled = true;
                     Visible = false;
                 }
                 field("Assigned Member No"; "Assigned Member No")
@@ -232,8 +232,10 @@ Page 50361 "Membership Application Card"
                 {
                     ApplicationArea = Basic;
                     Caption = 'Country';
-                    Editable = CountryEditable;
+
+                    //Editable = CountryEditable;
                 }
+
                 field(County; County)
                 {
                     ApplicationArea = Basic;
@@ -275,18 +277,19 @@ Page 50361 "Membership Application Card"
                 {
                     ApplicationArea = Basic;
                     Editable = true;
-                    Visible = true;
+                    Visible = false;
                 }
                 field("Global Dimension 2 Code"; "Global Dimension 2 Code")
                 {
                     ApplicationArea = Basic;
                     Editable = true;
                     ShowMandatory = true;
+                    Visible = false;
                 }
                 field("Monthly Contribution"; "Monthly Contribution")
                 {
                     ApplicationArea = Basic;
-                    Editable = MonthlyContributionEdit;
+                    Editable = true;
                     ShowMandatory = true;
                 }
                 field("Application Category"; "Application Category")
@@ -330,18 +333,23 @@ Page 50361 "Membership Application Card"
                 field("Bank Code"; "Bank Code")
                 {
                     ApplicationArea = Basic;
+
                 }
-                field("Bank Name"; "Bank Name")
-                {
-                    ApplicationArea = Basic;
-                }
+                // field("Bank Name"; "Bank Name")
+                // {
+                //     ApplicationArea = Basic;
+                //     LookupPageId = Banks;
+                //     Editable = false;
+                // }
                 field("Bank Branch Code"; "Bank Branch Code")
                 {
                     ApplicationArea = Basic;
+                    Editable = false;
                 }
                 field("Bank Branch Name"; "Bank Branch Name")
                 {
                     ApplicationArea = Basic;
+                    Editable = false;
                 }
                 field("Bank Account No"; "Bank Account No")
                 {
@@ -506,6 +514,7 @@ Page 50361 "Membership Application Card"
             }
             group("Member Risk Ratings")
             {
+                Visible = false;
                 group("Member Risk Rate")
                 {
                     field("Individual Category"; "Individual Category")
@@ -540,6 +549,7 @@ Page 50361 "Membership Application Card"
                 }
                 group("Product Risk Rating")
                 {
+                    visible = false;
                     field("Electronic Payment"; "Electronic Payment")
                     {
                         ApplicationArea = Basic;
@@ -816,6 +826,7 @@ Page 50361 "Membership Application Card"
 
             }
         }
+
         area(factboxes)
         {
             part(Control35; "Member Picture-App")
@@ -836,6 +847,7 @@ Page 50361 "Membership Application Card"
         }
     }
 
+
     actions
     {
         area(navigation)
@@ -843,7 +855,7 @@ Page 50361 "Membership Application Card"
             group("Function")
             {
                 Caption = 'Function';
-                action("Select Products")
+                action("Select Products")//was commented earlier
                 {
                     ApplicationArea = Basic;
                     Image = Accounts;
@@ -855,31 +867,31 @@ Page 50361 "Membership Application Card"
 
                     trigger OnAction()
                     begin
-                        /*ObjProductsApp.RESET;
-                        ObjProductsApp.SETRANGE(ObjProductsApp."Membership Applicaton No","No.");
+                        ObjProductsApp.RESET;
+                        ObjProductsApp.SETRANGE(ObjProductsApp."Membership Applicaton No", "No.");
                         IF ObjProductsApp.FINDSET THEN BEGIN
-                        ObjProductsApp.DELETEALL;
+                            ObjProductsApp.DELETEALL;
                         END;
-                        
-                        
-                        AccoutTypes.RESET;
-                        AccoutTypes.SETRANGE(AccoutTypes."Default Account",TRUE);
-                         IF AccountTypes.FIND('-') THEN BEGIN
-                            REPEAT
-                              IF AccountTypes."Default Account"=TRUE THEN BEGIN
-                              ObjProductsApp.INIT;
-                              ObjProductsApp."Membership Applicaton No":="No.";
-                              ObjProductsApp.Names:=Name;
-                              ObjProductsApp.Product:=AccountTypes.Code;
-                              ObjProductsApp."Product Name":=AccountTypes.Description;
-                              ObjProductsApp."Product Source":=AccoutTypes."Activity Code";
-                              ObjProductsApp.INSERT;
-                              ObjProductsApp.VALIDATE(ObjProductsApp.Product);
-                              ObjProductsApp.MODIFY;
-                              END;
-                            UNTIL AccountTypes.NEXT=0;
-                          END;
-                          */
+
+
+                        // AccoutTypes.RESET;
+                        // AccoutTypes.SETRANGE(AccoutTypes."Default Account",TRUE);
+                        //  IF AccountTypes.FIND('-') THEN BEGIN
+                        //     REPEAT
+                        //       IF AccountTypes."Default Account"=TRUE THEN BEGIN
+                        //       ObjProductsApp.INIT;
+                        //       ObjProductsApp."Membership Applicaton No":="No.";
+                        //       ObjProductsApp.Names:=Name;
+                        //       ObjProductsApp.Product:=AccountTypes.Code;
+                        //       ObjProductsApp."Product Name":=AccountTypes.Description;
+                        //       ObjProductsApp."Product Source":=AccoutTypes."Activity Code";
+                        //       ObjProductsApp.INSERT;
+                        //       ObjProductsApp.VALIDATE(ObjProductsApp.Product);
+                        //       ObjProductsApp.MODIFY;
+                        //       END;
+                        //     UNTIL AccountTypes.NEXT=0;
+                        //   END;
+
 
                     end;
                 }
@@ -904,6 +916,7 @@ Page 50361 "Membership Application Card"
                     PromotedOnly = true;
                     RunObject = Page "Membership App Signatories";
                     RunPageLink = "Account No" = field("No.");
+                    Visible = false;
 
                     trigger OnAction()
                     begin
@@ -961,6 +974,7 @@ Page 50361 "Membership Application Card"
                     PromotedCategory = Process;
                     RunObject = Page "Membership Application Saction";
                     RunPageLink = "Document No" = field("No.");
+                    Visible = false;
                 }
                 action("Member Risk Rating")
                 {
@@ -971,6 +985,7 @@ Page 50361 "Membership Application Card"
                     PromotedCategory = Process;
                     RunObject = Page "Individual Member Risk Rating";
                     RunPageLink = "Membership Application No" = field("No.");
+                    Visible = false;
 
                     trigger OnAction()
                     begin
@@ -1000,10 +1015,13 @@ Page 50361 "Membership Application Card"
                     begin
                         FnValidatefields(rec);
                         if WorkflowManagement.CheckMembershipApplicationApprovalsWorkflowEnabled(Rec) then
-                            WorkflowManagement.OnSendMembershipApplicationForApproval(Rec);
+                                WorkflowManagement.OnSendMembershipApplicationForApproval(Rec);
 
 
                     end;
+
+
+
                 }
                 action("Cancel Approval Request")
                 {
@@ -1047,7 +1065,7 @@ Page 50361 "Membership Application Card"
                 }
                 separator(Action2)
                 {
-                    Caption = '       -';
+                    Caption = ' -';
                 }
                 action("Create Account")
                 {
@@ -1066,8 +1084,11 @@ Page 50361 "Membership Application Card"
                         ObjAccountType: Record "Account Types-Saving Products";
                         SaccoNoSeries: Record "Sacco No. Series";
                     begin
+
                         if Status <> Status::Approved then
                             Error('The Membership Application must be approved before accounts are created');
+
+
                         TestField("Monthly Contribution");
 
                         ObjProductsApp.Reset;
@@ -1075,6 +1096,9 @@ Page 50361 "Membership Application Card"
                         if ObjProductsApp.FindSet = false then begin
                             Error('You must select products (account types) to be created for the member');
                         end;
+
+
+
 
 
 
@@ -1338,7 +1362,7 @@ Page 50361 "Membership Application Card"
                         ObjProductsApp.Reset;
                         ObjProductsApp.SetRange(ObjProductsApp."Membership Applicaton No", "No.");
                         ObjProductsApp.SetFilter(ObjProductsApp.Product, '<>%1', 'MEMBERSHIP');
-                        //ObjProductsApp.SETFILTER(ObjProductsApp.Product,'<>%1','');
+                        ObjProductsApp.SETFILTER(ObjProductsApp.Product, '<>%1', '');
                         if ObjProductsApp.FindSet then begin
                             repeat
 
@@ -1359,191 +1383,191 @@ Page 50361 "Membership Application Card"
                                     end;
                                 end;
 
-                                //===================================================================Create Account
-                                ObjAccounts.Init;
-                                ObjAccounts."No." := VarAcctNo;
-                                ObjAccounts."Date of Birth" := "Date of Birth";
-                                ObjAccounts.Name := Name;
-                                ObjAccounts."Creditor Type" := ObjAccounts."creditor type"::"FOSA Account";
-                                ObjAccounts."Personal No." := "Payroll No";
-                                ObjAccounts."ID No." := "ID No.";
-                                ObjAccounts."Mobile Phone No" := "Mobile Phone No";
-                                ObjAccounts."Phone No." := "Mobile Phone No";
-                                ObjAccounts."Registration Date" := "Registration Date";
-                                ObjAccounts."Post Code" := "Postal Code";
-                                ObjAccounts.County := City;
-                                ObjAccounts."BOSA Account No" := CustomerTable."No.";
-                                ObjAccounts."Passport No." := "Passport No.";
-                                ObjAccounts."Employer Code" := "Employer Code";
-                                ObjAccounts.Status := ObjAccounts.Status::Deceased;
-                                ObjAccounts."Account Type" := ObjProductsApp.Product;
-                                ObjAccounts."Date of Birth" := "Date of Birth";
-                                ObjAccounts."Global Dimension 1 Code" := Format(ObjProductsApp."Product Source");
-                                ObjAccounts."Global Dimension 2 Code" := "Global Dimension 2 Code";
-                                ObjAccounts.Address := Address;
-                                if "Account Category" = "account category"::Joint then begin
-                                    ObjAccounts."Account Category" := ObjAccounts."account category"::Corporate
-                                end else
-                                    ObjAccounts."Account Category" := "Account Category";
-                                ObjAccounts."Address 2" := "Address 2";
-                                ObjAccounts."Phone No." := "Mobile Phone No";
-                                ObjAccounts."Registration Date" := Today;
-                                ObjAccounts.Status := ObjAccounts.Status::Active;
-                                ObjAccounts.Section := Section;
-                                ObjAccounts."Home Address" := "Home Address";
-                                ObjAccounts.District := District;
-                                ObjAccounts.Location := Location;
-                                ObjAccounts."Sub-Location" := "Sub-Location";
-                                ObjAccounts."Registration Date" := Today;
-                                ObjAccounts."Monthly Contribution" := "Monthly Contribution";
-                                ObjAccounts."E-Mail" := "E-Mail (Personal)";
-                                ObjAccounts."Group/Corporate Trade" := "Group/Corporate Trade";
-                                ObjAccounts."Name of the Group/Corporate" := "Name of the Group/Corporate";
-                                ObjAccounts."Signing Instructions" := "Signing Instructions";
-                                ObjAccounts."Certificate No" := "Certificate No";
-                                ObjAccounts."Registration Date" := "Registration Date";
-                                ObjAccounts."Created By" := UserId;
+                                // //===================================================================Create Account
+                                // ObjAccounts.Init;
+                                // ObjAccounts."No." := VarAcctNo;
+                                // ObjAccounts."Date of Birth" := "Date of Birth";
+                                // ObjAccounts.Name := Name;
+                                // ObjAccounts."Creditor Type" := ObjAccounts."creditor type"::"FOSA Account";
+                                // ObjAccounts."Personal No." := "Payroll No";
+                                // ObjAccounts."ID No." := "ID No.";
+                                // ObjAccounts."Mobile Phone No" := "Mobile Phone No";
+                                // ObjAccounts."Phone No." := "Mobile Phone No";
+                                // ObjAccounts."Registration Date" := "Registration Date";
+                                // ObjAccounts."Post Code" := "Postal Code";
+                                // ObjAccounts.County := City;
+                                // ObjAccounts."BOSA Account No" := CustomerTable."No.";
+                                // ObjAccounts."Passport No." := "Passport No.";
+                                // ObjAccounts."Employer Code" := "Employer Code";
+                                // ObjAccounts.Status := ObjAccounts.Status::Deceased;
+                                // ObjAccounts."Account Type" := ObjProductsApp.Product;
+                                // ObjAccounts."Date of Birth" := "Date of Birth";
+                                // ObjAccounts."Global Dimension 1 Code" := Format(ObjProductsApp."Product Source");
+                                // ObjAccounts."Global Dimension 2 Code" := "Global Dimension 2 Code";
+                                // ObjAccounts.Address := Address;
+                                // if "Account Category" = "account category"::Joint then begin
+                                //     ObjAccounts."Account Category" := ObjAccounts."account category"::Corporate
+                                // end else
+                                //     ObjAccounts."Account Category" := "Account Category";
+                                // ObjAccounts."Address 2" := "Address 2";
+                                // ObjAccounts."Phone No." := "Mobile Phone No";
+                                // ObjAccounts."Registration Date" := Today;
+                                // ObjAccounts.Status := ObjAccounts.Status::Active;
+                                // ObjAccounts.Section := Section;
+                                // ObjAccounts."Home Address" := "Home Address";
+                                // ObjAccounts.District := District;
+                                // ObjAccounts.Location := Location;
+                                // ObjAccounts."Sub-Location" := "Sub-Location";
+                                // ObjAccounts."Registration Date" := Today;
+                                // ObjAccounts."Monthly Contribution" := "Monthly Contribution";
+                                // ObjAccounts."E-Mail" := "E-Mail (Personal)";
+                                // ObjAccounts."Group/Corporate Trade" := "Group/Corporate Trade";
+                                // ObjAccounts."Name of the Group/Corporate" := "Name of the Group/Corporate";
+                                // ObjAccounts."Signing Instructions" := "Signing Instructions";
+                                // ObjAccounts."Certificate No" := "Certificate No";
+                                // ObjAccounts."Registration Date" := "Registration Date";
+                                // ObjAccounts."Created By" := UserId;
 
-                                //=============================================================Joint Account Details
-                                ObjAccounts."Name 2" := "Name 2";
-                                ObjAccounts."Address3-Joint" := Address3;
-                                ObjAccounts."Postal Code 2" := "Postal Code 2";
-                                ObjAccounts."Home Postal Code2" := "Home Postal Code2";
-                                ObjAccounts."Home Town2" := "Home Town2";
-                                ObjAccounts."ID No.2" := "ID No.2";
-                                ObjAccounts."Passport 2" := "Passport 2";
-                                ObjAccounts.Gender2 := Gender2;
-                                ObjAccounts."Marital Status2" := "Marital Status2";
-                                ObjAccounts."E-Mail (Personal2)" := "E-Mail (Personal2)";
-                                ObjAccounts."Employer Code2" := "Employer Code2";
-                                ObjAccounts."Employer Name2" := "Employer Name2";
-                                ObjAccounts."Picture 2" := "Picture 2";
-                                ObjAccounts."Signature  2" := "Signature  2";
-                                ObjAccounts."Member's Residence" := "Member's Residence";
-                                ObjAccounts."Joint Account Name" := "Joint Account Name";
+                                // //=============================================================Joint Account Details
+                                // ObjAccounts."Name 2" := "Name 2";
+                                // ObjAccounts."Address3-Joint" := Address3;
+                                // ObjAccounts."Postal Code 2" := "Postal Code 2";
+                                // ObjAccounts."Home Postal Code2" := "Home Postal Code2";
+                                // ObjAccounts."Home Town2" := "Home Town2";
+                                // ObjAccounts."ID No.2" := "ID No.2";
+                                // ObjAccounts."Passport 2" := "Passport 2";
+                                // ObjAccounts.Gender2 := Gender2;
+                                // ObjAccounts."Marital Status2" := "Marital Status2";
+                                // ObjAccounts."E-Mail (Personal2)" := "E-Mail (Personal2)";
+                                // ObjAccounts."Employer Code2" := "Employer Code2";
+                                // ObjAccounts."Employer Name2" := "Employer Name2";
+                                // ObjAccounts."Picture 2" := "Picture 2";
+                                // ObjAccounts."Signature  2" := "Signature  2";
+                                // ObjAccounts."Member's Residence" := "Member's Residence";
+                                // ObjAccounts."Joint Account Name" := "Joint Account Name";
 
-                                ObjAccounts."Name 3" := "Name 3";
-                                ObjAccounts."Address3-Joint" := Address4;
-                                ObjAccounts."Postal Code 3" := "Postal Code 3";
-                                ObjAccounts."Home Postal Code3" := "Home Postal Code3";
-                                ObjAccounts."Home Town3" := "Home Town3";
-                                ObjAccounts."ID No.3" := "ID No.3";
-                                ObjAccounts."Passport 3" := "Passport 3";
-                                ObjAccounts.Gender3 := Gender3;
-                                ObjAccounts."Marital Status3" := "Marital Status3";
-                                ObjAccounts."E-Mail (Personal3)" := "E-Mail (Personal3)";
-                                ObjAccounts."Employer Code3" := "Employer Code3";
-                                ObjAccounts."Employer Name3" := "Employer Name3";
-                                ObjAccounts."Picture 3" := "Picture 3";
-                                ObjAccounts."Signature  3" := "Signature  3";
-                                ObjAccounts."Joint Account Name" := "Joint Account Name";
-
-
-                                //=============================================================End Joint Account Details
-                                ObjAccounts.Insert;
+                                // ObjAccounts."Name 3" := "Name 3";
+                                // ObjAccounts."Address3-Joint" := Address4;
+                                // ObjAccounts."Postal Code 3" := "Postal Code 3";
+                                // ObjAccounts."Home Postal Code3" := "Home Postal Code3";
+                                // ObjAccounts."Home Town3" := "Home Town3";
+                                // ObjAccounts."ID No.3" := "ID No.3";
+                                // ObjAccounts."Passport 3" := "Passport 3";
+                                // ObjAccounts.Gender3 := Gender3;
+                                // ObjAccounts."Marital Status3" := "Marital Status3";
+                                // ObjAccounts."E-Mail (Personal3)" := "E-Mail (Personal3)";
+                                // ObjAccounts."Employer Code3" := "Employer Code3";
+                                // ObjAccounts."Employer Name3" := "Employer Name3";
+                                // ObjAccounts."Picture 3" := "Picture 3";
+                                // ObjAccounts."Signature  3" := "Signature  3";
+                                // ObjAccounts."Joint Account Name" := "Joint Account Name";
 
 
-                                ObjAccounts.Reset;
-                                if ObjAccounts.Get(VarAcctNo) then begin
-                                    ObjAccounts.Validate(ObjAccounts.Name);
-                                    ObjAccounts.Validate(ObjAccounts."Account Type");
-                                    ObjAccounts.Modify;
+                                // //=============================================================End Joint Account Details
+                                // ObjAccounts.Insert;
 
 
-                                    ObjMemberNoseries.Reset;
-                                    ObjMemberNoseries.SetRange(ObjMemberNoseries."Account Type", ObjProductsApp.Product);
-                                    ObjMemberNoseries.SetRange(ObjMemberNoseries."Branch Code", "Global Dimension 2 Code");
-                                    if ObjMemberNoseries.FindSet then begin
-                                        ObjMemberNoseries."Account No" := IncStr(ObjMemberNoseries."Account No");
-                                        ObjMemberNoseries.Modify;
-                                    end;
+                                // ObjAccounts.Reset;
+                                // if ObjAccounts.Get(VarAcctNo) then begin
+                                //     ObjAccounts.Validate(ObjAccounts.Name);
+                                //     ObjAccounts.Validate(ObjAccounts."Account Type");
+                                //     ObjAccounts.Modify;
+
+
+                                //     ObjMemberNoseries.Reset;
+                                //     ObjMemberNoseries.SetRange(ObjMemberNoseries."Account Type", ObjProductsApp.Product);
+                                //     ObjMemberNoseries.SetRange(ObjMemberNoseries."Branch Code", "Global Dimension 2 Code");
+                                //     if ObjMemberNoseries.FindSet then begin
+                                //         ObjMemberNoseries."Account No" := IncStr(ObjMemberNoseries."Account No");
+                                //         ObjMemberNoseries.Modify;
+                                //     end;
 
 
 
-                                    //Update Member with FOSA Account
-                                    if CustomerTable.Get(VarBOSAACC) then begin
-                                        CustomerTable."FOSA Account No." := VarAcctNo;
-                                        CustomerTable.Modify;
-                                    end;
-                                end;
+                                //     //Update Member with FOSA Account
+                                //     if CustomerTable.Get(VarBOSAACC) then begin
+                                //         CustomerTable."FOSA Account No." := VarAcctNo;
+                                //         CustomerTable.Modify;
+                                //     end;
+                                // end;
 
-                                ObjNextOfKinApp.Reset;
-                                ObjNextOfKinApp.SetRange(ObjNextOfKinApp."Account No", "No.");
-                                if ObjNextOfKinApp.Find('-') then begin
-                                    repeat
-                                        ObjNextofKinFOSA.Init;
-                                        ObjNextofKinFOSA."Account No" := VarAcctNo;
-                                        ObjNextofKinFOSA.Name := ObjNextOfKinApp.Name;
-                                        ObjNextofKinFOSA.Relationship := ObjNextOfKinApp.Relationship;
-                                        ObjNextofKinFOSA.Beneficiary := ObjNextOfKinApp.Beneficiary;
-                                        ObjNextofKinFOSA."Date of Birth" := ObjNextOfKinApp."Date of Birth";
-                                        ObjNextofKinFOSA.Address := ObjNextOfKinApp.Address;
-                                        ObjNextofKinFOSA.Telephone := ObjNextOfKinApp.Telephone;
-                                        ObjNextofKinFOSA.Email := ObjNextOfKinApp.Email;
-                                        ObjNextofKinFOSA."ID No." := ObjNextOfKinApp."ID No.";
-                                        ObjNextofKinFOSA."Member No" := ObjNextOfKinApp."Member No";
-                                        ObjNextofKinFOSA."%Allocation" := ObjNextOfKinApp."%Allocation";
-                                        ObjNextofKinFOSA."Next Of Kin Type" := ObjNextOfKinApp."Next Of Kin Type";
-                                        ObjNextofKinFOSA.Insert;
-                                    until ObjNextOfKinApp.Next = 0;
-                                end;
+                                // ObjNextOfKinApp.Reset;
+                                // ObjNextOfKinApp.SetRange(ObjNextOfKinApp."Account No", "No.");
+                                // if ObjNextOfKinApp.Find('-') then begin
+                                //     repeat
+                                //         ObjNextofKinFOSA.Init;
+                                //         ObjNextofKinFOSA."Account No" := VarAcctNo;
+                                //         ObjNextofKinFOSA.Name := ObjNextOfKinApp.Name;
+                                //         ObjNextofKinFOSA.Relationship := ObjNextOfKinApp.Relationship;
+                                //         ObjNextofKinFOSA.Beneficiary := ObjNextOfKinApp.Beneficiary;
+                                //         ObjNextofKinFOSA."Date of Birth" := ObjNextOfKinApp."Date of Birth";
+                                //         ObjNextofKinFOSA.Address := ObjNextOfKinApp.Address;
+                                //         ObjNextofKinFOSA.Telephone := ObjNextOfKinApp.Telephone;
+                                //         ObjNextofKinFOSA.Email := ObjNextOfKinApp.Email;
+                                //         ObjNextofKinFOSA."ID No." := ObjNextOfKinApp."ID No.";
+                                //         ObjNextofKinFOSA."Member No" := ObjNextOfKinApp."Member No";
+                                //         ObjNextofKinFOSA."%Allocation" := ObjNextOfKinApp."%Allocation";
+                                //         ObjNextofKinFOSA."Next Of Kin Type" := ObjNextOfKinApp."Next Of Kin Type";
+                                //         ObjNextofKinFOSA.Insert;
+                                //     until ObjNextOfKinApp.Next = 0;
+                                // end;
 
-                                //==================================================================================================Insert Account Agents
-                                ObjMemberAppAgent.Reset;
-                                ObjMemberAppAgent.SetRange(ObjMemberAppAgent."Account No", "No.");
-                                if ObjMemberAppAgent.Find('-') then begin
-                                    repeat
-                                        if ObjNoSeries.Get then begin
-                                            ObjNoSeries.TestField(ObjNoSeries."Agent Serial Nos");
-                                            VarDocumentNo := NoSeriesMgt.GetNextNo(ObjNoSeries."Agent Serial Nos", 0D, true);
-                                            if VarDocumentNo <> '' then begin
-                                                ObjAccountAgents.Init;
-                                                ObjAccountAgents."Document No" := VarDocumentNo;
-                                                ObjAccountAgents."Account No" := VarAcctNo;
-                                                ObjAccountAgents.Names := ObjMemberAppAgent.Names;
-                                                ObjAccountAgents."Date Of Birth" := ObjMemberAppAgent."Date Of Birth";
-                                                ObjAccountAgents."Staff/Payroll" := ObjMemberAppAgent."Staff/Payroll";
-                                                ObjAccountAgents."ID No." := ObjMemberAppAgent."ID No.";
-                                                ObjAccountAgents."Allowed  Correspondence" := ObjMemberAppAgent."Allowed  Correspondence";
-                                                ObjAccountAgents."Allowed Balance Enquiry" := ObjMemberAppAgent."Allowed Balance Enquiry";
-                                                ObjAccountAgents."Allowed FOSA Withdrawals" := ObjMemberAppAgent."Allowed FOSA Withdrawals";
-                                                ObjAccountAgents."Allowed Loan Processing" := ObjMemberAppAgent."Allowed Loan Processing";
-                                                ObjAccountAgents."Must Sign" := ObjMemberAppAgent."Must Sign";
-                                                ObjAccountAgents."Must be Present" := ObjMemberAppAgent."Must be Present";
-                                                ObjAccountAgents."Expiry Date" := ObjMemberAppAgent."Expiry Date";
-                                                ObjAccountAgents.Insert;
-                                            end;
-                                        end;
-                                    until ObjMemberAppAgent.Next = 0;
-                                end;
-                                //==================================================================================================End Insert Account Agents
+                                // //==================================================================================================Insert Account Agents
+                                // ObjMemberAppAgent.Reset;
+                                // ObjMemberAppAgent.SetRange(ObjMemberAppAgent."Account No", "No.");
+                                // if ObjMemberAppAgent.Find('-') then begin
+                                //     repeat
+                                //         if ObjNoSeries.Get then begin
+                                //             ObjNoSeries.TestField(ObjNoSeries."Agent Serial Nos");
+                                //             VarDocumentNo := NoSeriesMgt.GetNextNo(ObjNoSeries."Agent Serial Nos", 0D, true);
+                                //             if VarDocumentNo <> '' then begin
+                                //                 ObjAccountAgents.Init;
+                                //                 ObjAccountAgents."Document No" := VarDocumentNo;
+                                //                 ObjAccountAgents."Account No" := VarAcctNo;
+                                //                 ObjAccountAgents.Names := ObjMemberAppAgent.Names;
+                                //                 ObjAccountAgents."Date Of Birth" := ObjMemberAppAgent."Date Of Birth";
+                                //                 ObjAccountAgents."Staff/Payroll" := ObjMemberAppAgent."Staff/Payroll";
+                                //                 ObjAccountAgents."ID No." := ObjMemberAppAgent."ID No."; 
+                                //                 ObjAccountAgents."Allowed  Correspondence" := ObjMemberAppAgent."Allowed  Correspondence";
+                                //                 ObjAccountAgents."Allowed Balance Enquiry" := ObjMemberAppAgent."Allowed Balance Enquiry";
+                                //                 ObjAccountAgents."Allowed FOSA Withdrawals" := ObjMemberAppAgent."Allowed FOSA Withdrawals";
+                                //                 ObjAccountAgents."Allowed Loan Processing" := ObjMemberAppAgent."Allowed Loan Processing";
+                                //                 ObjAccountAgents."Must Sign" := ObjMemberAppAgent."Must Sign";
+                                //                 ObjAccountAgents."Must be Present" := ObjMemberAppAgent."Must be Present";
+                                //                 ObjAccountAgents."Expiry Date" := ObjMemberAppAgent."Expiry Date";
+                                //                 ObjAccountAgents.Insert;
+                                //             end;
+                                //         end;
+                                //     until ObjMemberAppAgent.Next = 0;
+                                // end;
+                                // //==================================================================================================End Insert Account Agents
 
-                                ObjAccountSignApp.Reset;
-                                ObjAccountSignApp.SetRange(ObjAccountSignApp."Account No", "No.");
-                                if ObjAccountSignApp.Find('-') then begin
-                                    repeat
-                                        if ObjNoSeries.Get then begin
-                                            ObjNoSeries.TestField(ObjNoSeries."Signatories Document No");
-                                            VarDocumentNo := NoSeriesMgt.GetNextNo(ObjNoSeries."Signatories Document No", 0D, true);
-                                            if VarDocumentNo <> '' then begin
-                                                ObjAccountSign.Init;
-                                                ObjAccountSign."Document No" := VarDocumentNo;
-                                                ObjAccountSign."Account No" := VarAcctNo;
-                                                ObjAccountSign.Names := ObjAccountSignApp.Names;
-                                                ObjAccountSign."Date Of Birth" := ObjAccountSignApp."Date Of Birth";
-                                                ObjAccountSign."Staff/Payroll" := ObjAccountSignApp."Staff/Payroll";
-                                                ObjAccountSign."ID No." := ObjAccountSignApp."ID No.";
-                                                ObjAccountSign.Signatory := ObjAccountSignApp.Signatory;
-                                                ObjAccountSign."Must Sign" := ObjAccountSignApp."Must Sign";
-                                                ObjAccountSign."Must be Present" := ObjAccountSignApp."Must be Present";
-                                                ObjAccountSign.Picture := ObjAccountSignApp.Picture;
-                                                ObjAccountSign.Signature := ObjAccountSignApp.Signature;
-                                                ObjAccountSign."Expiry Date" := ObjAccountSignApp."Expiry Date";
-                                                ObjAccountSign.Insert;
-                                            end;
-                                        end;
-                                    until ObjAccountSignApp.Next = 0;
-                                end;
+                                // ObjAccountSignApp.Reset;
+                                // ObjAccountSignApp.SetRange(ObjAccountSignApp."Account No", "No.");
+                                // if ObjAccountSignApp.Find('-') then begin
+                                //     repeat
+                                //         if ObjNoSeries.Get then begin
+                                //             ObjNoSeries.TestField(ObjNoSeries."Signatories Document No");
+                                //             VarDocumentNo := NoSeriesMgt.GetNextNo(ObjNoSeries."Signatories Document No", 0D, true);
+                                //             if VarDocumentNo <> '' then begin
+                                //                 ObjAccountSign.Init;
+                                //                 ObjAccountSign."Document No" := VarDocumentNo;
+                                //                 ObjAccountSign."Account No" := VarAcctNo;
+                                //                 ObjAccountSign.Names := ObjAccountSignApp.Names;
+                                //                 ObjAccountSign."Date Of Birth" := ObjAccountSignApp."Date Of Birth";
+                                //                 ObjAccountSign."Staff/Payroll" := ObjAccountSignApp."Staff/Payroll";
+                                //                 ObjAccountSign."ID No." := ObjAccountSignApp."ID No.";
+                                //                 ObjAccountSign.Signatory := ObjAccountSignApp.Signatory;
+                                //                 ObjAccountSign."Must Sign" := ObjAccountSignApp."Must Sign";
+                                //                 ObjAccountSign."Must be Present" := ObjAccountSignApp."Must be Present";
+                                //                 ObjAccountSign.Picture := ObjAccountSignApp.Picture;
+                                //                 ObjAccountSign.Signature := ObjAccountSignApp.Signature;
+                                //                 ObjAccountSign."Expiry Date" := ObjAccountSignApp."Expiry Date";
+                                //                 ObjAccountSign.Insert;
+                                //             end;
+                                //         end;
+                                //     until ObjAccountSignApp.Next = 0;
+                                // end;
 
 
 
@@ -1584,7 +1608,7 @@ Page 50361 "Membership Application Card"
                                         GenJournalLine.Insert;
 
 
-
+                                    //post
                                     GenJournalLine.Reset;
                                     GenJournalLine.SetRange("Journal Template Name", 'GENERAL');
                                     GenJournalLine.SetRange("Journal Batch Name", 'REGFee');
@@ -1811,8 +1835,8 @@ Page 50361 "Membership Application Card"
 
     trigger OnAfterGetCurrRecord()
     var
-    // WorkflowManagement: Codeunit "Workflow Management";
-    // WorkflowEventHandling: Codeunit "Workflow Event Handling";
+        WorkflowManagement: Codeunit "Workflow Management";
+        WorkflowEventHandling: Codeunit "Workflow Event Handling";
     begin
         UpdateControls();
         EnableCreateMember := false;
@@ -1836,7 +1860,7 @@ Page 50361 "Membership Application Card"
             EnableUpdateKYC := true;
 
         ObjGenSetUp.Get;
-        "Monthly Contribution" := ObjGenSetUp."Min. Contribution";
+        // "Monthly Contribution" := ObjGenSetUp."Min. Contribution";
     end;
 
     trigger OnAfterGetRecord()
@@ -1888,10 +1912,10 @@ Page 50361 "Membership Application Card"
         UserMgt: Codeunit "User Management";
     begin
         ObjGenSetUp.Get();
-        "Monthly Contribution" := ObjGenSetUp."Monthly Share Contributions";
+        //"Monthly Contribution" := ObjGenSetUp."Monthly Share Contributions";
         "Customer Posting Group" := ObjGenSetUp."Default Customer Posting Group";
-        // "Global Dimension 1 Code" := 'BOSA';
-        // "Global Dimension 2 Code" := 'NAIROBI';
+        "Global Dimension 1 Code" := 'BOSA';
+        "Global Dimension 2 Code" := 'NAIROBI';
         //"Self Recruited":=TRUE;
 
 
@@ -3341,8 +3365,13 @@ Page 50361 "Membership Application Card"
         TestField("Last Name");
         TestField("Date of Birth");
         TestField("Postal Code");
-       // TestField("Individual Category");
+        // TestField("Individual Category");
         //TestField("Bank Account No");
+        ObjNextOfKinApp.reset();
+        ObjNextOfKinApp.setrange(ObjNextOfKinApp."Account No", "No.");
+        if ObjNextOfKinApp.find('-') = false then begin
+            error('Ensure You update Next Of Kin Details before you send this document to Approval');
+        end
 
     end;
 

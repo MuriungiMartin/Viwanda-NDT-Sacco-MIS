@@ -101,13 +101,13 @@ Table 50360 "Membership Applications"
 
             trigger OnValidate()
             begin
-                /*DimValue.RESET;
+                DimValue.RESET;
                 DimValue.SETRANGE(DimValue.Code,"Global Dimension 2 Code");
-                  IF DimValue.FIND('-') THEN BEGIN
-                    "Member Branch Code":=DimValue."Branch Codes";
-                  END;
+                //   IF DimValue.FIND('-') THEN BEGIN
+                //     "Member Branch Code":=DimValue."Branch Codes";
+                //   END;
                   FnCreateDefaultSavingsProducts();
-                  */
+                  
 
             end;
         }
@@ -361,6 +361,8 @@ Table 50360 "Membership Applications"
                 PostCode.SetRange(PostCode.Code, "Postal Code");
                 if PostCode.Find('-') then begin
                     Town := PostCode.City
+
+
                 end;
             end;
         }
@@ -368,15 +370,6 @@ Table 50360 "Membership Applications"
         {
             Caption = 'City';
 
-            trigger OnLookup()
-            begin
-                //PostCode.LookUpCity(City,"Post Code",TRUE);
-            end;
-
-            trigger OnValidate()
-            begin
-                //PostCode.ValidateCity(City,"Post Code");
-            end;
         }
         field(68040; "Contact Person"; Code[20])
         {
@@ -393,36 +386,52 @@ Table 50360 "Membership Applications"
         field(68044; "Country/Region Code"; Text[45])
         {
             Caption = 'Country/Region Code';
-            TableRelation = Countries.Name;
+            TableRelation = "Country/Region";
 
             trigger OnValidate()
+            var
+                Country: Record "Country/Region";
             begin
-                //IF ("Country/Region Code" <> xRec."Country/Region Code") AND (xRec."Country/Region Code" <> '') THEN
-                //PostCode.ClearFields(City,"Post Code",County);
+                Country.Reset;
+                Country.SetRange(Country.Code, "Country/Region Code");
+                if Country.Find('-') then begin
+                    "Country/Region Code" := Country.Name
+
+
+                end;
             end;
+
         }
+
         field(68045; County; Text[30])
         {
             Caption = 'County';
-            TableRelation = Counties."County Name";
+
+
         }
-        field(68046; "Bank Code"; Code[10])
+        field(68046; "Bank Code"; Code[100])
         {
-            TableRelation = "Banks Ver2"."Bank Code";
+          
+            TableRelation = "Banks Ver2";
 
             trigger OnValidate()
             begin
                 ObjBanks.Reset;
                 ObjBanks.SetRange(ObjBanks."Bank Code", "Bank Code");
                 if ObjBanks.FindSet then begin
-                    "Bank Name" := ObjBanks."Bank Name";
+                    "Bank Code" := ObjBanks."Bank Name";
+                    "Bank Branch Code" := ObjBanks."Branch Code";
+                    "Bank Branch Name" :=ObjBanks."Branch Name";
+                
+
+
                 end;
 
             end;
         }
-        field(68047; "Bank Name"; Code[30])
+        field(68047; "Bank Name"; Code[100])
         {
-            Editable = false;
+            //Editable = false;
         }
         field(68048; "Bank Account No"; Code[15])
         {
@@ -1421,18 +1430,18 @@ Table 50360 "Membership Applications"
         field(69217; "Bank Branch Code"; Code[20])
         {
             DataClassification = ToBeClassified;
-            TableRelation = "Banks Ver2"."Branch Code";
+            // TableRelation = "Banks Ver2"."Branch Code";
 
-            trigger OnValidate()
-            begin
-                ObjBanks.Reset;
-                ObjBanks.SetRange(ObjBanks."Branch Code", "Bank Branch Code");
-                if ObjBanks.FindSet then begin
-                    "Bank Branch Name" := ObjBanks."Branch Name";
-                end;
-            end;
+            // trigger OnValidate()
+            // begin
+            //     ObjBanks.Reset;
+            //     ObjBanks.SetRange(ObjBanks."Branch Code", "Bank Branch Code");
+            //     if ObjBanks.FindSet then begin
+            //         "Bank Branch Name" := ObjBanks."Branch Name";
+            //     end;
+            // end;
         }
-        field(69218; "Bank Branch Name"; Text[50])
+        field(69218; "Bank Branch Name"; Text[200])
         {
             DataClassification = ToBeClassified;
             Editable = false;
@@ -1541,7 +1550,7 @@ Table 50360 "Membership Applications"
 
         "Registration Date" := Today;
         "Recruited By" := UserId;
-        //"Monthly Contribution":=GenSetUp."Min. Contribution";
+        "Monthly Contribution":=GenSetUp."Min. Contribution";
         "Captured By" := UserId;
         "Customer Posting Group" := 'MEMBER';
 

@@ -37,6 +37,13 @@ Table 59023 "Viwanda Checkoff Advice"
         }
         field(12; Name; Text[200])
         {
+            trigger OnValidate()
+            begin
+                if "Member No" <> ('') then
+                    Name := memb.Name;
+                    Modify();
+            end;
+
         }
         field(13; "Early Remitances"; Boolean)
         {
@@ -68,26 +75,26 @@ Table 59023 "Viwanda Checkoff Advice"
 
             trigger OnValidate()
             begin
-                // memb.Reset;
-                // memb.SetRange(memb."No.", "Member No");
-                // if memb.Find('-') then begin
-                //     loans.Reset;
-                //     loans.SetRange(loans."Loan  No.", "Loan No");
-                //     if loans.Find('-') then begin
-                //         if "Trans Type" = "trans type"::sInsurance then begin
-                //             Amount := 100;
-                //         end else
-                //             if "Trans Type" = "trans type"::sDeposits then begin
-                //                 loans.CalcFields(loans."Interest Due", loans."Outstanding Balance");
-                //                 /// IF loans."Interest Due">0 THEN
-                //                 // Amount:=loans."Interest Due";
-                //                 Amount := 0.01 * loans."Outstanding Balance";
-                //             end else
-                //                 if "Trans Type" = "trans type"::sLoan then begin
-                //                     Amount := loans.Repayment;
-                //                 end;
-                //end;
-                //  end;
+                memb.Reset;
+                memb.SetRange(memb."No.", "Member No");
+                if memb.Find('-') then begin
+                    loans.Reset;
+                    loans.SetRange(loans."Loan  No.", "Loan No");
+                    if loans.Find('-') then begin
+                        if "Trans Type" = "trans type"::sInsurance then begin
+                            Amount := 100;
+                        end else
+                            if "Trans Type" = "trans type"::sDeposits then begin
+                                loans.CalcFields(loans."Interest Due", loans."Outstanding Balance");
+                                IF loans."Interest Due" > 0 THEN
+                                    Amount := loans."Interest Due";
+                                Amount := 0.01 * loans."Outstanding Balance";
+                            end else
+                                if "Trans Type" = "trans type"::sLoan then begin
+                                    Amount := loans.Repayment;
+                                end;
+                    end;
+                end;
             end;
         }
         field(21; User; Code[20])
@@ -109,25 +116,26 @@ Table 59023 "Viwanda Checkoff Advice"
 
             trigger OnValidate()
             begin
-                // memb.Reset;
-                // memb.SetRange(memb."No.", "Member No");
-                // if memb.Find('-') then begin
-                //     "Staff/Payroll No" := memb."Payroll No";
-                //     "ID No." := memb."ID No.";
-                //     Name := memb.Name;
-                //     "Employer Code" := memb."Employer Code";
-                //     if "Trans Type" = "trans type"::sShare then begin
-                //         Amount := memb."Monthly Contribution"
-                //     end else
-                //         if "Trans Type" = "trans type"::sInterest then begin
-                //             Amount := 200
-                //         end else
-                //             if "Trans Type" = "trans type"::sInsurance then begin
-                //                 Amount := 100
-                //             end else
-                //                 if "Trans Type" = "trans type"::sBenevolent then begin
-                //                 end;
-                // end;
+                memb.Reset;
+                memb.SetRange(memb."No.", "Member No");
+                if memb.Find('-') then begin
+                    "Staff/Payroll No" := memb."Payroll No";
+                    "ID No." := memb."ID No.";
+                    Name := memb.Name;
+                    "Employer Code" := memb."Employer Code";
+                    if "Trans Type" = "trans type"::sShare then begin
+                        Amount := memb."Monthly Contribution"
+                    end else
+                        if "Trans Type" = "trans type"::sInterest then begin
+                            Amount := 200
+                        end else
+                            if "Trans Type" = "trans type"::sInsurance then begin
+                                Amount := 100
+                            end else
+                                if "Trans Type" = "trans type"::sBenevolent then begin
+                                end;
+                end;
+
             end;
         }
         field(26; "ID No."; Code[20])

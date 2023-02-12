@@ -24,7 +24,7 @@ Table 50372 "Loans Guarantee Details"
                     if LnGuarantor."Client Code" = "Member No" then begin
 
                         "Self Guarantee" := true;
-                        //MODIFY;
+                        MODIFY;
                     end;
                 end;
                 LoanGuarantors.SetRange(LoanGuarantors."Self Guarantee", true);
@@ -51,20 +51,20 @@ Table 50372 "Loans Guarantee Details"
                     Shares := MemberCust."Current Shares";
                     "Shares *3" := (MemberCust."Current Savings" * 3);
                     "TotalLoan Guaranteed" := MemberCust.TLoansGuaranteed;
+
+
+                    if MemberCust.Get("Member No") then begin
+                        MemberCust.CalcFields(MemberCust."Outstanding Balance", MemberCust."Current Shares", MemberCust.TLoansGuaranteed);
+                        Name := MemberCust.Name;
+                        "Staff/Payroll No." := MemberCust."Payroll No";
+                        "Loan Balance" := MemberCust."Outstanding Balance";
+                        Shares := MemberCust."Current Shares" * 1;
+                        //"Amont Guaranteed":=Shares;
+                        "TotalLoan Guaranteed" := MemberCust.TLoansGuaranteed;
+                        "Free Shares" := (Shares * 3) - "TotalLoan Guaranteed";
+                    end;
+
                 end;
-
-                if Cust.Get("Member No") then begin
-                    Cust.CalcFields(Cust."Outstanding Balance", Cust."Current Shares", Cust.TLoansGuaranteed);
-                    Name := Cust.Name;
-                    "Staff/Payroll No." := Cust."Payroll No";
-                    "Loan Balance" := Cust."Outstanding Balance";
-                    Shares := Cust."Current Shares" * 1;
-                    //"Amont Guaranteed":=Shares;
-                    "TotalLoan Guaranteed" := Cust.TLoansGuaranteed;
-                    "Free Shares" := (Shares * 3) - "TotalLoan Guaranteed";
-                end;
-
-
                 "Loan Risk Amount" := FnRunGetLoanRisk;
                 ObjSaccoGeneralSetUp.Get;
                 LoansGuaranteeDetails.CalcFields(LoansGuaranteeDetails."Loans Outstanding");
@@ -191,9 +191,9 @@ Table 50372 "Loans Guarantee Details"
 
             trigger OnValidate()
             begin
-                /*"Total Loans Guaranteed":="Outstanding Balance";
+                "Total Loans Guaranteed" := "Outstanding Balance";
                 MODIFY;
-                */
+
 
             end;
         }
@@ -355,10 +355,10 @@ Table 50372 "Loans Guarantee Details"
 
     keys
     {
-        key(Key1; "Loan No", "Staff/Payroll No.", "Member No", "Entry No.")
+        key(Key1; "Loan No")
         {
         }
-        key(Key2; "Loan No", "Member No")
+        key(Key2; "Member No")
         {
             Clustered = true;
             SumIndexFields = Shares;

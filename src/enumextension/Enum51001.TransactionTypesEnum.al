@@ -30,6 +30,7 @@ enum 51001 "TransactionTypesEnum"
     value(8; Loan)
     {
     }
+
     value(9; "Unallocated Funds")
     {
     }
@@ -69,6 +70,7 @@ enum 51001 "TransactionTypesEnum"
     }
     value(21; "Junior Savings")
     {
+        
     }
     value(22; "Safari Savings")
     {
@@ -87,4 +89,5 @@ enum 51001 "TransactionTypesEnum"
     {
 
     }
+    
 }

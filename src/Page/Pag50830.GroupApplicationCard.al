@@ -228,11 +228,11 @@ Page 50830 "Group Application Card"
                     HideValue = true;
                     Visible = false;
                 }
-                field("Bank Name"; "Bank Name")
-                {
-                    ApplicationArea = Basic;
-                    Visible = false;
-                }
+                // field("Bank Name"; "Bank Name")
+                // {
+                //     ApplicationArea = Basic;
+                //     Visible = false;
+                // }
                 field("Bank Account No"; "Bank Account No")
                 {
                     ApplicationArea = Basic;

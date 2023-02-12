@@ -621,6 +621,7 @@ Table 50399 "Sacco No. Series"
             DataClassification = ToBeClassified;
             TableRelation = "No. Series";
         }
+        
 
     }
 

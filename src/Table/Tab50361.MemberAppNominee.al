@@ -92,6 +92,18 @@ Table 50361 "Member App Nominee"
                 end;
             end;
         }
+        field(19; "OK"; Boolean)
+        {
+            trigger OnValidate()
+
+            begin
+                if Name <> '' then begin
+                    OK := true;
+                    Modify();
+
+                end;
+            end;
+        }
     }
 
     keys

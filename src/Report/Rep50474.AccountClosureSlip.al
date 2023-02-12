@@ -339,17 +339,17 @@ Report 50474 "Account Closure Slip"
                         Closure."Risk Fund Arrears" := NetPayable;
                     end;
                 Closure.Modify;
-                /*IF Customer.GET(Withdrawal."Member No.") THEN BEGIN
-				Withdrawal."Net Payable to FOSA":=NetPayable;
-				  Withdrawal.MODIFY;
-				END;*/
-                /*
-				Closure."Net Pay":=NetPayable;
-				Closure."Net Payable to the Member":=NetPayable;
-				Closure."Net Payable to FOSA":=NetPayable;
-				Closure.MODIFY;
-				MESSAGE('NetPayable is %1',Closure."Net Payable to FOSA");
-				*/
+                // IF Customer.GET(Withdrawal."Member No.") THEN BEGIN
+				// Withdrawal."Net Payable to FOSA":=NetPayable;
+				//   Withdrawal.MODIFY;
+				// END;
+                
+				// Closure."Net Pay":=NetPayable;
+				// Closure."Net Payable to the Member":=NetPayable;
+				// Closure."Net Payable to FOSA":=NetPayable;
+				// Closure.MODIFY;
+				// MESSAGE('NetPayable is %1',Closure."Net Payable to FOSA");
+				
 
             end;
 

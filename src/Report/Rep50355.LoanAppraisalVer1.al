@@ -1022,7 +1022,7 @@ Report 50355 "Loan Appraisal Ver1"
                 PrincipalAmount: Decimal;
             begin
                 if ObjCustRecord.Get("Loans Register"."Client Code") then begin
-                   
+
                 end;
                 VarTotalRepaymentReinstated := FnRunGetLoanOffsetRepayments("Loan  No.");
                 if Memba.Get("Loans Register"."Client Code") then;
@@ -1077,12 +1077,14 @@ Report 50355 "Loan Appraisal Ver1"
                 ObjGenSetUp.Get;
                 if ObjLoanType.Get("Loan Product Type") then begin
                     //POPULATE ALL CHARGES & GLs FROM PRODUCT SETUPS---------------------------------------------------------------------------------//
+                    message('App amount %1 lptype %2',"Approved Amount","Loan Product Type");
                     VarLoanInsurance := 0;
                     VarLoanInsurance := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LINSURANCE');
                     VarAplicationFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LAP');
                     VarLoanFormFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'BOSA TRANSFER');
                     VarLAppraisalFee := SFactory.FnGetChargeFee("Loan Product Type", "Approved Amount", 'LAPPRAISAL');
                     VarLoanTransferFee := SFactory.FnGetTransferFee("Mode of Disbursement");
+                  
                     // VarBridgeLevy:=ROUND(ObjLoanApp."Offset Commission",1,'>');
                     VarSMSFee := ObjGenSetUp."SMS Fee Amount";
                     // Upfronts := VarLoanInsurance + VarAplicationFee + VarLoanFormFee + VarLAppraisalFee + VarLoanTransferFee + VarShareBoostComm + VarExciseDutyShareBoostComm + "Loans Register"."Boosted Amount" +

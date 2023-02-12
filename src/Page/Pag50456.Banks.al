@@ -10,7 +10,7 @@ Page 50456 "Banks"
     {
         area(content)
         {
-            repeater(Control5)
+            repeater(Group)
             {
                 field("Bank Code"; "Bank Code")
                 {
@@ -28,7 +28,10 @@ Page 50456 "Banks"
                 {
                     ApplicationArea = Basic;
                 }
+
             }
+
+
         }
     }
 

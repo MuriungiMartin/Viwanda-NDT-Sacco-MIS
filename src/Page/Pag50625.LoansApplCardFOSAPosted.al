@@ -407,12 +407,12 @@ Page 50625 "Loans Appl Card FOSA (Posted)"
                     ApplicationArea = Basic;
                 }
             }
-            part(Control26; "Loans Guarantee Details")
-            {
-                Caption = 'Guarantors  Detail';
-                Editable = false;
-                SubPageLink = "Loan No" = field("Loan  No.");
-            }
+            // part(Control26; "Loans Guarantee Details")
+            // {
+            //     Caption = 'Guarantors  Detail';
+            //     Editable = false;
+            //     SubPageLink = "Loan No" = field("Loan  No.");
+            // }
             part(Control25; "Loan Collateral Security")
             {
                 Caption = 'Other Securities';

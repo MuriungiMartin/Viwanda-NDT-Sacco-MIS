@@ -22,6 +22,7 @@ Table 50213 "Banks Ver2"
         {
             DataClassification = ToBeClassified;
         }
+        
     }
 
     keys
